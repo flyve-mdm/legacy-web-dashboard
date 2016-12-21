@@ -1,26 +1,39 @@
 <section class="login-page">
-  <div class="container">
-    <div class="welcome-paragraph">
-      <img src="images/teclib-logo.png" class="company-logo" alt="Company's logo">
-      <h2>Bienvenue sur l'espace Mobile Device Management de Teclib'</h2>
+  <div class="container" layout="column" layout-padding="" layout-wrap="" layout-fill="" ng-cloak="">
+    <!--
+    <div layout="row" layout-align="center center">
+      <img src="images/logo-flyve.png" alt="Flyve Logo" class="logo">
     </div>
-    <div class="login-form">
-      <img src="images/logo-flyve-login.png" alt="Flyve Logo" class="logo">
-      <form ng-submit="attemptLogin()">
-        <!--<input id="csrf_token" type="hidden" name="csrf_token" value="{{csrf_token}}" />-->
-        <div class="input-container">
-          <input ng-model="loginCredentials.username" type="text" placeholder="Email" class="rounded size-2" autocomplete="username"
-            name="email" required="true">
-        </div>
-        <div class="input-container">
-          <input ng-model="loginCredentials.password" type="password" placeholder="Password" class="rounded size-2" autocomplete="current-password"
-            name="password" required="true">
-        </div>
-        <div class="buttons">
-          <button type="submit" class="login-button size-2" has-ripple="true">Login</button>
-        </div>
-        <p class="create-account-catchy">Or .... <a href="#" ng-click="openRegistrationDialog($event)">Create an Account</a></p>
-      </form>
-    </div>
+    -->
+    <form ng-submit="attemptLogin()">
+      <md-card class="login-card">
+        <img ng-src="images/logo-flyve-login.png" class="md-card-image" alt="Flyve MDM Logo">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Mobile Device Management</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <md-input-container class="md-icon-float md-block" flex-gt-sm="true">
+            <label>Username</label>
+            <md-icon class="fa fa-user fa-lg md-warn" aria-hidden="true"></md-icon>
+            <input ng-model="loginCredentials.username" type="text" autocomplete="username" name="email" required="true">
+          </md-input-container>
+          <md-input-container class="md-icon-float md-block" flex-gt-sm="true">
+            <label>Password</label>
+            <md-icon class="fa fa-unlock-alt fa-lg md-warn" aria-hidden="true"></md-icon>
+            <input ng-model="loginCredentials.password" type="password" autocomplete="current-password" name="password" required="true">
+          </md-input-container>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button ng-click="openRegistrationDialog($event)">SignUp</md-button>
+          <md-button type="submit" class="md-raised md-primary">Login</md-button>
+        </md-card-actions>
+      </md-card>
+    </form>
   </div>
 </section>
+<div class="md-body-1 layout-margin foo" layout="row" layout-align="end center">
+  <p>A solution powered by</p>
+  <a href="http://teclib-edition.com/en/" target=_blank title="Teclib'' Web Site"><img src="images/logo-teclib-blanc-1-2.png" alt="Flyve Logo" height="24"></a>
+</div>

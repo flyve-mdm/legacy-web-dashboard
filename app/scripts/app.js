@@ -108,19 +108,77 @@ angular.module('FlyveMDM', [
     // No behaviour has been really defined for the "help" button, is may ends
     // being an app tutorial, so there is no .state() for it atm.
     $logProvider.debugEnabled(DEBUG);
+
     $mdThemingProvider.theme('default')
       .primaryPalette('light-green')
       .accentPalette('light-blue');
+
+
+    $mdThemingProvider.definePalette('petrole', {
+      '50': '#b2f3f1',
+      '100': '#70e9e6',
+      '200': '#3fe1dd',
+      '300': '#1dbcb8',
+      '400': '#19a19e',
+      '500': '#158784',
+      '600': '#116c6a',
+      '700': '#0d5250',
+      '800': '#093836',
+      '900': '#051d1c',
+      'A100': '#b2f3f1',
+      'A200': '#70e9e6',
+      'A400': '#1FFFD9',
+      'A700': '#00C2A1',
+      'contrastDefaultColor': 'light',
+      'contrastDarkColors': '50 100 200 300 A100 A200'
+    });
+
+    $mdThemingProvider.definePalette('gris', {
+      '50': '#c4c3c3',
+      '100': '#9e9c9c',
+      '200': '#828080',
+      '300': '#5e5c5c',
+      '400': '#4e4d4d',
+      '500': '#3f3e3e',
+      '600': '#302f2f',
+      '700': '#202020',
+      '800': '#111010',
+      '900': '#010101',
+      'A100': '#c4c3c3',
+      'A200': '#9e9c9c',
+      'A400': '#4e4d4d',
+      'A700': '#202020',
+      'contrastDefaultColor': 'light',
+      'contrastDarkColors': '50 100 200 A100 A200'
+    });
+
+    $mdThemingProvider.theme('flyve-mdm')
+      .primaryPalette('petrole')
+      .accentPalette('petrole')
+      .warnPalette('gris')
+      .backgroundPalette('gris');
+    $mdThemingProvider.setDefaultTheme('flyve-mdm');
+
+    /**
+          $mdThemingProvider.theme('default')
+            .primaryPalette('teal')
+            .accentPalette('teal')
+            .warnPalette('grey')
+            .backgroundPalette('grey');
+     */
+    $mdThemingProvider
+      .enableBrowserColor();
+
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
     $httpProvider.defaults.headers.common['Content-Type'] = 'application/json';
     // Configure all charts
     ChartJsProvider.setOptions({
-      chartColors: ['#8BC34A', '#03A9F4'],
+      chartColors: ['#3e3e3e', '#158784'],
       responsive: false,
       legend: {
         display: true,
         labels: {
-          fontColor: '#093f52',
+          fontColor: '#4d4d4d',
           fontFamily: 'Open Sans',
           fontStyle: 'italic',
           boxWidth: 18,

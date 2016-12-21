@@ -1,6 +1,6 @@
 <div class="view account-panel" ng-cloak="true">
   <h2 class="collection-infos">
-    <span class="account-title">Account Settings</span>
+    Account Settings
   </h2>
   <div class="table-container account-page">
     <div class="table-wrapper">
@@ -24,7 +24,6 @@
                 </div>
                 <md-button class="md-secondary md-primary" ng-click="changeDownloadUrl($event)">Change</md-button>
               </md-list-item>
-              <md-divider></md-divider>
               <md-subheader class="md-no-sticky">Configuration</md-subheader>
               <md-list-item class="secondary-button-padding">
                 <p>Entity ID</p>
@@ -34,7 +33,6 @@
                 <p>Maximum managed devices</p>
                 <p class="md-secondary">{{deviceLimit}}</p>
               </md-list-item>
-              <md-divider></md-divider>
               <md-subheader class="md-no-sticky">General information</md-subheader>
               <md-list-item class="secondary-button-padding">
                 <p>Devices currently managed</p>
@@ -92,7 +90,7 @@
                 <div layout-gt-sm="row">
                   <md-input-container class="md-icon-float md-block" flex-gt-sm="true">
                     <label>First name</label>
-                    <md-icon class="fa fa-user fa-lg md-accent" aria-hidden="true"></md-icon>
+                    <md-icon class="fa fa-user fa-lg md-primary" aria-hidden="true"></md-icon>
                     <input ng-model="user.firstname" type="text">
                   </md-input-container>
                   <md-input-container class="md-block" flex-gt-sm="true">
@@ -103,7 +101,7 @@
                 <div layout-gt-sm="row">
                   <md-input-container class="md-icon-float md-block" flex-gt-sm="true">
                     <label>Phone</label>
-                    <md-icon class="fa fa-phone fa-lg md-accent" aria-hidden="true"></md-icon>
+                    <md-icon class="fa fa-phone fa-lg md-primary" aria-hidden="true"></md-icon>
                     <input ng-model="user.phone" type="tel" />
                   </md-input-container>
                   <md-input-container class="md-block" flex-gt-sm="true">
@@ -114,7 +112,7 @@
                 <div layout-gt-sm="row">
                   <md-input-container class="md-icon-float md-block" flex-gt-sm="true">
                     <label>Phone 2</label>
-                    <md-icon class="fa fa-phone fa-lg md-accent" aria-hidden="true"></md-icon>
+                    <md-icon class="fa fa-phone fa-lg md-primary" aria-hidden="true"></md-icon>
                     <input ng-model="user.phone2" type="tel" />
                   </md-input-container>
                   <md-input-container class="md-block" flex-gt-sm="true">
@@ -125,7 +123,7 @@
                 <div layout-gt-xs="row">
                   <md-input-container class="md-icon-float md-block" flex-gt-sm="true">
                     <label>Last login</label>
-                    <md-icon class="fa fa-calendar-o fa-lg md-accent" aria-hidden="true"></md-icon>
+                    <md-icon class="fa fa-calendar-o fa-lg md-primary" aria-hidden="true"></md-icon>
                     <input ng-model="user.last_login" disabled="true">
                   </md-input-container>
                   <md-input-container>
@@ -229,7 +227,6 @@
                   </md-menu-content>
                 </md-menu>
               </md-list-item>
-              <md-divider></md-divider>
               <md-subheader class="md-no-sticky">Show in dashboard</md-subheader>
               <md-list-item>
                 <p>Maximum managed devices</p>

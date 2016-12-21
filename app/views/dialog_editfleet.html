@@ -136,7 +136,7 @@
                       <span md-highlight-text="pathToSaveFileTo" md-highlight-flags="^i">{{path.name}}</span>
                     </md-item-template>
                   </md-autocomplete>
-                  <md-progress-linear md-mode="determinate" value="{{fileUpload.progress}}"></md-progress-linear>
+                  <md-progress-linear md-mode="determinate" value="{{fileUpload.progress}}" class="md-primary"></md-progress-linear>
                   <div layout="row">
                     <span flex="true"></span>
                     <md-button class="md-raised md-primary" ng-disabled="lock_file" ng-click="uploadFile(fileUpload.upload, pathToSaveFileTo)"
@@ -147,7 +147,7 @@
             </md-tab-body>
           </md-tab>
         </md-tabs>
-        <button has-ripple="true" type="submit" class="dialog-main-button main-action-button md-primary md-raised" aria-label="Close">Save</button>
+        <md-button type="submit" class="dialog-main-button main-action-button md-primary md-raised" aria-label="Save">Save</md-button>
       </md-content>
     </form>
   </div>

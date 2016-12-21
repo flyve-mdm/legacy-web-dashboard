@@ -20,14 +20,14 @@
     md-pagination-wrapper
       width: 100%
       md-tab-item
-        background-color: #efefef
-        color: #093f52
+        background-color: #f2f2f2
+        color: #3e3e3e
         font-size: 20px
         margin-left: 10px
         &:first-child
           margin-left: 0
         &.md-active
-          background-color: #32bef0
+          background-color: #158784
           color: #fff
         &:last-of-type.md-active
           background-color: #d94a3a
@@ -50,10 +50,10 @@
       color: #0ac99e
       &:before
         content: '"'
-        color: #00a5db
+        color: #158784
       &:after
         content: '"'
-        color: #00a5db
+        color: #158784
   .angular-leaflet-map
     height: 500px
   .list-controls
@@ -89,7 +89,7 @@
           100%
             @include rotate(360deg)
     li.geolocation
-      border-bottom: 1px solid #efefef
+      border-bottom: 1px solid #f2f2f2
       height: 40px
       line-height: 40px
       text-align: center
@@ -145,7 +145,7 @@
         user-select: none
         &.active
           color: #fff
-          background-color: #32bef0
+          background-color: #158784
     .view-pane
       padding-left: 20px
       .tab-content
@@ -166,3 +166,44 @@
   .wipe-warning,
   .ping-description
     margin-bottom: 18px
+
+md-tabs.md-flyve-mdm-theme .md-tab.md-active, md-tabs.md-flyve-mdm-theme .md-tab.md-active md-icon, md-tabs.md-flyve-mdm-theme .md-tab.md-focused, md-tabs.md-flyve-mdm-theme .md-tab.md-focused md-icon
+  color: #fff
+
+md-content.md-flyve-mdm-theme
+  background-color: #fff
+
+md-tabs.md-flyve-mdm-theme .md-tab
+  color: #4d4d4d
+
+md-tabs md-pagination-wrapper md-tab-item
+  border-radius: 3px
+
+md-dialog.md-flyve-mdm-theme
+  background-color: #fff
+
+.md-subheader.md-flyve-mdm-theme
+  background-color: #f2f2f2
+  border-radius: 3px
+
+md-menu-content.md-flyve-mdm-theme
+  background-color: #f2f2f2
+
+md-menu-content.md-flyve-mdm-theme md-menu-item
+  color: #4d4d4d
+
+md-toast.md-flyve-mdm-theme .md-toast-content .md-button.md-highlight.md-warn
+  color: #d94a3a
+
+.accordion-arrow
+  color: #4d4d4d
+
+md-autocomplete.md-flyve-mdm-theme
+  background-color: #f2f2f2
+  color: #4d4d4d
+
+md-autocomplete button
+  color: #4d4d4d
+
+md-select-menu.md-flyve-mdm-theme md-content
+  background-color: #f2f2f2

@@ -54,9 +54,9 @@ angular.module('FlyveMDM')
           labels: ['Done', 'Pending'],
           data: [data.invitations.done, data.invitations.pending],
           dataset: {
-            backgroundColor: ['#8BC34A', '#03A9F4'],
-            hoverBackgroundColor: ['#8BC34A', '#03A9F4'],
-            hoverBorderColor: ['#8BC34A', '#03A9F4']
+            backgroundColor: ['#6cc2bc', '#158784'],
+            hoverBackgroundColor: ['#6cc2bc', '#158784'],
+            hoverBorderColor: ['#6cc2bc', '#158784']
           }
         };
         $scope.devices_os = {
@@ -67,16 +67,16 @@ angular.module('FlyveMDM')
           },
           colors: [
             {
-              backgroundColor: '#8BC34A',
-              borderColor: '#8BC34A',
-              hoverBackgroundColor: '#8BC34A',
-              hoverBorderColor: '#8BC34A'
+              backgroundColor: '#6cc2bc',
+              borderColor: '#6cc2bc',
+              hoverBackgroundColor: '#6cc2bc',
+              hoverBorderColor: '#6cc2bc'
             },
             {
-              backgroundColor: '#03A9F4',
-              borderColor: '#03A9F4',
-              hoverBackgroundColor: '#03A9F4',
-              hoverBorderColor: '#03A9F4'
+              backgroundColor: '#158784',
+              borderColor: '#158784',
+              hoverBackgroundColor: '#158784',
+              hoverBorderColor: '#158784'
             }
           ]
         };

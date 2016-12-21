@@ -1,6 +1,6 @@
 <div class="view about-panel" ng-cloak="true">
   <h2 class="collection-infos">
-    <span class="about-title">About</span>
+    About
   </h2>
   <div class="table-container about-page">
     <div class="table-wrapper">
@@ -50,19 +50,16 @@
                 <p>GLPi core</p>
                 <p class="md-secondary">{{glpiVersion}}</p>
               </md-list-item>
-              <md-divider></md-divider>
               <md-subheader class="md-no-sticky">GLPi Plugins</md-subheader>
               <md-list-item class="secondary-button-padding" ng-repeat="plugin in pluginList">
                 <p>{{plugin.name}}</p>
                 <p class="md-secondary">{{plugin.version}}</p>
               </md-list-item>
-              <md-divider></md-divider>
               <md-subheader class="md-no-sticky">Components</md-subheader>
               <md-list-item class="secondary-button-padding" ng-repeat="component in components">
                 <p>{{component.name}}</p>
                 <p class="md-secondary">{{component.version}}</p>
               </md-list-item>
-              <md-divider></md-divider>
               <md-subheader class="md-no-sticky">Software Environment</md-subheader>
               <md-list-item class="secondary-button-padding">
                 <p>Debug</p>

@@ -19,7 +19,7 @@
           <browse-file-button ngf-select="validateFile(applicationFile)" ng-model="applicationFile" ngf-accept="application/vnd.android.package-archive"
             required="true"></browse-file-button>
         </div>
-        <md-progress-linear md-mode="determinate" value="{{uploadProgress}}"></md-progress-linear>
+        <md-progress-linear class="md-primary" md-mode="determinate" value="{{uploadProgress}}"></md-progress-linear>
         <div class="form-errors">
           <ul>
             <li ng-show="errors.show">

@@ -4,7 +4,7 @@
       <img src="images/stupid-user-avatar.png" alt="User Image">
     </div>
     <div class="message">
-      <p>Bonjour User</p>
+      <p>My Account</p>
     </div>
     <div class="caret">
       <i class="fa" ng-class="opened ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
@@ -12,7 +12,7 @@
   </div>
   <div class="submenu" ng-show="opened">
     <ul>
-      <li><a href="#" ui-sref="account_page" ui-sref-active="active"><i class="fa fa-user"></i> My Account</a></li>
+      <li><a href="#" ui-sref="account_page" ui-sref-active="active"><i class="fa fa-user"></i> Settings</a></li>
       <li><a ng-click="disconnect()"><i class="fa fa-sign-out"></i> Disconnect</a></li>
     </ul>
   </div>
@@ -21,7 +21,7 @@
   <md-fab-speed-dial md-direction="down" class="md-fling" md-open="fabModOpened">
     <md-fab-trigger>
       <a ui-sref="account_page">
-        <md-button aria-label="Administration menu" class="md-fab" md-ink-ripple="#00a5db">
+        <md-button aria-label="Administration menu" class="md-fab" md-ink-ripple="#158784">
           <div class="avatar">
             <img src="images/stupid-user-avatar.png" alt="User Image">
           </div>
@@ -30,12 +30,12 @@
     </md-fab-trigger>
     <md-fab-actions>
       <a ui-sref="account_page">
-        <md-button aria-label="My account" class="md-fab" md-ink-ripple="#00a5db" ng-click="forceClose()">
+        <md-button aria-label="My account" class="md-fab" md-ink-ripple="#158784" ng-click="forceClose()">
           <i class="fa fa-user"></i>
           <md-tooltip>My account</md-tooltip>
         </md-button>
       </a>
-      <md-button aria-label="Disconnect" class="md-fab" md-ink-ripple="#00a5db" ng-click="disconnect()">
+      <md-button aria-label="Disconnect" class="md-fab" md-ink-ripple="#158784" ng-click="disconnect()">
         <i class="fa fa-sign-out"></i>
         <md-tooltip>Disconnect</md-tooltip>
       </md-button>
