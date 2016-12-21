@@ -16,8 +16,10 @@ module.exports = function wrapper(grunt) {
     ngtemplates: 'grunt-angular-templates'
   });
   // Configurable paths for the application
+  var bower = require('./bower.json');
   var appConfig = {
-    app: require('./bower.json').appPath || 'app',
+    version: bower.version,
+    app: bower.appPath || 'app',
     dist: 'dist'
   };
   // Define the configuration for all the tasks
@@ -389,6 +391,9 @@ module.exports = function wrapper(grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             'config.js',
+            '.nojekyll',
+            'browserconfig.xml',
+            'manifest.webmanifest',
             '*.html',
             'images/{,*/}*.{webp}',
             'images/{,*/}*.{png,jpg,jpeg,gif}',
@@ -440,6 +445,14 @@ module.exports = function wrapper(grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+    'gh-pages': {
+      options: {
+        base: 'dist',
+        message: 'chore(gh-page): deploy of the version <%= yeoman.version %>',
+        dotfiles: true
+      },
+      src: ['**']
     }
   });
   grunt.loadNpmTasks('grunt-ng-constant');
@@ -447,6 +460,7 @@ module.exports = function wrapper(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-gh-pages');
   grunt.registerMultiTask("markdownlint", function task() {
     var done = this.async();
     markdownlint(
