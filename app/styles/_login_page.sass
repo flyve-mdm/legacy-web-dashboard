@@ -1,0 +1,63 @@
+.login-page
+  // sizing
+  width: 100%
+  height: 100%
+  // colors
+  background-color: $palette-bg
+  // inner container which hold the
+  // welcome text and the login form
+  .container
+    @include clearfix
+    width: 810px
+    margin: 0 auto
+    padding-top: 120px
+    margin-bottom: 120px
+  .welcome-paragraph
+    background-color: $palette-bg3
+    width: 45%
+    float: left
+    border-radius: 6px
+    min-height: 440px
+    padding: 0 25px
+    user-select: none
+    cursor: default
+    .company-logo
+      margin-top: 40px
+    h2
+      margin-top: 30px
+      font-size: 20px
+      user-select: initial
+      cursor: auto
+    p
+      margin-top: 16px
+      font-size: 16px
+      line-height: 22px
+      user-select: initial
+      cursor: auto
+  .login-form
+    width: 45%
+    float: right
+    .logo
+      display: block
+      margin: 0 auto
+      user-select: none
+    form
+      margin-top: 50px
+    .buttons
+      @include clearfix
+      .create-account-button
+        float: left
+        background-color: #f8aa00
+      .login-button
+        float: right
+    button
+      margin-top: 36px
+  .create-account-catchy
+    color: #fff
+    font-size: 22px
+    margin-top: 15px
+    text-align: center
+    a
+      text-transform: uppercase
+      color: inherit
+      line-height: 40px

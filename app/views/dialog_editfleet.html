@@ -1,0 +1,154 @@
+<md-dialog class="flyve-dialog fleet-panel" flex="true">
+  <div class="dialog-header">
+    <h2>{{fleet.id ? 'Editing' : 'Creating'}} Fleet</h2>
+    <span flex="true"></span>
+    <md-button class="md-icon-button close-dialog-button" ng-click="cancel()" aria-label="Closes window which helps creating new device">
+      <i class="fa fa-times"></i>
+    </md-button>
+  </div>
+  <div class="dialog-content">
+    <form ng-submit="saveFleet()">
+      <md-content>
+        <md-tabs flex="true" md-dynamic-height="true" md-selected="selectedIndex">
+          <md-tab>
+            <md-tab-label>Main</md-tab-label>
+            <md-tab-body>
+              <md-input-container>
+                <label>Fleet Name</label>
+                <input type="text" ng-model="fleet.name" md-autofocus="true" />
+              </md-input-container>
+            </md-tab-body>
+          </md-tab>
+          <md-tab class="policies-tab">
+            <md-tab-label>Policies</md-tab-label>
+            <md-tab-body>
+              <div class="policies-box" layout="row" layout-xs="column">
+                <div layout="column" class="policies-filter">
+                  <md-autocomplete flex="true" md-input-name="autocompleteField" md-input-maxlength="18" md-no-cache="noCache" md-selected-item="selectedItem"
+                    md-selected-item-change="selectedPolicyChange(item)" md-search-text="searchText" md-items="item in queryPolicySearch(searchText)"
+                    md-item-text="item.name" md-floating-label="Available policies">
+                    <md-item-template>
+                      <span md-highlight-text="searchText">{{item.name}}</span>
+                    </md-item-template>
+                    <md-not-found>
+                      No policies matching "{{searchText}}" were found.
+                    </md-not-found>
+                  </md-autocomplete>
+                  <div class="policies-categories">
+                    <md-accordion>
+                      <md-accordion-group>
+                        <md-subheader class="md-no-sticky">Policies Category</md-subheader>
+                        <md-accordion-content md-heading="{{category.name}}" md-arrow="true" ng-repeat="category in data.policies.categories">
+                          <md-accordion-button ng-click="addPolicyToFleet(policy)" ng-repeat="policy in category.policies">{{policy.name}}</md-accordion-button>
+                        </md-accordion-content>
+                      </md-accordion-group>
+                    </md-accordion>
+                  </div>
+                </div>
+                <div class="policies-used">
+                  <table st-table="policiesUsed" flyve-table="true" st-pipe="fillPolicyTable">
+                    <thead>
+                      <tr>
+                        <th>Policies Used <span>Policies Used</span></th>
+                        <th>Value <span>Value</span></th>
+                        <th class="action-column"></th>
+                        <th class="action-column"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="policy in data.policies.virtual">
+                        <td>{{policy.name}}</td>
+                        <td>{{policy.value_showed}}</td>
+                        <td class="action-column">
+                          <md-button aria-label="Edit this policy from the fleet" ng-click="editPolicy(policy)" class="md-icon-button edit-action">
+                            <i class="fa fa-pencil"></i>
+                          </md-button>
+                        </td>
+                        <td class="action-column">
+                          <md-button aria-label="Delete this policy from the fleet" ng-click="deletePolicyFromFleet(policy)" class="md-icon-button delete-action">
+                            <i class="fa fa-trash-o"></i>
+                          </md-button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </md-tab-body>
+          </md-tab>
+          <md-tab>
+            <md-tab-label>Applications</md-tab-label>
+            <md-tab-body>
+              <div layout="column">
+                <p>
+                  Choose here the applications which you want automatically installed on the devices with this fleet
+                </p>
+                <h2>Current Applications for this Fleet</h2>
+                <md-list>
+                  <md-list-item ng-show="data.applications.current.length == 0 && data.applications.deploy.length == 0">
+                    <p>No application choosen to be installed for the devices that are/will-be in this Fleet</p>
+                  </md-list-item>
+                  <md-list-item ng-repeat="application in data.applications.current">
+                    <p>{{application.alias}} ({{application.name}})</p>
+                    <md-button aria-label="Delete this application from the fleet" type="button" ng-click="deleteApplicationFromFleet(application)">
+                      <i class="fa fa-times"></i>
+                    </md-button>
+                  </md-list-item>
+                  <md-list-item ng-repeat="application in data.applications.deploy">
+                    <p>{{application.alias}} ({{application.name}})</p>
+                    <md-button aria-label="Delete this application from the fleet" type="button" ng-click="deleteApplicationFromFleet(application)">
+                      <i class="fa fa-times"></i>
+                    </md-button>
+                  </md-list-item>
+                </md-list>
+                <h2>Add Applications for this fleet</h2>
+                <md-select aria-label="Select a application to add to the fleet" ng-hide="noMoreApplicationsAvailableToAdd()" ng-model="selectedApplicationToAdd"
+                  md-on-close="addApplicationToFleet(selectedApplicationToAdd)" ng-model-options="{trackBy: '$value.id'}">
+                  <md-option ng-repeat="application in data.applications.available" ng-value="application" ng-hide="data.applications.deploy.indexOf(application) > -1 || data.applications.current.indexOf(application) > -1">
+                    {{application.alias}} ({{application.name}})
+                  </md-option>
+                </md-select>
+                <p ng-show="noMoreApplicationsAvailableToAdd() ">{{noMoreApplicationsAvailableToAddMsg}}</p>
+              </div>
+            </md-tab-body>
+          </md-tab>
+          <md-tab>
+            <md-tab-label>Files</md-tab-label>
+            <md-tab-body>
+              <div class="add-files-panel" layout="row">
+                <div class="current-files" flex="true">
+                  <ul>
+                    <li ng-repeat="file in data.files.virtual" class="file">
+                      <span class="filename">{{file.name}}</span>
+                      <md-button aria-label="Delete this file" type="button" class="md-icon-button" ng-click="deleteAssociatedFile(file)">
+                        <i class="fa fa-times"></i>
+                      </md-button>
+                    </li>
+                  </ul>
+                </div>
+                <div class="add-file" ng-init="pathToSaveFileTo = '' ; isPromptingCustomPath = false" flex="true">
+                  <browse-file-button ngf-select="true" ng-model="fileUpload.upload"></browse-file-button>
+                  <br/>
+                  <md-autocomplete md-selected-item="selectedPath" md-search-text-change="searchPathChange(pathToSaveFileTo)" md-search-text="pathToSaveFileTo"
+                    md-selected-item-change="selectedPathChange(path)" md-items="path in queryPathSearch(pathToSaveFileTo)"
+                    md-item-text="path.name" md-min-length="0" placeholder="Custom destination path">
+                    <md-item-template>
+                      <span md-highlight-text="pathToSaveFileTo" md-highlight-flags="^i">{{path.name}}</span>
+                    </md-item-template>
+                  </md-autocomplete>
+                  <md-progress-linear md-mode="determinate" value="{{fileUpload.progress}}"></md-progress-linear>
+                  <div layout="row">
+                    <span flex="true"></span>
+                    <md-button class="md-raised md-primary" ng-disabled="lock_file" ng-click="uploadFile(fileUpload.upload, pathToSaveFileTo)"
+                      aria-label="Save">Add file</md-button>
+                  </div>
+                </div>
+              </div>
+            </md-tab-body>
+          </md-tab>
+        </md-tabs>
+        <button has-ripple="true" type="submit" class="dialog-main-button main-action-button md-primary md-raised" aria-label="Close">Save</button>
+      </md-content>
+    </form>
+  </div>
+</md-dialog>

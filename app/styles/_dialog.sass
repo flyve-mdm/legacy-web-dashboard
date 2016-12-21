@@ -1,0 +1,117 @@
+/**
+ * This block of style rules applies to every
+ * dialogs, that are all spawned accross the
+ * app by the $mdDialog service
+ */
+md-dialog, md-dialog.flyve-dialog
+  h1, h2
+    color: $palette-dialog-title
+  h2
+    line-height: 40px
+    font-weight: 600
+    font-style: italic
+    font-size: 24px
+    display: block
+  .close-dialog-button
+    margin-top: 14px
+    i
+      font-size: 20px
+  // This is kind of a custom replacement for md-toolbar
+  .dialog-header
+    @include clearfix
+    user-select: none
+    h2
+      float: left
+      padding-left: 40px
+      line-height: 80px
+    .close-dialog-button
+      float: right
+  // This is kind of a custom replacement for md-dialog-content
+  .dialog-content
+    padding: 0 40px 30px 40px
+    h1, h2
+      color: #333
+    form
+      @include clearfix
+      md-input-container input.ng-invalid
+        border-color: rgb(244,67,54)
+        border-width: 0 0 2px 0
+      .categories
+        overflow-x: hidden
+        overflow-y: auto
+        height: 350px
+      .flyvemdm-select-all-checkboxes
+        padding-left: 30px
+    md-tabs
+      md-tab-content
+        margin-bottom: 10px
+      md-tabs-wrapper
+        margin-bottom: 30px
+      // md-dummy-tab are used to evaluate
+      // the width of the pagination which
+      // has inkbar [in the md-tabs directive,
+      // of course]
+      md-dummy-tab
+        font-size: 20px
+        span
+          box-sizing: content-box
+          padding: 0 0 0 12px
+        &:last-child
+          span
+            padding: 0
+      md-pagination-wrapper
+        width: 100%
+        md-tab-item
+          background-color: #efefef
+          color: #093f52
+          font-size: 20px
+          margin-left: 10px
+          &:first-child
+            margin-left: 0
+          &.md-active
+            background-color: #32bef0
+            color: #fff
+      md-ink-bar
+        display: none
+    md-progress-linear
+      margin-bottom: 20px !important
+    /**
+     * This code is only used in the
+     * 'Edit Configuration' dialog
+     * It's the 'current files' dialog
+     */
+    .add-files-panel
+      .current-files
+        .file
+          @include clearfix
+          border-bottom: 1px solid #efefef
+          height: 50px
+          line-height: 50px
+          button.md-icon-button
+            float: right
+          i
+            color: #d94a3a
+            line-height: 34px
+      .add-file
+        @include clearfix
+        margin-bottom: 20px
+        md-progress-linear
+          margin-bottom: 0 !important
+        browse-file-button, .main-action-button, md-progress-linear
+          display: block
+          &:first-child
+            margin-top: 0
+          margin-top: 10px
+        .main-action-button
+          float: right
+    .form-errors
+      float: left
+      ul
+        list-style-type: disc
+        padding-left: 24px
+        color: #d94a3a
+        li
+          line-height: 26px
+// Making the tab buttons text non selectable
+md-dialog .dialog-content md-tabs md-pagination-wrapper md-tab-item
+  user-select: none

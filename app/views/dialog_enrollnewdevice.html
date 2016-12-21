@@ -1,0 +1,25 @@
+<md-dialog class="flyve-dialog" flex="66">
+  <div class="dialog-header">
+    <h2>Enroll new device</h2>
+    <span flex="true"></span>
+    <md-button class="md-icon-button close-dialog-button" ng-click="cancel()" aria-label="Closes window which helps enroll new device">
+      <i class="fa fa-times"></i>
+    </md-button>
+  </div>
+  <div class="dialog-content">
+    <form ng-submit="enrollDevice()">
+      <md-content layout="column">
+        <p>Please insert an active email address.</p>
+        <p>An email will be sent with a QR code.</p>
+        <md-input-container>
+          <label>Email</label>
+          <input type="text" ng-model="user_email">
+        </md-input-container>
+      </md-content>
+      <md-dialog-actions layout="row">
+        <md-button class="md-raised md-warn" ng-click="cancel()" aria-label="Cancel">Cancel</md-button>
+        <md-button class="md-raised md-primary" ng-disabled="lock_submit" type="submit" aria-label="Save">Save</md-button>
+      </md-dialog-actions>
+    </form>
+  </div>
+</md-dialog>

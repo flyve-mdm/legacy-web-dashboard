@@ -1,0 +1,204 @@
+nav
+  // global nav styling
+  z-index: 4
+  background-color: $palette-bg
+  position: fixed
+  left: 0
+  top: 0
+  height: 100%
+  width: 240px
+  padding-top: 80px
+  @include transition-property(all)
+  @include transition-duration(0.3s)
+  @include transition-timing-function(cubic-bezier(0.55, 0, 0.55, 0.2))
+  @include nav-when-small
+    padding-top: 130px
+  // this .visible class need to be applied
+  // in order to have the navigation visible
+  body.nav-invisible &
+    display: none
+  // logo css rules
+  .logo
+    display: block
+    margin: 0 auto
+    opacity: 1
+    @include transition-delay(0.3s)
+    @include transition-property(all)
+    @include transition-duration(0.3s)
+    @include transition-timing-function(cubic-bezier(0.55, 0, 0.55, 0.2))
+  @include nav-when-small
+    .logo
+      opacity: 0
+      height: 0
+  // main menu css rules
+  .menu
+    @include nav-when-small
+      width: 50px
+      @include transition-property(all)
+      @include transition-duration(0.3s)
+      @include transition-timing-function(cubic-bezier(0.55, 0, 0.55, 0.2))
+      &.fab-usermenu-closed
+        margin-top: -54px
+    margin-top: 30px
+    padding: 0 10px
+    &> li.menu-entry
+      margin-bottom: 10px
+    &> li.menu-entry > a, &> li.menu-entry .when-nav-big > a
+      span
+        @include transition-property(all)
+        @include transition-duration(0.3s)
+        @include transition-timing-function(cubic-bezier(0.55, 0, 0.55, 0.2))
+        @include transition-delay(0.3s)
+        opacity: 1
+      cursor: pointer
+      user-select: none
+      color: #fff
+      text-decoration: none
+      text-transform: uppercase
+      border-radius: 20px
+      padding: 0 10px
+      width: 100%
+      height: 30px
+      line-height: 30px
+      display: block
+      font-size: 15px
+      position: relative
+      overflow: hidden
+      outline: 0
+      &:hover
+        background-color: none
+      .md-ripple-container
+        border-radius: 20px
+        background-clip: padding-box
+        overflow: hidden
+        -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC)
+      &.active
+        background-color: $palette-nav-entry-bg
+        font-weight: 700
+      i
+        background-color: $palette-nav-entry-bg
+        border-radius: 50px
+        padding: 5px 5px
+        font-size: 20px
+        width: 30px
+        position: relative
+        left: -9px
+        text-align: center
+    // submenus (in the main menu) css rules
+    navbar-submenu
+      padding-left: 28px
+      margin-top: 20px
+      user-select: none
+      display: none
+      &.visible
+        display: block
+      li
+        margin-bottom: 8px
+      li a
+        color: #fff
+        text-decoration: none
+        display: block
+        line-height: 20px
+        span
+          margin-left: 6px
+          font-size: 15px
+        &.active span
+          font-size: 17px
+        i
+          text-align: center
+  .when-nav-big
+    display: block
+  .when-nav-small
+    display: none
+  @include nav-when-small
+    .when-nav-big
+      display: none
+    .when-nav-small
+      display: block
+  md-fab-speed-dial
+    .md-button.md-fab
+      background-color: $palette-nav-entry-bg
+      width: 30px
+      height: 30px
+      min-height: 30px
+      margin: 0
+      padding: 0
+      line-height: 30px
+      box-shadow: none
+      &, &:not([disabled])
+        &, &:hover, &.md-focused
+          background-color: $palette-nav-entry-bg
+    md-fab-actions
+      margin-top: 4px
+      a.md-button.md-fab
+        margin-top: 8px
+  .small-toggle-button
+    cursor: pointer
+    display: block
+    border-radius: 50px
+    background-color: $palette-nav-toggle-button-bgcolor
+    color: $palette-nav-toggle-button-fgcolor
+    width: 30px
+    height: 30px
+    position: absolute
+    bottom: 80px
+    left: 10px
+    overflow: hidden
+    &:before
+      content: '<'
+      display: block
+      width: 100%
+      text-align: center
+      line-height: 30px
+    .md-ripple-container
+      border-radius: 50px
+      background-clip: padding-box
+      overflow: hidden
+      -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC)
+  .navigation-footer
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    height: $nav-footer-height
+    @include transition-property(all)
+    @include transition-duration(0.3s)
+    @include transition-timing-function(cubic-bezier(0.55, 0, 0.55, 0.2))
+    opacity: 1
+    // bet we have 2 inner divs
+    &>div
+      height: 50%
+  .misc-links
+    @include clearfix
+    padding: 0 10px
+    a
+      color: #0074a9
+      text-decoration: none
+      // having 3 of thoses <a>'s as a bet
+      display: block
+      width: 33%
+      float: left
+      text-align: center
+      font-size: 12px
+  .copyright-block
+    background-color: $palette-nav-copyright-bg
+    text-align: center
+    color: #fff
+    font-size: 12px
+  .misc-links, .copyright-block
+    line-height: $nav-footer-height / 2
+  // Small navbar
+  @include nav-when-small
+    width: 50px
+    .menu > li.menu-entry > a, .menu > li.menu-entry .when-nav-big > a
+      span
+        opacity: 0
+    .small-toggle-button
+      &:before
+        content: '>'
+    .navigation-footer
+      opacity: 0
+
+  @include media-no-desktop
+    .small-toggle-button
+      display: none

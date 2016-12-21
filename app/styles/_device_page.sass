@@ -1,0 +1,168 @@
+.device-page
+  padding: 24px 10px
+  md-tabs
+    md-tab-content
+      margin-bottom: 10px
+    md-tabs-wrapper
+      margin-bottom: 30px
+    // md-dummy-tab are used to evaluate
+    // the width of the pagination which
+    // has inkbar [in the md-tabs directive,
+    // of course]
+    md-dummy-tab
+      font-size: 20px
+      span
+        box-sizing: content-box
+        padding: 0 0 0 12px
+      &:last-child
+        span
+          padding: 0
+    md-pagination-wrapper
+      width: 100%
+      md-tab-item
+        background-color: #efefef
+        color: #093f52
+        font-size: 20px
+        margin-left: 10px
+        &:first-child
+          margin-left: 0
+        &.md-active
+          background-color: #32bef0
+          color: #fff
+        &:last-of-type.md-active
+          background-color: #d94a3a
+          color: #fff
+    md-ink-bar
+      display: none
+  md-progress-linear
+    margin-bottom: 20px !important
+
+#mapid
+  height: 500px
+/**
+ * This file contains the css rules to display
+ * the 'Geolocation' tab in the device dialog
+ */
+
+.device-panel
+  .dialog-header
+    h2 span
+      color: #0ac99e
+      &:before
+        content: '"'
+        color: #00a5db
+      &:after
+        content: '"'
+        color: #00a5db
+  .angular-leaflet-map
+    height: 500px
+  .list-controls
+    margin: 0 0 0 40px
+    position: relative
+    button.request-current-geolocation-button
+      width: 80%
+      margin: 0
+    md-fab-speed-dial
+      outline: 0
+      width: 20%
+      position: absolute
+      top: 0
+      right: 0
+      button.md-button.md-fab
+        margin: 0
+        background-color: #d94a3a
+        box-shadow: none
+      md-fab-actions
+        button.md-button.md-fab
+          margin-top: 10px
+  .device-geolocations
+    margin-top: 20px
+    padding-left: 40px
+    min-height: 320px
+    li.loading
+      font-size: 66px
+      text-align: center
+      padding-top: 110px
+      i
+        @include animation(loadingSpin linear infinite 4s)
+        @include keyframes(loadingSpin)
+          100%
+            @include rotate(360deg)
+    li.geolocation
+      border-bottom: 1px solid #efefef
+      height: 40px
+      line-height: 40px
+      text-align: center
+      cursor: pointer
+      user-select: none
+      border-radius: 6px
+      outline: none
+      position: relative
+      &.selected
+        background-color: rgba(#eee, 3)
+      &:hover
+        background-color: rgba(#eee, 1)
+      md-checkbox
+        position: absolute
+        top: 0
+        left: 0
+      &>span // the actual displayed text in the line
+        outline: 0
+        user-select: initial
+        cursor: initial
+  .geolocations-pagination
+    padding-left: 40px
+    margin-top: 20px
+    text-align: center
+    ul
+      display: inline-block
+      text-align: center
+      li
+        cursor: pointer
+        display: inline-block
+        background-color: #0ac99e
+        color: #fff
+        padding: 6px
+        border-radius: 4px
+        margin-left: 10px
+        outline: 0
+        user-select: none
+        &:hover
+          background-color: darken(#0ac99e, 10%)
+        &.active
+          background-color: darken(#0ac99e, 6%)
+          text-decoration: underline
+  .system-report
+    .sections-menu
+      width: 200px
+      ul li
+        outline: 0
+        text-align: center
+        height: 30px
+        line-height: 30px
+        border-radius: 4px
+        cursor: pointer
+        user-select: none
+        &.active
+          color: #fff
+          background-color: #32bef0
+    .view-pane
+      padding-left: 20px
+      .tab-content
+        // simple key-value list
+        // implemented with
+        // <ul> and <span> before
+        // something more complex
+        // eventually
+        .kv-list
+          li
+            span.description
+              display: inline-block
+              min-width: 150px
+              font-weight: 600
+            margin-bottom: 10px
+            &:last-child
+              margin-bottom: 10px
+  .wipe-warning,
+  .ping-description
+    margin-bottom: 18px

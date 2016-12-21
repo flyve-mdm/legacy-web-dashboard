@@ -1,0 +1,42 @@
+@mixin media-phones
+    @media (max-width: 767px)
+        @content
+@mixin media-tablets
+    @media (min-width: 768px) and (max-width: 991px)
+        @content
+@mixin media-desktop
+    @media (min-width: 992px)
+        @content
+@mixin media-no-desktop
+    @media (max-width: 991px)
+        @content
+/* This mixin should always been included directly in a
+ * `nav` sass selector, it is not meant to be included
+ * from another selector
+ */
+@mixin nav-when-small
+    @include media-no-desktop
+        @content
+    body.nav-forced-small &
+        @content
+html, body
+    min-height: 100%
+body
+    font-family: 'Open Sans'
+    background-color: $palette-views-bg
+viewport
+    background-color: $palette-views-bg
+    display: block
+    width: 100%
+    padding-left: $nav-full-width
+    padding-bottom: 16px
+    @include nav-when-small
+        padding-left: $nav-mini-width
+    body.nav-invisible &
+        padding-left: 0
+    body.hundred-percent-height-page &
+        height: 100%
+        padding-bottom: 0
+    .view
+        padding: 0 50px
+        height: 100%

@@ -1,0 +1,517 @@
+<div class="view device-panel" ng-cloak="true">
+	<h2 class="collection-infos">
+		<span class="device-title">Device</span>
+		<span class="device-name">{{title}}</span>
+	</h2>
+	<div class="table-container device-page">
+		<div class="table-wrapper">
+			<div class="fixed-header-background">
+				<p class="collection-infos"><span class="device-title">Device</span>
+					<span class="device-name">{{title}}</span></p>
+			</div>
+			<md-tabs md-dynamic-height="true" md-selected="selectedTab">
+				<md-tab>
+					<md-tab-label>Main</md-tab-label>
+					<md-tab-body>
+						<md-input-container>
+							<label>Device Name</label>
+							<input type="text" ng-model="agent.name" />
+						</md-input-container>
+						<br/>
+						<md-input-container>
+							<label>Fleet</label>
+							<md-select ng-model="agent.fleet_id" aria-label="Select a fleet">
+								<md-option ng-value="fleet.id" ng-repeat="fleet in fleets">{{fleet.name}}</md-option>
+							</md-select>
+						</md-input-container>
+						<p>Changing the Fleet of the device has the immediate consequence of applying the Fleet's Configuration to the specific
+							Device
+						</p>
+						<br/>
+						<br/>
+						<p class="last-contact">Last contact: {{agent._contacted}}</p>
+						<br/>
+						<p class="ping-description">This button sends a Ping to the device</p>
+						<br/>
+            <md-button class="md-raised md-warn" ng-disabled="lock_send_ping" ng-click="sendPing()" aria-label="PING">PING</md-button>
+						<br/>
+						<br/>
+						<p>{{pingSendingStatus}}</p>
+						<br/>
+						<p>{{pingSendingStatus !== '' ? pingReplyStatus : ''}}</p>
+					</md-tab-body>
+				</md-tab>
+				<md-tab>
+					<md-tab-label>System Report</md-tab-label>
+					<md-tab-body>
+						<div id="specs-list" class="system-report">
+							<table cellspacing="0">
+								<tbody>
+									<tr>
+										<th rowspan="3" scope="row">Agent</th>
+										<td class="ttl">
+											<a href="" ng-click="glosary($event, 'agent.id')">ID</a>
+										</td>
+										<td class="nfo">{{agent.id}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'agent.name')">Name</a></td>
+										<td class="nfo">{{agent.name}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'agent.version')">Version</a></td>
+										<td class="nfo">{{agent.version}}</td>
+									</tr>
+                  <tr>
+										<th rowspan="2" scope="row">Fleet</th>
+										<td class="ttl">
+											<a href="" ng-click="glosary($event, 'fleet.id')">ID</a>
+										</td>
+										<td class="nfo">{{agent.fleet_id}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'fleet.name')">Name</a></td>
+										<td class="nfo">{{agent.fleet_name}}</td>
+									</tr>
+									<tr>
+										<th rowspan="5" scope="row">Device</th>
+										<td class="ttl">
+											<a href="" ng-click="glosary($event, 'device.id')">ID</a>
+										</td>
+										<td class="nfo">{{computer.device.id}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'device.type')">Type</a></td>
+										<td class="nfo">{{computer.device.type}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'device.model')">Model</a></td>
+										<td class="nfo">{{computer.device.model}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'device.manufacturer')">Manufacturer</a></td>
+										<td class="nfo">{{computer.device.manufacturer}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'device.serial')">Serial</a></td>
+										<td class="nfo">{{computer.device.serial}}</td>
+									</tr>
+									<tr>
+										<th rowspan="4" scope="row">Dates</th>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'date.creation')">Creation</a></td>
+										<td class="nfo">{{computer.date.creation}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'date.modification')">Modification</a></td>
+										<td class="nfo">{{computer.date.modification}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'date.last_report')">Last report</a></td>
+										<td class="nfo">{{computer.date.last_report}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'date.last_contact')">Last contact</a></td>
+										<td class="nfo">{{computer.date.last_contact}}</td>
+									</tr>
+									<tr>
+										<th rowspan="2" scope="row">Launch</th>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'launch.announced')">Announced</a></td>
+										<td class="nfo">{{computer.launch.announced}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'launch.status')">Status</a></td>
+										<td class="nfo">{{computer.launch.status}}</td>
+									</tr>
+									<tr>
+										<th rowspan="4" scope="row">Body</th>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'body.dimensions')">Dimensions</a></td>
+										<td class="nfo">{{computer.body.dimensions}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'body.weight')">Weight</a></td>
+										<td class="nfo">{{computer.body.weight}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'body.sim')">SIM</a></td>
+										<td class="nfo">{{computer.body.sim}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'body.protection')">Protection</a></td>
+										<td class="nfo">{{computer.body.protection}}</td>
+									</tr>
+									<tr>
+										<th rowspan="6" scope="row">Display</th>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'display.type')">type</a></td>
+										<td class="nfo">{{computer.display.type}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'display.size')">Size</a></td>
+										<td class="nfo">{{computer.display.size}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'display.resolution')">Resolution</a></td>
+										<td class="nfo">{{computer.display.resolution}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'display.multitouch')">Multitouch</a></td>
+										<td class="nfo">{{computer.display.multitouch}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'display.protection')">Protection</a></td>
+										<td class="nfo">{{computer.display.protection}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'display.others')">Others</a></td>
+										<td class="nfo">{{computer.display.others}}</td>
+									</tr>
+									<tr>
+										<th rowspan="4" scope="row">Platform</th>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'platform.os')">OS</a></td>
+										<td class="nfo">{{computer.platform.os}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'platform.chipset')">Chipset</a></td>
+										<td class="nfo">{{computer.platform.chipset}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'platform.cpu')">CPU</a></td>
+										<td class="nfo">{{computer.platform.cpu}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'platform.gpu')">GPU</a></td>
+										<td class="nfo">{{computer.platform.gpu}}</td>
+									</tr>
+									<tr>
+										<th rowspan="{{computer.memory.partitioning.length + 4}}" scope="row">Memory</th>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'memory.card_slot')">Card slot</a></td>
+										<td class="nfo">{{computer.memory.card_slot}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'memory.non_volatile')">Non-volatile</a></td>
+										<td class="nfo">{{computer.memory.non_volatile}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'memory.volatile')">Volatile</a></td>
+										<td class="nfo">{{computer.memory.volatile}}</td>
+									</tr>
+									<tr>
+										<td rowspan="{{computer.memory.partitioning.length + 1}}" class="ttl">
+											<a href="" ng-click="glosary($event, 'memory.partitioning')">Partitioning</a>
+										</td>
+										<td class="nfo">{{computer.memory.partitioning2.description}}</td>
+									</tr>
+									<tr ng-repeat="partition in computer.memory.partitioning">
+										<td class="nfo">{{partition.description}}</td>
+									</tr>
+									<tr>
+										<th rowspan="4" scope="row">Camera</th>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'camera.primary')">Primary</a></td>
+										<td class="nfo">{{computer.camera.primary}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'camera.features')">Features</a></td>
+										<td class="nfo">{{computer.camera.features}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'camera.video')">Video</a></td>
+										<td class="nfo">{{computer.camera.video}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'camera.secondary')">Secondary</a></td>
+										<td class="nfo">{{computer.camera.secondary}}</td>
+									</tr>
+									<tr>
+										<th rowspan="3" scope="row">Sound</th>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'sound.alert_types')">Alert types</a></td>
+										<td class="nfo">{{computer.sound.alert_types}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'sound.loudspeaker')">Loudspeaker</a></td>
+										<td class="nfo">{{computer.sound.loudspeaker}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'sound.connections')">Connections</a></td>
+										<td class="nfo">{{computer.sound.connections}}</td>
+									</tr>
+									<tr>
+										<th rowspan="5" scope="row">Network</th>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'network.technology')">Technology</a></td>
+										<td class="nfo">{{computer.network.technology}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'network[\'2g_bands\']')">2G Bands</a></td>
+										<td class="nfo">{{computer.network['2g_bands']}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'network[\'3g_bands\']')">3G Bands</a></td>
+										<td class="nfo">{{computer.network['3g_bands']}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'network[\'4g_bands\']')">4G Bands</a></td>
+										<td class="nfo">{{computer.network['4g_bands']}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'network.speed')">Speed</a></td>
+										<td class="nfo">{{computer.network.speed}}</td>
+									</tr>
+									<tr ng-if="false">
+										<td class="ttl"><a href="" ng-click="glosary($event, 'network.gprs')">GPRS</a></td>
+										<td class="nfo">{{computer.network.gprs}}</td>
+									</tr>
+									<tr ng-if="false">
+										<td class="ttl"><a href="" ng-click="glosary($event, 'network.edge')">EDGE</a></td>
+										<td class="nfo">{{computer.network.edge}}</td>
+									</tr>
+									<tr>
+										<th rowspan="6" scope="row">Comms</th>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'comms.wlan')">WLAN</a></td>
+										<td class="nfo">{{computer.comms.wlan.description}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'comms.bluetooth')">Bluetooth</a></td>
+										<td class="nfo">{{computer.comms.bluetooth}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'comms.gps')">GPS</a></td>
+										<td class="nfo">{{computer.comms.gps}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'comms.nfc')">NFC</a></td>
+										<td class="nfo">{{computer.comms.nfc}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'comms.radio')">Radio</a></td>
+										<td class="nfo">{{computer.comms.radio}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'comms.usb')">USB</a></td>
+										<td class="nfo">{{computer.comms.usb}}</td>
+									</tr>
+									<tr>
+										<th rowspan="2" scope="row">Sensors</th>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'sensors.type')">Type</a></td>
+										<td class="nfo">{{computer.comms.sensors[0].type}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'sensors.manufacturer')">Manufacturer</a></td>
+										<td class="nfo">{{computer.sensors[0].manufacturer}}</td>
+									</tr>
+									<tr>
+										<th rowspan="4" scope="row">Features</th>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'features.messaging')">Messaging</a></td>
+										<td class="nfo">{{computer.features.messaging}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'features.browser')">Browser</a></td>
+										<td class="nfo">{{computer.features.browser}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'features.java')">Java</a></td>
+										<td class="nfo">{{computer.features.java}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'features.others')">Others</a></td>
+										<td class="nfo">{{computer.features.others}}</td>
+									</tr>
+									<tr>
+										<th rowspan="4" scope="row">Battery</th>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'battery.details')">Details</a></td>
+										<td class="nfo">{{computer.battery.details}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'battery.[\'stand-by\']')">Stand-by</a></td>
+										<td class="nfo">{{computer.battery['stand-by']}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'battery.talk_time')">Talk time</a></td>
+										<td class="nfo">{{computer.battery.talk_time}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'battery.music_play')">Music play</a></td>
+										<td class="nfo">{{computer.battery.music_play}}</td>
+									</tr>
+									<tr>
+										<th rowspan="4" scope="row">Misc</th>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'misc.colors')">Colors</a></td>
+										<td class="nfo">{{computer.misc.colors}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'misc.sar_us')">SAR US</a></td>
+										<td class="nfo">{{computer.misc.sar_us}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'misc.sar_eu')">SAR EU</a></td>
+										<td class="nfo">{{computer.misc.sar_eu}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'misc.price_group')">Price group</a></td>
+										<td class="nfo">{{computer.misc.price_group}}</td>
+									</tr>
+									<tr>
+										<th rowspan="6" scope="row">Tests</th>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'tests.performance')">Performance</a></td>
+										<td class="nfo">{{computer.tests.performance}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'tests.display')">Display</a></td>
+										<td class="nfo">{{computer.tests.display}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'tests.camera')">Camera</a></td>
+										<td class="nfo">{{computer.tests.camera}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'tests.loudspeaker')">Loudspeaker</a></td>
+										<td class="nfo">{{computer.tests.loudspeaker}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'tests.audio_quality')">Audio quality</a></td>
+										<td class="nfo">{{computer.tests.audio_quality}}</td>
+									</tr>
+									<tr>
+										<td class="ttl"><a href="" ng-click="glosary($event, 'tests.battery_life')">Battery life</a></td>
+										<td class="nfo">{{computer.tests.battery_life}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</md-tab-body>
+				</md-tab>
+				<md-tab md-on-select="refreshTable()" ng-disabled="no_inventory">
+					<md-tab-label>Applications</md-tab-label>
+					<md-tab-body>
+						<table id="apps" st-table="displayedApplications" flyve-table="true" st-pipe="fillTable" refresh-table="true">
+							<thead>
+								<tr>
+									<th class="id-column"># <span>#</span></th>
+									<th>Application ID <span>Application ID</span></th>
+									<th>Version Name <span>Version Name</span></th>
+									<th>Category <span>Category</span></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="application in displayedApplications">
+									<td class="id-column">{{application.id}}</td>
+									<td>{{application.application_id}}</td>
+									<td>{{application.version_name}}</td>
+									<td>{{application.category}}</td>
+								</tr>
+							</tbody>
+						</table>
+						<p class="table-loading" ng-show="loading">
+							<i class="fa fa-spinner"></i>Loading items...
+						</p>
+					</md-tab-body>
+				</md-tab>
+				<md-tab>
+					<md-tab-label>Geolocation</md-tab-label>
+					<md-tab-body>
+						<md-content layout="row" class="device-position">
+							<div flex="70">
+								<!-- Map -->
+								<div id="mapid"></div>
+							</div>
+							<div flex="30">
+								<!-- Recent locations list -->
+								<ul class="device-geolocations">
+									<li class="loading" ng-show="geolocationsLoading">
+										<i class="fa fa-spinner" aria-hidden="true"></i>
+									</li>
+									<li class="geolocation" ng-repeat="geolocation in latestGeolocations">
+										<md-checkbox ng-if="!isNaNGeolocation(geolocation)" aria-label="Geolocation" ng-checked="isSelectedGeolocation(geolocation) !== false" ng-click="toggleSelectGeolocation(geolocation)">
+										</md-checkbox>
+                    <md-checkbox ng-disabled="true" ng-if="isNaNGeolocation(geolocation)" aria-label="Geolocation">
+                      <i class="fa fa-exclamation-circle" aria-hidden="true">
+                        <md-tooltip>Invalid geolocation</md-tooltip>
+                      </i>
+										</md-checkbox>
+										<span class="date" ng-show="geolocationInfoDisplayed == 'date'">{{geolocation.date}}</span>
+										<span class="time-ago" ng-show="geolocationInfoDisplayed == 'timeAgo'">{{geolocation.timeAgo}}</span>
+										<span class="lat-lng" ng-show="geolocationInfoDisplayed == 'lat-lng'">{{geolocation.displayable.lat}} , {{geolocation.displayable.lng}}</span>
+									</li>
+								</ul>
+								<div class="geolocations-pagination">
+									<ul ng-show="currentNGeolocationPages > 1">
+										<li ng-repeat="page_n in currentGeolocationPages" ng-click="displayGeolocationPage(page_n)" ng-class="currentOpenedPage == page_n ? 'active' : ''">
+											{{page_n}}
+										</li>
+									</ul>
+								</div>
+							</div>
+						</md-content>
+					</md-tab-body>
+				</md-tab>
+				<md-tab>
+					<md-tab-label>Danger Zone</md-tab-label>
+					<md-tab-body>
+						<md-list>
+							<md-list-item class="md-2-line secondary-button-padding">
+								<div class="md-list-item-text">
+									<h3>Wipe Device</h3>
+									<p>Wipe will delete all data on the device.</p>
+								</div>
+								<md-button class="md-warn" ng-click="wipeDevice($event)">Wipe</md-button>
+							</md-list-item>
+							<md-divider></md-divider>
+							<md-list-item class="md-2-line secondary-button-padding">
+								<div class="md-list-item-text">
+									<h3>Unenrollment Device</h3>
+									<p>Unenrollment will change the state of the device (policies are unapplied, deployed files and app will be removed).</p>
+								</div>
+								<md-button class="md-warn" ng-click="unenrollDevice($event)">Unenroll</md-button>
+							</md-list-item>
+							<md-divider></md-divider>
+							<md-list-item class="md-2-line secondary-button-padding">
+								<div class="md-list-item-text">
+									<h3>Delete Device</h3>
+									<p>Once you delete a device, there is no going back. Please be certain.</p>
+								</div>
+								<md-button class="md-warn" ng-click="deleteDevice($event)">Delete</md-button>
+							</md-list-item>
+						</md-list>
+					</md-tab-body>
+				</md-tab>
+			</md-tabs>
+		</div>
+		<div ng-show="selectedTab === 0" class="fab-action-box">
+			<md-button type="button" aria-label="actions for position" class="md-fab md-primary" ng-disabled="lock_save_device" ng-click="saveDevice()">
+				<i class="fa fa-floppy-o" aria-hidden="true"></i>
+			</md-button>
+		</div>
+		<div ng-show="selectedTab === 1 || selectedTab === 2" class="fab-action-box">
+			<md-button type="button" aria-label="actions for position" class="md-fab md-accent" ng-disabled="lock_inventory" ng-click="getInventoryFromDevice()">
+				<i class="fa fa-refresh" aria-hidden="true"></i>
+			</md-button>
+		</div>
+		<div ng-show="selectedTab === 3" class="fab-action-box" ng-init="geolocationInfoDisplayed = 'timeAgo'">
+			<md-fab-speed-dial md-direction="down" ng-click="$event.stopPropagation()" class="md-scale">
+				<md-fab-trigger>
+					<md-button type="button" aria-label="actions for position" class="md-fab md-accent">
+						<i class="fa fa-bars"></i>
+					</md-button>
+				</md-fab-trigger>
+				<md-fab-actions>
+					<md-button type="button" aria-label="Request current geolocation" class="md-fab" ng-disabled="lock_geolocation" ng-click="requestCurrentGeolocation()">
+						<i class="fa fa-map-marker"></i>
+						<md-tooltip>Request Current Geolocation</md-tooltip>
+					</md-button>
+					<md-button type="button" aria-label="show latitude/longitude" class="md-fab" ng-click="geolocationInfoDisplayed = 'lat-lng'"
+						ng-hide="geolocationInfoDisplayed == 'lat-lng'">
+						<i class="fa fa-location-arrow"></i>
+						<md-tooltip>Show (Lat,Lng) of positions</md-tooltip>
+					</md-button>
+					<md-button type="button" aria-label="show latitude/longitude" class="md-fab" ng-click="geolocationInfoDisplayed = 'date'"
+						ng-hide="geolocationInfoDisplayed == 'date'">
+						<i class="fa fa-clock-o"></i>
+						<md-tooltip>Show exact Date/Time of positions</md-tooltip>
+					</md-button>
+					<md-button type="button" aria-label="show time elapsed since" class="md-fab" ng-click="geolocationInfoDisplayed = 'timeAgo'"
+						ng-hide="geolocationInfoDisplayed == 'timeAgo'">
+						<i class="fa fa-clock-o"></i>
+						<md-tooltip>Show time elapsed since</md-tooltip>
+					</md-button>
+				</md-fab-actions>
+			</md-fab-speed-dial>
+		</div>
+	</div>
+</div>

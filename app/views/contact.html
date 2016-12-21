@@ -1,0 +1,58 @@
+<div class="view contact-panel" ng-cloak="true">
+  <h2 class="collection-infos">
+    <span class="about-title">Contact us</span>
+  </h2>
+  <div class="table-container about-page">
+    <div class="table-wrapper">
+      <div class="fixed-header-background">
+        <p class="collection-infos"><span class="about-title">About</span></p>
+      </div>
+      <md-content flex="true" layout-padding="true" class="contact-info">
+        <h3>Feel free to contact us at any time, selecting your preferred channel. A Teclib' expert will answer your request
+          and provide you with all the information and advice you need about: our Products, Partnership Programs, Training
+          Courses and Support solutions.</h3>
+        <h2>"The connexion between open source Communities, Partners, Customers, and R&D Organizations, is made simple and streamlined
+          with Teclib'"</h2>
+      </md-content>
+    </div>
+  </div>
+  <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="4" md-row-height-gt-md="1:1" md-row-height="2:2"
+    md-gutter="12px" md-gutter-gt-sm="8px">
+    <md-grid-tile class="white link" ng-click="links('map')">
+      <div layout="column">
+        <i class="fa fa-map-marker fa-4x"></i>
+        <h2 class="contact-infos">Barcelona, Spain</h2>
+      </div>
+      <md-grid-tile-footer>
+        <h3>Teclib' Address</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile class="white link" ng-click="links('tel')">
+      <div layout="column">
+        <i class="fa fa-phone fa-4x"></i>
+        <h2 class="contact-infos">+34 512 702 140</h2>
+      </div>
+      <md-grid-tile-footer>
+        <h3>Phone</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile class="white link" ng-click="links('email')">
+      <div layout="column">
+        <i class="fa fa-envelope fa-4x"></i>
+        <h2 class="contact-infos">contact@teclib.com</h2>
+      </div>
+      <md-grid-tile-footer>
+        <h3>Email</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile class="white link" ng-click="links('ticket')">
+      <div layout="column">
+        <i class="fa fa-ticket fa-4x"></i>
+        <h2 class="contact-infos">Send a ticket</h2>
+      </div>
+      <md-grid-tile-footer>
+        <h3>Support Ticket</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
+</div>

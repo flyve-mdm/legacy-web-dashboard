@@ -1,0 +1,44 @@
+<div class="when-nav-big">
+  <div class="menu-bar" ng-click="toggleOpened($event)" ng-class="opened ? 'opened' : ''">
+    <div class="avatar">
+      <img src="images/stupid-user-avatar.png" alt="User Image">
+    </div>
+    <div class="message">
+      <p>Bonjour User</p>
+    </div>
+    <div class="caret">
+      <i class="fa" ng-class="opened ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+    </div>
+  </div>
+  <div class="submenu" ng-show="opened">
+    <ul>
+      <li><a href="#" ui-sref="account_page" ui-sref-active="active"><i class="fa fa-user"></i> My Account</a></li>
+      <li><a ng-click="disconnect()"><i class="fa fa-sign-out"></i> Disconnect</a></li>
+    </ul>
+  </div>
+</div>
+<div class="when-nav-small">
+  <md-fab-speed-dial md-direction="down" class="md-fling" md-open="fabModOpened">
+    <md-fab-trigger>
+      <a ui-sref="account_page">
+        <md-button aria-label="Administration menu" class="md-fab" md-ink-ripple="#00a5db">
+          <div class="avatar">
+            <img src="images/stupid-user-avatar.png" alt="User Image">
+          </div>
+        </md-button>
+      </a>
+    </md-fab-trigger>
+    <md-fab-actions>
+      <a ui-sref="account_page">
+        <md-button aria-label="My account" class="md-fab" md-ink-ripple="#00a5db" ng-click="forceClose()">
+          <i class="fa fa-user"></i>
+          <md-tooltip>My account</md-tooltip>
+        </md-button>
+      </a>
+      <md-button aria-label="Disconnect" class="md-fab" md-ink-ripple="#00a5db" ng-click="disconnect()">
+        <i class="fa fa-sign-out"></i>
+        <md-tooltip>Disconnect</md-tooltip>
+      </md-button>
+    </md-fab-actions>
+  </md-fab-speed-dial>
+</div>

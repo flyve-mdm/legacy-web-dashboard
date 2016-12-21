@@ -1,0 +1,202 @@
+.collection-infos
+  font-size: 36px
+  color: $palette-title
+  font-style: italic
+  font-weight: 600
+  line-height: 100px
+  span
+    color: $palette-title-span
+    font-weight: 400
+  .invitationlog-name
+    color: $palette-table-insert-into-link
+  .invitationlog-title
+    color: $palette-title-span
+    font-weight: 600
+  .device-name
+    color: $palette-table-insert-into-link
+  .device-title
+    color: $palette-title-span
+    font-weight: 600
+.table-container
+  background-color: #fff
+  margin-bottom: 30px
+.table-wrapper
+  padding: 0 20px
+  position: relative
+  .fixed-header-background
+    display: none
+    z-index: 2
+    .collection-infos
+      position: absolute
+      top: 0
+      right: 85px
+      font-size: 30px
+      line-height: 62px
+  .table-container.fixed-header &
+    .fixed-header-background
+      display: block
+      position: fixed
+      top: 0
+      left: 0
+      width: 100%
+      height: 64px
+      background-color: #fff
+      border-bottom: 1px solid #eee
+      &:before
+        content: ''
+        display: block
+        background-color: $palette-bg2
+        height: 100%
+        position: absolute
+        top: 0
+        left: 0
+        width: 240px + 50px
+        @include nav-when-small
+          width: 50px + 50px
+      &:after
+        content: ''
+        display: block
+        background-color: $palette-bg2
+        height: 100%
+        width: 50px
+        position: absolute
+        top: 0
+        right: 0
+.insert-into-table-link
+  background-color: $palette-table-insert-into-link
+  display: block
+  color: #fff
+  width: 54px
+  height: 54px
+  line-height: 54px
+  text-align: center
+  border-radius: 50px
+  font-size: 30px
+  cursor: pointer
+  position: fixed
+  right: 23px
+  top: 72px
+  body.has-fixed-header &
+    position: fixed
+    bottom: 20px
+    right: 23px
+    top: initial
+  body.md-dialog-is-showing &
+    display: none
+  &:hover
+    background-color: lighten($palette-table-insert-into-link, 4%)
+.fab-action-box
+  display: block
+  position: fixed
+  right: 23px
+  top: 72px
+  body.md-dialog-is-showing &
+    display: none
+/**
+  body.has-fixed-header &
+    position: fixed
+    bottom: 20px
+    right: 23px
+    top: initial
+    */
+/**
+ * This is the st-table module
+ * revamped by the Teclib' Team
+ */
+table[st-table]
+  width: 100%
+  thead
+    tr
+      height: 64px
+    tr th
+      font-weight: 600
+      font-style: italic
+      font-size: 21px
+      color: $palette-table-header-line
+      text-indent: 38px
+      white-space: nowrap
+      span
+        display: none
+        position: fixed
+        top: 20px
+        text-indent: 38px
+        z-index: 3
+        .table-container.fixed-header &
+          display: block
+      .table-container.fixed-header &
+        &.id-column
+          span
+            text-indent: 12px
+  tbody
+    tr
+      height: 50px
+    tr td
+      color: $palette-table-body-line
+      border-width: 1px 0 1px 0
+      border-color: $palette-table-border
+      border-style: solid
+      position: relative
+      &:before
+        content: ''
+        width: 10px
+        height: 2px
+        background-color: #fff
+        position: absolute
+        top: -1px
+        display: none
+        display: block
+        left: 0
+      &:after
+        content: ''
+        width: 10px
+        height: 2px
+        background-color: #fff
+        position: absolute
+        top: -1px
+        display: none
+        display: block
+        right: 0
+      &.action-column
+        width: 48px
+        button.md-icon-button
+          display: block
+          margin: 0 auto
+          &.edit-action
+            color: #4d4d4d
+          &.delete-action
+            color: #d94a3a
+  th, td
+    &.id-column
+      text-indent: 0
+      text-align: center
+  td.os-column
+    text-align: center
+    img
+      height: 21px
+      width: 21px
+  td.icon-column
+    text-align: center
+    img
+      height: 48px
+      width: 48px
+  td:not(.id-column):not(.action-column)
+    padding-left: 12px
+@media (min-width: 1110px)
+  table[st-table]
+    td:not(.id-column):not(.action-column)
+      padding-left: 20px
+/**
+ * Things related to the 'now loading'
+ * spinner.
+ */
+.table-loading
+  line-height: 26px
+  position: absolute
+  bottom: 15px
+  left: 0
+  background-color: #fff
+  padding-left: 40px
+  width: 100%
+  color: $palette-table-loading-bg
+  i
+    margin-right: 20px

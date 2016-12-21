@@ -1,0 +1,79 @@
+<logged-user-menu></logged-user-menu>
+<a ui-sref="dashboard">
+  <img src="images/logo-flyve.png" alt="Logo FlyveMDM" class="logo">
+</a>
+<ul class="menu">
+  <li class="menu-entry">
+    <a href="#" ui-sref="dashboard" ui-sref-active="active" has-ripple="true"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a>
+  </li>
+  <li class="menu-entry">
+    <a href="#" ui-sref="devices" ui-sref-active="active" has-ripple="true"><i class="fa fa-mobile"></i> <span>Devices</span></a>
+  </li>
+  <li class="menu-entry">
+    <div class="when-nav-big">
+      <a has-ripple="true" class="submenu-toggle invisible-when-nav-small"><i class="fa fa-wrench"></i> <span>Administration</span></a>
+      <navbar-submenu class="invisible-when-nav-small">
+        <ul>
+          <li>
+            <a ui-sref="admin_fleets" ui-sref-active="active">
+              <i class="fa fa-ship"></i> <span>Fleets</span>
+            </a>
+          </li>
+          <li>
+            <a ui-sref="admin_files" ui-sref-active="active">
+              <i class="fa fa-file"></i> <span>Files</span>
+            </a>
+          </li>
+          <li>
+            <a ui-sref="admin_applications" ui-sref-active="active">
+              <i class="fa fa-rocket"></i> <span>Applications</span>
+            </a>
+          </li>
+          <li>
+            <a ui-sref="admin_users" ui-sref-active="active">
+              <i class="fa fa-user"></i> <span>Users</span>
+            </a>
+          </li>
+        </ul>
+      </navbar-submenu>
+    </div>
+    <div class="when-nav-small">
+      <md-fab-speed-dial md-direction="down" class="md-fling">
+        <md-fab-trigger>
+          <md-button aria-label="Administration menu" class="md-fab" md-ink-ripple="#00a5db">
+            <i class="fa fa-wrench"></i>
+          </md-button>
+        </md-fab-trigger>
+        <md-fab-actions>
+          <md-button aria-label="Fleets" class="md-fab" md-ink-ripple="#00a5db" ui-sref="admin_fleets">
+            <i class="fa fa-ship"></i>
+            <md-tooltip>Fleets</md-tooltip>
+          </md-button>
+          <md-button aria-label="Files" class="md-fab" md-ink-ripple="#00a5db" ui-sref="admin_files">
+            <i class="fa fa-file"></i>
+            <md-tooltip>Files</md-tooltip>
+          </md-button>
+          <md-button aria-label="Applications" class="md-fab" md-ink-ripple="#00a5db" ui-sref="admin_applications">
+            <i class="fa fa-rocket"></i>
+            <md-tooltip>Applications</md-tooltip>
+          </md-button>
+          <md-button aria-label="Users" class="md-fab" md-ink-ripple="#00a5db" ui-sref="admin_users">
+            <i class="fa fa-user"></i>
+            <md-tooltip>Users</md-tooltip>
+          </md-button>
+        </md-fab-actions>
+      </md-fab-speed-dial>
+    </div>
+  </li>
+</ul>
+<a class="small-toggle-button" ng-click="nav.toggleSmall()" has-ripple="true"></a>
+<div class="navigation-footer">
+  <div class="misc-links">
+    <a href="#" ui-sref="about_page" ui-sref-active="active"><i class="fa fa-info"></i> About</a>
+    <a href="#" ui-sref="contact_teclib" ui-sref-active="active"><i class="fa fa-envelope-o"></i> Contact</a>
+    <a href="#" ui-sref="help_page" ui-sref-active="active"><i class="fa fa-comment"></i> Help</a>
+  </div>
+  <div class="copyright-block">
+    <p>&copy;Teclib 2015 - All rights reserved</p>
+  </div>
+</div>

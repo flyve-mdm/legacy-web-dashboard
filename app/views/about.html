@@ -1,0 +1,99 @@
+<div class="view about-panel" ng-cloak="true">
+  <h2 class="collection-infos">
+    <span class="about-title">About</span>
+  </h2>
+  <div class="table-container about-page">
+    <div class="table-wrapper">
+      <div class="fixed-header-background">
+        <p class="collection-infos"><span class="about-title">About</span></p>
+      </div>
+      <md-tabs md-dynamic-height="true" md-selected="0">
+        <md-tab>
+          <md-tab-label>Overview</md-tab-label>
+          <md-tab-body>
+            <md-content>
+              <p>Flyve MDM is a mobile device management software (SaaS) that enables you to secure and manage all the mobile
+                devices of your business via a unique web-based console (MDM).</p>
+              <br/>
+              <p>Our solution allows you to efficiently and easily control any aspects of your Android-based mobile fleet, providing
+                a panel of functionalities:</p>
+              <br/>
+              <ul>
+                <li>– Provided as a SaaS platform</li>
+                <li>– Google independent</li>
+                <li>– Deploy and configure applications</li>
+                <li>– Deploy files</li>
+                <li>– Wipe a device</li>
+                <li>– Work with devices running Android 4.4 or higher</li>
+                <li>– Simple web application user interface</li>
+              </ul>
+              <br/>
+              <p>Source codes will be released during fall 2016.</p>
+              <br/>
+            </md-content>
+          </md-tab-body>
+        </md-tab>
+        <md-tab>
+          <md-tab-label>System Information</md-tab-label>
+          <md-tab-body>
+            <md-content class="system-information">
+              <md-subheader class="md-no-sticky">System sumary</md-subheader>
+              <md-list-item class="secondary-button-padding">
+                <p>Admin console</p>
+                <p class="md-secondary">{{webAppVersion}}</p>
+              </md-list-item>
+              <md-list-item class="secondary-button-padding">
+                <p>Build</p>
+                <p class="md-secondary">{{build}}</p>
+              </md-list-item>
+              <md-list-item class="secondary-button-padding">
+                <p>GLPi core</p>
+                <p class="md-secondary">{{glpiVersion}}</p>
+              </md-list-item>
+              <md-divider></md-divider>
+              <md-subheader class="md-no-sticky">GLPi Plugins</md-subheader>
+              <md-list-item class="secondary-button-padding" ng-repeat="plugin in pluginList">
+                <p>{{plugin.name}}</p>
+                <p class="md-secondary">{{plugin.version}}</p>
+              </md-list-item>
+              <md-divider></md-divider>
+              <md-subheader class="md-no-sticky">Components</md-subheader>
+              <md-list-item class="secondary-button-padding" ng-repeat="component in components">
+                <p>{{component.name}}</p>
+                <p class="md-secondary">{{component.version}}</p>
+              </md-list-item>
+              <md-divider></md-divider>
+              <md-subheader class="md-no-sticky">Software Environment</md-subheader>
+              <md-list-item class="secondary-button-padding">
+                <p>Debug</p>
+                <p class="md-secondary">{{debug}}</p>
+              </md-list-item>
+              <md-divider></md-divider>
+            </md-content>
+          </md-tab-body>
+        </md-tab>
+        <md-tab>
+          <md-tab-label>Release Notes</md-tab-label>
+          <md-tab-body>
+          </md-tab-body>
+        </md-tab>
+        <md-tab>
+          <md-tab-label>Terms of use</md-tab-label>
+          <md-tab-body>
+            <iframe src="tos.html" class="license" frameborder="0" width="100%">
+              <p>Your browser does not support iframes.</p>
+            </iframe>
+          </md-tab-body>
+        </md-tab>
+        <md-tab>
+          <md-tab-label>License</md-tab-label>
+          <md-tab-body>
+            <iframe src="license.html" class="license" frameborder="0" width="100%">
+              <p>Your browser does not support iframes.</p>
+            </iframe>
+          </md-tab-body>
+        </md-tab>
+      </md-tabs>
+    </div>
+  </div>
+</div>

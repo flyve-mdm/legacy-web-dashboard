@@ -1,0 +1,26 @@
+<section class="login-page">
+  <div class="container">
+    <div class="welcome-paragraph">
+      <img src="images/teclib-logo.png" class="company-logo" alt="Company's logo">
+      <h2>Bienvenue sur l'espace Mobile Device Management de Teclib'</h2>
+    </div>
+    <div class="login-form">
+      <img src="images/logo-flyve-login.png" alt="Flyve Logo" class="logo">
+      <form ng-submit="attemptLogin()">
+        <!--<input id="csrf_token" type="hidden" name="csrf_token" value="{{csrf_token}}" />-->
+        <div class="input-container">
+          <input ng-model="loginCredentials.username" type="text" placeholder="Email" class="rounded size-2" autocomplete="username"
+            name="email" required="true">
+        </div>
+        <div class="input-container">
+          <input ng-model="loginCredentials.password" type="password" placeholder="Password" class="rounded size-2" autocomplete="current-password"
+            name="password" required="true">
+        </div>
+        <div class="buttons">
+          <button type="submit" class="login-button size-2" has-ripple="true">Login</button>
+        </div>
+        <p class="create-account-catchy">Or .... <a href="#" ng-click="openRegistrationDialog($event)">Create an Account</a></p>
+      </form>
+    </div>
+  </div>
+</section>

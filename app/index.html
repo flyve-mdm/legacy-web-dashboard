@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Flyve MDM</title>
+  <meta name="description" content="Mobile device management software (SaaS).">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="apple-touch-icon" sizes="57x57" href="images/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="images/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="images/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="images/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="images/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="images/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+  <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="bower_components/open-sans-fontface/open-sans.css" />
+  <link rel="stylesheet" href="bower_components/angular-material-accordion/dist/angular-material-accordion.css" />
+  <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/app.css">
+  <!-- endbuild -->
+</head>
+
+<body ng-app="FlyveMDM" ng-cloak="true">
+  <viewport ui-view=""></viewport>
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
+  <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
+  <script src="bower_components/angular-material-accordion/dist/angular-material-accordion.js"></script>
+  <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
+  <script src="bower_components/chart.js/dist/Chart.js"></script>
+  <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+  <script src="bower_components/dexie/dist/dexie.min.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/services/auth.js"></script>
+  <script src="scripts/services/glpiobjectnames.js"></script>
+  <script src="scripts/services/navigation.js"></script>
+  <script src="scripts/controllers/navbar.js"></script>
+  <script src="scripts/controllers/dashboard.js"></script>
+  <script src="scripts/controllers/devices.js"></script>
+  <script src="scripts/services/devices.js"></script>
+  <script src="scripts/controllers/device.js"></script>
+  <script src="scripts/controllers/invitations.js"></script>
+  <script src="scripts/services/invitations.js"></script>
+  <script src="scripts/controllers/invitationlogs.js"></script>
+  <script src="scripts/services/invitationlogs.js"></script>
+  <script src="scripts/controllers/fleets.js"></script>
+  <script src="scripts/services/fleets.js"></script>
+  <script src="scripts/controllers/applications.js"></script>
+  <script src="scripts/controllers/about.js"></script>
+  <script src="scripts/controllers/login.js"></script>
+  <script src="scripts/controllers/files.js"></script>
+  <script src="scripts/services/files.js"></script>
+  <script src="scripts/controllers/users.js"></script>
+  <script src="scripts/services/users.js"></script>
+  <script src="scripts/controllers/userpreferences.js"></script>
+  <script src="scripts/services/userpreferences.js"></script>
+  <script src="scripts/services/fullsession.js"></script>
+  <script src="scripts/directives/facarets.js"></script>
+  <script src="scripts/directives/editabletd.js"></script>
+  <script src="scripts/directives/hasripple.js"></script>
+  <script src="scripts/directives/stpaginationscroll.js"></script>
+  <script src="scripts/directives/browse-file-button.js"></script>
+  <script src="scripts/directives/loggedusermenu.js"></script>
+  <script src="scripts/services/inventory.js"></script>
+  <script src="scripts/services/pluginobjectnames.js"></script>
+  <script src="scripts/services/agent.js"></script>
+  <script src="scripts/services/glosaryobjectnames.js"></script>
+  <script src="scripts/services/geolocation.js"></script>
+  <script src="scripts/services/applications.js"></script>
+  <script src="scripts/services/software.js"></script>
+  <script src="scripts/services/policies.js"></script>
+  <script src="scripts/services/dashboard.js"></script>
+  <script src="scripts/services/notifications.js"></script>
+  <script src="scripts/services/computers.js"></script>
+  <script src="scripts/services/engine.js"></script>
+  <script src="scripts/services/about.js"></script>
+  <script src="scripts/services/entityconfig.js"></script>
+  <script src="scripts/controllers/contact.js"></script>
+  <!-- endbuild -->
+  <script src="config.js"></script>
+</body>
+
+</html>

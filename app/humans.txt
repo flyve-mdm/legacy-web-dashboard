@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+/* TEAM */
+                       
+Name: Alexander J. Salas B.          
+Email: asalas@teclib.com
+Twitter: @ajsb85
+GitHub: ajsb85                     
+Location: Barcelona, Spain.
+
+Name: Alexander J. Salas B.          
+Email: nzamith@teclib.com
+GitHub: Newls                            
+Location: Montpellier, France.

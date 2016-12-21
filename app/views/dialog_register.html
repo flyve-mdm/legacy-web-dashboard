@@ -1,0 +1,55 @@
+<md-dialog class="flyve-dialog" flex="66">
+  <div class="dialog-header">
+    <h2>New user</h2>
+    <span flex="true"></span>
+    <md-button class="md-icon-button close-dialog-button" ng-click="cancel()" aria-label="close this dialog">
+      <i class="fa fa-times"></i>
+    </md-button>
+  </div>
+  <div class="dialog-content">
+    <form ng-submit="attemptRegister()" name="form">
+      <md-content layout="column">
+        <div layout="row">
+          <md-input-container>
+            <label>First name</label>
+            <input name="firstname" autocomplete="given-name" type="text" ng-model="input.firstname" maxlength="255">
+          </md-input-container>
+          <md-input-container>
+            <label>Last name</label>
+            <input name="lastname" autocomplete="family-name" type="text" ng-model="input.lastname" maxlength="255">
+          </md-input-container>
+        </div>
+        <md-input-container>
+          <label>Email</label>
+          <input name="username" autocomplete="username" type="email" ng-model="input.username" maxlength="255" required="true">
+        </md-input-container>
+        <div layout="row">
+          <md-input-container>
+            <label>Password</label>
+            <input name="password" autocomplete="new-password" type="password" ng-model="input.password" maxlength="255" auto-validate="true"
+              required="true">
+          </md-input-container>
+          <md-input-container>
+            <label>Password (confirmation)</label>
+            <input registration-password-confirmation-field="true" name="password2" autocomplete="off" type="password" ng-model="input.password2"
+              maxlength="255" required="true">
+          </md-input-container>
+        </div>
+        <div class="form-errors">
+          <ul>
+            <li ng-show="form.$error.email">
+              Enter a valid email
+            </li>
+            <li ng-show="form.$error.passwordAndConfirmationAreTheSame">
+              Confirmation password doesn't match provided password
+            </li>
+          </ul>
+        </div>
+      </md-content>
+      <md-dialog-actions layout="row">
+        <md-button class="md-raised md-warn" ng-click="cancel()" aria-label="Cancel">Cancel</md-button>
+        <md-button class="md-raised md-primary" ng-disabled="form.$invalid || lock_submit" type="submit" aria-label="Save">Save</md-button>
+      </md-dialog-actions>
+    </form>
+  </div>
+</md-dialog>
