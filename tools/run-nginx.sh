@@ -5,4 +5,3 @@
 echo "Starting Nginx"
 
 nginx
-
