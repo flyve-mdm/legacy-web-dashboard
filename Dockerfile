@@ -24,7 +24,7 @@ VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/v
 
 ### COPY DIST STUFF TO var/www/html
 ADD . /sourcebuild
-RUN cd /sourcebuild && ./build-dist.sh && rm -Rf /var/www/html && mv /sourcebuild/dist /var/www/html
+RUN cd /sourcebuild && chmod +x ./build-dist.sh && ./build-dist.sh && rm -Rf /var/www/html && mv /sourcebuild/dist /var/www/html
 
 ADD tools /tools
 RUN chmod +x /tools/*.sh && \
