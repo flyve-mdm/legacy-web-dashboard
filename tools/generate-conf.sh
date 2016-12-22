@@ -19,5 +19,5 @@ rm ${APPDIR}/$CONFFILE
 echo "angular.module('FlyveMDM')" >> $APPDIR/$CONFFILE
 echo ".constant('GLPI_API_URL', '${GLPI_API_URL}')" >> $APPDIR/$CONFFILE
 echo ".constant('USER_TOKEN', '${GLPI_API_TOKEN}')" >> $APPDIR/$CONFFILE
-echo ".constant('DEBUG', false);" >> $APPDIR/$CONFFILE
+echo ".constant('DEBUG', false)" >> $APPDIR/$CONFFILE
 echo ".constant('BUILD_ID', 0);" >> $APPDIR/$CONFFILE
