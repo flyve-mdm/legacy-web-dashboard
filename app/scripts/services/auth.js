@@ -76,6 +76,21 @@ angular.module('FlyveMDM')
       });
       return deferred.promise;
     };
+    AuthProvider.prototype.getTempSessionToken = function () {
+      var tempSessionDeferred = $q.defer();
+      $http({
+        url: GLPI_API_URL + GlpiObjectNames.InitSession,
+        method: 'GET',
+        headers: {
+          'Authorization': 'user_token ' + USER_TOKEN
+        }
+      }).then(function (response) {
+        tempSessionDeferred.resolve(response.data.session_token);
+      }, function () {
+        tempSessionDeferred.reject();
+      });
+      return tempSessionDeferred.promise;
+    };
     /*
      * User registration method, which returns
      * a promise, which will resolve if the
@@ -88,22 +103,7 @@ angular.module('FlyveMDM')
       // This anonymous function helps retrieve a temporary
       // session_token with the api_key in order so it is
       // possible to register an user in the flyvemdm interface.
-      var getTempSessionToken = function () {
-        var tempSessionDeferred = $q.defer();
-        $http({
-          url: GLPI_API_URL + GlpiObjectNames.InitSession,
-          method: 'GET',
-          headers: {
-            'Authorization': 'user_token ' + USER_TOKEN
-          }
-        }).then(function (response) {
-          tempSessionDeferred.resolve(response.data.session_token);
-        }, function () {
-          tempSessionDeferred.reject();
-        });
-        return tempSessionDeferred.promise;
-      };
-      getTempSessionToken().then(function (temp_session_token) {
+      this.getTempSessionToken().then(function (temp_session_token) {
         var request = $http({
           method: 'POST',
           url: GLPI_API_URL + PluginObjectNames.User,

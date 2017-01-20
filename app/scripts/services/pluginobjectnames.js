@@ -21,5 +21,6 @@ angular.module('FlyveMDM')
     Policy: "/PluginStorkmdmPolicy",
     PolicyCategory: "/PluginStorkmdmPolicyCategory",
     User: "/PluginStorkmdmUser",
-    WellknownPath: "/PluginStorkmdmWellknownPath"
+    WellknownPath: "/PluginStorkmdmWellknownPath",
+    AccountValidation: "/PluginStorkmdmAccountvalidation"
   });

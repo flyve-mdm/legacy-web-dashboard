@@ -46,6 +46,11 @@ angular.module('FlyveMDM', [
         templateUrl: 'views/invitationlogs.html',
         controller: 'InvitationLogsCtrl'
       })
+      .state('account_validation', {
+        url: '/account/{id:int}/validation/{hash:[0-9a-f]{64}}',
+        templateUrl: 'views/accountvalidation.html',
+        controller: 'AccountValidationCtrl'
+      })
       .state('device', {
         url: "/admin/devices/{id:int}",
         templateUrl: 'views/device.html',
