@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/flyve-mdm/flyve-mdm-web-ui/compare/v1.1.1...v1.2.0) (2017-01-23)
+
+
+### Bug Fixes
+
+* **notifications:** fix array in error messages ([fee38dc](https://github.com/flyve-mdm/flyve-mdm-web-ui/commit/fee38dc))
+
+
+### Features
+
+* **email:** add validate account page ([2f49dcb](https://github.com/flyve-mdm/flyve-mdm-web-ui/commit/2f49dcb))
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/flyve-mdm/flyve-mdm-web-ui/compare/v1.1.0...v1.1.1) (2016-12-21)
 
