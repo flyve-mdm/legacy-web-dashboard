@@ -1,8 +1,8 @@
 ### Description
 
-### Expected behaviour
+### Expected behavior
 
-### Actual behaviour
+### Actual behavior
 
 ### Environment Details
 

@@ -254,12 +254,18 @@ angular.module('FlyveMDM')
                 break;
               default:
                 var errorMsg = rejection.data[1];
-                var docMsg = errorMsg.toString().indexOf(';');
-                if (docMsg !== -1) {
-                  errorMsg = errorMsg.split(';');
-                  Notifications.error(errorMsg[0]);
+                if (Array.isArray(errorMsg)) {
+                  errorMsg.forEach(function (errorById) {
+                    Notifications.error(errorById.message);
+                  });
                 } else {
-                  Notifications.error(errorMsg);
+                  var docMsg = errorMsg.toString().indexOf(';');
+                  if (docMsg !== -1) {
+                    errorMsg = errorMsg.split(';');
+                    Notifications.error(errorMsg[0]);
+                  } else {
+                    Notifications.error(errorMsg);
+                  }
                 }
             }
           }
