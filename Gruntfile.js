@@ -8,6 +8,8 @@
 module.exports = function wrapper(grunt) {
   var serveStatic = require('serve-static');
   var markdownlint = require("markdownlint");
+  var feature = grunt.option('feature');
+  var featureBranch = 'feature-' + feature;
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
   // Automatically load required Grunt tasks
@@ -458,7 +460,7 @@ module.exports = function wrapper(grunt) {
       feature: {
         options: {
           remote: 'ajsb85',
-          branch: 'feature-' + grunt.option('feature')
+          branch: featureBranch
         }
       }
     },
