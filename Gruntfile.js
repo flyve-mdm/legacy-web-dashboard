@@ -458,7 +458,7 @@ module.exports = function wrapper(grunt) {
       feature: {
         options: {
           remote: 'ajsb85',
-          branch: 'feature-grunt-tasks'
+          branch: 'feature-' + grunt.option('feature')
         }
       }
     },
