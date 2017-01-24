@@ -453,6 +453,24 @@ module.exports = function wrapper(grunt) {
         dotfiles: true
       },
       src: ['**']
+    },
+    gitpush: {
+      feature: {
+        options: {
+          remote: 'ajsb85',
+          branch: 'feature-grunt-tasks'
+        }
+      }
+    },
+    gitmerge: {
+      develop: {
+        options: {
+          branch: 'develop',
+          squash: true,
+          message: 'build(grunt): add plugin for git commands',
+          commit: true
+        }
+      }
     }
   });
   grunt.loadNpmTasks('grunt-ng-constant');
@@ -461,6 +479,7 @@ module.exports = function wrapper(grunt) {
   grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-gh-pages');
+  grunt.loadNpmTasks('grunt-git');
   grunt.registerMultiTask("markdownlint", function task() {
     var done = this.async();
     markdownlint(
