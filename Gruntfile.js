@@ -8,8 +8,10 @@
 module.exports = function wrapper(grunt) {
   var serveStatic = require('serve-static');
   var markdownlint = require("markdownlint");
+  var remote_user = grunt.option('remote');
+  var commit_message = grunt.option('message');
   var feature = grunt.option('feature');
-  var featureBranch = 'feature-' + feature;
+  var feature_branch = 'feature-' + feature;
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
   // Automatically load required Grunt tasks
@@ -20,6 +22,7 @@ module.exports = function wrapper(grunt) {
   // Configurable paths for the application
   var bower = require('./bower.json');
   var appConfig = {
+
     version: bower.version,
     app: bower.appPath || 'app',
     dist: 'dist'
@@ -456,21 +459,65 @@ module.exports = function wrapper(grunt) {
       },
       src: ['**']
     },
-    gitpush: {
-      feature: {
+
+    /**
+    git checkout develop
+    git merge --squash feature-*
+    git commit -m "feat(scope): add *"
+    git push origin develop
+    git checkout master
+    git merge develop
+    git push origin master
+    standard-version --sign --message 'chore(release): bump to %s and new changelog'
+    git push --follow-tags origin master
+    conventional-github-releaser -p angular
+    grunt build
+    grunt gh-pages
+    git checkout develop
+    git merge master
+    git branch -D feature-*
+     */
+    gitcheckout: {
+      develop: {
         options: {
-          remote: 'ajsb85',
-          branch: featureBranch
+          branch: 'develop'
+        }
+      },
+      master: {
+        options: {
+          branch: 'master'
         }
       }
     },
     gitmerge: {
+      feature: {
+        options: {
+          branch: feature_branch,
+          squash: true,
+          message: commit_message,
+          commit: true
+        }
+      },
       develop: {
         options: {
-          branch: 'develop',
-          squash: true,
-          message: 'build(grunt): add plugin for git commands',
-          commit: true
+          branch: 'develop'
+        }
+      }
+    },
+    gitpush: {
+      feature: {
+        options: {
+          branch: feature_branch
+        }
+      },
+      develop: {
+        options: {
+          branch: 'develop'
+        }
+      },
+      master: {
+        options: {
+          branch: 'master'
         }
       }
     }
@@ -511,6 +558,14 @@ module.exports = function wrapper(grunt) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve:' + target]);
   });
+  grunt.registerTask('feature', [
+    'gitcheckout:develop',
+    'gitmerge:feature',
+    'gitpush:develop',
+    'gitcheckout:master',
+    'gitmerge:develop',
+    'gitpush:master'
+  ]);
   grunt.registerTask('test', [
     'clean:server',
     'wiredep',
