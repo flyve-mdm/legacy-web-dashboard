@@ -8,7 +8,7 @@
 module.exports = function wrapper(grunt) {
   var serveStatic = require('serve-static');
   var markdownlint = require("markdownlint");
-  var remote_user = grunt.option('remote');
+  //var remote_user = grunt.option('remote');
   var commit_message = grunt.option('message');
   var feature = grunt.option('feature');
   var feature_branch = 'feature-' + feature;
