@@ -21,6 +21,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-filerev": "^2.3.1",
     "grunt-gh-pages": "^2.0.0",
+    "grunt-git": "^1.0.3",
     "grunt-htmlhint-plus": "^0.4.2",
     "grunt-karma": "^2.0.0",
     "grunt-newer": "^1.2.0",
