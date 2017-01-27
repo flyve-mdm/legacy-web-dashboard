@@ -8,14 +8,13 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* **api:** rename stork ([b445ae9](https://github.com/flyve-mdm/flyve-mdm-web-ui/commit/b445ae9))
+* **api:** rename stork ([#26](https://github.com/flyve-mdm/flyve-mdm-web-ui/issues/26)) ([b445ae9](https://github.com/flyve-mdm/flyve-mdm-web-ui/commit/b445ae9))
 * **images:** add new iconography ([#22](https://github.com/flyve-mdm/flyve-mdm-web-ui/issues/22)) ([9d1d445](https://github.com/flyve-mdm/flyve-mdm-web-ui/commit/9d1d445))
 
 
 ### BREAKING CHANGES
 
 * api: change endpoints and keys of the body payload
-Closes https://github.com/flyve-mdm/flyve-mdm-web-ui/issues/26
 
 
 
