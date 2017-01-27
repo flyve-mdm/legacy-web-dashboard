@@ -33,7 +33,7 @@ angular.module('FlyveMDM')
         var computerArrayIds = response.getComputers.data.map(function (x) { return x.id; });
         var selectedFleetsArrayIds = $scope.selectedFleets.map(function (x) { return x.id; });
         response.getAgents.data.forEach(function (aDevice) {
-          var fleetPos = fleetArrayIds.indexOf(aDevice.plugin_storkmdm_fleets_id);
+          var fleetPos = fleetArrayIds.indexOf(aDevice.plugin_flyvemdm_fleets_id);
           if (fleetPos !== -1) {
             aDevice.fleet = response.getFleets.data[fleetPos];
           }
@@ -54,7 +54,7 @@ angular.module('FlyveMDM')
           } else {
             aDevice._contacted = "Never been contacted";
           }
-          var selectedFleetPos = selectedFleetsArrayIds.indexOf(aDevice.plugin_storkmdm_fleets_id);
+          var selectedFleetPos = selectedFleetsArrayIds.indexOf(aDevice.plugin_flyvemdm_fleets_id);
           if (selectedFleetsArrayIds.length === 0 || selectedFleetPos !== -1) {
             $scope.displayedDevices.push(aDevice);
           }

@@ -14,7 +14,7 @@ angular.module('FlyveMDM')
     $scope.lock_refresh = false;
     //console.log(GLPi.getOptions('defaults').global.appToken);
     //console.log();
-    //GLPi.listSearchOptions('PluginStorkmdmAgent');
+    //GLPi.listSearchOptions('PluginFlyvemdmAgent');
 
     //console.log(GLPi.getOptions('defaults').global.user_token);
     $scope.links = function (aLink) {

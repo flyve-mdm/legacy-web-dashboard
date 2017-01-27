@@ -72,8 +72,8 @@ angular.module('FlyveMDM')
         var promises = policies.map(function (aPolicy) {
           var deffered = $q.defer();
           var createPolicy = {
-            "plugin_storkmdm_fleets_id": fleetId,
-            "plugin_storkmdm_policies_id": aPolicy.id,
+            "plugin_flyvemdm_fleets_id": fleetId,
+            "plugin_flyvemdm_policies_id": aPolicy.id,
             "value": aPolicy.value
           };
           $http({
@@ -96,7 +96,7 @@ angular.module('FlyveMDM')
           var deffered = $q.defer();
           $http({
             method: 'DELETE',
-            url: GLPI_API_URL + PluginObjectNames.FleetPolicy + '/' + aPolicy.plugin_storkmdm_fleet_policy_id
+            url: GLPI_API_URL + PluginObjectNames.FleetPolicy + '/' + aPolicy.plugin_flyvemdm_fleet_policy_id
           }).then(function () {
             deffered.resolve();
           }, function () {
@@ -110,7 +110,7 @@ angular.module('FlyveMDM')
         var promises = policies.map(function (aPolicy) {
           var deffered = $q.defer();
           var updatePolicy = {
-            "id": aPolicy.plugin_storkmdm_fleet_policy_id,
+            "id": aPolicy.plugin_flyvemdm_fleet_policy_id,
             "value": aPolicy.value
           };
           $http({

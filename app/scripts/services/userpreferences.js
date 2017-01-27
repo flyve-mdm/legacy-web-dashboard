@@ -89,7 +89,7 @@ angular.module('FlyveMDM')
           url: GLPI_API_URL + GlpiObjectNames.Config,
           params: {
             'searchText[name]': 'version',
-            'searchText[context]': 'storkmdm'
+            'searchText[context]': 'flyvemdm'
           }
         }).then(function (response) {
           var config = response.data;

@@ -26,7 +26,7 @@ angular.module('FlyveMDM')
             computers_id: aDevice.computers_id,
             wipe: aDevice.wipe,
             lock: aDevice.lock,
-            fleet_id: aDevice.plugin_storkmdm_fleets_id,
+            fleet_id: aDevice.plugin_flyvemdm_fleets_id,
             last_report: aDevice.last_report,
             last_contact: aDevice.last_contact,
             certificate: aDevice.certificate
@@ -132,7 +132,7 @@ angular.module('FlyveMDM')
           input.name = aName;
         }
         if (aFleetId) {
-          input.plugin_storkmdm_fleets_id = aFleetId;
+          input.plugin_flyvemdm_fleets_id = aFleetId;
         }
         var promise = $http({
           method: 'PUT',

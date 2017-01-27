@@ -38,14 +38,14 @@ angular.module('FlyveMDM')
       rPolicy.name = aPolicy.name;
       rPolicy.type = aPolicy.type;
       rPolicy.type_data = aPolicy.type_data;
-      rPolicy.categories_id = aPolicy.plugin_storkmdm_policycategories_id;
+      rPolicy.categories_id = aPolicy.plugin_flyvemdm_policycategories_id;
       rPolicy.description = aPolicy.comment;
       rPolicy.recommended_value = aPolicy.recommended_value;
       return rPolicy;
     }
     function categoryDecorator(aPolicy) {
       var rCategory = {};
-      rCategory.id = aPolicy.plugin_storkmdm_policycategories_id;
+      rCategory.id = aPolicy.plugin_flyvemdm_policycategories_id;
       rCategory.name = aPolicy.name;
       return rCategory;
     }

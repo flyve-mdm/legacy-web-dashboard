@@ -23,7 +23,7 @@ angular.module('FlyveMDM')
           version: null
         });
         UserPreferencesFac.getPluginVersion().then(function (version) {
-          var pluginPosition = $scope.pluginList.map(function (plugin) { return plugin.name; }).indexOf('storkmdm');
+          var pluginPosition = $scope.pluginList.map(function (plugin) { return plugin.name; }).indexOf('flyvemdm');
           if (pluginPosition !== -1) {
             $scope.pluginList[pluginPosition].version = version;
           }

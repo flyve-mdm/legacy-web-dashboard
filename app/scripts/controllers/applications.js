@@ -177,7 +177,7 @@ angular.module('FlyveMDM')
             .cancel('No')
         ).then(function () {
           for (var aPolicy in $scope.fleetPolicies) {
-            if (aPolicy.plugin_storkmdm_policies_id === $scope.policyToDeployAppId && aPolicy.items_id === anApplication.id) {
+            if (aPolicy.plugin_flyvemdm_policies_id === $scope.policyToDeployAppId && aPolicy.items_id === anApplication.id) {
               var input = {
                 remove_on_delete: 1
               };

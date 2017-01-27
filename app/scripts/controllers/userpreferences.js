@@ -209,7 +209,6 @@ angular.module('FlyveMDM')
         $scope.user.date_mod = aUser.date_mod;
         $scope.user.date_creation = aUser.date_creation;
         $scope.user.registration_number = aUser.registration_number;
-        $scope.user.picture = "https://stork-mdm.com/glpi/front/document.send.php?file=_pictures/" + aUser.picture;
         $scope.language.code = aUser.language;
         var languagePosition = $scope.languages.map(function (language) { return language.code; }).indexOf($scope.language.code);
         if (languagePosition !== -1) {

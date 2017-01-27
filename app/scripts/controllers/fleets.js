@@ -38,7 +38,7 @@ angular.module('FlyveMDM')
         policies.some(function (_policy) {
           var policiesToHide = ["deployApp", "removeApp", "deployFile", "removeFile"].indexOf(_policy.symbol);
           if (policiesToHide === -1) {
-            $scope.policiesByCategory[_policy.plugin_storkmdm_policycategories_id].push(_policy);
+            $scope.policiesByCategory[_policy.plugin_flyvemdm_policycategories_id].push(_policy);
             _policy.value = _policy.id;
             $scope.policies.push(_policy);
           }
@@ -78,14 +78,14 @@ angular.module('FlyveMDM')
         var policyToRemoveFileFound = policies[policyToRemoveFilePos];
         $scope.policyToRemoveFileId = policyToRemoveFileFound.id;
         for (var aPolicy in fleetsPolicies) {
-          switch (fleetsPolicies[aPolicy].plugin_storkmdm_policies_id) {
+          switch (fleetsPolicies[aPolicy].plugin_flyvemdm_policies_id) {
             case $scope.policyToDeployAppId:
               var appPos = applications.map(function (x) { return x.id; })
                 .indexOf(fleetsPolicies[aPolicy].items_id);
               var appFound = applications[appPos];
               if (appFound) {
-                appFound.plugin_storkmdm_fleet_policy_id = fleetsPolicies[aPolicy].id;
-                $scope.fleetApps[fleetsPolicies[aPolicy].plugin_storkmdm_fleets_id].push(appFound);
+                appFound.plugin_flyvemdm_fleet_policy_id = fleetsPolicies[aPolicy].id;
+                $scope.fleetApps[fleetsPolicies[aPolicy].plugin_flyvemdm_fleets_id].push(appFound);
               }
               break;
             case $scope.policyToDeployFileId:
@@ -93,16 +93,16 @@ angular.module('FlyveMDM')
                 .indexOf(fleetsPolicies[aPolicy].items_id);
               var fileFound = files[filePos];
               if (fileFound) {
-                fileFound.plugin_storkmdm_fleet_policy_id = fleetsPolicies[aPolicy].id;
-                $scope.fleetFiles[fleetsPolicies[aPolicy].plugin_storkmdm_fleets_id].push(fileFound);
+                fileFound.plugin_flyvemdm_fleet_policy_id = fleetsPolicies[aPolicy].id;
+                $scope.fleetFiles[fleetsPolicies[aPolicy].plugin_flyvemdm_fleets_id].push(fileFound);
               }
               break;
             default:
               var policyPos = policies.map(function (x) { return x.id; })
-                .indexOf(fleetsPolicies[aPolicy].plugin_storkmdm_policies_id);
+                .indexOf(fleetsPolicies[aPolicy].plugin_flyvemdm_policies_id);
               var policyFound = policies[policyPos];
               if (policyFound) {
-                policyFound.plugin_storkmdm_fleet_policy_id = fleetsPolicies[aPolicy].id;
+                policyFound.plugin_flyvemdm_fleet_policy_id = fleetsPolicies[aPolicy].id;
                 policyFound.value = fleetsPolicies[aPolicy].value;
                 switch (policyFound.type) {
                   case "dropdown":
@@ -121,8 +121,8 @@ angular.module('FlyveMDM')
                 }
 
               }
-              if ($scope.fleetPolicies[fleetsPolicies[aPolicy].plugin_storkmdm_fleets_id]) {
-                $scope.fleetPolicies[fleetsPolicies[aPolicy].plugin_storkmdm_fleets_id].push(policyFound);
+              if ($scope.fleetPolicies[fleetsPolicies[aPolicy].plugin_flyvemdm_fleets_id]) {
+                $scope.fleetPolicies[fleetsPolicies[aPolicy].plugin_flyvemdm_fleets_id].push(policyFound);
               }
           }
         }
@@ -424,7 +424,7 @@ angular.module('FlyveMDM')
             var policyPos = $scope.data.policies.virtual.map(function (x) { return x.id; })
               .indexOf(aPolicy.id);
             var policyFound = $scope.data.policies.virtual[policyPos];
-            policyFound.plugin_storkmdm_fleet_policy_id = results.fleetPoliciesIds[index].id;
+            policyFound.plugin_flyvemdm_fleet_policy_id = results.fleetPoliciesIds[index].id;
           });
           angular.copy($scope.data.policies.virtual, $scope.data.policies.current);
           if (!angular.equals($scope.data.policies.current, fleetsControllerScope.fleetPolicies[$scope.fleet.id])) {
@@ -435,16 +435,16 @@ angular.module('FlyveMDM')
       var syncRemoteApplications = function () {
         $scope.data.applications.deploy.forEach(function (anApp) {
           var deployApp = {
-            "plugin_storkmdm_fleets_id": $scope.fleet.id,
-            "plugin_storkmdm_policies_id": fleetsControllerScope.policyToDeployAppId,
+            "plugin_flyvemdm_fleets_id": $scope.fleet.id,
+            "plugin_flyvemdm_policies_id": fleetsControllerScope.policyToDeployAppId,
             "value": {
               "remove_on_delete": 1
             },
-            "itemtype": "PluginStorkmdmPackage",
+            "itemtype": "PluginFlyvemdmPackage",
             "items_id": anApp.id
           };
           FleetsAdminFac.createPolicy(deployApp).then(function (aPolicyId) {
-            anApp.plugin_storkmdm_fleet_policy_id = aPolicyId;
+            anApp.plugin_flyvemdm_fleet_policy_id = aPolicyId;
             $scope.data.applications.current.push(anApp);
             if (!angular.equals($scope.data.applications.current, fleetsControllerScope.fleetApps[$scope.fleet.id])) {
               angular.copy($scope.data.applications.current, fleetsControllerScope.fleetApps[$scope.fleet.id]);
@@ -452,7 +452,7 @@ angular.module('FlyveMDM')
           });
         });
         $scope.data.applications.remove.forEach(function (anApp) {
-          FleetsAdminFac.deletePolicy(anApp.plugin_storkmdm_fleet_policy_id).then(function () {
+          FleetsAdminFac.deletePolicy(anApp.plugin_flyvemdm_fleet_policy_id).then(function () {
             if (!angular.equals($scope.data.applications.current, fleetsControllerScope.fleetApps[$scope.fleet.id])) {
               angular.copy($scope.data.applications.current, fleetsControllerScope.fleetApps[$scope.fleet.id]);
             }
@@ -462,17 +462,17 @@ angular.module('FlyveMDM')
       var syncRemoteFiles = function () {
         $scope.data.files.deploy.forEach(function (aFile) {
           var deployFile = {
-            "plugin_storkmdm_fleets_id": $scope.fleet.id,
-            "plugin_storkmdm_policies_id": fleetsControllerScope.policyToDeployFileId,
+            "plugin_flyvemdm_fleets_id": $scope.fleet.id,
+            "plugin_flyvemdm_policies_id": fleetsControllerScope.policyToDeployFileId,
             "value": {
               "destination": aFile.destination,
               "remove_on_delete": 1
             },
-            "itemtype": "PluginStorkmdmFile",
+            "itemtype": "PluginFlyvemdmFile",
             "items_id": aFile.id
           };
           FleetsAdminFac.createPolicy(deployFile).then(function (aPolicyId) {
-            aFile.plugin_storkmdm_fleet_policy_id = aPolicyId;
+            aFile.plugin_flyvemdm_fleet_policy_id = aPolicyId;
             $scope.data.files.current.push(aFile);
             if (!angular.equals($scope.data.files.current, fleetsControllerScope.fleetFiles[$scope.fleet.id])) {
               angular.copy($scope.data.files.current, fleetsControllerScope.fleetFiles[$scope.fleet.id]);
@@ -524,7 +524,7 @@ angular.module('FlyveMDM')
               });
               $scope.fleet.id = aFleetId;
               for (var aPolicy in $scope.data.policies.virtual) {
-                $scope.data.policies.virtual[aPolicy].plugin_storkmdm_fleets_id = $scope.fleet.id;
+                $scope.data.policies.virtual[aPolicy].plugin_flyvemdm_fleets_id = $scope.fleet.id;
               }
               fleetsControllerScope.fleetPolicies[$scope.fleet.id] = [];
               fleetsControllerScope.fleetApps[$scope.fleet.id] = [];

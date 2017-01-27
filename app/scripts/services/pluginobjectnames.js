@@ -9,18 +9,18 @@
  */
 angular.module('FlyveMDM')
   .constant('PluginObjectNames', {
-    Agent: "/PluginStorkmdmAgent",
-    Entityconfig: "/PluginStorkmdmEntityconfig",
-    File: "/PluginStorkmdmFile",
-    Fleet: "/PluginStorkmdmFleet",
-    FleetPolicy: "/PluginStorkmdmFleet_Policy",
-    Geolocation: "/PluginStorkmdmGeolocation",
-    Invitation: "/PluginStorkmdmInvitation",
-    InvitationLog: "/PluginStorkmdmInvitationLog",
-    Application: "/PluginStorkmdmPackage",
-    Policy: "/PluginStorkmdmPolicy",
-    PolicyCategory: "/PluginStorkmdmPolicyCategory",
-    User: "/PluginStorkmdmUser",
-    WellknownPath: "/PluginStorkmdmWellknownPath",
-    AccountValidation: "/PluginStorkmdmAccountvalidation"
+    Agent: "/PluginFlyvemdmAgent",
+    Entityconfig: "/PluginFlyvemdmEntityconfig",
+    File: "/PluginFlyvemdmFile",
+    Fleet: "/PluginFlyvemdmFleet",
+    FleetPolicy: "/PluginFlyvemdmFleet_Policy",
+    Geolocation: "/PluginFlyvemdmGeolocation",
+    Invitation: "/PluginFlyvemdmInvitation",
+    InvitationLog: "/PluginFlyvemdmInvitationLog",
+    Application: "/PluginFlyvemdmPackage",
+    Policy: "/PluginFlyvemdmPolicy",
+    PolicyCategory: "/PluginFlyvemdmPolicyCategory",
+    User: "/PluginFlyvemdmUser",
+    WellknownPath: "/PluginFlyvemdmWellknownPath",
+    AccountValidation: "/PluginFlyvemdmAccountvalidation"
   });

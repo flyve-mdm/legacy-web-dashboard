@@ -15,11 +15,10 @@ angular.module('FlyveMDM', [
   'smart-table',
   'ngFileUpload',
   'ngMaterial',
-  'ngGLPi',
   'ngMaterialAccordion',
   'chart.js'])
   // The routes for this application
-  .config(function ($urlRouterProvider, $stateProvider, $mdThemingProvider, $httpProvider, $logProvider, $qProvider, ChartJsProvider, GlpiProvider, DEBUG) {
+  .config(function ($urlRouterProvider, $stateProvider, $mdThemingProvider, $httpProvider, $logProvider, $qProvider, ChartJsProvider, DEBUG) {
     $urlRouterProvider.otherwise('/');
     $qProvider.errorOnUnhandledRejections(false);
     $stateProvider
@@ -209,13 +208,6 @@ angular.module('FlyveMDM', [
             stepSize: 0.5
           }
         }]
-      }
-    });
-    // Configure Engine
-    GlpiProvider.setOptions({
-      global: {
-        url: 'https://stork-mdm.com/glpi/apirest.php',
-        user_token: 'J2Rf9zbnWzxTZ0wiHBI8'
       }
     });
   }).run(function ($rootScope) {
