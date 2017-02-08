@@ -20,7 +20,7 @@ angular.module('FlyveMDM')
     Application: "/PluginFlyvemdmPackage",
     Policy: "/PluginFlyvemdmPolicy",
     PolicyCategory: "/PluginFlyvemdmPolicyCategory",
-    User: "/PluginFlyvemdmUser",
+    User: "/PluginFlyvemdmdemoUser",
     WellknownPath: "/PluginFlyvemdmWellknownPath",
-    AccountValidation: "/PluginFlyvemdmAccountvalidation"
+    AccountValidation: "/PluginFlyvemdmdemoAccountvalidation"
   });
