@@ -71,7 +71,6 @@
               if (lastChar === '/') {
                 options.global.url = options.global.url.slice(0, -1);
               }
-              options.global.url = options.global.url;
             } else {
               throw new Error(errorMsg.invalid_url);
             }
@@ -87,7 +86,7 @@
   }
   angular.module('ngGLPi', [])
     .provider('$glpi', GLPiProvider)
-    .service('GLPi', ['$q', '$http', function ($q, $http) {
+    .service('GLPi', ['$q', '$http', '$log', function ($q, $http, $log) {
       var sessionToken = localStorage.getItem('sessionToken');
       var errorMsg = GLPi.defaults.error_msg;
       var apiUrl = GLPi.defaults.global.url;
@@ -176,6 +175,7 @@
           });
           return responseDefer.promise;
         },
+        /*
         getMyProfiles: function () { },
         getActiveProfile: function () { },
         changeActiveProfile: function () { },
@@ -184,6 +184,7 @@
         changeActiveEntities: function () { },
         getFullSession: function () { },
         getAnItem: function () { },
+        */
         getAllItems: function (itemtype, range) {
           var responseDefer = $q.defer();
           if (range) {
@@ -205,19 +206,19 @@
           });
           return responseDefer.promise;
         },
+        /*
         getSubItems: function () { },
         getMultipleItems: function () { },
+        */
         listSearchOptions: function (item_type, range) {
           var responseDefer = $q.defer();
           var store = {};
           store[item_type.toString()] = "&id,name,table,field,datatype,available_searchtypes,uid";
-          console.log(store);
+          $log.log(store);
           var db = new Dexie("FlyveMDM");
           db.version(1).stores({
             agent: "&id,name,table,field,datatype,available_searchtypes,uid"
           });
-          //console.log(item_type.toString());
-
           // Populate from AJAX:
           db.on('ready', function () {
             // on('ready') event will fire when database is open but
@@ -229,9 +230,9 @@
             // database has already been populated.
             return db.agent.count(function (count) {
               if (count > 0) {
-                console.log("Already populated");
+                $log.log("Already populated");
               } else {
-                console.log("Database is empty. Populating from ajax call...");
+                $log.log("Database is empty. Populating from ajax call...");
                 // We want framework to continue waiting, so we encapsulate
                 // the ajax call in a Dexie.Promise that we return here.
                 return new Dexie.Promise(function (resolve, reject) {
@@ -254,7 +255,6 @@
                   });
 
                 }).then(function (list_search_options) {
-                  console.log("Got ajax response. We'll now add the objects.");
                   // By returning the db.transaction() promise, framework will keep
                   // waiting for this transaction to commit before resuming other
                   // db-operations.
@@ -267,7 +267,7 @@
                     }
                   });
                 }).then(function () {
-                  console.log("Transaction committed");
+                  $log.log("Transaction committed");
                 });
               }
             });
@@ -306,9 +306,11 @@
           });
           return responseDefer.promise;
         },
+        /*
         addItems: function () { },
         updateItems: function () { },
         deleteItems: function () { }
+        */
       };
     }]);
 })();

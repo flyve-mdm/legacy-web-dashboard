@@ -1,6 +1,6 @@
 'use strict';
 angular.module('mdmApp',
-  ['ngAnimate', 'ngAria', 'ngMessages', 'ngResource', 'ngRoute', 'ngSanitize', 'ngMaterial', 'ngGLPi'],
+  ['ngAnimate', 'ngAria', 'ngMessages', 'ngResource', 'ngRoute', 'ngSanitize', 'ngMaterial', 'ngGLPi', 'pascalprecht.translate'],
   ['$routeProvider', '$locationProvider', '$mdThemingProvider', '$mdIconProvider', '$glpiProvider', '$logProvider',
     function (
       $routeProvider, $locationProvider, $mdThemingProvider, $mdIconProvider, $glpiProvider, $logProvider) {
@@ -134,8 +134,13 @@ angular.module('mdmApp',
   .factory('menu', [
     '$location',
     '$rootScope',
-    function ($location, $rootScope) {
+    '$translate',
+    function ($location, $rootScope, $translate) {
+      $translate(['DASHBOARD', 'DEVICES',]).then(function (translations) {
+        console.log(translations);
+      }, function (translationIds) {
 
+      });
       var sections = [{
         name: 'Dashboard',
         url: 'dashboard',
@@ -626,7 +631,15 @@ angular.module('mdmApp',
       }
     };
   })
-  .config(['$mdIconProvider', function ($mdIconProvider) {
+  .config(['$mdIconProvider', '$translateProvider', function ($mdIconProvider, $translateProvider) {
+    var translations = {
+      HEADLINE: 'What an awesome module!',
+      PARAGRAPH: 'Srsly!'
+    };
+
+    $translateProvider
+      .translations('en', translations)
+      .preferredLanguage('en');
     $mdIconProvider
       .iconSet('social', 'images/icons/sets/social-icons.svg', 24)
       .iconSet('actions', 'images/icons/sets/actions-icons.svg', 24)
