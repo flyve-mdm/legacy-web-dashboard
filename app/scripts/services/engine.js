@@ -151,11 +151,11 @@
             url: apiUrl + endpoints.INIT_SESSION,
             headers: headers,
             data: {},
-          }).success(function (resp) {
+          }).then(function (resp) {
             sessionToken = resp.session_token;
             localStorage.setItem('sessionToken', sessionToken);
             responseDefer.resolve(true);
-          }).error(function (error) {
+          }, function (error) {
             responseDefer.reject(error);
           }).finally(function () {
             delete headers.Authorization;
@@ -169,9 +169,9 @@
             url: apiUrl + endpoints.KILL_SESSION,
             headers: headers,
             data: {},
-          }).success(function () {
+          }).then(function () {
             responseDefer.resolve();
-          }).error(function (error) {
+          }, function (error) {
             responseDefer.reject(error);
           });
           return responseDefer.promise;
@@ -197,10 +197,10 @@
             },
             headers: headers,
             data: {},
-          }).success(function (data, status, headers) {
+          }).then(function (data, status, headers) {
             var contentRange = parseRange(headers()['content-range']);
             responseDefer.resolve({ data: data, contentRange: contentRange });
-          }).error(function (error) {
+          }, function (error) {
             responseDefer.reject(error);
           });
           return responseDefer.promise;
@@ -245,10 +245,10 @@
                       range: range ? range : maxRange
                     },
                     data: {}
-                  }).error(function (xhr, textStatus) {
+                  }, function (xhr, textStatus) {
                     // Rejecting promise to make db.open() fail.
                     reject(textStatus);
-                  }).success(function (data) {
+                  }).then(function (data) {
                     // Resolving Promise will launch then() below.
                     resolve(data);
                   });
@@ -299,9 +299,9 @@
             params: params,
             headers: headers,
             data: {},
-          }).success(function (data) {
+          }).then(function (data) {
             responseDefer.resolve(data);
-          }).error(function (error) {
+          }, function (error) {
             responseDefer.reject(error);
           });
           return responseDefer.promise;
