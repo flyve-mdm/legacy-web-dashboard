@@ -482,6 +482,8 @@ angular.module('mdmApp',
           }
         };
         console.log($scope.infiniteItems);
+      }, function (error) {
+        console.error(error);
       });
 
       /**
