@@ -256,22 +256,6 @@ angular.module('mdmApp',
           }
         ]
       }];
-      /*
-                  sections.push({
-                      name: 'License',
-                      url: 'license',
-                      type: 'link',
-
-                      // Add a hidden section so that the title in the toolbar is properly set
-                      hidden: true
-                  },
-                      {
-                          name: 'Terms and Conditions of Use',
-                          url: 'tos',
-                          type: 'link',
-                          hidden: true
-                      });
-      */
       var self = {
         sections: sections,
 
@@ -391,7 +375,6 @@ angular.module('mdmApp',
             return controller.isOpen($scope.section);
           }, function (open) {
             var $ul = $element.find('ul');
-            //var $li = $ul[0].querySelector('a.active');
 
             if (open) {
               $scope.renderContent = true;
@@ -439,14 +422,15 @@ angular.module('mdmApp',
     'GLPi',
     'pluginEndPoints',
     '$timeout',
-    function ($scope, GLPi, pluginEndPoints, $timeout) {
-      console.log(GLPi.getOptions('defaults').global.url);
-      console.log(GLPi.getOptions('defaults').global.user_token);
-      console.log(pluginEndPoints.AGENT);
+    '$log',
+    function ($scope, GLPi, pluginEndPoints, $timeout, $log) {
+      $log.log(GLPi.getOptions('defaults').global.url);
+      $log.log(GLPi.getOptions('defaults').global.user_token);
+      $log.log(pluginEndPoints.AGENT);
       $scope.items = [];
       var range = { from: 0, to: 15 };
       GLPi.getAllItems(pluginEndPoints.AGENT, range).then(function (agents) {
-        console.log(agents.contentRange);
+        $log.log(agents.contentRange);
         var toLoad = range.to;
         var agentsLength = agents.data.length;
         if (agents.contentRange.total < toLoad) {
@@ -476,9 +460,9 @@ angular.module('mdmApp',
             }
           },
           fetchMoreItems_: function (index) {
-            console.log("numLoaded_: " + this.numLoaded_);
-            console.log("toLoad_: " + this.numLoaded_);
-            console.log("index: " + index);
+            $log.log("numLoaded_: " + this.numLoaded_);
+            $log.log("toLoad_: " + this.numLoaded_);
+            $log.log("index: " + index);
             if (this.toLoad_ === index && agentsLength >= range.to) {
               this.toLoad_ += range.to;
               $timeout(angular.noop, 1000).then(angular.bind(this, function () {
@@ -487,24 +471,10 @@ angular.module('mdmApp',
             }
           }
         };
-        console.log($scope.infiniteItems);
+        $log.log($scope.infiniteItems);
       }, function (error) {
-        console.error(error);
+        $log.error(error);
       });
-
-      /**
-      GLPi.initsession('user_token').then(function (resp) {
-        console.log(resp);
-      });
-
-      GLPi.initsession('basic', { login: 'wnouh@teclib.com', password: 'teclib' }).then(function (resp) {
-        console.log(resp);
-      }, function (error) {
-        console.log(error);
-      });
-      */
-      //GLPi.listSearchOptions('PluginStorkmdmAgent');
-
     }
   ])
   .factory('DynamicItems', [
@@ -550,14 +520,15 @@ angular.module('mdmApp',
     '$q',
     '$scope',
     '$element',
+    '$log',
     'GLPi',
     'DynamicItems',
     'pluginEndPoints',
     '$timeout',
     '$mdDialog',
-    function ($q, $scope, $element, GLPi, DynamicItems, pluginEndPoints) {
-      console.log(GLPi.getOptions('defaults').global.url);
-      console.log(GLPi.getOptions('defaults').global.user_token);
+    function ($q, $scope, $element, $log, GLPi, DynamicItems, pluginEndPoints) {
+      $log.log(GLPi.getOptions('defaults').global.url);
+      $log.log(GLPi.getOptions('defaults').global.user_token);
       var params = {
         'forcedisplay[0]': 1,
         'forcedisplay[1]': 2,
@@ -602,19 +573,6 @@ angular.module('mdmApp',
         }
       };
       $scope.subheader = "127 fleets showing the fields ID, Name, Default sorted by ID and with descending order.";
-      /**
-      GLPi.initsession('user_token').then(function (resp) {
-        console.log(resp);
-      });
-
-      GLPi.initsession('basic', { login: 'wnouh@teclib.com', password: 'teclib' }).then(function (resp) {
-        console.log(resp);
-      }, function (error) {
-        console.log(error);
-      });
-      */
-      //GLPi.listSearchOptions('PluginStorkmdmAgent');
-
       $scope.doSecondaryAction = function ($event) {
         $event.stopPropagation();
         $event.preventDefault();
@@ -736,11 +694,15 @@ angular.module('mdmApp',
       // *********************
 
       function closeMenu() {
-        $timeout(function () { $mdSidenav('left').close(); });
+        $timeout(function () {
+          $mdSidenav('left').close();
+        });
       }
 
       function openMenu() {
-        $timeout(function () { $mdSidenav('left').open(); });
+        $timeout(function () {
+          $mdSidenav('left').open();
+        });
       }
 
       function path() {
@@ -758,7 +720,9 @@ angular.module('mdmApp',
 
       function focusMainContent($event) {
         // prevent skip link from redirecting
-        if ($event) { $event.preventDefault(); }
+        if ($event) {
+          $event.preventDefault();
+        }
 
         $timeout(function () {
           mainContentArea.focus();
@@ -845,7 +809,9 @@ angular.module('mdmApp',
 
   .filter('humanizeSection', function () {
     return function (section) {
-      if (!section) { return; }
+      if (!section) {
+        return;
+      }
       return section.label || section.name;
     };
   })
@@ -929,7 +895,9 @@ angular.module('mdmApp',
           var debouncedUpdateHeight = $mdUtil.debounce(updateToolbarHeight, 5 * 1000);
           debouncedUpdateHeight();
           function enableScrollShrink() {
-            if (!contentElement) { return angular.noop; }
+            if (!contentElement) {
+              return angular.noop;
+            }
             contentElement.on('scroll', debouncedContentScroll);
             contentElement.attr('scroll-shrink', 'true');
             $mdUtil.nextTick(updateToolbarHeight, false);
@@ -947,8 +915,12 @@ angular.module('mdmApp',
             disableScrollShrink = enableScrollShrink();
           }
           scope.$on('$mdContentLoaded', onMdContentLoad);
-          if (attr.ngShow) { scope.$watch(attr.ngShow, updateToolbarHeight); }
-          if (attr.ngHide) { scope.$watch(attr.ngHide, updateToolbarHeight); }
+          if (attr.ngShow) {
+            scope.$watch(attr.ngShow, updateToolbarHeight);
+          }
+          if (attr.ngHide) {
+            scope.$watch(attr.ngHide, updateToolbarHeight);
+          }
           scope.$on('$destroy', disableScrollShrink);
           function onChangeScrollShrink(shrinkWithScroll) {
             contentElement = angular.element(document.querySelector('.md-virtual-repeat-scroller'));
