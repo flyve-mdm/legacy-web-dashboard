@@ -74,3 +74,6 @@ jspm_packages
 .node_repl_history
 .gtm/
 .vscode/chrome/
+
+# vscode
+.vscode
