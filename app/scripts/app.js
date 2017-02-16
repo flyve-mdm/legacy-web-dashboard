@@ -135,11 +135,12 @@ angular.module('mdmApp',
     '$location',
     '$rootScope',
     '$translate',
-    function ($location, $rootScope, $translate) {
+    '$log',
+    function ($location, $rootScope, $translate, $log) {
       $translate(['DASHBOARD', 'DEVICES',]).then(function (translations) {
-        console.log(translations);
+        $log.log(translations);
       }, function (translationIds) {
-
+        $log.log(translationIds);
       });
       var sections = [{
         name: 'Dashboard',
@@ -600,7 +601,7 @@ angular.module('mdmApp',
           return "Arrange in";
         }
       };
-      $scope.subheader = "127 fleets showing the fields ID, Name, Default sorted by ID and with descending order."
+      $scope.subheader = "127 fleets showing the fields ID, Name, Default sorted by ID and with descending order.";
       /**
       GLPi.initsession('user_token').then(function (resp) {
         console.log(resp);
@@ -624,7 +625,7 @@ angular.module('mdmApp',
   .directive('stopEvent', function () {
     return {
       restrict: 'A',
-      link: function (scope, element, attr) {
+      link: function (scope, element) {
         element.bind('click', function (e) {
           e.stopPropagation();
         });
@@ -928,7 +929,6 @@ angular.module('mdmApp',
           var debouncedUpdateHeight = $mdUtil.debounce(updateToolbarHeight, 5 * 1000);
           debouncedUpdateHeight();
           function enableScrollShrink() {
-            console.log(contentElement);
             if (!contentElement) { return angular.noop; }
             contentElement.on('scroll', debouncedContentScroll);
             contentElement.attr('scroll-shrink', 'true');
