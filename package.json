@@ -1,102 +1,38 @@
 {
-  "name": "@teclib/flyve-mdm-web-ui",
-  "version": "2.0.0",
-  "description": "Mobile device management software.",
-  "homepage": "https://flyve-mdm.com/",
+  "name": "appmdm",
+  "private": true,
+  "version": "0.0.0",
   "devDependencies": {
+    "autoprefixer": "^6.7.3",
+    "connect-modrewrite": "^0.9.0",
     "grunt": "^1.0.1",
     "grunt-angular-templates": "^1.1.0",
-    "grunt-autoprefixer": "^3.0.4",
     "grunt-concurrent": "^2.3.1",
     "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-compass": "^1.1.1",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^1.0.2",
-    "grunt-contrib-htmlmin": "^2.1.0",
+    "grunt-contrib-cssmin": "^2.0.0",
+    "grunt-contrib-htmlmin": "^2.2.0",
     "grunt-contrib-imagemin": "^1.0.1",
     "grunt-contrib-jshint": "^1.1.0",
-    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-uglify": "^2.1.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-filerev": "^2.3.1",
-    "grunt-gh-pages": "^2.0.0",
-    "grunt-git": "^1.0.3",
-    "grunt-htmlhint-plus": "^0.4.2",
-    "grunt-karma": "^2.0.0",
+    "grunt-google-cdn": "^0.4.3",
+    "grunt-jscs": "^3.0.1",
     "grunt-newer": "^1.2.0",
     "grunt-ng-annotate": "^3.0.0",
-    "grunt-ng-constant": "^2.0.1",
-    "grunt-sass-lint": "^0.2.2",
+    "grunt-postcss": "^0.8.0",
     "grunt-svgmin": "^4.0.0",
     "grunt-usemin": "^3.1.1",
     "grunt-wiredep": "^3.0.1",
-    "jasmine-core": "^2.5.2",
     "jit-grunt": "^0.10.0",
-    "jshint-stylish": "^2.2.1",
-    "karma": "^1.4.0",
-    "karma-coverage": "^1.1.1",
-    "karma-jasmine": "^1.1.0",
-    "karma-phantomjs-launcher": "^1.0.2",
-    "markdownlint": "^0.3.1",
-    "newman": "^3.4.2",
-    "phantomjs-prebuilt": "^2.1.14",
-    "sass-lint": "^1.10.2",
-    "serve-static": "^1.11.1",
-    "time-grunt": "^1.4.0"
+    "time-grunt": "^1.4.0",
+    "jshint-stylish": "^2.2.1"
   },
   "engines": {
     "node": ">=0.10.0"
   },
-  "scripts": {
-    "test": "grunt test",
-    "start": "npm i & bower i & grunt build & grunt serve",
-    "watch": "grunt serve",
-    "release": "standard-version --sign --message 'chore(release): bump to %s and new CHANGELOG'",
-    "debug": "node --nolazy --debug-brk=5858 node_modules/grunt/bin/grunt serve"
-  },
-  "keywords": [
-    "flyve",
-    "uhuru",
-    "mdm",
-    "mobile",
-    "device",
-    "management"
-  ],
-  "authors": [
-    {
-      "name": "Nelson Zamith",
-      "email": "nzamith@teclib.com"
-    },
-    {
-      "name": "Alexander Salas Bastidas",
-      "email": "asalas@teclib.com"
-    }
-  ],
-  "license": "AGPL-3.0",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "jspm_packages",
-    "tmp",
-    "temp",
-    "test",
-    "tests",
-    "dist",
-    ".tmp",
-    ".gtm",
-    ".vscode",
-    ".sass-cache",
-    "app/config.js"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/flyve-mdm/flyve-mdm-web-ui.git"
-  },
-  "bugs": {
-    "url": "https://github.com/flyve-mdm/flyve-mdm-web-ui/issues"
-  },
-  "private": true,
   "dependencies": {}
 }

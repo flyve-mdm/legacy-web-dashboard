@@ -47,10 +47,7 @@
     }
   };
 
-  function GlpiProvider() {
-    /**
-     * Allow to set global options during configuration
-     */
+  function GLPiProvider() {
     return {
       setOptions: function (itemType, customOptions) {
         // If no itemType was specified set option for the global object
@@ -71,8 +68,8 @@
               '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
             if (pattern.test(options.global.url)) {
               var lastChar = options.global.url.substr(-1);
-              if (lastChar !== '/') {
-                options.global.url = options.global.url + '/';
+              if (lastChar === '/') {
+                options.global.url = options.global.url.slice(0, -1);
               }
               options.global.url = options.global.url;
             } else {
@@ -84,93 +81,97 @@
         angular.merge(GLPi.defaults, options);
       },
       $get: function () {
-        return GlpiProvider;
+        return GLPiProvider;
       }
     };
   }
   angular.module('ngGLPi', [])
-    .provider('Glpi', GlpiProvider)
-    .service('GLPi', function ($q, $http) {
-      var sessionToken = null;
+    .provider('$glpi', GLPiProvider)
+    .service('GLPi', ['$q', '$http', function ($q, $http) {
+      var sessionToken = localStorage.getItem('sessionToken');
       var errorMsg = GLPi.defaults.error_msg;
       var apiUrl = GLPi.defaults.global.url;
       var appToken = GLPi.defaults.global.app_token;
+      var userToken = GLPi.defaults.global.user_token;
       var maxRange = GLPi.defaults.global.max_range;
+      var headers = {};
+      headers['Content-Type'] = 'application/json';
+      headers['Session-Token'] = sessionToken;
+      if (appToken) {
+        headers['App-Token'] = appToken;
+      }
       var endpoints = {
-        init_session: "initSession",
-        kill_session: "killSession",
-        get_my_profiles: "getMyProfiles",
-        get_active_profile: "getActiveProfile",
-        change_active_profile: "changeActiveProfile",
-        get_my_entities: "getMyEntities",
-        get_active_entities: "getActiveEntities",
-        change_active_entities: "changeActiveEntities",
-        get_full_session: "getFullSession",
-        get_multiple_items: "getMultipleItems",
-        list_search_options: "listSearchOptions",
-        search_items: "search"
+        INIT_SESSION: "/initSession/",
+        KILL_SESSION: "/killSession/",
+        GET_MY_PROFILES: "/getMyProfiles/",
+        gGET_active_PROFILE: "/getActiveProfile/",
+        CHANGE_ACTIVE_PROFILE: "/changeActiveProfile/",
+        GET_MY_ENTITIES: "/getMyEntities/",
+        GET_ACTIVE_ENTITIES: "/getActiveEntities/",
+        CHANGE_ACTIVE_ENTITIES: "/changeActiveEntities/",
+        GET_FULL_SESSION: "/getFullSession/",
+        GET_MULTIPLE_ITEMS: "/getMultipleItems/",
+        LIST_SEARCH_OPTIONS: "/listSearchOptions/",
+        SEARCH_ITEMS: "/search/"
       };
-      String.prototype.toConcatSlash = function () {
-        var lastChar = this.substr(-1);
-        if (lastChar !== '/') {
-          return this + '/';
+      function parseRange(hdr) {
+        var m = hdr && hdr.match(/^(?:items )?(\d+)-(\d+)\/(\d+|\*)$/);
+        if (m) {
+          return {
+            from: +m[1],
+            to: +m[2],
+            total: m[3] === '*' ? Infinity : +m[3]
+          };
+        } else if (hdr === '*/0') {
+          return { total: 0 };
         }
-        return this;
-      };
-      function validRange(range) {
-        var pattern = new RegExp('/^\d+-\d+|\*$/');
-        return pattern.test(range);
+        return null;
       }
       return {
         getOptions: function (type) {
           return GLPi.getOptions(type);
         },
-        initsession: function (authorization) {
+        initsession: function (authorizationType, authorizationData) {
           var responseDefer = $q.defer();
-          var headers = {};
-          headers['Content-Type'] = 'application/json';
-          if (!authorization) {
-            throw new Error(errorMsg.invalid_authorization);
-          }
-          if (authorization.basic) {
-            headers.Authorization = 'Basic ' + window.btoa(authorization.login + ':' + authorization.password);
-          }
-          if (authorization.user_token) {
-            headers.Authorization = 'user_token ' + authorization.user_token;
-          }
-          if (authorization.app_token) {
-            headers['App-Token'] = authorization.app_token;
-            appToken = authorization.app_token;
+          switch (authorizationType) {
+            case "basic":
+              headers.Authorization = 'Basic ' + window.btoa(authorizationData.login + ':' + authorizationData.password);
+              break;
+            case "user_token":
+              headers.Authorization = 'user_token ' + userToken;
+              break;
+            case "app_token":
+              headers['App-Token'] = appToken;
+              break;
+            default:
+              throw new Error(errorMsg.invalid_authorization);
           }
           $http({
             method: 'GET',
-            url: apiUrl + endpoints.initsession,
+            url: apiUrl + endpoints.INIT_SESSION,
             headers: headers,
             data: {},
-          }).then(function (response) {
-            sessionToken = response.data.session_token;
-            responseDefer.resolve(sessionToken);
-          }, function (error) {
+          }).success(function (resp) {
+            sessionToken = resp.session_token;
+            localStorage.setItem('sessionToken', sessionToken);
+            responseDefer.resolve(true);
+          }).error(function (error) {
             responseDefer.reject(error);
+          }).finally(function () {
+            delete headers.Authorization;
           });
           return responseDefer.promise;
         },
         killsession: function () {
           var responseDefer = $q.defer();
-          var headers = {};
-          headers['Content-Type'] = 'application/json';
-          headers['Session-Token'] = this.sessionToken;
-          if (appToken) {
-            headers['App-Token'] = this.AppToken;
-          }
           $http({
             method: 'GET',
-            url: apiUrl + endpoints.killsession,
+            url: apiUrl + endpoints.KILL_SESSION,
             headers: headers,
             data: {},
-          }).then(function () {
+          }).success(function () {
             responseDefer.resolve();
-          }, function (error) {
+          }).error(function (error) {
             responseDefer.reject(error);
           });
           return responseDefer.promise;
@@ -186,20 +187,20 @@
         getAllItems: function (itemtype, range) {
           var responseDefer = $q.defer();
           if (range) {
-            if (!validRange(range)) {
-              throw new Error(errorMsg.invalid_range);
-            }
+            range = range.from + '-' + range.to;
           }
           $http({
             method: 'GET',
-            url: apiUrl.toConcatSlash() + itemtype,
+            url: apiUrl + itemtype,
             params: {
               range: range ? range : maxRange
             },
+            headers: headers,
             data: {},
-          }).then(function (response) {
-            responseDefer.resolve(response);
-          }, function (error) {
+          }).success(function (data, status, headers) {
+            var contentRange = parseRange(headers()['content-range']);
+            responseDefer.resolve({ data: data, contentRange: contentRange });
+          }).error(function (error) {
             responseDefer.reject(error);
           });
           return responseDefer.promise;
@@ -208,11 +209,6 @@
         getMultipleItems: function () { },
         listSearchOptions: function (item_type, range) {
           var responseDefer = $q.defer();
-          if (range) {
-            if (!validRange(range)) {
-              throw new Error(errorMsg.invalid_range);
-            }
-          }
           var store = {};
           store[item_type.toString()] = "&id,name,table,field,datatype,available_searchtypes,uid";
           console.log(store);
@@ -239,17 +235,20 @@
                 // We want framework to continue waiting, so we encapsulate
                 // the ajax call in a Dexie.Promise that we return here.
                 return new Dexie.Promise(function (resolve, reject) {
+                  if (range) {
+                    range = range.from + '-' + range.to;
+                  }
                   $http({
                     method: 'GET',
-                    url: apiUrl.toConcatSlash() + endpoints.list_search_options + '/' + item_type,
+                    url: apiUrl + endpoints.list_search_options + item_type,
                     params: {
                       range: range ? range : maxRange
                     },
                     data: {}
-                  }, function (xhr, textStatus) {
+                  }).error(function (xhr, textStatus) {
                     // Rejecting promise to make db.open() fail.
                     reject(textStatus);
-                  }).then(function (data) {
+                  }).success(function (data) {
                     // Resolving Promise will launch then() below.
                     resolve(data);
                   });
@@ -292,10 +291,24 @@
           });
           return responseDefer.promise;
         },
-        searchItems: function () { },
+        searchItems: function (itemtype, params) {
+          var responseDefer = $q.defer();
+          $http({
+            method: 'GET',
+            url: apiUrl + endpoints.SEARCH_ITEMS + '/' + itemtype,
+            params: params,
+            headers: headers,
+            data: {},
+          }).success(function (data) {
+            responseDefer.resolve(data);
+          }).error(function (error) {
+            responseDefer.reject(error);
+          });
+          return responseDefer.promise;
+        },
         addItems: function () { },
         updateItems: function () { },
         deleteItems: function () { }
       };
-    });
+    }]);
 })();

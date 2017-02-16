@@ -11,14 +11,8 @@
   "strict": true,
   "undef": true,
   "unused": true,
-  "loopfunc": true,
-  "expr": true,
   "globals": {
     "angular": false,
-    "inject": false,
-    "_": false,
-    "L": false,
-    "moment": false,
-    "Dexie": false
+    "inject": false
   }
 }

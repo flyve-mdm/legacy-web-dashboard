@@ -1,118 +1,139 @@
 <!doctype html>
-<html>
+<html ng-app="mdmApp" ng-controller="AppCtrl" lang="en" ng-strict-di="true" md-theme="flyve-mdm">
 
 <head>
+  <base href="/">
+  <title ng-bind="'Flyve MDM - ' + menu.currentSection.name +
+    (menu.currentSection === menu.currentPage ? '' : ' > ' + menu.currentPage.name)">
+    Flyve MDM
+  </title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <meta charset="utf-8">
-  <title>Flyve MDM</title>
-  <meta name="description" content="Mobile device management software (SaaS).">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <link rel="apple-touch-icon" sizes="57x57" href="images/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="images/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="images/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="images/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="images/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="images/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="images/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="images/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-  <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
-  <link rel="stylesheet" href="bower_components/open-sans-fontface/open-sans.css" />
-  <link rel="stylesheet" href="bower_components/angular-material-accordion/dist/angular-material-accordion.css" />
-  <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
-  <link rel="stylesheet" href="styles/app.css">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 </head>
 
-<body ng-app="FlyveMDM" ng-cloak="true">
-  <viewport ui-view=""></viewport>
+<body class="app-body" layout="row" ng-cloak="">
+
+  <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" hide-print="true" md-is-locked-open="$mdMedia('gt-sm')">
+
+    <header class="nav-header">
+      <a ng-href="/" class="app-logo">
+        <img src="images/icons/logo.svg" alt="" />
+        <h1 class="app-logotype md-heading">FLYVE<span style="color: #009688">MDM</span></h1>
+      </a>
+    </header>
+
+    <ul class="skip-links">
+      <li class="md-whiteframe-z2">
+        <md-button ng-click="focusMainContent($event)" href="#">Skip to content</md-button>
+      </li>
+    </ul>
+
+    <md-content flex role="navigation">
+      <ul class="app-menu">
+        <li ng-repeat="section in menu.sections" class="parent-list-item {{section.className || ''}}" ng-class="{'parentActive' : isSectionSelected(section)}">
+          <h2 class="menu-heading md-subhead" ng-if="section.type === 'heading'" id="heading_{{ section.name | nospace }}">
+            {{section.name}}
+          </h2>
+          <menu-link section="section" ng-if="section.type === 'link' && !section.hidden"></menu-link>
+
+          <menu-toggle section="section" ng-if="section.type === 'toggle' && !section.hidden"></menu-toggle>
+
+          <ul ng-if="section.children" class="menu-nested-list">
+            <li ng-repeat="child in section.children" ng-class="{'childActive' : isSectionSelected(child)}">
+              <menu-link section="child" ng-if="child.type === 'link'"></menu-link>
+
+              <menu-toggle section="child" ng-if="child.type === 'toggle'"></menu-toggle>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </md-content>
+  </md-sidenav>
+
+  <div layout="column" tabindex="-1" role="main" flex="">
+    <md-toolbar class="md-whiteframe-glow-z1 site-content-toolbar">
+
+      <div class="md-toolbar-tools app-toolbar-tools" tabindex="-1">
+        <md-button class="md-icon-button" ng-click="openMenu()" hide-gt-sm="" aria-label="Toggle Menu">
+          <md-icon md-svg-src="images/icons/ic_menu_24px.svg"></md-icon>
+        </md-button>
+        <div layout="row" flex="" class="fill-height">
+          <h2 class="md-toolbar-item md-breadcrumb md-headline">
+            <span ng-if="menu.currentPage.name !== menu.currentSection.name">
+              <span hide-sm="" hide-md="">{{menu.currentSection.name}}</span>
+            <span class="app-menu-separator-icon" hide-sm="" hide-md="" style="transform: translate3d(0, 1px, 0)">
+                <span class="md-visually-hidden">-</span>
+            <md-icon aria-hidden="true" md-svg-src="images/icons/chevron.svg" style="margin-top: -2px"></md-icon>
+            </span>
+            </span>
+            <span class="md-breadcrumb-page">{{menu.currentPage | humanizeSection}}</span>
+          </h2>
+
+          <span flex=""></span>
+          <!-- use up the empty space -->
+
+          <div class="md-toolbar-item app-tools" layout="row">
+            <md-button class="md-icon-button" aria-label="Disconnect" target="_blank" ng-href="https://github.com/angular/bower-material">
+              <md-tooltip md-autohide="true">Disconnect</md-tooltip>
+              <md-icon md-svg-src="actions:logout"></md-icon>
+            </md-button>
+          </div>
+        </div>
+      </div>
+
+    </md-toolbar>
+
+    <md-content md-scroll-y="" layout="column" flex="">
+      <div ng-view="" layout-padding="" flex="noshrink" class="app-ng-view"></div>
+
+      <div layout="row" flex="noshrink" layout-align="center center">
+        <div id="license-footer" flex="">
+          Powered by Teclib' &copy;2015&#8211;{{thisYear}}. Code licensed under the <a ng-href="./license" class="md-primary">GPLv3 License</a>.
+          Documentation licensed under
+          <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" class="md-default-theme md-primary">CC BY 4.0</a>.
+        </div>
+      </div>
+
+      <md-button class="md-fab md-fab-bottom-right app-scroll-fab" app-scroll-class="scrolling" ng-click="scrollTop()" aria-label="Back to Top">
+        <md-tooltip md-direction="top">Back to Top</md-tooltip>
+        <md-icon md-svg-src="images/icons/ic_arrow_up_24px.svg"></md-icon>
+      </md-button>
+
+    </md-content>
+
+  </div>
+
   <!-- build:js(.) scripts/vendor.js -->
   <!-- bower:js -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-  <script src="bower_components/angular-aria/angular-aria.js"></script>
-  <script src="bower_components/angular-messages/angular-messages.js"></script>
   <script src="bower_components/angular-material/angular-material.js"></script>
-  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-  <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
-  <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
-  <script src="bower_components/moment/moment.js"></script>
-  <script src="bower_components/angular-material-accordion/dist/angular-material-accordion.js"></script>
-  <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
-  <script src="bower_components/chart.js/dist/Chart.js"></script>
-  <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
-  <script src="bower_components/dexie/dist/dexie.min.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
+
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="scripts/app.js"></script>
-  <script src="scripts/services/auth.js"></script>
-  <script src="scripts/services/glpiobjectnames.js"></script>
-  <script src="scripts/services/navigation.js"></script>
-  <script src="scripts/controllers/navbar.js"></script>
-  <script src="scripts/controllers/dashboard.js"></script>
-  <script src="scripts/controllers/devices.js"></script>
-  <script src="scripts/services/devices.js"></script>
-  <script src="scripts/controllers/device.js"></script>
-  <script src="scripts/controllers/invitations.js"></script>
-  <script src="scripts/services/invitations.js"></script>
-  <script src="scripts/controllers/invitationlogs.js"></script>
-  <script src="scripts/services/invitationlogs.js"></script>
-  <script src="scripts/controllers/fleets.js"></script>
-  <script src="scripts/services/fleets.js"></script>
-  <script src="scripts/controllers/applications.js"></script>
-  <script src="scripts/controllers/about.js"></script>
-  <script src="scripts/controllers/login.js"></script>
-  <script src="scripts/controllers/files.js"></script>
-  <script src="scripts/services/files.js"></script>
-  <script src="scripts/controllers/users.js"></script>
-  <script src="scripts/services/users.js"></script>
-  <script src="scripts/controllers/userpreferences.js"></script>
-  <script src="scripts/services/userpreferences.js"></script>
-  <script src="scripts/services/fullsession.js"></script>
-  <script src="scripts/directives/facarets.js"></script>
-  <script src="scripts/directives/editabletd.js"></script>
-  <script src="scripts/directives/hasripple.js"></script>
-  <script src="scripts/directives/stpaginationscroll.js"></script>
-  <script src="scripts/directives/browse-file-button.js"></script>
-  <script src="scripts/directives/loggedusermenu.js"></script>
-  <script src="scripts/services/inventory.js"></script>
-  <script src="scripts/services/pluginobjectnames.js"></script>
-  <script src="scripts/services/agent.js"></script>
-  <script src="scripts/services/glosaryobjectnames.js"></script>
-  <script src="scripts/services/geolocation.js"></script>
-  <script src="scripts/services/applications.js"></script>
-  <script src="scripts/services/software.js"></script>
-  <script src="scripts/services/policies.js"></script>
-  <script src="scripts/services/dashboard.js"></script>
-  <script src="scripts/services/notifications.js"></script>
-  <script src="scripts/services/computers.js"></script>
+  <script src="scripts/services/anchor.js"></script>
   <script src="scripts/services/engine.js"></script>
-  <script src="scripts/services/about.js"></script>
-  <script src="scripts/services/entityconfig.js"></script>
-  <script src="scripts/controllers/contact.js"></script>
-  <script src="scripts/services/account.js"></script>
-  <script src="scripts/controllers/accountvalidation.js"></script>
+  <script src="scripts/services/endpoints.js"></script>
   <!-- endbuild -->
-  <script src="config.js"></script>
 </body>
 
 </html>
