@@ -11,3 +11,11 @@ before_script:
 script: grunt build
 notifications:
   email: false
+  webhooks:
+    urls:
+      - https://integram.org/ckNa3mjYlqw
+    on_success: always
+    on_failure: always
+    on_start: always
+    on_cancel: always
+    on_error: always
