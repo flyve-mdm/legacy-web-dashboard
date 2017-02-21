@@ -31,8 +31,6 @@ Our solution allows you to efficiently and easily control any aspects of your An
 * Work with devices running Android 4.4 or higher
 * Simple web application user interface 
 
-Flyve MDM is targeted for all browsers with browser versions shown below with green boxes:![](/assets/browsers.png)
-
 ### Quick start
 
 Several quick start options are available:
@@ -70,6 +68,8 @@ Read the page of [Yeoman generator for AngularJS](https://github.com/yeoman/gene
 
 Running `grunt test` will run the unit tests with karma.
 
+`Flyve MDM` is targeted for all browsers with browser versions shown below with green boxes:![](/assets/browsers.png)
+
 #### Services
 
 * auth.js : handles the authentification with the GLPI API within the entire app
@@ -93,7 +93,7 @@ Running `grunt test` will run the unit tests with karma.
 
 ### Bugs and features requests
 
-You have a bug or a feature request? Please first read the [issue guidelines](http://github.com/flyve-mdm/flyve-mdm-web-ui/blob/master/CONTRIBUTING.md#using-the-issue-tracker) and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](http://github.com/flyve-mdm/flyve-mdm-web-ui/issues/new).
+You have a bug or a feature request? Please first read the [issue guidelines](/.github/CONTRIBUTING.md#using-the-issue-tracker) and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](http://github.com/flyve-mdm/flyve-mdm-web-ui/issues/new).
 
 ### Documentation
 
@@ -101,9 +101,9 @@ Flyve MDM's documentation is on the [Wiki of GitHub](https://github.com/flyve-md
 
 ### Contributing
 
-Please read our [contributing guidelines](http://github.com/flyve-mdm/flyve-mdm-web-ui/blob/master/.github/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
+Please read our [contributing guidelines](/.github/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
 
-Moreover, if your pull request contains JavaScript patches or features, you must include [relevant unit tests](https://github.com/flyve-mdm/flyve-mdm-web-ui/tree/master/test). All HTML and CSS should conform to the [Code Guide](https://github.com/mdo/code-guide), maintained by [Mark Otto](https://github.com/mdo).
+Moreover, if your pull request contains JavaScript patches or features, you must include [relevant unit tests](/test). All HTML and CSS should conform to the [Code Guide](https://github.com/mdo/code-guide), maintained by [Mark Otto](https://github.com/mdo).
 
 Editor preferences are available in the [editor config](http://github.com/flyve-mdm/flyve-mdm-web-ui/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at [http://editorconfig.org](http://editorconfig.org).
 
@@ -120,9 +120,9 @@ Get updates on Flyve MDN's development and chat with the project maintainers and
 
 ### Versioning
 
-In order to provide transparency on our release cycle and to maintain backward compatibility, [Flyve MDM](https://flyve-mdm.com/) is maintained under [the Semantic Versioning guidelines](http://semver.org/). We are committed to following and complying with the rules, the best we can.
+In order to provide transparency on our release cycle and to maintain backward compatibility, `Flyve MDM` is maintained under [the Semantic Versioning guidelines](http://semver.org/). We are committed to following and complying with the rules, the best we can.
 
-See [the tags section of our GitHub project](http://github.com/flyve-mdm/flyve-mdm-web-ui/tags) for changelogs for each release version of Flyve MDM. Release announcement posts on [the official Teclib' blog](http://www.teclib-edition.com/en/communities/blog-posts/) contain summaries of the most noteworthy changes made in each release.
+See [the tags section of our GitHub project](http://github.com/flyve-mdm/flyve-mdm-web-ui/tags) for changelogs for each release version of `Flyve MDM`. Release announcement posts on [the official Teclib' blog](http://www.teclib-edition.com/en/communities/blog-posts/) contain summaries of the most noteworthy changes made in each release.
 
 ### Roadmap
 
@@ -146,11 +146,11 @@ This roadmap is for informational purposes only, so you shouldn't rely on this i
 
 * [https://github.com/Newls](https://github.com/Newls)
 
-#### Alexander J Salas B
+#### Alexander Salas Bastidas
 
 * [https://github.com/ajsb85](https://github.com/ajsb85)
 
 ### Copyright and license
 
-Code and documentation copyright 2015-2016 Teclib'. Code released under [the AGPL v3 license](http://github.com/flyve-mdm/flyve-mdm-web-ui/blob/master/LICENSE.md). Docs released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Code and documentation copyright 2015-2016 Teclib'. Code released under [the AGPL v3 license](/LICENSE.md). Docs released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
