@@ -1,12 +1,39 @@
-# app-mdm
+# flyve-mdm-web-ui ![](https://travis-ci.org/flyve-mdm/flyve-mdm-web-ui.svg?branch=next) ![](http://www.repostatus.org/badges/latest/active.svg)
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
+![](/assets/logo-flyve-mdm.png)
 
-## Build & development
+Mobile device management software that enables you to secure and manage all the mobile devices of your business via a unique web-based console.
 
-Run `grunt` for building and `grunt serve` for preview.
+**Documentation available at **[**http://flyve-mdm.com/**](http://flyve-mdm.com/)
 
-## Testing
+## What's included?
 
-Running `grunt test` will run the unit tests with karma.
+* Overview
+* Quick start
+* Bugs and features requests
+* Documentation
+* Contributing
+* Community
+* Versioning
+* Roadmap
+* Creators
+* Copyright and license
+
+###  Overview
+
+Our solution allows you to efficiently and easily control any aspects of your Android-based mobile fleet, providing a panel of functionalities:
+
+* Provided as a SaaS platform
+* Google independent
+* Deploy and configure applications
+* Deploy files
+* Wipe a phone
+* Work with devices running Android 4.4 or higher
+* Simple web application user interface 
+
+Flyve MDM is targeted for all browsers with browser versions shown below with green boxes:![](/assets/browsers.png)
+
+
+
+
+
