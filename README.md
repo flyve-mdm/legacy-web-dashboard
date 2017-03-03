@@ -10,6 +10,8 @@ Mobile device management software that enables you to secure and manage all the 
 
 * [Overview](#overview)
 * [Quick start](#quick-start)
+* [Testing] (#testing)
+* [Build system] (#build-system)
 * [Bugs and features requests](#bugs-and-features-requests)
 * [Documentation](#documentation)
 * [Contributing](#contributing)
@@ -70,6 +72,12 @@ Running `grunt test` will run the unit tests with karma.
 
 `Flyve MDM` is targeted for all browsers with browser versions shown below with green boxes:![](/assets/browsers.png)
 
+### Build system
+
+Run `grunt` for building and `grunt serve` for preview
+
+* [generator-angular](https://github.com/yeoman/generator-angular) via [Yeoman](http://yeoman.io/)
+
 #### Services
 
 * auth.js : handles the authentification with the GLPI API within the entire app
@@ -86,10 +94,6 @@ Running `grunt test` will run the unit tests with karma.
 * a app.sass module includes every other sass modules
 * which contains the visual css code for entire the frontend app
 * that app.sass builds to app.css
-
-#### Build system
-
-* [generator-angular](https://github.com/yeoman/generator-angular) via [Yeoman](http://yeoman.io/)
 
 ### Bugs and features requests
 
