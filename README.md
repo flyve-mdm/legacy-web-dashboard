@@ -1,17 +1,17 @@
-# flyve-mdm-web-ui ![](https://travis-ci.org/flyve-mdm/flyve-mdm-web-ui.svg?branch=next) ![](http://www.repostatus.org/badges/latest/active.svg)
+# flyve-mdm-web-ui ![](https://travis-ci.org/flyve-mdm/flyve-mdm-web-ui.svg?branch=next\) ![]\(http://www.repostatus.org/badges/latest/active.svg)
 
 ![](/assets/logo-flyve-mdm.png)
 
 Mobile device management software that enables you to secure and manage all the mobile devices of your business via a unique web-based console.
 
-**Documentation available at **[**http://flyve-mdm.com/**](http://flyve-mdm.com/)
+**Documentation available at** [**http://flyve-mdm.com/**](http://flyve-mdm.com/)
 
 ## What's included?
 
 * [Overview](#overview)
 * [Quick start](#quick-start)
-* [Testing] (#testing)
-* [Build system] (#build-system)
+* [Testing](#testing)
+* [Build system](#build-system)
 * [Bugs and features requests](#bugs-and-features-requests)
 * [Documentation](#documentation)
 * [Contributing](#contributing)
@@ -76,7 +76,7 @@ Running `grunt test` will run the unit tests with karma.
 
 Run `grunt` for building and `grunt serve` for preview
 
-* [generator-angular](https://github.com/yeoman/generator-angular) via [Yeoman](http://yeoman.io/)
+* [generator-angular](https://github.com/yeoman/generator-angular\) via [Yeoman]\(http://yeoman.io/)
 
 #### Services
 
@@ -97,7 +97,7 @@ Run `grunt` for building and `grunt serve` for preview
 
 ### Bugs and features requests
 
-You have a bug or a feature request? Please first read the [issue guidelines](/.github/CONTRIBUTING.md#using-the-issue-tracker) and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](http://github.com/flyve-mdm/flyve-mdm-web-ui/issues/new).
+You have a bug or a feature request? Please first read the [issue guidelines](/.github/CONTRIBUTING.md#using-the-issue-tracker\) and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue]\(http://github.com/flyve-mdm/flyve-mdm-web-ui/issues/new).
 
 ### Documentation
 
@@ -107,9 +107,9 @@ Flyve MDM's documentation is on the [Wiki of GitHub](https://github.com/flyve-md
 
 Please read our [contributing guidelines](/.github/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
 
-Moreover, if your pull request contains JavaScript patches or features, you must include [relevant unit tests](/test). All HTML and CSS should conform to the [Code Guide](https://github.com/mdo/code-guide), maintained by [Mark Otto](https://github.com/mdo).
+Moreover, if your pull request contains JavaScript patches or features, you must include [relevant unit tests](/test\). All HTML and CSS should conform to the [Code Guide]\(https://github.com/mdo/code-guide\), maintained by [Mark Otto]\(https://github.com/mdo).
 
-Editor preferences are available in the [editor config](http://github.com/flyve-mdm/flyve-mdm-web-ui/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at [http://editorconfig.org](http://editorconfig.org).
+Editor preferences are available in the [editor config](http://github.com/flyve-mdm/flyve-mdm-web-ui/blob/master/.editorconfig\) for easy use in common text editors. Read more and download plugins at [http://editorconfig.org]\(http://editorconfig.org).
 
 ### Community
 
@@ -119,7 +119,7 @@ Get updates on Flyve MDN's development and chat with the project maintainers and
 * Like [Flyve MDM on Facebook](https://www.facebook.com/Flyve-MDM-1625450937768377/).
 * Read and subscribe to [the Teclib' blog](http://www.teclib-edition.com/en/communities/blog-posts/).
 * Join [the IRC channel](irc://irc.freenode.org/flyve-mdm).
-* Implementation help may be found at Stack Overflow \(tagged [`flyve-mdm`](https://stackoverflow.com/questions/tagged/flyve-mdm)\).
+* Implementation help may be found at Stack Overflow \(tagged [`flyve-mdm`](https://stackoverflow.com/questions/tagged/flyve-mdm\)\).
 * [Flyve MDM on Wikipedia](https://fr.wikipedia.org/wiki/Flyve_MDM).
 
 ### Versioning
@@ -156,5 +156,5 @@ This roadmap is for informational purposes only, so you shouldn't rely on this i
 
 ### Copyright and license
 
-Code and documentation copyright 2015-2016 Teclib'. Code released under [the AGPL v3 license](/LICENSE.md). Docs released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Code and documentation copyright 2015-2017 Teclib'. Code released under [the AGPL v3 license](/LICENSE.md\). Docs released under [CC BY 4.0]\(https://creativecommons.org/licenses/by/4.0/).
 
