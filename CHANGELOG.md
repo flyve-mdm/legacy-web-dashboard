@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/flyve-mdm/flyve-mdm-web-ui/compare/v2.0.0...v2.1.0) (2017-03-07)
+
+
+### Bug Fixes
+
+* **dashboard:** check the existence of the header content-range ([69371b8](https://github.com/flyve-mdm/flyve-mdm-web-ui/commit/69371b8))
+
+
+### Features
+
+* **demo:** endpoint change to split demo mode ([315934b](https://github.com/flyve-mdm/flyve-mdm-web-ui/commit/315934b))
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/flyve-mdm/flyve-mdm-web-ui/compare/v1.2.0...v2.0.0) (2017-01-27)
 
