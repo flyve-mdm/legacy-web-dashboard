@@ -82,10 +82,15 @@ angular.module('FlyveMDM')
               return invitation[key] === done[key];
             });
           });
+          var total = 0;
+          if (response.headers()['content-range']) {
+            total = parseContentRange(response.headers()['content-range']).paginationTotal;
+          }
+          console.log(total);
           var invitations = {
             done: invitationsDone.length,
             pending: invitationsPending.length,
-            total: parseContentRange(response.headers()['content-range']).paginationTotal
+            total: total
           };
           deferred.resolve(invitations);
         }, function () {
@@ -102,8 +107,12 @@ angular.module('FlyveMDM')
           },
           url: GLPI_API_URL + GlpiObjectNames.GlpiUser
         }).then(function (response) {
-          var numberOfUsers = parseContentRange(response.headers()['content-range']);
-          deferred.resolve(numberOfUsers.paginationTotal);
+          var total = 0;
+          if (response.headers()['content-range']) {
+            total = parseContentRange(response.headers()['content-range']).paginationTotal;
+          }
+          console.log(total);
+          deferred.resolve(total);
         }, function () {
           deferred.reject();
         });
@@ -118,8 +127,12 @@ angular.module('FlyveMDM')
           },
           url: GLPI_API_URL + PluginObjectNames.Policy
         }).then(function (response) {
-          var numberOfUsers = parseContentRange(response.headers()['content-range']);
-          deferred.resolve(numberOfUsers.paginationTotal);
+          var total = 0;
+          if (response.headers()['content-range']) {
+            total = parseContentRange(response.headers()['content-range']).paginationTotal;
+          }
+          console.log(total);
+          deferred.resolve(total);
         }, function () {
           deferred.reject();
         });
@@ -134,8 +147,12 @@ angular.module('FlyveMDM')
           },
           url: GLPI_API_URL + PluginObjectNames.PolicyCategory
         }).then(function (response) {
-          var numberOfUsers = parseContentRange(response.headers()['content-range']);
-          deferred.resolve(numberOfUsers.paginationTotal);
+          var total = 0;
+          if (response.headers()['content-range']) {
+            total = parseContentRange(response.headers()['content-range']).paginationTotal;
+          }
+          console.log(total);
+          deferred.resolve(total);
         }, function () {
           deferred.reject();
         });
@@ -150,8 +167,12 @@ angular.module('FlyveMDM')
           },
           url: GLPI_API_URL + PluginObjectNames.File
         }).then(function (response) {
-          var numberOfFiles = parseContentRange(response.headers()['content-range']);
-          deferred.resolve(numberOfFiles.paginationTotal);
+          var total = 0;
+          if (response.headers()['content-range']) {
+            total = parseContentRange(response.headers()['content-range']).paginationTotal;
+          }
+          console.log(total);
+          deferred.resolve(total);
         }, function () {
           deferred.reject();
         });
@@ -166,8 +187,12 @@ angular.module('FlyveMDM')
           },
           url: GLPI_API_URL + PluginObjectNames.Fleet
         }).then(function (response) {
-          var numberOfFleets = parseContentRange(response.headers()['content-range']);
-          deferred.resolve(numberOfFleets.paginationTotal);
+          var total = 0;
+          if (response.headers()['content-range']) {
+            total = parseContentRange(response.headers()['content-range']).paginationTotal;
+          }
+          console.log(total);
+          deferred.resolve(total);
         }, function () {
           deferred.reject();
         });
@@ -182,8 +207,12 @@ angular.module('FlyveMDM')
           },
           url: GLPI_API_URL + PluginObjectNames.Application
         }).then(function (response) {
-          var numberOfApplications = parseContentRange(response.headers()['content-range']);
-          deferred.resolve(numberOfApplications.paginationTotal);
+          var total = 0;
+          if (response.headers()['content-range']) {
+            total = parseContentRange(response.headers()['content-range']).paginationTotal;
+          }
+          console.log(total);
+          deferred.resolve(total);
         }, function () {
           deferred.reject();
         });
@@ -198,8 +227,12 @@ angular.module('FlyveMDM')
           },
           url: GLPI_API_URL + PluginObjectNames.Agent
         }).then(function (response) {
-          var numberOfDevices = parseContentRange(response.headers()['content-range']);
-          deferred.resolve(numberOfDevices.paginationTotal);
+          var total = 0;
+          if (response.headers()['content-range']) {
+            total = parseContentRange(response.headers()['content-range']).paginationTotal;
+          }
+          console.log(total);
+          deferred.resolve(total);
         }, function () {
           deferred.reject();
         });
@@ -214,11 +247,15 @@ angular.module('FlyveMDM')
           },
           url: GLPI_API_URL + GlpiObjectNames.NetworkPort
         }).then(function (response) {
-          var numberOfDevices = parseContentRange(response.headers()['content-range']);
+          var total = 0;
+          if (response.headers()['content-range']) {
+            total = parseContentRange(response.headers()['content-range']).paginationTotal;
+          }
+          console.log(total);
           $http({
             method: 'GET',
             params: {
-              range: '0-' + numberOfDevices.paginationTotal
+              range: '0-' + total
             },
             url: GLPI_API_URL + GlpiObjectNames.NetworkPort
           }).then(function (response) {
