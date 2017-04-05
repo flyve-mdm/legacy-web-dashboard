@@ -1,0 +1,25 @@
+{
+  "bitwise": true,
+  "browser": true,
+  "curly": true,
+  "eqeqeq": true,
+  "esnext": true,
+  "jasmine": true,
+  "latedef": true,
+  "noarg": true,
+  "node": true,
+  "strict": true,
+  "undef": true,
+  "unused": true,
+  "loopfunc": true,
+  "expr": true,
+  "globals": {
+    "angular": false,
+    "inject": false,
+    "_": false,
+    "L": false,
+    "moment": false,
+    "Dexie": false,
+    "PasswordCredential": false
+  }
+}

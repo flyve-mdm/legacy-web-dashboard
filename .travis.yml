@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "7"
+install:
+  - gem install compass
+  - npm install -g bower
+  - npm install
+  - bower install
+before_script:
+  - npm install -g grunt
+script: grunt build
+notifications:
+  email: false
+  webhooks: https://fathomless-fjord-24024.herokuapp.com/notify
