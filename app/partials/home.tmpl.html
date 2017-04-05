@@ -1,0 +1,47 @@
+<div class="app-content">
+  <md-content>
+    <ul class="buckets" layout layout-align="center center" layout-wrap>
+      <li flex="50" flex-gt-md="25" ng-repeat="(index, link) in [
+        { href: './devices', icon: 'play_circle_fill', text: 'Devices' },
+        { href: './admin/fleets', icon: 'play_circle_fill', text: 'Fleets' },
+        { href: './admin/apps', icon: 'play_circle_fill', text: 'Applications' },
+        { href: './admin/files', icon: 'play_circle_fill', text: 'Files' },
+        { href: './admin/users', icon: 'play_circle_fill', text: 'Users' },
+        { href: './admin/apps', icon: 'play_circle_fill', text: 'Applications' }
+      ]">
+        <md-button class="md-primary md-raised" ng-href="{{link.href}}" aria-label="{{link.text}}">
+          <md-icon class="block" md-svg-src=""></md-icon>
+          {{link.text}}
+        </md-button>
+      </li>
+    </ul>
+    <ul class="buckets" layout layout-align="center center" layout-wrap>
+      <li flex="100" flex-gt-xs="50" ng-repeat="(index, link) in [
+        {
+          href: 'https://github.com/angular/material/blob/master/CHANGELOG.md',
+          icon: 'access_time',
+          text: 'Changelog'
+        }
+      ]">
+        <md-button class="md-primary md-raised" ng-href="{{link.href}}" aria-label="{{link.text}}">
+          <md-icon class="block" md-svg-src=""></md-icon>
+          {{link.text}}<br/>
+          <div style="text-transform: none;margin-top:-15px;font-size:1.0em;">Flyve MDM v1.x </div>
+        </md-button>
+      </li>
+    </ul>
+
+    <md-divider></md-divider>
+    <ul class="buckets" layout layout-align="center center" layout-wrap>
+      <li flex="100" flex-gt-xs="50" ng-repeat="(index, link) in [
+        { href: 'https://egghead.io/series/angular-material-introduction', icon: 'ondemand_video', text: 'Introduction to Angular Material', site : 'EggHead', access : 'free'},
+        { href: 'https://app.pluralsight.com/player?author=ajden-towfeek&name=angular-material-fundamentals-m0&mode=live&clip=0&course=angular-material-fundamentals', icon: 'ondemand_video', text: 'Angular Material Fundamentals', site : 'Pluralsight', access: 'member'},
+      ]">
+        <md-button class="md-primary md-raised" target="_blank" aria-label="{{link.text}}" ng-href="{{link.href}}">
+          <md-icon class="block" md-svg-src=""></md-icon>
+          {{link.site}} | <span style="color: rgb(255,82,82); text-transform: none;">{{link.text}}</span> | <span class="training_info">{{link.access}}</span>
+        </md-button>
+      </li>
+    </ul>
+  </md-content>
+</div>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html ng-app="myApp" ng-controller="AppCtrl" lang="en" ng-strict-di="true" md-theme="flyve-mdm">
+
+<head>
+  <base href="/">
+  <title ng-bind="'Flyve MDM - ' + menu.currentSection.name +
+    (menu.currentSection === menu.currentPage ? '' : ' > ' + menu.currentPage.name)">
+    Flyve MDM
+  </title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+
+<body class="app-body" layout="row" ng-cloak="">
+
+  <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" hide-print="true">
+
+    <header class="nav-header">
+      <a ng-href="/" class="app-logo">
+        <img src="images/icons/logo.svg" alt="" />
+        <h1 class="app-logotype md-heading">FLYVE<span style="color: #009688">MDM</span></h1>
+      </a>
+    </header>
+
+    <ul class="skip-links">
+      <li class="md-whiteframe-z2">
+        <md-button ng-click="focusMainContent($event)" href="#">Skip to content</md-button>
+      </li>
+    </ul>
+
+    <md-content flex role="navigation">
+      <ul class="app-menu">
+        <li ng-repeat="section in menu.sections" class="parent-list-item {{section.className || ''}}" ng-class="{'parentActive' : isSectionSelected(section)}">
+          <h2 class="menu-heading md-subhead" ng-if="section.type === 'heading'" id="heading_{{ section.name | nospace }}">
+            {{section.name}}
+          </h2>
+          <menu-link section="section" ng-if="section.type === 'link' && !section.hidden"></menu-link>
+
+          <menu-toggle section="section" ng-if="section.type === 'toggle' && !section.hidden"></menu-toggle>
+
+          <ul ng-if="section.children" class="menu-nested-list">
+            <li ng-repeat="child in section.children" ng-class="{'childActive' : isSectionSelected(child)}">
+              <menu-link section="child" ng-if="child.type === 'link'"></menu-link>
+
+              <menu-toggle section="child" ng-if="child.type === 'toggle'"></menu-toggle>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </md-content>
+  </md-sidenav>
+
+  <div layout="column" tabindex="-1" role="main" flex="">
+    <md-toolbar class="md-whiteframe-glow-z1 site-content-toolbar">
+
+      <div class="md-toolbar-tools app-toolbar-tools" tabindex="-1">
+        <md-button class="md-icon-button" ng-click="openMenu()" aria-label="Toggle Menu">
+          <md-icon md-svg-src="images/icons/ic_menu_24px.svg"></md-icon>
+        </md-button>
+        <div layout="row" flex="" class="fill-height">
+          <h2 class="md-toolbar-item md-breadcrumb md-headline">
+            <span ng-if="menu.currentPage.name !== menu.currentSection.name">
+              <span hide-sm="" hide-md="">{{menu.currentSection.name}}</span>
+            <span class="app-menu-separator-icon" hide-sm="" hide-md="" style="transform: translate3d(0, 1px, 0)">
+                <span class="md-visually-hidden">-</span>
+            <md-icon aria-hidden="true" md-svg-src="images/icons/chevron.svg" style="margin-top: -2px"></md-icon>
+            </span>
+            </span>
+            <span class="md-breadcrumb-page">{{menu.currentPage | humanizeSection}}</span>
+          </h2>
+        </div>
+      </div>
+
+    </md-toolbar>
+
+    <md-content md-scroll-y="" layout="column" flex="">
+      <div ng-view="" layout-padding="" flex="noshrink" class="app-ng-view"></div>
+
+      <div layout="row" flex="noshrink" layout-align="center center">
+        <div id="license-footer" flex="">
+          Powered by Teclib' &copy;2015&#8211;{{thisYear}}. Code licensed under the <a ng-href="./license" class="md-primary">GPLv3 License</a>.
+          Documentation licensed under
+          <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" class="md-default-theme md-primary">CC BY 4.0</a>.
+        </div>
+      </div>
+
+      <md-button class="md-fab md-fab-bottom-right app-scroll-fab" app-scroll-class="scrolling" ng-click="scrollTop()" aria-label="Back to Top">
+        <md-tooltip md-direction="top">Back to Top</md-tooltip>
+        <md-icon md-svg-src="images/icons/ic_arrow_up_24px.svg"></md-icon>
+      </md-button>
+
+    </md-content>
+
+  </div>
+
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/angular-translate/angular-translate.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/services/anchor.js"></script>
+  <script src="scripts/services/engine.js"></script>
+  <script src="scripts/services/endpoints.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>
