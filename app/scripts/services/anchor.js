@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
     function MdAnchorDirective($mdUtil, $compile) {
         /** @const @type {RegExp} */
@@ -44,7 +44,7 @@
     // Manually specify $inject because Strict DI is enabled.
     MdAnchorDirective.$inject = ['$mdUtil', '$compile'];
     angular
-        .module('myApp')
+        .module('appShell')
         .directive('h4', MdAnchorDirective)
         .directive('h3', MdAnchorDirective)
         .directive('h2', MdAnchorDirective)

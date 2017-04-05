@@ -1,6 +1,6 @@
-(function() {
+(function () {
     'use strict';
-    angular.module('myApp')
+    angular.module('appShell')
         .constant('pluginEndPoints', {
             AGENT: "/PluginStorkmdmAgent/",
             ENTITY_CONFIG: "/PluginStorkmdmEntityconfig/",

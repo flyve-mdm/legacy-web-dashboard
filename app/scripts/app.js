@@ -1,5 +1,5 @@
 'use strict';
-angular.module('myApp',
+angular.module('appShell',
   ['ngAnimate', 'ngAria', 'ngMessages', 'ngResource', 'ngRoute', 'ngSanitize', 'ngMaterial', 'ngGLPi', 'pascalprecht.translate'],
   ['$routeProvider', '$locationProvider', '$mdThemingProvider', '$mdIconProvider', '$glpiProvider', '$logProvider',
     function (
