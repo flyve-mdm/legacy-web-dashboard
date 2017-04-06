@@ -18,154 +18,117 @@ angular.module('appShell',
         .when('/settings/', {
           redirectTo: '/settings/entity'
         })
-        .when('/dashboard', {
+        .when('/people', {
           templateUrl: 'partials/home.tmpl.html'
         })
-        .when('/license', {
+        .when('/appearance', {
+          templateUrl: 'partials/home.tmpl.html'
+        })
+        .when('/accessibility', {
           templateUrl: 'partials/license.tmpl.html'
         });
-
       $mdIconProvider.icon('md-toggle-arrow', 'images/icons/toggle-arrow.svg', 48);
-
+      /**
       $mdThemingProvider.theme('default')
         .primaryPalette('teal')
         .accentPalette('teal')
         .warnPalette('grey')
         .backgroundPalette('grey');
-
+         */
       $mdThemingProvider
         .enableBrowserColor();
-
       $routeProvider.otherwise('/');
-
       // Change hash prefix of the Angular router, because we use the hash symbol for anchor links.
       // The hash will be not used by the pages, because we use the HTML5 mode for our links.
       $locationProvider.hashPrefix('!');
-
     }])
-
   .factory('menu', [
     '$location',
     '$rootScope',
     '$log',
     function ($location, $rootScope) {
       var sections = [{
-        name: 'Dashboard',
-        url: 'dashboard',
+        name: 'People',
+        url: 'people',
         type: 'link'
       },
       {
-        name: 'Devices',
+        name: 'Appearance',
+        url: 'appearance',
+        type: 'link'
+      },
+      {
+        name: 'Search engine',
+        url: 'search',
+        type: 'link'
+      },
+      {
+        name: 'Default browser',
+        url: 'defaultBrowser',
+        type: 'link'
+      },
+      {
+        name: 'On startup',
+        url: 'onStartup',
+        type: 'link'
+      },
+      {
+        name: 'Advanced',
         type: 'toggle',
         pages: [
           {
-            name: 'Invitations',
-            url: 'devices/invitations',
+            name: 'Privacy and security',
+            url: 'privacy',
             type: 'link'
           },
           {
-            name: 'Registered',
-            url: 'devices/registered',
+            name: 'Passwords and forms',
+            url: 'passwordsAndForms',
+            type: 'link'
+          },
+          {
+            name: 'Languages',
+            url: 'languages',
+            type: 'link'
+          },
+          {
+            name: 'Downloads',
+            url: 'downloads',
+            type: 'link'
+          },
+          {
+            name: 'Printing',
+            url: 'printing',
+            type: 'link'
+          },
+          {
+            name: 'Accesibility',
+            url: 'accessibility',
+            type: 'link'
+          },
+          {
+            name: 'System',
+            url: 'system',
+            type: 'link'
+          },
+          {
+            name: 'Reset',
+            url: 'reset',
             type: 'link'
           }
         ]
       },
       {
-        name: 'Administration',
-        type: 'toggle',
-        pages: [
-          {
-            name: 'Fleets',
-            url: 'admin/fleets',
-            type: 'link'
-          },
-          {
-            name: 'Files',
-            url: 'admin/files',
-            type: 'link'
-          },
-          {
-            name: 'Applications',
-            url: 'admin/apps',
-            type: 'link'
-          },
-          {
-            name: 'Users',
-            url: 'admin/users',
-            type: 'link'
-          }
-        ]
+        type: 'separator'
       },
       {
-        name: 'Settings',
-        type: 'toggle',
-        pages: [
-          {
-            name: 'Entity',
-            url: 'settings/entity',
-            type: 'link'
-          },
-          {
-            name: 'Profile',
-            url: 'settings/profile',
-            type: 'link'
-          },
-          {
-            name: 'Security',
-            url: 'settings/security',
-            type: 'link'
-          },
-          {
-            name: 'Notifications',
-            url: 'settings/notifications',
-            type: 'link'
-          },
-          {
-            name: 'Display',
-            url: 'settings/display',
-            type: 'link'
-          },
-          {
-            name: 'Audit Trail',
-            url: 'settings/logs',
-            type: 'link'
-          }
-        ]
-      },
-      {
-        name: 'Help',
-        type: 'toggle',
-        pages: [
-          {
-            name: 'Documentation',
-            url: 'docs',
-            type: 'link'
-          },
-          {
-            name: 'Release Notes',
-            url: 'changelog',
-            type: 'link'
-          },
-          {
-            name: 'Contact',
-            url: 'contact',
-            type: 'link'
-          },
-          {
-            name: 'Terms of Use',
-            url: 'tos',
-            type: 'link'
-          },
-          {
-            name: 'License',
-            url: 'license',
-            type: 'link'
-          }
-        ]
-      }];
+        name: 'About',
+        url: 'help',
+        type: 'link'
+      }
+      ];
       var self = {
         sections: sections,
-
         selectSection: function (section) {
           self.openedSection = section;
         },
@@ -175,7 +138,6 @@ angular.module('appShell',
         isSectionSelected: function (section) {
           return self.openedSection === section;
         },
-
         selectPage: function (section, page) {
           self.currentSection = section;
           self.currentPage = page;
@@ -184,7 +146,6 @@ angular.module('appShell',
           return self.currentPage === page;
         }
       };
-
       function onLocationChange() {
         var path = $location.path();
         var introLink = {
@@ -192,20 +153,17 @@ angular.module('appShell',
           url: "/",
           type: "link"
         };
-
         if (path === '/') {
           self.selectSection(introLink);
           self.selectPage(introLink, introLink);
           return;
         }
-
         var matchPage = function (section, page) {
           if (path.indexOf(page.url) !== -1) {
             self.selectSection(section);
             self.selectPage(section, page);
           }
         };
-
         sections.forEach(function (section) {
           if (section.children) {
             // matches nested section toggles, such as API or Customization

@@ -1,7 +1,6 @@
 /* Copyright 2017 Alexander Salas Bastidas. All rights reserved.
  * Use of this source code is governed by a GPLv3 license that can be
  * found in the LICENSE file. */
-
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
@@ -9,7 +8,6 @@
   src: local('Roboto'), local('Roboto-Regular'),
       url(../fonts/roboto-regular.woff2) format('woff2');
 }
-
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
@@ -17,7 +15,6 @@
   src: local('Roboto Medium'), local('Roboto-Medium'),
       url(../fonts/roboto-medium.woff2) format('woff2');
 }
-
 @font-face {
   font-family: 'Roboto';
   font-style: normal;

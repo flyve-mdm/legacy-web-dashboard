@@ -3,19 +3,14 @@
     function MdAnchorDirective($mdUtil, $compile) {
         /** @const @type {RegExp} */
         var unsafeCharRegex = /[&\s+$,:;=?@"#{}|^~[`%!'\].\/()*\\]/g;
-
         function postLink(scope, element, attr, ctrl) {
-
             // Only create anchors when being inside of a md-content.
             if (!ctrl) {
                 return;
             }
-
             var anchorEl = $compile('<a class="app-anchor" ng-href="#{{ name }}" name="{{ name }}"></a>')(scope);
-
             // Wrap contents inside of the anchor element.
             anchorEl.append(element.contents());
-
             // Append the anchor element to the directive element.
             element.append(anchorEl);
             /**
@@ -40,7 +35,6 @@
             link: postLink
         };
     }
-
     // Manually specify $inject because Strict DI is enabled.
     MdAnchorDirective.$inject = ['$mdUtil', '$compile'];
     angular

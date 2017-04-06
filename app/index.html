@@ -24,22 +24,12 @@
 </head>
 
 <body class="app-body" layout="row" ng-cloak="">
-
   <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" hide-print="true">
-
     <header class="nav-header">
       <a ng-href="/" class="app-logo">
         <img src="images/icons/logo.svg" alt="" />
-        <h1 class="app-logotype md-heading">APP<span style="color: #3367d6">SHELL</span></h1>
       </a>
     </header>
-
-    <ul class="skip-links">
-      <li class="md-whiteframe-z2">
-        <md-button ng-click="focusMainContent($event)" href="#">Skip to content</md-button>
-      </li>
-    </ul>
-
     <md-content flex role="navigation">
       <ul class="app-menu">
         <li ng-repeat="section in menu.sections" class="parent-list-item {{section.className || ''}}" ng-class="{'parentActive' : isSectionSelected(section)}">
@@ -47,13 +37,11 @@
             {{section.name}}
           </h2>
           <menu-link section="section" ng-if="section.type === 'link' && !section.hidden"></menu-link>
-
           <menu-toggle section="section" ng-if="section.type === 'toggle' && !section.hidden"></menu-toggle>
-
+          <div class="separator" ng-if="section.type === 'separator' && !section.hidden"></div>
           <ul ng-if="section.children" class="menu-nested-list">
             <li ng-repeat="child in section.children" ng-class="{'childActive' : isSectionSelected(child)}">
               <menu-link section="child" ng-if="child.type === 'link'"></menu-link>
-
               <menu-toggle section="child" ng-if="child.type === 'toggle'"></menu-toggle>
             </li>
           </ul>
@@ -61,10 +49,8 @@
       </ul>
     </md-content>
   </md-sidenav>
-
   <div layout="column" tabindex="-1" role="main" flex="">
     <md-toolbar class="md-whiteframe-glow-z1 site-content-toolbar">
-
       <div class="md-toolbar-tools app-toolbar-tools" tabindex="-1">
         <md-button class="md-icon-button" ng-click="openMenu()" aria-label="Toggle Menu">
           <md-icon md-svg-src="images/icons/hamburger.svg"></md-icon>
@@ -82,9 +68,7 @@
           </h2>
         </div>
       </div>
-
     </md-toolbar>
-
     <md-content md-scroll-y="" layout="column" flex="">
       <div ng-view="" layout-padding="" flex="noshrink" class="app-ng-view"></div>
       <md-button class="md-fab md-fab-bottom-right app-scroll-fab" app-scroll-class="scrolling" ng-click="scrollTop()" aria-label="Back to Top">
@@ -92,9 +76,7 @@
         <md-icon md-svg-src="images/icons/toggle-arrow.svg"></md-icon>
       </md-button>
     </md-content>
-
   </div>
-
   <!-- build:js(.) scripts/vendor.js -->
   <!-- bower:js -->
   <script src="bower_components/angular/angular.js"></script>
@@ -107,7 +89,6 @@
   <script src="bower_components/angular-material/angular-material.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
-
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/app.js"></script>

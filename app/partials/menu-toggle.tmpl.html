@@ -1,12 +1,8 @@
-<md-button class="md-button-toggle"
-  ng-click="toggle()"
-  aria-controls="app-menu-{{section.name | nospace}}"
-  aria-expanded="{{isOpen()}}">
+<md-button class="md-button-toggle" ng-click="toggle()" aria-controls="app-menu-{{section.name | nospace}}" aria-expanded="{{isOpen()}}">
   <div flex layout="row">
     {{section.name}}
     <span flex></span>
-    <span aria-hidden="true" class="md-toggle-icon"
-    ng-class="{'toggled' : isOpen()}">
+    <span aria-hidden="true" class="md-toggle-icon" ng-class="{'toggled' : isOpen()}">
       <md-icon md-svg-icon="md-toggle-arrow"></md-icon>
     </span>
   </div>
@@ -14,12 +10,7 @@
     Toggle {{isOpen()? 'expanded' : 'collapsed'}}
   </span>
 </md-button>
-
-<ul id="app-menu-{{section.name | nospace}}"
-  class="menu-toggle-list"
-  aria-hidden="{{!renderContent}}"
-  ng-style="{ visibility: renderContent ? 'visible' : 'hidden' }">
-
+<ul id="app-menu-{{section.name | nospace}}" class="menu-toggle-list" aria-hidden="{{!renderContent}}" ng-style="{ visibility: renderContent ? 'visible' : 'hidden' }">
   <li ng-repeat="page in section.pages">
     <menu-link section="page"></menu-link>
   </li>
