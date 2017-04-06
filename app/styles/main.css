@@ -796,11 +796,3 @@ md-toolbar-virtual {
 .md-toolbar-tools md-select span {
   color: white;
 }
-
-.md-checkbox-enabled.md-flyve-mdm[selected] .md-icon, .md-checkbox-enabled[selected] .md-icon {
-    background-color: rgb(21,135,132);
-}
-
-md-sidenav.md-flyve-mdm-theme, md-sidenav.md-flyve-mdm-theme md-content {
-    background-color: #0d5250;
-}
