@@ -32,7 +32,7 @@
                 $animateCss($ul, {
                   easing: 'cubic-bezier(0.35, 0, 0.25, 1)',
                   to: { height: targetHeight + 'px' },
-                  duration: 0.75 // seconds
+                  duration: 0.3 // seconds
                 }).start().then(function () {
                   var $li = $ul[0].querySelector('a.active');
                   $scope.renderContent = open;

@@ -131,11 +131,13 @@ ul li:first-child {
   margin: 0;
   max-height: 40px;
   overflow: hidden;
-  padding: 0px 16px;
+  padding: 0px 24px;
   text-align: left;
   text-decoration: none;
   white-space: normal;
   width: 100%;
+  font-size: 13px !important;
+  font-weight: 500;
 }
 html[dir=rtl] .app-menu .md-button,
 body[dir=rtl] .app-menu .md-button {
@@ -144,6 +146,11 @@ body[dir=rtl] .app-menu .md-button {
 }
 .app-menu .md-button md-icon {
   color: rgb(90, 90, 90);
+  height: 20px;
+  width: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  margin-right: 24px;
 }
 .app-menu md-select {
  /* Override md-select margins.  With margins the menu will look incorrect and causes mobile list
@@ -191,7 +198,6 @@ body[dir=rtl] .menu-heading {
 }
 .app-menu .menu-toggle-list a.md-button {
   display: block;
-  padding: 0 16px 0 32px;
   text-transform: none;
   text-rendering: optimizeLegibility;
   font-weight: 500;
@@ -206,8 +212,14 @@ body[dir=rtl] .menu-heading {
   margin-left: auto;
   /*speak: none;*/
   transform: rotate(180deg);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.25s ease-in-out;
+  margin-right: 0;
 }
+
+.md-button-toggle .md-toggle-icon md-icon {
+  margin-right: 0;
+}
+
 .md-button-toggle .md-toggle-icon.toggled {
   transform: rotate(0deg);
 }

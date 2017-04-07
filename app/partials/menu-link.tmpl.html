@@ -1,7 +1,4 @@
 <md-button ng-class="{'active' : isSelected()}" ng-href="{{section.url}}" ng-click="focusSection()">
-  <md-icon md-svg-icon="{{section.icon}}" ng-show="section.icon != null"></md-icon>
-  {{section | humanizeSection}}
-  <span class="md-visually-hidden" ng-if="isSelected()">
-    current page
-  </span>
+  <md-icon md-svg-icon="{{section.icon}}" ng-show="section.icon != null"></md-icon>{{section | humanizeSection}}
+  <span class="md-visually-hidden" ng-if="isSelected()">current page</span>
 </md-button>
