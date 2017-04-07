@@ -23,6 +23,7 @@
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/fonts.css">
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/site-sidenav.css">
   <!-- endbuild -->
 </head>
 
@@ -30,7 +31,7 @@
   <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-  <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" hide-print="true">
+  <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" hide-print>
     <header class="nav-header">
       <a ng-href="/" class="app-logo">
         <img src="images/icons/logo.svg" alt="" />
@@ -56,7 +57,7 @@
     </md-content>
   </md-sidenav>
   <div layout="column" tabindex="-1" role="main" flex="">
-    <md-toolbar class="md-whiteframe-glow-z1 site-content-toolbar">
+    <md-toolbar class="site-content-toolbar">
       <div class="md-toolbar-tools app-toolbar-tools" tabindex="-1">
         <md-button class="md-icon-button" ng-click="openMenu()" aria-label="Toggle Menu">
           <md-icon md-svg-src="images/icons/hamburger.svg"></md-icon>
@@ -64,10 +65,10 @@
         <div layout="row" flex="" class="fill-height">
           <h2 class="md-toolbar-item md-breadcrumb md-headline">
             <span ng-if="menu.currentPage.name !== menu.currentSection.name">
-              <span hide-sm="" hide-md="">{{menu.currentSection.name}}</span>
-            <span class="app-menu-separator-icon" hide-sm="" hide-md="" style="transform: translate3d(0, 1px, 0)">
-                <span class="md-visually-hidden">-</span>
-            <md-icon aria-hidden="true" md-svg-src="images/icons/chevron.svg" style="margin-top: -2px"></md-icon>
+              <span hide-xs="true">{{menu.currentSection.name}}</span>
+            <span class="app-menu-separator-icon" hide-xs="true" style="transform: translate3d(0, 1px, 0)">
+              <span class="md-visually-hidden">-</span>
+            <md-icon aria-hidden="true" md-svg-src="images/icons/chevron.svg"></md-icon>
             </span>
             </span>
             <span class="md-breadcrumb-page">{{menu.currentPage | humanizeSection}}</span>
@@ -102,6 +103,7 @@
   <script src="scripts/services/menu-link.js"></script>
   <script src="scripts/services/menu-toggle.js"></script>
   <script src="scripts/services/no-space.js"></script>
+  <script src="scripts/services/humanize-section.js"></script>
   <script src="scripts/services/stop-event.js"></script>
   <script src="scripts/services/anchor.js"></script>
   <!-- endbuild -->

@@ -1,0 +1,138 @@
+.site-sidenav,
+.site-sidenav.md-locked-open-add-active,
+.site-sidenav.md-locked-open {
+  width:     272px;
+  min-width: 272px;
+  max-width: 272px;
+}
+.site-sidenav > * {
+  min-width: 218px;
+}
+.app-menu,
+.app-menu ul {
+  list-style: none;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.app-menu li {
+  margin: 0;
+}
+.app-menu > li:nth-child(1) {
+  border-top: none;
+}
+.nav-header {
+  -webkit-flex-shrink: 0;
+          flex-shrink: 0;
+  z-index: 2;
+}
+.app-menu .separator, .nav-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.app-menu .md-button {
+  border-radius: 0;
+  color: rgb(90, 90, 90);
+  cursor: pointer;
+  display: block;
+  align-items: inherit;
+  line-height: 40px;
+  margin: 0;
+  max-height: 40px;
+  overflow: hidden;
+  padding: 0px 24px;
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+  width: 100%;
+  font-size: 13px !important;
+  font-weight: 500;
+}
+html[dir=rtl] .app-menu .md-button,
+body[dir=rtl] .app-menu .md-button {
+  unicode-bidi: embed;
+  text-align: right;
+}
+.app-menu .md-button md-icon {
+  color: rgb(90, 90, 90);
+  height: 20px;
+  width: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  margin-right: 24px;
+}
+.app-menu md-select {
+ /* Override md-select margins.  With margins the menu will look incorrect and causes mobile list
+    to not be scrollable.
+  */
+  margin: 0;
+  width: 100%;
+}
+.app-menu md-select md-select-label {
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+.app-menu md-select md-select-label span {
+  margin-right: auto;
+  padding-left: 13px;
+}
+.app-menu md-select .md-select-icon {
+  margin-right: 28px;
+}
+.app-menu button.md-button::-moz-focus-inner {
+  padding: 0;
+}
+.app-menu .md-button.active {
+  color: rgb(51, 103, 214);
+}
+.menu-heading {
+  display: block;
+  line-height: 32px;
+  margin: 0;
+  padding: 8px 16px 0;
+  text-align: left;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.54)
+}
+html[dir=rtl] .menu-heading,
+body[dir=rtl] .menu-heading {
+  unicode-bidi: embed;
+  text-align: right;
+}
+.menu-toggle-list {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  height: 0;
+}
+.app-menu .menu-toggle-list a.md-button {
+  display: block;
+  text-transform: none;
+  text-rendering: optimizeLegibility;
+  font-weight: 500;
+}
+.parent-list-item:last-child {
+  margin-bottom: 20px;
+  /* Prevent the hidden License link from causing a double bottom-border */
+  border-bottom: none;
+}
+.md-button-toggle .md-toggle-icon {
+  display: block;
+  margin-left: auto;
+  /*speak: none;*/
+  transform: rotate(180deg);
+  transition: transform 0.25s ease-in-out;
+  margin-right: 0;
+}
+
+.md-button-toggle .md-toggle-icon md-icon {
+  margin-right: 0;
+}
+
+.md-button-toggle .md-toggle-icon.toggled {
+  transform: rotate(0deg);
+}
+
+menu-link a.md-button.md-ink-ripple,
+menu-toggle button.md-button.md-ink-ripple{
+  text-transform: none !important;
+}

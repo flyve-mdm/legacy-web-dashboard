@@ -211,12 +211,4 @@ angular.module('appShell',
       .iconSet('settings', 'images/icons/sets/settings-icons.svg', 24)
       .iconSet('communication', 'images/icons/sets/communication-icons.svg', 24)
       .defaultIconSet('images/icons/sets/core-icons.svg', 24);
-  }])
-  .filter('humanizeSection', function () {
-    return function (section) {
-      if (!section) {
-        return;
-      }
-      return section.label || section.name;
-    };
-  });
+  }]);
