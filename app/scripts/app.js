@@ -50,26 +50,31 @@ angular.module('appShell',
       var sections = [{
         name: 'People',
         url: 'people',
+        icon: 'settings:person',
         type: 'link'
       },
       {
         name: 'Appearance',
         url: 'appearance',
+        icon: 'settings:palette',
         type: 'link'
       },
       {
         name: 'Search engine',
         url: 'search',
+        icon: 'settings:search',
         type: 'link'
       },
       {
         name: 'Default browser',
         url: 'defaultBrowser',
+        icon: 'settings:web',
         type: 'link'
       },
       {
         name: 'On startup',
         url: 'onStartup',
+        icon: 'settings:power-settings-new',
         type: 'link'
       },
       {
@@ -79,41 +84,49 @@ angular.module('appShell',
           {
             name: 'Privacy and security',
             url: 'privacy',
+            icon: 'settings:security',
             type: 'link'
           },
           {
             name: 'Passwords and forms',
             url: 'passwordsAndForms',
+            icon: 'settings:assignment',
             type: 'link'
           },
           {
             name: 'Languages',
             url: 'languages',
+            icon: 'settings:language',
             type: 'link'
           },
           {
             name: 'Downloads',
             url: 'downloads',
+            icon: 'settings:file-download',
             type: 'link'
           },
           {
             name: 'Printing',
             url: 'printing',
+            icon: 'settings:print',
             type: 'link'
           },
           {
             name: 'Accesibility',
             url: 'accessibility',
+            icon: 'settings:accessibility',
             type: 'link'
           },
           {
             name: 'System',
             url: 'system',
+            icon: 'settings:build',
             type: 'link'
           },
           {
             name: 'Reset',
             url: 'reset',
+            icon: 'settings:restore',
             type: 'link'
           }
         ]
@@ -195,6 +208,7 @@ angular.module('appShell',
       .iconSet('social', 'images/icons/sets/social-icons.svg', 24)
       .iconSet('actions', 'images/icons/sets/actions-icons.svg', 24)
       .iconSet('device', 'images/icons/sets/device-icons.svg', 24)
+      .iconSet('settings', 'images/icons/sets/settings-icons.svg', 24)
       .iconSet('communication', 'images/icons/sets/communication-icons.svg', 24)
       .defaultIconSet('images/icons/sets/core-icons.svg', 24);
   }])
