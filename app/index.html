@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="appShell" ng-controller="AppCtrl" lang="en" ng-strict-di="true">
+<html class="no-js" ng-app="appShell" ng-controller="AppCtrl" lang="en" ng-strict-di="true">
 
 <head>
   <base href="/">
@@ -8,7 +8,10 @@
     App Shell
   </title>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="author" href="humans.txt" />
   <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -24,6 +27,9 @@
 </head>
 
 <body class="app-body" layout="row" ng-cloak="">
+  <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
   <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" hide-print="true">
     <header class="nav-header">
       <a ng-href="/" class="app-logo">
