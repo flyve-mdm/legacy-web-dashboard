@@ -1,6 +1,6 @@
 # flyve-mdm-web-ui
 
-![](https://travis-ci.org/flyve-mdm/flyve-mdm-web-ui.svg?branch=next\) [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+![](https://travis-ci.org/flyve-mdm/flyve-mdm-web-ui.svg?branch=next) [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
 ![](/assets/logo-flyve-mdm.png)
 
