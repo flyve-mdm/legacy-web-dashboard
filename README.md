@@ -2,6 +2,21 @@
 
 Generic app for Teclib' projects.
 
+### Features:
+
+- **100/100 Lighthouse score**, right out of the box ([proof])
+- Fully **automatic code splitting** for routes
+- Transparently code-split any component with an [`async!`] prefix
+- Auto-generated [Service Workers] for offline caching powered by [sw-precache]
+- [PRPL](https://developers.google.com/web/fundamentals/performance/prpl-pattern/) pattern support for efficient loading
+- Zero-configuration pre-rendering / server-side rendering hydration
+- Support for CSS Modules, LESS & autoprefixer
+- Monitor your bundle/chunk sizes with built-in tracking
+- Automatic app mounting, debug helpers & Hot Module Replacement
+- In just **x.xkb** you get a productive environment:
+	- Angular Material
+	- 1.5kb of conditionally-loaded polyfills for [fetch](https://github.com/developit/unfetch) & [Promise](https://npm.im/promise-polyfill)
+
 ## Creators
 
 ### Alexander Salas Bastidas
