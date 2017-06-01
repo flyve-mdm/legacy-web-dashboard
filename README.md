@@ -3,6 +3,8 @@
 <!-- markdownlint-disable MD013 -->
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/flyve-mdm/flyve-mdm-web-ui.svg?branch=master)](https://travis-ci.org/flyve-mdm/flyve-mdm-web-ui)
+[![Telegram Group](https://img.shields.io/badge/Telegram-Group-blue.svg)](https://t.me/flyvemdm)
+
 
 Flyve MDM is a mobile device management software that enables you to secure and manage all the mobile devices of your business via a unique web-based console (MDM).
 
