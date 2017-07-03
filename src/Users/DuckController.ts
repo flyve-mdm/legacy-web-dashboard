@@ -1,5 +1,4 @@
 import GetMode from '../Utils/GetMode'
-import GetAllUsers from '../Utils/GetAllUsers'
 import InitialPeople from './InitialPeople'
 
 const INITIAL_STATE = {
@@ -21,7 +20,8 @@ const INITIAL_STATE = {
             openedDisplayMode: 'inline'
         }
     },
-    people: InitialPeople(),
+    // people: InitialPeople(),
+    people: '',
     users: ''
 }
 
@@ -75,7 +75,7 @@ export default function reducer(state = INITIAL_STATE, action) {
         case UPLOAD_USERS:
             return {
                ...state,
-               users: action.users
+               people: action.users
             }
 
         default: return state

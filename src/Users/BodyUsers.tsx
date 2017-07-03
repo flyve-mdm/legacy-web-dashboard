@@ -5,8 +5,10 @@ import { bindActionCreators } from 'redux'
 import { closePane, changeLocation, changePeople, uploadUsers } from './DuckController'
 import PeoplePage from './PeoplePage'
 import CloseSession from '../Utils/CloseSession'
+import Loading from '../GenericComponents/Loading'
 
 import GetAllUsers from '../Utils/GetAllUsers'
+import InitialPeople from './InitialPeople'
 
 function mapStateToProps(state, props) {
   return {
@@ -31,31 +33,24 @@ function mapDispatchToProps(dispatch) {
 
 class BodyUsers extends React.Component<any, any> {
 
-    componentWillMount() {
-        GetAllUsers()
-            .then((response) => {
-                this.props.actions.uploadUsers(response)
-            })
+    constructor (props: void) {
+        super(props)
+        this.state = {
+            renderedComponent: <Loading />
+        }
     }
-    
-    handleCommandInvoked (newLocation) {
-        this.props.actions.changeLocation(newLocation)
-        this.props.actions.closePane()
-    }
-
-    render () {
-
+    bodyRender(props) {
         let contentComponent
-        if (this.props.location[0] === 'people') {
+        if (props.location[0] === 'people') {
             contentComponent = <PeoplePage 
-                                    mode={this.props.mode} 
-                                    location={this.props.location} 
-                                    people={this.props.people} 
-                                    onNavigate={this.props.actions.changeLocation} 
-                                    changePeople={this.props.actions.changePeople} 
+                                    mode={props.mode} 
+                                    location={props.location} 
+                                    people={props.people} 
+                                    onNavigate={props.actions.changeLocation} 
+                                    changePeople={props.actions.changePeople} 
                                />
         } else {
-            contentComponent = <h2 className="win-h2" style={{marginLeft: '10px'}}> {this.props.location} </h2>
+            contentComponent = <h2 className="win-h2" style={{marginLeft: '10px'}}> {props.location} </h2>
         }
 
         let pane = (
@@ -87,23 +82,54 @@ class BodyUsers extends React.Component<any, any> {
                     label="Close session"
                     icon="cancel"
                     style={{position: 'absolute', bottom: 0, width: '100%'}}
-                    onInvoked={() => CloseSession(this.props.history)}
+                    onInvoked={() => CloseSession(props.history)}
                 />
 
             </div>
         )
 
-        return (
-            <ReactWinJS.SplitView
-                id={this.props.splitViewId}
-                paneComponent={pane}
-                style={{height: 'calc(100% - 48px)'}}
-                contentComponent={contentComponent}
-                paneOpened={this.props.paneOpened}
-                onAfterClose={this.props.actions.closePane}
-                {...this.props.splitViewConfigs[this.props.mode]} 
-            />
-        )
+        this.setState({ 
+            renderedComponent: 
+                <ReactWinJS.SplitView
+                    id={props.splitViewId}
+                    paneComponent={pane}
+                    style={{height: 'calc(100% - 48px)'}}
+                    contentComponent={contentComponent}
+                    paneOpened={props.paneOpened}
+                    onAfterClose={props.actions.closePane}
+                    {...props.splitViewConfigs[props.mode]} 
+                />
+        })
+    }
+
+    componentWillMount() {
+        InitialPeople()
+            .then((response) => {
+                console.log(response)
+                
+                this.props.actions.uploadUsers(response)
+
+                this.bodyRender(this)
+                
+            })
+            // .catch((response) => {
+            //     console.log(response)
+                
+            //     this.props.actions.uploadUsers(response)
+            // })
+    }
+
+    componentWillReceiveProps(newProps) {
+        this.bodyRender(newProps)
+    }
+
+    handleCommandInvoked (newLocation) {
+        this.props.actions.changeLocation(newLocation)
+        this.props.actions.closePane()
+    }
+
+    render () {
+        return this.state.renderedComponent
     }
 }
 export default connect <any, any, any>(

@@ -1,26 +1,43 @@
+import GetAllUsers from '../Utils/GetAllUsers'
+
 import Data from './FakeData'
-var WinJS = require('winjs')
+const WinJS = require('winjs')
 
 export default function () {
-    var groupKey = function (data) {
-        return data.name[0].toUpperCase()
-    }
 
-    var groupData = function (data) {
-        return { title: groupKey(data) }
-    }
-
-    var sorter = function (a, b) {
-        if (a.name < b.name) {
-            return -1
-        } else if (a.name > b.name) {
-            return 1
-        } else {
-            return 0
+    const PROMISE = new Promise (function (resolve, reject) {
+        let groupKey = function (data) {
+            return data.name[0].toUpperCase()
         }
-    }
 
-    return new WinJS.Binding.List(Data)
-        .createSorted(sorter)
-        .createGrouped(groupKey, groupData)
+        let groupData = function (data) {
+            return { title: groupKey(data) }
+        }
+
+        let sorter = function (a, b) {
+            if (a.name < b.name) {
+                return -1
+            } else if (a.name > b.name) {
+                return 1
+            } else {
+                return 0
+            }
+        }
+        GetAllUsers()
+            .then((response) => {
+                resolve (
+                    new WinJS.Binding.List(Data)
+                        .createSorted(sorter)
+                        .createGrouped(groupKey, groupData)
+                )
+            })
+            .catch((error) => {
+                resolve (
+                    new WinJS.Binding.List(Data)
+                        .createSorted(sorter)
+                        .createGrouped(groupKey, groupData)
+                )
+            })
+    })
+    return PROMISE
 }
