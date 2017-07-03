@@ -1,4 +1,5 @@
 import GetMode from '../Utils/GetMode'
+import GetAllUsers from '../Utils/GetAllUsers'
 import InitialPeople from './InitialPeople'
 
 const INITIAL_STATE = {
@@ -20,7 +21,8 @@ const INITIAL_STATE = {
             openedDisplayMode: 'inline'
         }
     },
-    people: InitialPeople()
+    people: InitialPeople(),
+    users: ''
 }
 
 // Constants
@@ -30,6 +32,7 @@ const CHANGE_MODE = 'flyve-mdm-web-ui/Users/changeMode'
 const CHANGE_LOCATION = 'flyve-mdm-web-ui/Users/changeLocation'
 const HANDLE_BACK = 'flyve-mdm-web-ui/Users/handleBack'
 const CHANGE_PEOPLE = 'flyve-mdm-web-ui/Users/changePeople'
+const UPLOAD_USERS = 'flyve-mdm-web-ui/Users/uploadUsers'
 
 // Reducers
 export default function reducer(state = INITIAL_STATE, action) {
@@ -69,6 +72,11 @@ export default function reducer(state = INITIAL_STATE, action) {
                ...state,
                people: action.newPeople
             }
+        case UPLOAD_USERS:
+            return {
+               ...state,
+               users: action.users
+            }
 
         default: return state
     }
@@ -106,5 +114,11 @@ export function changePeople (newPeople) {
   return { 
       type: CHANGE_PEOPLE,
       newPeople
+    }
+}
+export function uploadUsers (users) {
+  return { 
+      type: UPLOAD_USERS,
+      users
     }
 }

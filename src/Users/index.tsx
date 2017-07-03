@@ -21,6 +21,7 @@ export default class Users extends React.Component<any, any> {
     }
 
     componentWillMount () {
+
         VerifyAccountActivation(this.props.history)
             .then((active) => {
                 if (active) {

@@ -2,9 +2,11 @@ import * as React from 'react'
 import ReactWinJS = require ('react-winjs') 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { closePane, changeLocation, changePeople } from './DuckController'
+import { closePane, changeLocation, changePeople, uploadUsers } from './DuckController'
 import PeoplePage from './PeoplePage'
 import CloseSession from '../Utils/CloseSession'
+
+import GetAllUsers from '../Utils/GetAllUsers'
 
 function mapStateToProps(state, props) {
   return {
@@ -13,19 +15,28 @@ function mapStateToProps(state, props) {
     location: state.Users.location,
     splitViewConfigs: state.Users.splitViewConfigs,
     mode: state.Users.mode,
-    people: state.Users.people
+    people: state.Users.people,
+    users: state.Users.users
   }
 }
 
 function mapDispatchToProps(dispatch) {
   const actions = {
     closePane: bindActionCreators(closePane, dispatch),
-    changeLocation: bindActionCreators(changeLocation, dispatch)
+    changeLocation: bindActionCreators(changeLocation, dispatch),
+    uploadUsers: bindActionCreators(uploadUsers, dispatch)
   }
   return { actions }
 }
 
 class BodyUsers extends React.Component<any, any> {
+
+    componentWillMount() {
+        GetAllUsers()
+            .then((response) => {
+                this.props.actions.uploadUsers(response)
+            })
+    }
     
     handleCommandInvoked (newLocation) {
         this.props.actions.changeLocation(newLocation)
@@ -33,6 +44,7 @@ class BodyUsers extends React.Component<any, any> {
     }
 
     render () {
+
         let contentComponent
         if (this.props.location[0] === 'people') {
             contentComponent = <PeoplePage 
