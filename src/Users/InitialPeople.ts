@@ -1,6 +1,5 @@
 import GetAllUsers from '../Utils/GetAllUsers'
 
-import Data from './FakeData'
 const WinJS = require('winjs')
 
 export default function () {
@@ -26,18 +25,18 @@ export default function () {
         GetAllUsers()
             .then((response) => {
                 resolve (
-                    new WinJS.Binding.List(Data)
+                    new WinJS.Binding.List(response)
                         .createSorted(sorter)
                         .createGrouped(groupKey, groupData)
                 )
             })
-            .catch((error) => {
-                resolve (
-                    new WinJS.Binding.List(Data)
-                        .createSorted(sorter)
-                        .createGrouped(groupKey, groupData)
-                )
-            })
+            // .catch((error) => {
+            //     resolve (
+            //         new WinJS.Binding.List(Data)
+            //             .createSorted(sorter)
+            //             .createGrouped(groupKey, groupData)
+            //     )
+            // })
     })
     return PROMISE
 }
