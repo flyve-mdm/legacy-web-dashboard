@@ -1,0 +1,44 @@
+#ValidateAccount {
+    width: 50%;
+    margin: 25px auto;
+    text-align: center;    
+}
+#ValidateAccount button{
+    color: snow;
+    font-size: 1.2rem;  
+}
+#LoginForm {
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+#LoginForm .emailSection button{
+    width: 100%;
+}
+#LoginForm .passwordSection button{
+    width: 45%;
+    margin: 4px;
+}
+.section1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section2 {
+    margin-bottom: 40px;
+}
+.section2 input{
+    text-align: center;
+    font-size: 1rem;
+}
+.section2 form {
+    margin-top: 20px;
+}
+.credentials {
+    bottom: 15px;
+    text-align: center;
+    width: 100%;
+}
+.credentials img {
+    vertical-align:middle;
+}
