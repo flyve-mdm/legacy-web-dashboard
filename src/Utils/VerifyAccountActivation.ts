@@ -5,7 +5,7 @@ export default (history, location?) => {
     const PROMISE = new Promise (function (resolve, reject) {
         axios({
             method: 'get',
-            url: 'https://demo.flyve.org/glpi/apirest.php/getActiveProfile/'
+            url: 'https://dev.flyve.org/glpi/apirest.php/getActiveProfile/'
         })
             .then((response) => {
                 console.log(response)

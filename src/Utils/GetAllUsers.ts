@@ -4,7 +4,7 @@ export default () => {
     const PROMISE = new Promise (function (resolve, reject) {
         axios({
             method: 'get',
-            url: 'https://demo.flyve.org/glpi/apirest.php/User/'
+            url: 'https://dev.flyve.org/glpi/apirest.php/User/'
         })
             .then((response) => {
                 resolve (response.data)

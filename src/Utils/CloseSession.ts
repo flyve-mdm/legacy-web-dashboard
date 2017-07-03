@@ -4,7 +4,7 @@ import axios from 'axios'
 export default (history) => {
     axios({
         method: 'get',
-        url: 'https://demo.flyve.org/glpi/apirest.php/killSession/'
+        url: 'https://dev.flyve.org/glpi/apirest.php/killSession/'
     })
         .then((response) => {
             console.log(history)

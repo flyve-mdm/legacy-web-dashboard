@@ -24,6 +24,7 @@ export default function () {
         }
         GetAllUsers()
             .then((response) => {
+                console.log(response)
                 resolve (
                     new WinJS.Binding.List(response)
                         .createSorted(sorter)

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import axios from 'axios'
 import Loading from '../GenericComponents/Loading'
 
 export default class LoginEmail extends React.Component<any, any> {

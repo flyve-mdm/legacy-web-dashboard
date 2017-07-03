@@ -24,7 +24,7 @@ export default class LoginEmail extends React.Component<any, any> {
 
         this.props.changeLoading(<Loading className="loagind-form color-bg-light-vivid-mid"/>)
 
-        axios.post ('https://demo.flyve.org/glpi/apirest.php/initSession',{
+        axios.post ('https://dev.flyve.org/glpi/apirest.php/initSession',{
                 login: this.props.email,
                 password: this.props.password
         })  
