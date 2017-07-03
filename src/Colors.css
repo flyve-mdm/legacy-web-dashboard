@@ -172,3 +172,12 @@
 .color-type-alert {
   color: #ec2730;
 }
+.color-type-primary-alt {
+  color: #ffffff;
+}
+.color-type-secondary-alt {
+  color: rgba(#ffffff, 0.6);
+}
+.color-type-disabled-alt {
+  color: rgba(#ffffff, 0.2);
+}
