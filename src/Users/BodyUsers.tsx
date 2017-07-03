@@ -8,12 +8,12 @@ import CloseSession from '../Utils/CloseSession'
 
 function mapStateToProps(state, props) {
   return {
-    splitViewId: state.ContactBook.splitViewId,
-    paneOpened: state.ContactBook.paneOpened,
-    location: state.ContactBook.location,
-    splitViewConfigs: state.ContactBook.splitViewConfigs,
-    mode: state.ContactBook.mode,
-    people: state.ContactBook.people
+    splitViewId: state.Users.splitViewId,
+    paneOpened: state.Users.paneOpened,
+    location: state.Users.location,
+    splitViewConfigs: state.Users.splitViewConfigs,
+    mode: state.Users.mode,
+    people: state.Users.people
   }
 }
 
@@ -25,7 +25,7 @@ function mapDispatchToProps(dispatch) {
   return { actions }
 }
 
-class BodyContactBook extends React.Component<any, any> {
+class BodyUsers extends React.Component<any, any> {
     
     handleCommandInvoked (newLocation) {
         this.props.actions.changeLocation(newLocation)
@@ -97,4 +97,4 @@ class BodyContactBook extends React.Component<any, any> {
 export default connect <any, any, any>(
   mapStateToProps,
   mapDispatchToProps
-)(BodyContactBook)
+)(BodyUsers)

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import ContactBook from './ContactBook/DuckController'
+import Users from './Users/DuckController'
 import Login from './Login/DuckController'
 
 export default combineReducers ({
-    ContactBook,
+    Users,
     Login
 })

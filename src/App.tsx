@@ -11,7 +11,7 @@ export default class App extends React.Component<any, any> {
     constructor (props) {
         super(props)
         document.body.className = 'win-type-body color-bg-light-vivid-mid'
-        VerifyAccountActivation(this.props.history, 'contactbook')
+        VerifyAccountActivation(this.props.history, 'users')
     }
 
     render () {

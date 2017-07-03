@@ -8,8 +8,8 @@ const INITIAL_STATE = {
 }
 
 // Constants
-const CHANGE_LOADING = 'flyve-mdm-web-ui/ContactBook/changeLoading'
-const CHANGE_VALUE = 'flyve-mdm-web-ui/ContactBook/changeValue'
+const CHANGE_LOADING = 'flyve-mdm-web-ui/Login/changeLoading'
+const CHANGE_VALUE = 'flyve-mdm-web-ui/Login/changeValue'
 
 // Reducers
 export default function reducer(state = INITIAL_STATE, action: any) {

@@ -24,12 +24,12 @@ const INITIAL_STATE = {
 }
 
 // Constants
-const HANDLE_TOGGLE_PANE = 'flyve-mdm-web-ui/ContactBook/handleTogglePane'
-const CLOSE_PANE = 'flyve-mdm-web-ui/ContactBook/closePane'
-const CHANGE_MODE = 'flyve-mdm-web-ui/ContactBook/changeMode'
-const CHANGE_LOCATION = 'flyve-mdm-web-ui/ContactBook/changeLocation'
-const HANDLE_BACK = 'flyve-mdm-web-ui/ContactBook/handleBack'
-const CHANGE_PEOPLE = 'flyve-mdm-web-ui/ContactBook/changePeople'
+const HANDLE_TOGGLE_PANE = 'flyve-mdm-web-ui/Users/handleTogglePane'
+const CLOSE_PANE = 'flyve-mdm-web-ui/Users/closePane'
+const CHANGE_MODE = 'flyve-mdm-web-ui/Users/changeMode'
+const CHANGE_LOCATION = 'flyve-mdm-web-ui/Users/changeLocation'
+const HANDLE_BACK = 'flyve-mdm-web-ui/Users/handleBack'
+const CHANGE_PEOPLE = 'flyve-mdm-web-ui/Users/changePeople'
 
 // Reducers
 export default function reducer(state = INITIAL_STATE, action) {

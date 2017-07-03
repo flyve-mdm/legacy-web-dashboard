@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import App from './App'
 import Login from './Login'
-import ContactBook from './ContactBook'
+import Users from './Users'
 import ValidateAccount from './Login/ValidateAccount'
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import './App.css'
@@ -21,7 +21,7 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={App} />
           <Route path="/login" component={Login} />
-          <Route path="/contactbook" component={ContactBook} />
+          <Route path="/users" component={Users} />
           <Route path="/validateaccount" component={ValidateAccount} />
         </Switch>
       </HashRouter >

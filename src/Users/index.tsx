@@ -1,12 +1,12 @@
 import * as React from 'react'
 import VerifyAccountActivation from '../Utils/VerifyAccountActivation'
 import Loading from '../GenericComponents/Loading'
-import './ContactBook.css'
+import './Users.css'
 
-import HeaderContactBook from './HeaderContactBook'
-import BodyContactBook from './BodyContactBook'
+import HeaderUsers from './HeaderUsers'
+import BodyUsers from './BodyUsers'
 
-export default class ContactBook extends React.Component<any, any> {
+export default class Users extends React.Component<any, any> {
 
     static propTypes = {
         history: React.PropTypes.object.isRequired
@@ -25,8 +25,8 @@ export default class ContactBook extends React.Component<any, any> {
             .then((active) => {
                 if (active) {
                     this.setState({renderedComponent: <div style={{height: '100%'}}>
-                                                          <HeaderContactBook />
-                                                          <BodyContactBook history={this.props.history}/>
+                                                          <HeaderUsers />
+                                                          <BodyUsers history={this.props.history}/>
                                                       </div>
                     })
                 } 
