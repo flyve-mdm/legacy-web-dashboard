@@ -15,7 +15,6 @@ export default class ValidateAccount extends React.Component<any, any> {
     }
 
     render () {
-    
         return (
             <div className="ms-grid" id="ValidateAccount">
                 <div className="ms-row">

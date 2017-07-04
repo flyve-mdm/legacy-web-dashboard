@@ -66,13 +66,13 @@ export default class LoginEmail extends React.Component<any, any> {
                     />
                     <button 
                         className="win-button" 
-                        type="butthon" 
+                        type="button" 
                         onClick={() => this.props.changeValue('phase', 1)}
                     >
                         Back 
                     </button>
 
-                    <button className="win-button color-accent">Sing in</button>
+                    <button type="submit" className="win-button color-accent">Sing in</button>
                 </form>
                 <a href="#">Forgot my password</a>
             </div>
