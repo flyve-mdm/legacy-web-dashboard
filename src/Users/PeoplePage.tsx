@@ -1,6 +1,7 @@
 import * as React from 'react'
 import ReactWinJS = require ('react-winjs') 
 import Calc100PercentMinus from '../Utils/Calc100PercentMinus'
+import CheckExistence from '../Utils/CheckExistence'
 import ProfilePicture from './ProfilePicture'
 let WinJS = require('winjs')
 
@@ -155,41 +156,52 @@ export default class PeoplePage extends React.Component<any, any> {
         } else {
             let selectedPerson = this.props.people.getAt(selectedIndex)
             return (
+
+                // language
+
                 <div className="profilePane" style={{height: '100%', width: Calc100PercentMinus(peoplePaneWidth), display: 'inline-block', verticalAlign: 'top'}}>
                     <div className="profileHeader">
-                        <div className="name">{selectedPerson.name}</div>
+                        <div className="name">{CheckExistence(selectedPerson.name)}</div>
                         <div className="personInfo">
-                            <ProfilePicture backgroundUrl={selectedPerson.picture} size={100} />
+                            <ProfilePicture backgroundUrl={CheckExistence(selectedPerson.picture)} size={100} />
                             <div className="profileStatus">
                                 <span className="message">
-                                    {selectedPerson.status}
+                                    <strong>ID: </strong>{selectedPerson.id}
                                 </span>
-                                <span className="source">{selectedPerson.statusHoursAgo} hours ago</span>
+                                <span className="source"> last login: {CheckExistence(selectedPerson.last_login)}</span>
                             </div>
                         </div>
                     </div>
                     <div className="separator" />
                     <div className="profileContent">
                         <ul>
-                            <li><span className="messageIcon" />Message</li>
                             <li>
-                                <span className="phoneIcon" />
-                                <div className="callContent">
-                                    <a href="call:5550100">Call Mobile</a>
-                                    <div className="number">{selectedPerson.mobilePhone}</div>
+                                <div>
+                                    <strong className="firstname">First Name: &nbsp;</strong> 
+                                    <span>{CheckExistence(selectedPerson.firstname)}</span>
                                 </div>
                             </li>
                             <li>
                                 <span className="phoneIcon" />
                                 <div className="callContent">
-                                    <a href="call:5550100">Call Work</a>
-                                    <div className="number">{selectedPerson.workPhone}</div>
+                                    <a href="call:5550100">Mobile:</a>
+                                    <div className="number">{CheckExistence(selectedPerson.mobile)}</div>
                                 </div>
                             </li>
-                            <li><span className="phoneIcon" />Call using an app</li>
-                            <li><span className="videoCallIcon" />Video call</li>
-                            <li><span className="emailIcon" />Email work</li>
-                            <li><span className="mapIcon" />Map home</li>
+                            <li>
+                                <span className="phoneIcon" />
+                                <div className="callContent">
+                                    <a href="call:5550100">Phone:</a>
+                                    <div className="number">{CheckExistence(selectedPerson.phone)}</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span className="phoneIcon" />
+                                <div className="callContent">
+                                    <a href="call:5550100">Phone 2:</a>
+                                    <div className="number">{CheckExistence(selectedPerson.phone2)}</div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
