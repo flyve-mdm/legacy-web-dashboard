@@ -3,7 +3,7 @@ import axios from 'axios'
 import Loading from '../GenericComponents/Loading'
 import ChangeSessionToken from '../Utils/ChangeSessionToken'
 import VerifyAccountActivation from '../Utils/VerifyAccountActivation'
-// let StoreCredentials = require('../Utils/StoreCredentials')
+// import StoreCredentials from '../Utils/StoreCredentials'
 
 export default class LoginEmail extends React.Component<any, any> {
     
@@ -32,7 +32,7 @@ export default class LoginEmail extends React.Component<any, any> {
                 this.props.changeLoading('')
                 ChangeSessionToken(response.data.session_token)
                 VerifyAccountActivation(this.props.history, 'users')
-                // StoreCredentials(1234, 1234, this.props.history)
+                // StoreCredentials('123', '123', this.props.history)
                 
             })
             .catch((error) => {
@@ -62,7 +62,7 @@ export default class LoginEmail extends React.Component<any, any> {
                         placeholder="Password"
                         value={this.props.password} 
                         onChange={this.ChangeInput} 
-                        required 
+                        required={true}
                     />
                     <button 
                         className="win-button" 

@@ -41,17 +41,19 @@ class BodyUsers extends React.Component<any, any> {
     }
     bodyRender(props) {
         let contentComponent
-        if (props.location[0] === 'people') {
-            contentComponent = <PeoplePage 
-                                    mode={props.mode} 
-                                    location={props.location} 
-                                    people={props.people} 
-                                    onNavigate={props.actions.changeLocation} 
-                                    changePeople={props.actions.changePeople} 
-                               />
-        } else {
-            contentComponent = <h2 className="win-h2" style={{marginLeft: '10px'}}> {props.location} </h2>
-        }
+        if (props.location) {
+            if (props.location[0] === 'people') {
+                contentComponent = <PeoplePage 
+                                        mode={props.mode} 
+                                        location={props.location} 
+                                        people={props.people} 
+                                        onNavigate={props.actions.changeLocation} 
+                                        changePeople={props.actions.changePeople} 
+                                   />
+            } else {
+                contentComponent = <h2 className="win-h2" style={{marginLeft: '10px'}}> {props.location} </h2>
+            }
+        } 
 
         let pane = (
             <div>
@@ -106,17 +108,15 @@ class BodyUsers extends React.Component<any, any> {
         InitialPeople()
             .then((response) => {
                 console.log(response)
-                
-                this.props.actions.uploadUsers(response)
 
-                this.bodyRender(this)
+                console.log('=-=-=-=-=-=-=-=-=-=-=')
+                console.log(this.props.actions)
                 
-            })
-            // .catch((response) => {
-            //     console.log(response)
-                
-            //     this.props.actions.uploadUsers(response)
-            // })
+                if (this.props.actions) {
+                    this.props.actions.uploadUsers(response)
+                    this.bodyRender(this)
+                }
+            }).catch((error) => {})
     }
 
     componentWillReceiveProps(newProps) {

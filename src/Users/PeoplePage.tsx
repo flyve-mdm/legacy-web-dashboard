@@ -78,70 +78,74 @@ export default class PeoplePage extends React.Component<any, any> {
                 onClick={this.handleDelete}
             />
         )
+        if (this.props.people.dataSource) {
+            return (
+                <div className="peopleSearchPane" style={{height: '100%', width: peoplePaneWidth, display: 'inline-block', verticalAlign: 'top'}}>
+                    <ReactWinJS.ToolBar className="peopleToolBar">
+                        <ReactWinJS.ToolBar.Button
+                            key="edit"
+                            icon="edit"
+                            label="Edit"
+                            priority={4} 
+                        />
+                        <ReactWinJS.ToolBar.Button
+                            key="favorite"
+                            icon="favorite"
+                            label="Favorite"
+                            priority={3} 
+                        />
+                        <ReactWinJS.ToolBar.Button
+                            key="link"
+                            icon="link"
+                            label="Link"
+                            priority={2} 
+                        />
+                        <ReactWinJS.ToolBar.Button
+                            key="refresh"
+                            icon="refresh"
+                            label="Refresh"
+                            priority={1} 
+                        />
 
-        return (
-            <div className="peopleSearchPane" style={{height: '100%', width: peoplePaneWidth, display: 'inline-block', verticalAlign: 'top'}}>
-                <ReactWinJS.ToolBar className="peopleToolBar">
-                    <ReactWinJS.ToolBar.Button
-                        key="edit"
-                        icon="edit"
-                        label="Edit"
-                        priority={4} 
-                    />
-                    <ReactWinJS.ToolBar.Button
-                        key="favorite"
-                        icon="favorite"
-                        label="Favorite"
-                        priority={3} 
-                    />
-                    <ReactWinJS.ToolBar.Button
-                        key="link"
-                        icon="link"
-                        label="Link"
-                        priority={2} 
-                    />
-                    <ReactWinJS.ToolBar.Button
-                        key="refresh"
-                        icon="refresh"
-                        label="Refresh"
-                        priority={1} 
-                    />
+                        <ReactWinJS.ToolBar.Button
+                            key="add"
+                            icon="add"
+                            label="Add"
+                            priority={0} 
+                        />
+                        
+                        {this.state.selectionMode ? deleteCommand : null}
+                        
+                        <ReactWinJS.ToolBar.Toggle
+                            key="select"
+                            icon="bullets"
+                            label="Select"
+                            priority={0}
+                            selected={this.state.selectionMode}
+                            onClick={this.handleToggleSelectionMode}
+                        />
+                    </ReactWinJS.ToolBar>
 
-                    <ReactWinJS.ToolBar.Button
-                        key="add"
-                        icon="add"
-                        label="Add"
-                        priority={0} 
+                    <ReactWinJS.ListView
+                        ref="listView"
+                        className="peopleListView win-selectionstylefilled"
+                        style={{height: 'calc(100% - 48px)'}}
+                        itemDataSource={this.props.people.dataSource}
+                        groupDataSource={this.props.people.groups.dataSource}
+                        layout={this.state.layout}
+                        itemTemplate={this.personRenderer}
+                        groupHeaderTemplate={this.groupHeaderRenderer}
+                        selectionMode={this.state.selectionMode ? 'multi' : 'single'}
+                        tapBehavior={this.state.selectionMode ? 'toggleSelect' : 'directSelect'}
+                        onSelectionChanged={this.handleSelectionChanged}
+                        onContentAnimating={this.handleContentAnimating}
                     />
-                    
-                    {this.state.selectionMode ? deleteCommand : null}
-                    
-                    <ReactWinJS.ToolBar.Toggle
-                        key="select"
-                        icon="bullets"
-                        label="Select"
-                        priority={0}
-                        selected={this.state.selectionMode}
-                        onClick={this.handleToggleSelectionMode}
-                    />
-                </ReactWinJS.ToolBar>
-
-                <ReactWinJS.ListView
-                    ref="listView"
-                    className="peopleListView win-selectionstylefilled"
-                    style={{height: 'calc(100% - 48px)'}}
-                    itemDataSource={this.props.people.dataSource}
-                    groupDataSource={this.props.people.groups.dataSource}
-                    layout={this.state.layout}
-                    itemTemplate={this.personRenderer}
-                    groupHeaderTemplate={this.groupHeaderRenderer}
-                    selectionMode={this.state.selectionMode ? 'multi' : 'single'}
-                    tapBehavior={this.state.selectionMode ? 'toggleSelect' : 'directSelect'}
-                    onSelectionChanged={this.handleSelectionChanged}
-                    onContentAnimating={this.handleContentAnimating}
-                />
-            </div>
-        )
+                </div>
+            )
+        } else {
+            return <span />
+        }
+        
     }
 
     renderProfilePane (selectedIndex, peoplePaneWidth) {
