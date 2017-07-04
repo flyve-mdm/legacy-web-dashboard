@@ -3,7 +3,7 @@ import axios from 'axios'
 import Loading from '../GenericComponents/Loading'
 import ChangeSessionToken from '../Utils/ChangeSessionToken'
 import VerifyAccountActivation from '../Utils/VerifyAccountActivation'
-// import StoreCredentials from '../Utils/StoreCredentials'
+import log from '../Utils/SaveCredentials'
 
 export default class LoginEmail extends React.Component<any, any> {
     
@@ -31,8 +31,9 @@ export default class LoginEmail extends React.Component<any, any> {
             .then((response) => {
                 this.props.changeLoading('')
                 ChangeSessionToken(response.data.session_token)
-                VerifyAccountActivation(this.props.history, 'users')
-                // StoreCredentials('123', '123', this.props.history)
+                // VerifyAccountActivation(this.props.history, 'users')
+
+                log(this.props.email, this.props.password, this.props.history)
                 
             })
             .catch((error) => {

@@ -19,7 +19,7 @@ ReactDOM.render(
   <Provider store={store}>
       <HashRouter>
         <Switch>
-          <Route exact path="/" component={App} />
+          <Route exact={true} path="/" component={App} />
           <Route path="/login" component={Login} />
           <Route path="/users" component={Users} />
           <Route path="/validateaccount" component={ValidateAccount} />
