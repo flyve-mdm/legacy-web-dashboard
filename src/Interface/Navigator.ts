@@ -15,9 +15,10 @@ interface CredentialContainer {
     requireUserMediation(): Promise<void>
 }
 
-interface Credential {
-    readonly iconURL: string
+export interface Credential {
+    readonly iconURL?: string
+    readonly name?: string
     readonly id: string
-    readonly name: string
+    readonly password: string
     readonly type: 'password' | 'federated'
 }

@@ -1,16 +1,15 @@
-// import VerifyAccountActivation from './VerifyAccountActivation'
-// import { Navigator } from '../Interface/Navigator'
+import VerifyAccountActivation from './VerifyAccountActivation'
+import { Navigator, Credential } from '../Interface/Navigator'
 
-// export default function (id: string, password: string, history: any) {
-//     let c = new PasswordCredential({
-//         id,
-//         password
-//     })
+export default function (id: string, password: string, history: any, name?: string, type?: string) {
 
-//     // console.log(c)
-//     let navigator: Navigator
-//     navigator.credentials.store()
-//     .then(() => {
-//          VerifyAccountActivation(history, 'contactbook')
-//     })
-// }
+    let navi: Navigator = navigator
+    if (navi.credentials) {
+        let cre: Credential = {id, password, name: 'gian', type: 'password'}
+        navi.credentials.store(cre)
+        .then(() => {
+            VerifyAccountActivation(history, 'contactbook')
+        })
+    }
+    
+}
