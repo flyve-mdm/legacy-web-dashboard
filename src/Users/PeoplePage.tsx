@@ -184,21 +184,21 @@ export default class PeoplePage extends React.Component<any, any> {
                             <li>
                                 <span className="phoneIcon" />
                                 <div className="callContent">
-                                    <a href="call:5550100">Mobile:</a>
+                                    <a href={`call:${selectedPerson.mobile}`}>Mobile:</a>
                                     <div className="number">{CheckExistence(selectedPerson.mobile)}</div>
                                 </div>
                             </li>
                             <li>
                                 <span className="phoneIcon" />
                                 <div className="callContent">
-                                    <a href="call:5550100">Phone:</a>
+                                    <a href={`call:${selectedPerson.phone}`}>Phone:</a>
                                     <div className="number">{CheckExistence(selectedPerson.phone)}</div>
                                 </div>
                             </li>
                             <li>
                                 <span className="phoneIcon" />
                                 <div className="callContent">
-                                    <a href="call:5550100">Phone 2:</a>
+                                    <a href={`call:${selectedPerson.phone2}`}>Phone 2:</a>
                                     <div className="number">{CheckExistence(selectedPerson.phone2)}</div>
                                 </div>
                             </li>
