@@ -3,7 +3,7 @@ import axios from 'axios'
 import Loading from '../GenericComponents/Loading'
 import ChangeSessionToken from '../Utils/ChangeSessionToken'
 import VerifyAccountActivation from '../Utils/VerifyAccountActivation'
-import log from '../Utils/SaveCredentials'
+import SaveCredentials from '../Utils/SaveCredentials'
 
 export default class LoginEmail extends React.Component<any, any> {
     
@@ -24,7 +24,7 @@ export default class LoginEmail extends React.Component<any, any> {
 
         this.props.changeLoading(<Loading className="loagind-form color-bg-light-vivid-mid"/>)
 
-        axios.post ('https://dev.flyve.org/glpi/apirest.php/initSession',{
+        axios.post ('https://dev.flyve.org/glpi/apirest.php/initSession', {
                 login: this.props.email,
                 password: this.props.password
         })  
@@ -33,7 +33,7 @@ export default class LoginEmail extends React.Component<any, any> {
                 ChangeSessionToken(response.data.session_token)
                 // VerifyAccountActivation(this.props.history, 'users')
 
-                log(this.props.email, this.props.password, this.props.history)
+                SaveCredentials(this.props.email, this.props.password, this.props.history)
                 
             })
             .catch((error) => {

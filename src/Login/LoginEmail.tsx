@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Loading from '../GenericComponents/Loading'
+import GetCredentials from '../Utils/GetCredentials'
 
 export default class LoginEmail extends React.Component<any, any> {
 
@@ -9,6 +10,7 @@ export default class LoginEmail extends React.Component<any, any> {
             classInput: '',
             errorMessage: ''
         }
+        GetCredentials()
     }
     
     ChangeInput = (input) => {
@@ -49,7 +51,7 @@ export default class LoginEmail extends React.Component<any, any> {
                         placeholder="Your Email Registered"
                         value={this.props.email} 
                         onChange={this.ChangeInput} 
-                        required 
+                        required={true}
                     />
                     <button className="win-button color-accent">Next</button>
                 </form>
