@@ -60,6 +60,7 @@ class CreateAccount extends React.Component<any, any> {
             lastName: this.state.lastName,
             userName: this.state.userName,
             password: this.state.password,
+            reenterPassword: this.state.reenterPassword,
             suscribe: this.state.suscribe
         }
 
@@ -69,17 +70,15 @@ class CreateAccount extends React.Component<any, any> {
         for (let prop in DATA_FORM) {
             if (DATA_FORM[prop] === '') {
                 validForm = false
-            } else if (prop === 'userName') {
-                // tslint:disable-next-line:max-line-length
-                let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                if (!re.test(DATA_FORM[prop])) {
-                    validForm = false
-                } 
-            } else if (prop === 'password') {
-                if (DATA_FORM[prop].length < 8 ) {
-                    validForm = false
-                }
             } 
+        }
+        // tslint:disable-next-line:max-line-length
+        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        if (!re.test(this.state.userName)) {
+            validForm = false
+        } 
+        if (this.state.password.length < 8 ) {
+            validForm = false
         }
         if (this.state.password !== this.state.reenterPassword) {
             validForm = false
