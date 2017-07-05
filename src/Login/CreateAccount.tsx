@@ -92,6 +92,7 @@ class CreateAccount extends React.Component<any, any> {
                                 <input 
                                     name="userName" 
                                     id="userName" 
+                                    type="email"
                                     value={this.state.userName} 
                                     onChange={this.changeInput} 
                                     required={true} 
