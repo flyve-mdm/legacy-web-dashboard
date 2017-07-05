@@ -2,24 +2,26 @@ import * as React from 'react'
 
 export default class ErrorInput extends React.Component<any, any> {
     render() {
-        let message = <span />
-        if (this.props.value === '' || this.props.value === undefined || this.props.value === null) {
-            message = <label className="color-type-alert">Required field</label>
+        console.log(this.props.name)
+        console.log(this.props.value)
+        let message = ''
+        if (this.props.value === '') {
+            message = 'Required field'
         } else if (this.props.name === 'userName') {
             // tslint:disable-next-line:max-line-length
             let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            if (!re.test(this.props.email)) {
-                message = <label className="color-type-alert">Required field</label>
+            if (!re.test(this.props.value)) {
+                message = 'Invalid email'
             } 
         } else if (this.props.name === 'password') {
             if (this.props.value.length < 8 ) {
-                message = <label className="color-type-alert">The password must be at least 8 characters</label>
+                message = 'The password must be at least 8 characters'
             }
         } else if (this.props.name === 'reenterPassword') {
             if (this.props.value !== this.props.password) {
-                message = <label className="color-type-alert">Passwords do not match</label>
+                message = 'Passwords do not match'
             }
         }
-        return message
+        return <label className="color-type-alert">{message}</label>
     }
 }
