@@ -2,8 +2,6 @@ import * as React from 'react'
 
 export default class ErrorInput extends React.Component<any, any> {
     render() {
-        console.log(this.props.name)
-        console.log(this.props.value)
         let message = ''
         if (this.props.value === '') {
             message = 'Required field'
@@ -22,6 +20,6 @@ export default class ErrorInput extends React.Component<any, any> {
                 message = 'Passwords do not match'
             }
         }
-        return <label className="color-type-alert">{message}</label>
+        return <label className="color-type-alert">{message}<br /></label>
     }
 }

@@ -44,13 +44,49 @@ class CreateAccount extends React.Component<any, any> {
             userName: '',
             password: '',
             reenterPassword: '',
-            captcha: '',
             suscribe: true
         }
     }
 
     changeInput = (input) => {
         this.setState({[input.target.name]: input.target.value})
+    }
+
+    validateAndSend = (e) => {
+        e.preventDefault()
+
+        let DATA_FORM = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            userName: this.state.userName,
+            password: this.state.password,
+            suscribe: this.state.suscribe
+        }
+
+        let validForm = true
+
+        // tslint:disable-next-line:forin
+        for (let prop in DATA_FORM) {
+            if (DATA_FORM[prop] === '') {
+                validForm = false
+            } else if (prop === 'userName') {
+                // tslint:disable-next-line:max-line-length
+                let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                if (!re.test(DATA_FORM[prop])) {
+                    validForm = false
+                } 
+            } else if (prop === 'password') {
+                if (DATA_FORM[prop].length < 8 ) {
+                    validForm = false
+                }
+            } 
+        }
+        if (this.state.password !== this.state.reenterPassword) {
+            validForm = false
+        }
+        if (validForm) {
+            console.log('u.u')
+        }
     }
 
     render () {
@@ -63,7 +99,7 @@ class CreateAccount extends React.Component<any, any> {
                             Create an account
                         </h1>
                         <a href="login">Sign in</a>
-                        <form>
+                        <form onSubmit={this.validateAndSend}>
                             
                             <div className="col-1-2 ">
                                 <label>First name</label>
@@ -130,22 +166,6 @@ class CreateAccount extends React.Component<any, any> {
                                     8-character minimun; case sensitive   
                                 </label>
                             </div>
-                            
-
-
-
-                            <div className="col-1-1 ">
-                                <label>Enter the characteres you see</label>
-                                <input 
-                                    name="captcha" 
-                                    id="captcha" 
-                                    value={this.state.captcha} 
-                                    onChange={this.changeInput}
-                                    required={true}
-                                />
-                                <ErrorInput name="captcha" value={this.state.captcha} />
-                            </div>
-
                             <div className="row">
                                 <div className="col-2-8">
                                     <input 
