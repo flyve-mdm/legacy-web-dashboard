@@ -27,7 +27,14 @@ html {
 }
 a {
     text-decoration:none;
+    color: #158784;
+}
+a:visited {
+    color: #158784;
 }
 .win-item {
     margin-left: 10px;
+}
+h1 {
+    font-weight: normal;
 }
