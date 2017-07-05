@@ -9,6 +9,10 @@
 }
 #createAccount input {
     height: 30px;
+    margin: 10px 0px 5px 0px;
+}
+#createAccount div {
+    margin: 10px 0px;
 }
 .LoginForm {
     text-align: center;

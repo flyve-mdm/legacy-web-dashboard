@@ -20,6 +20,14 @@ export default class ErrorInput extends React.Component<any, any> {
                 message = 'Passwords do not match'
             }
         }
+        if (message !== '') {
+            let input = document.getElementById(this.props.name)
+            console.log(input)
+            if (input) {
+               input.className = 'color-line-alert'
+            }
+            
+        }
         return <label className="color-type-alert">{message}<br /></label>
     }
 }
