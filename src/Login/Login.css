@@ -7,6 +7,9 @@
     color: snow;
     font-size: 1.2rem;  
 }
+#createAccount input {
+    height: 30px;
+}
 .LoginForm {
     text-align: center;
     max-width: 400px;

@@ -11,6 +11,10 @@ export default class ErrorInput extends React.Component<any, any> {
             if (!re.test(this.props.email)) {
                 message = <label className="color-type-alert">Required field</label>
             } 
+        } else if (this.props.name === 'password') {
+            if (this.props.value.length < 8 ) {
+                message = <label className="color-type-alert">The password must be at least 8 characters</label>
+            }
         }
         return message
     }
