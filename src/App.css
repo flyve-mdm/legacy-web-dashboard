@@ -38,3 +38,6 @@ a:visited {
 h1 {
     font-weight: normal;
 }
+input {
+    padding-left: 10px;
+}
