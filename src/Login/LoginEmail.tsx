@@ -55,7 +55,7 @@ export default class LoginEmail extends React.Component<any, any> {
                     />
                     <button className="win-button color-accent">Next</button>
                 </form>
-                <p>No account? <a href="#">Create one!</a></p>
+                <p>No account? <a href="/CreateAccount">Create one!</a></p>
             </div>
             
         )

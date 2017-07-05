@@ -85,7 +85,7 @@
     box-sizing: border-box;
     padding-left: 10px;
     padding-right: 10px;
-    overflow: auto;
+    overflow: auto
 }
 
 #app .profilePane .profileHeader {

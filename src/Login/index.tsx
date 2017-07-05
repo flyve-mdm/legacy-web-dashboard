@@ -66,7 +66,7 @@ class Login extends React.Component<any, any> {
         }
         return (
             <div>
-                <div id="LoginForm">
+                <div className="LoginForm">
                     <LogoFlyve />
                     <div className="section2">
                         {form}
@@ -74,7 +74,7 @@ class Login extends React.Component<any, any> {
                     </div>
                     <a href="https://flyve-mdm.com/privacy-policy/">Terms and Conditions</a>
                     <br />
-                    <span className="credentials color-type-secondary">
+                    <span className="credentials color-type-secondary color-type-primary-alt">
                         Teclib
                     </span>
                 </div>

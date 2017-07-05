@@ -2,6 +2,7 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import App from './App'
 import Login from './Login'
+import CreateAccount from './Login/CreateAccount'
 import Users from './Users'
 import ValidateAccount from './Login/ValidateAccount'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
@@ -21,6 +22,7 @@ ReactDOM.render(
         <Switch>
           <Route exact={true} path="/" component={App} />
           <Route path="/login" component={Login} />
+          <Route path="/createaccount" component={CreateAccount} />
           <Route path="/users" component={Users} />
           <Route path="/validateaccount" component={ValidateAccount} />
         </Switch>
