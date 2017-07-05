@@ -9,6 +9,7 @@ import { changeLoading, changeValue } from './DuckController'
 import { connect } from 'react-redux'
 import LoginEmail from './LoginEmail'
 import LoginPassword from './LoginPassword'
+import LogoFlyve from './LogoFlyve'
 
 function mapStateToProps(state, props) {
     return {
@@ -66,9 +67,7 @@ class Login extends React.Component<any, any> {
         return (
             <div>
                 <div id="LoginForm">
-                    <div className="section1 color-white">
-                        <img src="img/logo-flyve-login.png" className="img-login"/>
-                    </div>
+                    <LogoFlyve />
                     <div className="section2">
                         {form}
                         {this.props.loading}
