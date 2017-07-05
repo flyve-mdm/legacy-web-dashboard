@@ -15,6 +15,10 @@ export default class ErrorInput extends React.Component<any, any> {
             if (this.props.value.length < 8 ) {
                 message = <label className="color-type-alert">The password must be at least 8 characters</label>
             }
+        } else if (this.props.name === 'reenterPassword') {
+            if (this.props.value !== this.props.password) {
+                message = <label className="color-type-alert">Passwords do not match</label>
+            }
         }
         return message
     }

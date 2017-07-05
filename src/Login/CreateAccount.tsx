@@ -121,7 +121,11 @@ class CreateAccount extends React.Component<any, any> {
                                     onChange={this.changeInput} 
                                     required={true} 
                                 />
-                                <ErrorInput name="reenterPassword" value={this.state.reenterPassword} />
+                                <ErrorInput 
+                                    name="reenterPassword" 
+                                    value={this.state.reenterPassword} 
+                                    password={this.state.password} 
+                                />
                                 <label>
                                     8-character minimun; case sensitive   
                                 </label>
