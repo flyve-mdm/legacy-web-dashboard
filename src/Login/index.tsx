@@ -69,9 +69,9 @@ class Login extends React.Component<any, any> {
         }
         return (
             <div>
-                <div>
+                <div id="signIn">
                     <LogoFlyve />
-                    <div className="section2">
+                    <div className="centerText">
                         {form}
                         {this.props.loading}
                     </div>

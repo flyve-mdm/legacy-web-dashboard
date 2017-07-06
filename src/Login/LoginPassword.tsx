@@ -40,10 +40,12 @@ export default class LoginEmail extends React.Component<any, any> {
                 this.props.changeLoading('')
                 this.setState({
                         classInput: 'color-line-alert',
-                        errorMessage: <p className="color-type-alert"> 
+                        errorMessage: 
+                                    // tslint:disable-next-line:jsx-wrap-multiline
+                                    <p className="color-type-alert"> 
                                         Your account or password is incorrect. If you don't remember your password, 
                                         <a href="#"> reset it now.</a>
-                                      </p>
+                                    </p>
                     })
             })
     }
@@ -59,21 +61,19 @@ export default class LoginEmail extends React.Component<any, any> {
                     <input 
                         type="password" 
                         name="password" 
-                        className={this.state.classInput}
+                        className="win-textbox"
                         placeholder="Password"
                         value={this.props.password} 
                         onChange={this.ChangeInput} 
                         required={true}
                     />
-                    <button 
-                        className="win-button" 
-                        type="button" 
-                        onClick={() => this.props.changeValue('phase', 1)}
-                    >
-                        Back 
-                    </button>
+                        <button className="win-button" type="button" onClick={() => this.props.changeValue('phase', 1)}>
+                            Back 
+                        </button>
+                        <button type="submit" className="win-button color-accent color-type-primary-alt">
+                            Sing in
+                        </button>
 
-                    <button type="submit" className="win-button color-accent">Sing in</button>
                 </form>
                 <a href="#">Forgot my password</a>
             </div>

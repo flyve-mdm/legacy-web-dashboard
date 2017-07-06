@@ -1,32 +1,16 @@
 #credentials {
     margin-top: 40px;
 }
-#signIn {
-    width: 80%;
+#signIn .win-button {
+    margin: 5px;
 }
-#validateUser form{
-    text-align: center;
+#createAccount .win-textbox {
+    width: 100%;
 }
-#validateUser input{
-    width: 80%;
-    margin: 10px auto;
-}
-#validateUser .win-button{
-    width: 80%;
-    margin: 10px auto;
-}
-
-.LoginForm .win-button{
+#createAccount .win-button {
     width: 80%;
 }
 .LoginForm {
     max-width: 360px;
     margin: 0 auto;
-}
-.frame {
-    border: 1px solid black;
-}
-.frameSignIn {
-    border: 1px solid black;
-    height: 100%;
 }

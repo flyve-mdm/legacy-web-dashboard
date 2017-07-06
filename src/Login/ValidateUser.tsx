@@ -9,6 +9,7 @@ import LoginPassword from './LoginPassword'
 import LogoFlyve from './LogoFlyve'
 import ErrorInput from './ErrorInput'
 import config from '../config'
+import Credentials from './Credentials'
 
 export default class CreateAccount extends React.Component<any, any> {
     
@@ -27,7 +28,7 @@ export default class CreateAccount extends React.Component<any, any> {
     render () {
         return (
             <div >
-                <div >
+                <div className="centerText" >
                     <LogoFlyve />
                     <div>
                         <h1>
@@ -46,11 +47,7 @@ export default class CreateAccount extends React.Component<any, any> {
                         </form>
                         {this.props.loading}
                     </div>
-                    <a href="https://flyve-mdm.com/privacy-policy/">Terms of Use</a>
-                    <br />
-                    <span className="credentials color-type-secondary">
-                        Teclib
-                    </span>
+                    <Credentials />
                 </div>
             </div>
             

@@ -27,10 +27,12 @@ export default class LoginEmail extends React.Component<any, any> {
         } else {
             this.setState({
                             classInput: 'color-line-alert',
-                            errorMessage: <p className="color-type-alert"> 
-                                            <span> The email entered is not registered. Try a different account or </span> 
-                                            <a href="#">create an new</a>
-                                          </p>
+                            errorMessage: 
+                                    // tslint:disable-next-line:jsx-wrap-multiline
+                                    <p className="color-type-alert"> 
+                                        <span> The email entered is not registered. Try a different account or </span> 
+                                        <a href="#">create an new</a>
+                                    </p>
                         })
         }
     }
@@ -38,10 +40,11 @@ export default class LoginEmail extends React.Component<any, any> {
     render () {
     
         return (
-            <div>
-                <h1>Sign in</h1>
-                <span>Use your Flyve MDM admin account.</span>
-                <br />		
+            <div className="LoginForm">
+                <div className="centerText">
+                    <h1>Sign in</h1>
+                </div>
+                <span>Use your Flyve MDM admin account.</span> <br />		
                 <a href="https://flyve-mdm.com/"> What's this? </a>	
                 {this.state.errorMessage}
                 <form onSubmit={this.LogInServer}>
@@ -54,7 +57,7 @@ export default class LoginEmail extends React.Component<any, any> {
                         onChange={this.ChangeInput} 
                         required={true}
                     />
-                    <button className="win-button color-accent">Next</button>
+                    <button className="win-button color-accent color-type-primary-alt">Next</button>
                 </form>
                 <p><strong>No account?</strong> <a href="/CreateAccount">Create one!</a></p>
             </div>

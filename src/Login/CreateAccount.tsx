@@ -110,7 +110,7 @@ export default class CreateAccount extends React.Component<any, any> {
     render () {
         return (
             <div>
-                <div>
+                <div id="createAccount">
                     <LogoFlyve />
                     <div>
                         <div className="centerText"> 
@@ -194,7 +194,7 @@ export default class CreateAccount extends React.Component<any, any> {
                                     password={this.state.password} 
                                     showErrors={this.state.showErrors}
                                 />
-                                <label>
+                                <label className="color-type-secondary">
                                     8-character minimun; case sensitive   
                                 </label>
                             </div>
