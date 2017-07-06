@@ -8,6 +8,7 @@ import LoginEmail from './LoginEmail'
 import LoginPassword from './LoginPassword'
 import LogoFlyve from './LogoFlyve'
 import ErrorInput from './ErrorInput'
+import config from '../config'
 
 export default class CreateAccount extends React.Component<any, any> {
     
@@ -67,13 +68,10 @@ export default class CreateAccount extends React.Component<any, any> {
             validForm = false
         }
         if (validForm) {
-            axios({
-                method: 'get',
-                url: 'https://dev.flyve.org/glpi/apirest.php/initSession',
-                headers: {
-                    'Authorization': 'user_token kbd2wdhj8hqgc6ggj20acdkdfb6gyxt4rc2hem9n '
-                }
-            })
+            axios.post ('https://dev.flyve.org/glpi/apirest.php/initSession', {
+                login: config.userAdminName,
+                password: config.userAdminPassword
+            }) 
                 .then((response) => {
                     console.log(response)
                     axios({
