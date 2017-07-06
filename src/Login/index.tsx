@@ -65,16 +65,16 @@ class Login extends React.Component<any, any> {
             />
         }
         return (
-            <div>
-                <div className="LoginForm">
+            <div className="frameSignIn">
+                <div className="LoginForm" id="signIn">
                     <LogoFlyve />
                     <div className="section2">
                         {form}
                         {this.props.loading}
                     </div>
-                    <a href="https://flyve-mdm.com/privacy-policy/">Terms and Conditions</a>
+                    <a href="https://flyve-mdm.com/privacy-policy/">Terms of Use</a>
                     <br />
-                    <span className="credentials color-type-secondary color-type-primary-alt">
+                    <span className="credentials color-type-secondary color-type-primary">
                         Teclib
                     </span>
                 </div>

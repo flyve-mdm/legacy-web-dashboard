@@ -108,7 +108,7 @@ export default class CreateAccount extends React.Component<any, any> {
 
     render () {
         return (
-            <div>
+            <div className="frame">
                 <div className="LoginForm" id="createAccount">
                     <LogoFlyve />
                     <div className="section2">
@@ -118,30 +118,33 @@ export default class CreateAccount extends React.Component<any, any> {
                         <a href="login">Sign in</a>
                         <form onSubmit={this.validateAndSend}>
                             
-                            <div className="col-1-2 ">
+                            <div className="xs-col-1-2 ">
                                 <label>First name</label>
                                 <input 
                                     name="firstName"
+                                    className="win-textbox"
                                     id="firstName" 
                                     value={this.state.firstName} 
                                     onChange={this.changeInput} 
                                     required={true}
                                 />
                             </div>
-                            <div className="col-1-2 ">
+                            <div className="xs-col-1-2 ">
                                 <label>Last name</label>
                                 <input 
-                                    name="lastName" 
+                                    name="lastName"
+                                    className="win-textbox" 
                                     id="lastName" 
                                     value={this.state.lastName} 
                                     onChange={this.changeInput} 
                                     required={true} 
                                 />
                             </div>
-                            <div className="col-1-1 ">
+                            <div className="xs-col-1-1 ">
                                 <label>User name</label>
                                 <input 
-                                    name="userName" 
+                                    name="userName"
+                                    className="win-textbox" 
                                     id="userName" 
                                     type="email"
                                     value={this.state.userName} 
@@ -154,10 +157,11 @@ export default class CreateAccount extends React.Component<any, any> {
                                     showErrors={this.state.showErrors}
                                 />
                             </div>
-                            <div className="col-1-1 ">
+                            <div className="xs-col-1-1 ">
                                 <label>Password</label>
                                 <input 
-                                    name="password" 
+                                    name="password"
+                                    className="win-textbox" 
                                     id="password" 
                                     value={this.state.password} 
                                     type="password" 
@@ -170,10 +174,11 @@ export default class CreateAccount extends React.Component<any, any> {
                                     showErrors={this.state.showErrors}
                                 />
                             </div>
-                            <div className="col-1-1 ">
+                            <div className="xs-col-1-1 ">
                                 <label>Reenter Password</label>
                                 <input 
-                                    name="reenterPassword" 
+                                    name="reenterPassword"
+                                    className="win-textbox" 
                                     id="reenterPassword" 
                                     value={this.state.reenterPassword} 
                                     type="password" 
@@ -190,35 +195,35 @@ export default class CreateAccount extends React.Component<any, any> {
                                     8-character minimun; case sensitive   
                                 </label>
                             </div>
-                            <div className="row">
-                                <div className="col-2-8">
-                                    <input 
-                                        name="suscribe" 
-                                        value={this.state.suscribe} 
-                                        type="checkbox" 
-                                        className="checkbox" 
-                                        onChange={this.changeInput} 
-                                    />
-                                </div>
-                                <div className="col-6-8">
-                                    <label>Suscribe to the Flyve MDM newsletter.</label><br />
-                                    <label> You can unsuscribe at any time.</label>
-                                </div>
-                            </div> 
-                            
-                            <p>
-                                Create account means that you agree the 
-                                <a> Flyve MDM Services Agreement </a>
-                                and the
+
+                            <div className="xs-col-1-8">
+                                <input 
+                                    name="suscribe" 
+                                    value={this.state.suscribe} 
+                                    type="checkbox" 
+                                    className="win-checkbox" 
+                                    onChange={this.changeInput} 
+                                />
+                            </div>
+                            <div className="xs-col-7-8">
+                                <label>Suscribe to the Flyve MDM newsletter.</label><br />
+                                <label> You can unsuscribe at any time.</label>
+                            </div>
+                           
+                            <p className="centerText">
+                                Create account means that you agree the <br />
+                                <a> Flyve MDM Services Agreement </a> and the <br />
                                 <a> privacy statement </a>
                             </p>
-                            <button type="submit" className="win-button color-accent color-type-primary-alt">
-                                Create account
-                            </button>
+                            <div className="centerContent">
+                                <button type="submit" className="win-button color-accent color-type-primary-alt">
+                                    Create account
+                                </button>
+                            </div>
                         </form>
                         {this.props.loading}
                     </div>
-                    <a href="https://flyve-mdm.com/privacy-policy/">Terms and Conditions</a>
+                    <a href="https://flyve-mdm.com/privacy-policy/">Terms of Use</a>
                     <br />
                     <span className="credentials color-type-secondary">
                         Teclib

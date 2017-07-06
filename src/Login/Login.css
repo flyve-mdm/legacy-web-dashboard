@@ -14,9 +14,17 @@
 #createAccount div {
     margin: 10px 0px;
 }
+#createAccount .win-checkbox{
+    top: 0;
+    height: 20px;
+    width: 20px;
+}
+#LoginForm .win-button{
+    width: 80%;
+}
 .LoginForm {
     text-align: center;
-    max-width: 400px;
+    max-width: 360px;
     margin: 0 auto;
 }
 .LoginForm button{
@@ -45,4 +53,14 @@
 }
 .credentials img {
     vertical-align:middle;
+}
+.frame {
+    border: 1px solid black;
+}
+.frameSignIn {
+    border: 1px solid black;
+    height: 100%;
+}
+#signIn {
+    width: 80%;
 }

@@ -20,6 +20,7 @@ export default class LoginEmail extends React.Component<any, any> {
     LogInServer = (e) => {
         e.preventDefault()
 
+        // tslint:disable-next-line:max-line-length
         let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         if (re.test(this.props.email)) {
             this.props.changeValue('phase', 2)
@@ -39,7 +40,7 @@ export default class LoginEmail extends React.Component<any, any> {
         return (
             <div className="emailSection">
                 <h1>Sign in</h1>
-                <span>Use your Flyve account.</span>
+                <span>Use your Flyve MDM admin account.</span>
                 <br />		
                 <a href="https://flyve-mdm.com/"> What's this? </a>	
                 {this.state.errorMessage}
@@ -47,15 +48,15 @@ export default class LoginEmail extends React.Component<any, any> {
                     <input 
                         type="email" 
                         name="email"
-                        className={this.state.classInput} 
-                        placeholder="Your Email Registered"
+                        className="win-textbox"
+                        placeholder="Enter login"
                         value={this.props.email} 
                         onChange={this.ChangeInput} 
                         required={true}
                     />
                     <button className="win-button color-accent">Next</button>
                 </form>
-                <p>No account? <a href="/CreateAccount">Create one!</a></p>
+                <p><strong>No account?</strong> <a href="/CreateAccount">Create one!</a></p>
             </div>
             
         )
