@@ -4,32 +4,12 @@ import axios from 'axios'
 import ChangeSessionToken from '../Utils/ChangeSessionToken'
 import VerifyAccountActivation from '../Utils/VerifyAccountActivation'
 import Loading from '../GenericComponents/Loading'
-import { bindActionCreators } from 'redux'
-import { changeLoading, changeValue } from './DuckController'
-import { connect } from 'react-redux'
 import LoginEmail from './LoginEmail'
 import LoginPassword from './LoginPassword'
 import LogoFlyve from './LogoFlyve'
 import ErrorInput from './ErrorInput'
 
-function mapStateToProps(state, props) {
-    return {
-        loading: state.Login.loading,
-        phase: state.Login.phase,
-        email: state.Login.email,
-        password: state.Login.password
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    const actions = {
-        changeValue: bindActionCreators(changeValue, dispatch),
-        changeLoading: bindActionCreators(changeLoading, dispatch)
-    }
-    return { actions }
-}
-
-class CreateAccount extends React.Component<any, any> {
+export default class CreateAccount extends React.Component<any, any> {
     
     static propTypes = {
         history: React.PropTypes.object.isRequired
@@ -44,6 +24,7 @@ class CreateAccount extends React.Component<any, any> {
             userName: '',
             password: '',
             reenterPassword: '',
+            showErrors: false,
             suscribe: true
         }
     }
@@ -52,9 +33,13 @@ class CreateAccount extends React.Component<any, any> {
         this.setState({[input.target.name]: input.target.value})
     }
 
+    changeShowErrors = () => {
+        this.setState({showErrors: true})
+    }
+
     validateAndSend = (e) => {
         e.preventDefault()
-
+        this.changeShowErrors()
         let DATA_FORM = {
             userName: this.state.userName,
             password: this.state.password,
@@ -165,7 +150,11 @@ class CreateAccount extends React.Component<any, any> {
                                     onChange={this.changeInput} 
                                     required={true} 
                                 />
-                                <ErrorInput name="userName" value={this.state.userName} />
+                                <ErrorInput 
+                                    name="userName" 
+                                    value={this.state.userName} 
+                                    showErrors={this.state.showErrors}
+                                />
                             </div>
                             <div className="col-1-1 ">
                                 <label>Password</label>
@@ -177,7 +166,11 @@ class CreateAccount extends React.Component<any, any> {
                                     onChange={this.changeInput} 
                                     required={true} 
                                 />
-                                <ErrorInput name="password" value={this.state.password} />
+                                <ErrorInput 
+                                    name="password" 
+                                    value={this.state.password} 
+                                    showErrors={this.state.showErrors}
+                                />
                             </div>
                             <div className="col-1-1 ">
                                 <label>Reenter Password</label>
@@ -193,6 +186,7 @@ class CreateAccount extends React.Component<any, any> {
                                     name="reenterPassword" 
                                     value={this.state.reenterPassword} 
                                     password={this.state.password} 
+                                    showErrors={this.state.showErrors}
                                 />
                                 <label>
                                     8-character minimun; case sensitive   
@@ -237,7 +231,3 @@ class CreateAccount extends React.Component<any, any> {
         )
     }
 }
-export default connect <any, any, any>(
-  mapStateToProps,
-  mapDispatchToProps
-)(CreateAccount)
