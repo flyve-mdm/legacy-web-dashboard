@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
 import LoginEmail from './LoginEmail'
 import LoginPassword from './LoginPassword'
 import LogoFlyve from './LogoFlyve'
+import Credentials from './Credentials'
 
 function mapStateToProps(state, props) {
     return {
@@ -49,6 +50,7 @@ class Login extends React.Component<any, any> {
         let form: JSX.Element
         if (this.props.phase === 1) {
             form = 
+                // tslint:disable-next-line:jsx-wrap-multiline
                 <LoginEmail 
                     email={this.props.email} 
                     changeValue={this.props.actions.changeValue}
@@ -56,27 +58,24 @@ class Login extends React.Component<any, any> {
                 />    
         } else {
             form = 
-            <LoginPassword 
-                email={this.props.email} 
-                password={this.props.password} 
-                changeValue={this.props.actions.changeValue}
-                changeLoading={this.props.actions.changeLoading}
-                history={this.props.history}
-            />
+                // tslint:disable-next-line:jsx-wrap-multiline
+                <LoginPassword 
+                        email={this.props.email} 
+                        password={this.props.password} 
+                        changeValue={this.props.actions.changeValue}
+                        changeLoading={this.props.actions.changeLoading}
+                        history={this.props.history}
+                />
         }
         return (
-            <div className="frameSignIn">
-                <div className="LoginForm" id="signIn">
+            <div>
+                <div>
                     <LogoFlyve />
                     <div className="section2">
                         {form}
                         {this.props.loading}
                     </div>
-                    <a href="https://flyve-mdm.com/privacy-policy/">Terms of Use</a>
-                    <br />
-                    <span className="credentials color-type-secondary color-type-primary">
-                        Teclib
-                    </span>
+                    <Credentials />
                 </div>
             </div>
             

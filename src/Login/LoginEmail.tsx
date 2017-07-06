@@ -30,7 +30,7 @@ export default class LoginEmail extends React.Component<any, any> {
                             errorMessage: <p className="color-type-alert"> 
                                             <span> The email entered is not registered. Try a different account or </span> 
                                             <a href="#">create an new</a>
-                                        </p>
+                                          </p>
                         })
         }
     }
@@ -38,7 +38,7 @@ export default class LoginEmail extends React.Component<any, any> {
     render () {
     
         return (
-            <div className="emailSection">
+            <div>
                 <h1>Sign in</h1>
                 <span>Use your Flyve MDM admin account.</span>
                 <br />		

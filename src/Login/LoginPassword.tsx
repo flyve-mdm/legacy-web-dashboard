@@ -50,7 +50,7 @@ export default class LoginEmail extends React.Component<any, any> {
 
     render () { 
         return (
-            <div className="passwordSection">
+            <div>
                 <h1>Enter password</h1>
                 <span>Enter the password for</span>	<br />
                 <span>{this.props.email}</span>	

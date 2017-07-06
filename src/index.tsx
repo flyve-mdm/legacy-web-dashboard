@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom'
 import App from './App'
 import Login from './Login'
 import CreateAccount from './Login/CreateAccount'
+import ValidateUser from './Login/ValidateUser'
 import Users from './Users'
 import ValidateAccount from './Login/ValidateAccount'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
@@ -23,6 +24,7 @@ ReactDOM.render(
           <Route exact={true} path="/" component={App} />
           <Route path="/login" component={Login} />
           <Route path="/createaccount" component={CreateAccount} />
+          <Route path="/validateuser" component={ValidateUser} />
           <Route path="/users" component={Users} />
           <Route path="/validateaccount" component={ValidateAccount} />
         </Switch>

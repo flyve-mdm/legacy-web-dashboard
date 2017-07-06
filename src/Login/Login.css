@@ -1,58 +1,27 @@
-#ValidateAccount {
-    width: 50%;
-    margin: 25px auto;
-    text-align: center;    
+#credentials {
+    margin-top: 40px;
 }
-#ValidateAccount button{
-    color: snow;
-    font-size: 1.2rem;  
+#signIn {
+    width: 80%;
 }
-#createAccount input {
-    height: 30px;
-    margin: 10px 0px 5px 0px;
+#validateUser form{
+    text-align: center;
 }
-#createAccount div {
-    margin: 10px 0px;
+#validateUser input{
+    width: 80%;
+    margin: 10px auto;
 }
-#createAccount .win-checkbox{
-    top: 0;
-    height: 20px;
-    width: 20px;
+#validateUser .win-button{
+    width: 80%;
+    margin: 10px auto;
 }
-#LoginForm .win-button{
+
+.LoginForm .win-button{
     width: 80%;
 }
 .LoginForm {
-    text-align: center;
     max-width: 360px;
     margin: 0 auto;
-}
-.LoginForm button{
-    width: 100%;
-}
-.LoginForm .passwordSection button{
-    width: 45%;
-    margin: 4px;
-}
-.section1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.section2 {
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-}
-.section2 form {
-    margin-top: 20px;
-}
-.credentials {
-    bottom: 15px;
-    text-align: center;
-    width: 100%;
-}
-.credentials img {
-    vertical-align:middle;
 }
 .frame {
     border: 1px solid black;
@@ -60,7 +29,4 @@
 .frameSignIn {
     border: 1px solid black;
     height: 100%;
-}
-#signIn {
-    width: 80%;
 }
