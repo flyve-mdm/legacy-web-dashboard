@@ -56,8 +56,6 @@ class CreateAccount extends React.Component<any, any> {
         e.preventDefault()
 
         let DATA_FORM = {
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
             userName: this.state.userName,
             password: this.state.password,
             reenterPassword: this.state.reenterPassword,
@@ -66,12 +64,12 @@ class CreateAccount extends React.Component<any, any> {
 
         let validForm = true
 
-        // tslint:disable-next-line:forin
         for (let prop in DATA_FORM) {
             if (DATA_FORM[prop] === '') {
                 validForm = false
             } 
         }
+
         // tslint:disable-next-line:max-line-length
         let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         if (!re.test(this.state.userName)) {
@@ -84,7 +82,44 @@ class CreateAccount extends React.Component<any, any> {
             validForm = false
         }
         if (validForm) {
-            console.log('u.u')
+            axios({
+                method: 'get',
+                url: 'https://dev.flyve.org/glpi/apirest.php/initSession',
+                headers: {
+                    'Authorization': 'user_token kbd2wdhj8hqgc6ggj20acdkdfb6gyxt4rc2hem9n '
+                }
+            })
+                .then((response) => {
+                    console.log(response)
+                    axios({
+                        method: 'post',
+                        url: 'https://dev.flyve.org/glpi/apirest.php/User',
+                        headers: {
+                            'Session-Token': response.data.session_token,
+                            'Content-Type': 'application/json'
+                        },
+                        data: {
+                            input: {
+                                name: this.state.userName,
+                                password: this.props.password,
+                                password2: this.props.reenterPassword,
+                                firstName: this.props.firstName,
+                                realname: this.props.lastName
+                            }
+                        }
+                    }) 
+                        .then((response2) => {
+                            console.log(response2)
+                            // this.props.changeLoading('')
+                            // ChangeSessionToken(response.data.session_token)
+                            // VerifyAccountActivation(this.props.history, 'users')
+                        })
+                        .catch((error) => {
+                            console.log(error.response)
+                            // this.props.changeLoading('')
+                        })
+                })
+            
         }
     }
 
@@ -109,7 +144,6 @@ class CreateAccount extends React.Component<any, any> {
                                     onChange={this.changeInput} 
                                     required={true}
                                 />
-                                <ErrorInput name="firstName" value={this.state.firstName} />
                             </div>
                             <div className="col-1-2 ">
                                 <label>Last name</label>
@@ -120,7 +154,6 @@ class CreateAccount extends React.Component<any, any> {
                                     onChange={this.changeInput} 
                                     required={true} 
                                 />
-                                <ErrorInput name="lastName" value={this.state.lastName} />
                             </div>
                             <div className="col-1-1 ">
                                 <label>User name</label>
