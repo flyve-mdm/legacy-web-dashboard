@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Loading from '../GenericComponents/Loading'
 import GetCredentials from '../Utils/GetCredentials'
+let ReactWinJS = require('react-winjs')
 
 export default class LoginEmail extends React.Component<any, any> {
 
@@ -37,15 +38,57 @@ export default class LoginEmail extends React.Component<any, any> {
         }
     }
 
+    handleShow = (eventObject) => {
+        var anchor = eventObject.currentTarget
+        let refs: any = this.refs
+        refs.flyout.winControl.show(anchor)
+    }
+
     render () {
     
         return (
-            <div className="LoginForm">
+            <div>
                 <div className="centerText">
                     <h1>Sign in</h1>
                 </div>
                 <span>Use your Flyve MDM admin account.</span> <br />		
-                <a href="https://flyve-mdm.com/"> What's this? </a>	
+                <a onClick={this.handleShow}> What's this? </a>	
+
+                <ReactWinJS.Flyout ref="flyout">
+                    <div className="flyout">
+                        <h3>WHAT IS FLYVE MDM?</h3>
+                        <p>
+                            <strong>Flyve MDM</strong> is a mobile device management open source software (SaaS) that enables you to secure and manage all the mobile devices of your business via a unique web-based console (MDM).
+                        </p>
+                        <p>
+                            Our solution allows you to efficiently and easily control any aspects of your Android-based mobile fleet, providing a panel of functionalities:
+                        </p>
+                        <ul>
+                            <li>
+                                 – Provided as a SaaS platform
+                            </li>
+                            <li>
+                                 – Google independent
+                            </li>
+                            <li>
+                                – Deploy and configure applications
+                            </li>
+                            <li>
+                                – Deploy files
+                            </li>
+                            <li>
+                                – Wipe a phone
+                            </li>
+                            <li>
+                                – Work with devices running Android 4.4 or higher
+                            </li>
+                            <li>
+                                – Simple web application user interface
+                            </li>
+                        </ul>
+                    
+                    </div>
+                </ReactWinJS.Flyout>
                 {this.state.errorMessage}
                 <form onSubmit={this.LogInServer}>
                     <input 

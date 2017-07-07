@@ -20,8 +20,15 @@ export default class ErrorInput extends React.Component<any, any> {
                 if (this.props.value !== this.props.password) {
                     message = 'Passwords do not match'
                 }
+            } else if (this.props.name === 'captcha') {
+                if (this.props.value !== this.props.captcha) {
+                    message = 'Characters do not match image. Try again.'
+                }
             }
             let input = document.getElementById(this.props.name)
+            console.log(document)
+            console.log(this.props.name)
+            console.log(input)
             if (message !== '') {
                 if (input) {
                     input.className = 'win-textbox color-line-alert'
@@ -32,7 +39,11 @@ export default class ErrorInput extends React.Component<any, any> {
                 }
             }
         }
-        
-        return <label className="color-type-alert">{message}<br /></label>
+        if (message === '') {
+            return <span className="hide" />
+        } else {
+            return <label className="color-type-alert error">{message}<br /></label>
+        }
+       
     }
 }

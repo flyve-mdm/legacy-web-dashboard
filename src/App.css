@@ -8,6 +8,9 @@ a {
 h1 {
     font-weight: normal;
 }
+ul {
+    list-style:none
+}
 .loagind-form {
     position: absolute;
     top: 0;
@@ -28,4 +31,7 @@ h1 {
 }
 .win-toggleswitch-on .win-toggleswitch-track {
     background-color: #158784 !important;
+}
+.hide {
+    display: none !important;
 }

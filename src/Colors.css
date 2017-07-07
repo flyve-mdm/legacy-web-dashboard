@@ -1,183 +1,183 @@
 /* Base colors */
 .color-white {
-  background-color: #FFFFFF;
+  background-color: #FFFFFF !important;
 }
 .color-gray {
-  background-color: #3e3e3e;
+  background-color: #3e3e3e !important;
 }
 .color-accent {
-  background-color: #158784;
+  background-color: #158784 !important;
 }
 .color-alert {
-  background-color: #ec2730;
+  background-color: #ec2730 !important;
 }
 
 /* Background colors */
 .color-bg-light-vivid-high {
-  background-color: #FFFFFF;
+  background-color: #FFFFFF !important;
 } 
 .color-bg-light-vivid-mid {
-  background-color: #F2F2F2;
+  background-color: #F2F2F2 !important;
 } 
 .color-bg-light-vivid-low {
-  background-color: #E5E5E5;
+  background-color: #E5E5E5 !important;
 } 
 .color-bg-light-neutral-high {
-  background-color: #D9D9D9;
+  background-color: #D9D9D9 !important;
 } 
 .ccolor-bg-light-neutral-mid {
-  background-color: #CCCCCC;
+  background-color: #CCCCCC !important;
 } 
 .color-bg-dark-vivid-high {
-  background-color: #3e3e3e;
+  background-color: #3e3e3e !important;
 } 
 .color-bg-dark-vivid-mid {
-  background-color: #191919;
+  background-color: #191919 !important;
 } 
 .color-bg-dark-vivid-low {
-  background-color: #262626;
+  background-color: #262626 !important;
 } 
 .color-bg-dark-neutral-high {
-  background-color: #333333;
+  background-color: #333333 !important;
 } 
 .color-bg-dark-neutral-mid {
-  background-color: #404040;
+  background-color: #404040 !important;
 } 
 
 /* Fill colors */
 .color-fill-accent-vivid-high {
-  background-color: #158784;
+  background-color: #158784 !important;
 }
 .color-fill-accent-vivid-mid {
-  background-color: rgba(#158784, 0.8);
+  background-color: rgba(#158784, 0.8) !important;
 } 
 .color-fill-accent-vivid-low {
-  background-color: rgba(#158784, 0.6);
+  background-color: rgba(#158784, 0.6) !important;
 } 
 .color-fill-accent-neutral-high {
-  background-color: rgba(#158784, 0.4);
+  background-color: rgba(#158784, 0.4) !important;
 } 
 .color-fill-accent-neutral-mid {
-  background-color: rgba(#158784, 0.3);
+  background-color: rgba(#158784, 0.3) !important;
 } 
 .color-fill-accent-neutral-low {
-  background-color: rgba(#158784, 0.2);
+  background-color: rgba(#158784, 0.2) !important;
 } 
 .color-fill-accent-dim-high {
-  background-color: rgba(#158784, 0.15);
+  background-color: rgba(#158784, 0.15) !important;
 } 
 .color-fill-accent-dim-mid {
-  background-color: rgba(#158784, 0.1);
+  background-color: rgba(#158784, 0.1) !important;
 } 
 .color-fill-accent-dim-low {
-  background-color: rgba(#158784, 0.05);
+  background-color: rgba(#158784, 0.05) !important;
 } 
 .color-fill-alert {
-  background-color: #ec2730;
+  background-color: #ec2730 !important;
 }
 .color-fill-dim-high {
-  background-color: rgba(#3e3e3e, 0.05);
+  background-color: rgba(#3e3e3e, 0.05) !important;
 }
 .color-fill-dim-mid {
-  background-color: rgba(#3e3e3e, 0.1);
+  background-color: rgba(#3e3e3e, 0.1) !important;
 }
 .color-fill-neutral-low {
-  background-color: rgba(#3e3e3e, 0.2);
+  background-color: rgba(#3e3e3e, 0.2) !important;
 }
 .color-fill-neutral-mid {
-  background-color: rgba(#3e3e3e, 0.3);
+  background-color: rgba(#3e3e3e, 0.3) !important;
 }
 .color-fill-neutral-high {
-  background-color: rgba(#3e3e3e, 0.4);
+  background-color: rgba(#3e3e3e, 0.4) !important;
 }
 .color-fill-vivid-low {
-  background-color: rgba(#3e3e3e, 0.6);
+  background-color: rgba(#3e3e3e, 0.6) !important;
 }
 .color-fill-vivid-mid {
-  background-color: rgba(#3e3e3e, 0.8);
+  background-color: rgba(#3e3e3e, 0.8) !important;
 }
 .color-fill-vivid-high {
-  background-color: #3e3e3e;
+  background-color: #3e3e3e !important;
 }
 
 /* Line colors */
 .color-line-accent-vivid-high {
-  border-color: #158784;
+  border-color: #158784 !important;
 }
 .color-line-accent-vivid-mid {
-  border-color: rgba(#158784, 0.8);
+  border-color: rgba(#158784, 0.8) !important;
 } 
 .color-line-accent-vivid-low {
-  border-color: rgba(#158784, 0.6);
+  border-color: rgba(#158784, 0.6) !important;
 } 
 .color-line-accent-neutral-high {
-  border-color: rgba(#158784, 0.4);
+  border-color: rgba(#158784, 0.4) !important;
 } 
 .color-line-accent-neutral-mid {
-  border-color: rgba(#158784, 0.3);
+  border-color: rgba(#158784, 0.3) !important;
 } 
 .color-line-accent-neutral-low {
-  border-color: rgba(#158784, 0.2);
+  border-color: rgba(#158784, 0.2) !important;
 } 
 .color-line-accent-dim-high {
-  border-color: rgba(#158784, 0.15);
+  border-color: rgba(#158784, 0.15) !important;
 } 
 .color-line-accent-dim-mid {
-  border-color: rgba(#158784, 0.1);
+  border-color: rgba(#158784, 0.1) !important;
 } 
 .color-line-accent-dim-low {
-  border-color: rgba(#158784, 0.05);
+  border-color: rgba(#158784, 0.05) !important;
 } 
 .color-line-alert {
-  border-color: #ec2730;
+  border-color: #ec2730 !important;
 }
 .color-line-dim-high {
-  border-color: rgba(#3e3e3e, 0.05);
+  border-color: rgba(#3e3e3e, 0.05) !important;
 }
 .color-line-dim-mid {
-  border-color: rgba(#3e3e3e, 0.1);
+  border-color: rgba(#3e3e3e, 0.1) !important;
 }
 .color-line-neutral-low {
-  border-color: rgba(#3e3e3e, 0.2);
+  border-color: rgba(#3e3e3e, 0.2) !important;
 }
 .color-line-neutral-mid {
-  border-color: rgba(#3e3e3e, 0.3);
+  border-color: rgba(#3e3e3e, 0.3) !important;
 }
 .color-line-neutral-high {
-  border-color: rgba(#3e3e3e, 0.4);
+  border-color: rgba(#3e3e3e, 0.4) !important;
 }
 .color-line-vivid-low {
-  border-color: rgba(#3e3e3e, 0.6);
+  border-color: rgba(#3e3e3e, 0.6) !important;
 }
 .color-line-vivid-mid {
-  border-color: rgba(#3e3e3e, 0.8);
+  border-color: rgba(#3e3e3e, 0.8) !important;
 }
 .color-line-vivid-high {
-  border-color: #3e3e3e;
+  border-color: #3e3e3e !important;
 }
 
 /* Text colors */
 .color-type-primary {
-  color: #3e3e3e;
+  color: #3e3e3e !important;
 }
 .color-type-secondary {
-  color: rgba(#3e3e3e, 0.6);
+  color: rgba(#3e3e3e, 0.6) !important;
 }
 .color-type-disabled {
-  color: rgba(#3e3e3e, 0.2);
+  color: rgba(#3e3e3e, 0.2) !important;
 }
 .color-type-accent {
-  color: #158784;
+  color: #158784 !important;
 }
 .color-type-alert {
-  color: #ec2730;
+  color: #ec2730 !important;
 }
 .color-type-primary-alt {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 .color-type-secondary-alt {
-  color: rgba(#ffffff, 0.6);
+  color: rgba(#ffffff, 0.6) !important;
 }
 .color-type-disabled-alt {
-  color: rgba(#ffffff, 0.2);
+  color: rgba(#ffffff, 0.2) !important;
 }

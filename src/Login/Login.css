@@ -1,32 +1,39 @@
+#maincontent {
+    width: 90%;
+    min-height: 400px;
+    margin: 20px auto;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
 #credentials {
     margin-top: 40px;
 }
-#signIn .win-button {
-    margin: 5px;
-}
-#createAccount .win-textbox {
-    width: 100%;
-}
-#createAccount .win-button {
-    width: 80%;
-}
+
 #validateUser .win-textbox{
     margin: 20px 0px;
 }
-#createAccount .captcha .win-button {
-    margin-bottom: 10px;
+.LoginForm .win-textbox {
     width: 100%;
 }
+.captcha .win-textbox {
+    margin: 15px auto;
+}
 .LoginForm .win-button{
-    width: 80%;
+    width: 100%;
+    margin-bottom: 10px;
 }
 .LoginForm {
     max-width: 360px;
     margin: 0 auto;
 }
 .check {
-    margin-top: 20px;
+    margin-top: 25px;
     padding-left: 20px;
+    text-align: left;
+}
+.checkSignIn {
+    margin-left: 40px
 }
 .captcha .xs-col-1-2{
     margin-top: 15px;
@@ -45,3 +52,9 @@
     border: 1px solid black;
     height: 100%;
 }
+.flyout {
+    text-align: left;
+}
+/*.error {
+    text-align: left !important;
+}*/

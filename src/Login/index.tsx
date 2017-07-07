@@ -68,17 +68,20 @@ class Login extends React.Component<any, any> {
                 />
         }
         return (
-            <div>
-                <div id="signIn">
-                    <LogoFlyve />
-                    <div className="centerText">
-                        {form}
-                        {this.props.loading}
+            <div className="LoginForm">
+                <div id="maincontent">
+                    <div id="signIn">
+                        <LogoFlyve />
+                        <div className="centerText">
+                            {form}
+                            {this.props.loading}
+                        </div>
+                        <div className="xs-col-1-1 ">
+                            <Credentials />
+                        </div>
                     </div>
-                    <Credentials />
                 </div>
             </div>
-            
         )
     }
 }

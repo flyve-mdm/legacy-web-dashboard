@@ -70,26 +70,33 @@ export default class LoginEmail extends React.Component<any, any> {
                             required={true}
                         />
                     </div>
-                    <div className="xs-col-1-8 check">
-                        <ReactWinJS.ToggleSwitch
-                            checked={this.state.toggleSelected}
-                            labelOn=""
-                            labelOff="" 
-                        />
+                    <div className="checkSignIn hide">
+                        <div className="xs-col-1-8">
+                            <ReactWinJS.ToggleSwitch
+                                checked={this.state.toggleSelected}
+                                labelOn=""
+                                labelOff="" 
+                            />
+                        </div>
+                        <div className="xs-col-7-8 check">
+                            <label>Keep me signed in</label>
+                        </div>
                     </div>
-                    <div className="xs-col-7-8">
-                        <label>Keep me signed in</label>
-                    </div>
-                    <div className="xs-col-1-1">
+                    <div className="xs-col-1-2 ">
                         <button className="win-button" type="button" onClick={() => this.props.changeValue('phase', 1)}>
                             Back 
                         </button>
+                    </div>
+                    <div className="xs-col-1-2 ">
                         <button type="submit" className="win-button color-accent color-type-primary-alt">
                             Sing in
                         </button>
                     </div>
+                    <div className="xs-col-1-1">
+                        <p><a href="#">Forgot my password</a></p>
+                    </div>
+                    
                 </form>
-                <a href="#">Forgot my password</a>
             </div>
             
         )

@@ -11,7 +11,7 @@ import ErrorInput from './ErrorInput'
 import config from '../config'
 import Credentials from './Credentials'
 
-export default class CreateAccount extends React.Component<any, any> {
+export default class RevokeInvitation extends React.Component<any, any> {
     
     static propTypes = {
         history: React.PropTypes.object.isRequired
@@ -33,9 +33,9 @@ export default class CreateAccount extends React.Component<any, any> {
                         <LogoFlyve />
                         <div>
                             <h1>
-                                Verify your identify
+                                Revoke invitation
                             </h1>
-                            <p>it's easy, just click the button below</p>
+                            <p>We apologize for any inconveniences</p>
                         <form>
                                 <input 
                                     type="email" 
@@ -44,7 +44,13 @@ export default class CreateAccount extends React.Component<any, any> {
                                     value="example@teclib.com" 
                                     disabled={true}
                                 />
-                                <button className="win-button color-accent color-type-primary-alt">Validate</button>
+                                <button className="win-button color-accent color-type-primary-alt">
+                                    Opt-out
+                                </button>
+                                <p>
+                                    Someone might have just mistyped their email
+                                    address and accidentally tried to add yours.
+                                </p>
                             </form>
                             {this.props.loading}
                         </div>
