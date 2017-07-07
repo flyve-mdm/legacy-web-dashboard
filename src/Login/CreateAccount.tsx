@@ -10,6 +10,7 @@ import LogoFlyve from './LogoFlyve'
 import ErrorInput from './ErrorInput'
 import config from '../config'
 import Credentials from './Credentials'
+let ReactWinJS = require('react-winjs')
 
 export default class CreateAccount extends React.Component<any, any> {
     
@@ -110,10 +111,10 @@ export default class CreateAccount extends React.Component<any, any> {
     render () {
         return (
             <div>
-                <div id="createAccount">
+                <div className="LoginForm" id="createAccount">
                     <LogoFlyve />
                     <div>
-                        <div className="centerText"> 
+                        <div className="centerText title"> 
                             <h1>
                                 Create an account
                             </h1>
@@ -121,7 +122,7 @@ export default class CreateAccount extends React.Component<any, any> {
                         </div>
                         <form onSubmit={this.validateAndSend}>
                             
-                            <div className="xs-col-1-2 ">
+                            <div className="xs-col-1-2">
                                 <label>First name</label>
                                 <input 
                                     name="firstName"
@@ -132,7 +133,7 @@ export default class CreateAccount extends React.Component<any, any> {
                                     required={true}
                                 />
                             </div>
-                            <div className="xs-col-1-2 ">
+                            <div className="xs-col-1-2">
                                 <label>Last name</label>
                                 <input 
                                     name="lastName"
@@ -143,7 +144,7 @@ export default class CreateAccount extends React.Component<any, any> {
                                     required={true} 
                                 />
                             </div>
-                            <div className="xs-col-1-1 ">
+                            <div className="xs-col-1-1">
                                 <label>User name</label>
                                 <input 
                                     name="userName"
@@ -160,7 +161,7 @@ export default class CreateAccount extends React.Component<any, any> {
                                     showErrors={this.state.showErrors}
                                 />
                             </div>
-                            <div className="xs-col-1-1 ">
+                            <div className="xs-col-1-1">
                                 <label>Password</label>
                                 <input 
                                     name="password"
@@ -177,7 +178,7 @@ export default class CreateAccount extends React.Component<any, any> {
                                     showErrors={this.state.showErrors}
                                 />
                             </div>
-                            <div className="xs-col-1-1 ">
+                            <div className="xs-col-1-1">
                                 <label>Reenter Password</label>
                                 <input 
                                     name="reenterPassword"
@@ -198,35 +199,60 @@ export default class CreateAccount extends React.Component<any, any> {
                                     8-character minimun; case sensitive   
                                 </label>
                             </div>
-
-                            <div className="xs-col-1-8">
+                            <div className="captcha">
+                                <div className="xs-col-1-2 ">
+                                    <div className="color-bg-dark-vivid-high centerText centerContent">
+                                        <p className="color-type-primary-alt">
+                                            CAPTCHA
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="xs-col-1-2 ">
+                                    <button type="submit" className="win-button">
+                                        New
+                                    </button>
+                                    <button type="submit" className="win-button">
+                                        Audio
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="xs-col-1-1">
+                                <label>
+                                    Enter the characteres you see
+                                </label>
                                 <input 
-                                    name="suscribe" 
-                                    value={this.state.suscribe} 
-                                    type="checkbox" 
-                                    className="win-checkbox" 
-                                    onChange={this.changeInput} 
+                                    className="win-textbox" 
                                 />
                             </div>
-                            <div className="xs-col-7-8">
-                                <label>Suscribe to the Flyve MDM newsletter.</label><br />
+                            <div className="xs-col-1-8">
+                                <ReactWinJS.ToggleSwitch
+                                    checked={this.state.toggleSelected}
+                                    labelOn=""
+                                    labelOff="" 
+                                />
+                            </div>
+                            <div className="xs-col-7-8 check">
+                                <label> Suscribe to the Flyve MDM newsletter.</label><br />
                                 <label> You can unsuscribe at any time.</label>
                             </div>
-                           
-                            <p className="centerText">
-                                Create account means that you agree the <br />
-                                <a> Flyve MDM Services Agreement </a> and the <br />
-                                <a> privacy statement </a>
-                            </p>
-                            <div className="centerContent">
-                                <button type="submit" className="win-button color-accent color-type-primary-alt">
-                                    Create account
-                                </button>
+                            <div className="xs-col-1-1">
+                                <p className="centerText">
+                                    Create account means that you agree the <br />
+                                    <a> Flyve MDM Services Agreement </a> and the <br />
+                                    <a> privacy statement </a>
+                                </p>
+                                <div className="centerContent">
+                                    <button type="submit" className="win-button color-accent color-type-primary-alt">
+                                        Create account
+                                    </button>
+                                </div>
                             </div>
                         </form>
                         {this.props.loading}
                     </div>
-                    <Credentials />
+                    <div className="xs-col-1-1">
+                        <Credentials />
+                    </div>
                 </div>
             </div>
             

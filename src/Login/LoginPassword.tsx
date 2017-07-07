@@ -4,6 +4,7 @@ import Loading from '../GenericComponents/Loading'
 import ChangeSessionToken from '../Utils/ChangeSessionToken'
 import VerifyAccountActivation from '../Utils/VerifyAccountActivation'
 import SaveCredentials from '../Utils/SaveCredentials'
+let ReactWinJS = require('react-winjs')
 
 export default class LoginEmail extends React.Component<any, any> {
     
@@ -58,22 +59,35 @@ export default class LoginEmail extends React.Component<any, any> {
                 <span>{this.props.email}</span>	
                 {this.state.errorMessage}
                 <form onSubmit={this.LogInServer}>
-                    <input 
-                        type="password" 
-                        name="password" 
-                        className="win-textbox"
-                        placeholder="Password"
-                        value={this.props.password} 
-                        onChange={this.ChangeInput} 
-                        required={true}
-                    />
+                    <div className="xs-col-1-1">
+                        <input 
+                            type="password" 
+                            name="password" 
+                            className="win-textbox"
+                            placeholder="Password"
+                            value={this.props.password} 
+                            onChange={this.ChangeInput} 
+                            required={true}
+                        />
+                    </div>
+                    <div className="xs-col-1-8 check">
+                        <ReactWinJS.ToggleSwitch
+                            checked={this.state.toggleSelected}
+                            labelOn=""
+                            labelOff="" 
+                        />
+                    </div>
+                    <div className="xs-col-7-8">
+                        <label>Keep me signed in</label>
+                    </div>
+                    <div className="xs-col-1-1">
                         <button className="win-button" type="button" onClick={() => this.props.changeValue('phase', 1)}>
                             Back 
                         </button>
                         <button type="submit" className="win-button color-accent color-type-primary-alt">
                             Sing in
                         </button>
-
+                    </div>
                 </form>
                 <a href="#">Forgot my password</a>
             </div>

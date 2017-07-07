@@ -24,11 +24,11 @@ export default class ErrorInput extends React.Component<any, any> {
             let input = document.getElementById(this.props.name)
             if (message !== '') {
                 if (input) {
-                    input.className = 'color-line-alert'
+                    input.className = 'win-textbox color-line-alert'
                 }
             } else {
                 if (input) {
-                    input.className = ''
+                    input.className = 'win-textbox'
                 }
             }
         }

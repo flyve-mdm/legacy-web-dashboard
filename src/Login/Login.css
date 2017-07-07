@@ -10,7 +10,38 @@
 #createAccount .win-button {
     width: 80%;
 }
+#validateUser .win-textbox{
+    margin: 20px 0px;
+}
+#createAccount .captcha .win-button {
+    margin-bottom: 10px;
+    width: 100%;
+}
+.LoginForm .win-button{
+    width: 80%;
+}
 .LoginForm {
     max-width: 360px;
     margin: 0 auto;
+}
+.check {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+.captcha .xs-col-1-2{
+    margin-top: 15px;
+    height: 80px;
+}
+.captcha p {
+    height: 45px;
+}
+.title {
+    margin-bottom: 20px;
+}
+.frame {
+    border: 1px solid black;
+}
+.frame100 {
+    border: 1px solid black;
+    height: 100%;
 }

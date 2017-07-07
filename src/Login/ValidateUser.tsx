@@ -27,8 +27,8 @@ export default class CreateAccount extends React.Component<any, any> {
 
     render () {
         return (
-            <div >
-                <div className="centerText" >
+            <div>
+                <div className="centerText LoginForm" id="validateUser">
                     <LogoFlyve />
                     <div>
                         <h1>
