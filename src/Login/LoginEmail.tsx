@@ -31,8 +31,7 @@ export default class LoginEmail extends React.Component<any, any> {
                             errorMessage: 
                                     // tslint:disable-next-line:jsx-wrap-multiline
                                     <p className="color-type-alert"> 
-                                        <span> The email entered is not registered. Try a different account or </span> 
-                                        <a href="#">create an new</a>
+                                        <span> The email you entered is invalid</span>
                                     </p>
                         })
         }
