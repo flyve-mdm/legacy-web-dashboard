@@ -21,8 +21,28 @@ export default class RevokeInvitation extends React.Component<any, any> {
         super(props)
         document.body.className = 'win-type-body color-bg-light-vivid-high'
         this.state = {
-           
+            classButton: 'win-button color-accent color-type-primary-alt',
+            // tslint:disable-next-line:jsx-wrap-multiline
+            padding: 'Someone might have just mistyped their email address and accidentally tried to add yours.'
         }
+    }
+
+    Revoke () {
+        axios.post ('https://dev.flyve.org/glpi/apirest.php/', {
+                // login: config.userAdminName,
+                // password: config.userAdminPassword
+            }) 
+                .then((response) => {
+                    console.log(response)
+                    this.setState({
+                        classButton: 'win-button',
+                        padding: 'Email already unsubscribed'
+                    })
+                }) 
+                .catch((error) => {
+                    console.log(error.response)
+                    // this.props.changeLoading('')
+                })
     }
 
     render () {
@@ -44,12 +64,11 @@ export default class RevokeInvitation extends React.Component<any, any> {
                                     value="example@teclib.com" 
                                     disabled={true}
                                 />
-                                <button className="win-button color-accent color-type-primary-alt">
+                                <button className={this.state.classButton} type="button" onClick={() => this.Revoke()}>
                                     Opt-out
                                 </button>
                                 <p>
-                                    Someone might have just mistyped their email
-                                    address and accidentally tried to add yours.
+                                   {this.state.padding} 
                                 </p>
                             </form>
                             {this.props.loading}

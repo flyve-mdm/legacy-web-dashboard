@@ -57,7 +57,7 @@ class ValidateUser extends React.Component<any, any> {
                     )
                     this.props.actions.changeValue('userName', this.state.userName)
                     this.props.history.push('/login')
-                    }) 
+                }) 
                 .catch((error) => {
                     console.log(error.response)
                     // this.props.changeLoading('')
