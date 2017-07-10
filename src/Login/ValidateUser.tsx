@@ -16,7 +16,7 @@ import { connect } from 'react-redux'
 
 function mapStateToProps(state, props) {
     return {
-        email: state.Login.email
+        userName: state.Login.userName
     }
 }
 
@@ -37,7 +37,7 @@ class ValidateUser extends React.Component<any, any> {
         super(props)
         document.body.className = 'win-type-body color-bg-light-vivid-high'
         this.state = {
-           
+           userName: 'example@teclib.com'
         }
     }
 
@@ -55,6 +55,7 @@ class ValidateUser extends React.Component<any, any> {
                                                                         <span>Now you can sign in.</span>
                                                                     </div>
                     )
+                    this.props.actions.changeValue('userName', this.state.userName)
                     this.props.history.push('/login')
                     }) 
                 .catch((error) => {
@@ -77,8 +78,8 @@ class ValidateUser extends React.Component<any, any> {
                         <form>
                                 <input 
                                     type="email" 
-                                    className="win-textbox"
-                                    value="example@teclib.com" 
+                                    className="win-textbox color-type-disabled"
+                                    value={this.state.userName} 
                                     disabled={true}
                                 />
                                 <button 

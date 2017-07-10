@@ -27,7 +27,7 @@ export default class LoginEmail extends React.Component<any, any> {
         this.props.changeLoading(<Loading className="loagind-form color-bg-light-vivid-mid"/>)
 
         axios.post ('https://dev.flyve.org/glpi/apirest.php/initSession', {
-                login: this.props.email,
+                login: this.props.userName,
                 password: this.props.password
         })  
             .then((response) => {
@@ -35,7 +35,7 @@ export default class LoginEmail extends React.Component<any, any> {
                 ChangeSessionToken(response.data.session_token)
                 // VerifyAccountActivation(this.props.history, 'users')
 
-                SaveCredentials(this.props.email, this.props.password, this.props.history)
+                SaveCredentials(this.props.userName, this.props.password, this.props.history)
                 
             })
             .catch((error) => {
@@ -57,7 +57,7 @@ export default class LoginEmail extends React.Component<any, any> {
             <div>
                 <h1>Enter password</h1>
                 <span>Enter the password for</span>	<br />
-                <span>{this.props.email}</span>	
+                <span>{this.props.userName}</span>	
                 {this.state.errorMessage}
                 <form onSubmit={this.LogInServer}>
                     <div className="xs-col-1-1">

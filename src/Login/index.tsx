@@ -16,7 +16,7 @@ function mapStateToProps(state, props) {
     return {
         loading: state.Login.loading,
         phase: state.Login.phase,
-        email: state.Login.email,
+        userName: state.Login.userName,
         password: state.Login.password,
         messageSignIn: state.Login.messageSignIn
     }
@@ -39,12 +39,6 @@ class Login extends React.Component<any, any> {
     constructor (props: void) {
         document.body.className = 'win-type-body color-bg-light-vivid-high'
         super(props)
-        this.state = {
-            email: '',
-            password: '',
-            loading: false,
-            phase: 1
-        }
     }
 
     render () {
@@ -53,7 +47,7 @@ class Login extends React.Component<any, any> {
             form = 
                 // tslint:disable-next-line:jsx-wrap-multiline
                 <LoginEmail 
-                    email={this.props.email} 
+                    userName={this.props.userName} 
                     changeValue={this.props.actions.changeValue}
                     changeLoading={this.props.actions.changeLoading}
                     messageSignIn={this.props.messageSignIn}
@@ -62,7 +56,7 @@ class Login extends React.Component<any, any> {
             form = 
                 // tslint:disable-next-line:jsx-wrap-multiline
                 <LoginPassword 
-                        email={this.props.email} 
+                        userName={this.props.userName} 
                         password={this.props.password} 
                         changeValue={this.props.actions.changeValue}
                         changeLoading={this.props.actions.changeLoading}

@@ -1,7 +1,7 @@
 import GetMode from '../Utils/GetMode'
 
 const INITIAL_STATE = {
-    email: '',
+    userName: '',
     password: '',
     loading: false,
     phase: 1,

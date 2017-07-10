@@ -25,7 +25,7 @@ export default class LoginEmail extends React.Component<any, any> {
 
         // tslint:disable-next-line:max-line-length
         let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        if (re.test(this.props.email)) {
+        if (re.test(this.props.userName)) {
             this.props.changeValue('phase', 2)
         } else {
             this.setState({
@@ -114,7 +114,7 @@ export default class LoginEmail extends React.Component<any, any> {
                         name="email"
                         className={this.state.classInput}
                         placeholder="Enter login"
-                        value={this.props.email} 
+                        value={this.props.userName} 
                         onChange={this.ChangeInput} 
                         required={true}
                     />
