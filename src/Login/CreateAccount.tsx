@@ -104,7 +104,6 @@ export default class CreateAccount extends React.Component<any, any> {
                             // this.props.changeLoading('')
                         })
                 })
-            
         }
     }
 

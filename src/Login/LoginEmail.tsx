@@ -2,13 +2,14 @@ import * as React from 'react'
 import Loading from '../GenericComponents/Loading'
 import GetCredentials from '../Utils/GetCredentials'
 let ReactWinJS = require('react-winjs')
+import ErrorInput from './ErrorInput'
 
 export default class LoginEmail extends React.Component<any, any> {
 
     constructor (props: void) {
         super(props)
         this.state = {
-            classInput: '',
+            classInput: 'win-textbox',
             errorMessage: ''
         }
         GetCredentials()
@@ -16,6 +17,7 @@ export default class LoginEmail extends React.Component<any, any> {
     
     ChangeInput = (input) => {
         this.props.changeValue(input.target.name, input.target.value)
+        this.setState({ classInput: 'win-textbox', errorMessage: '' })
     }
     
     LogInServer = (e) => {
@@ -27,7 +29,7 @@ export default class LoginEmail extends React.Component<any, any> {
             this.props.changeValue('phase', 2)
         } else {
             this.setState({
-                            classInput: 'color-line-alert',
+                            classInput: 'win-textbox color-line-alert',
                             errorMessage: 
                                     // tslint:disable-next-line:jsx-wrap-multiline
                                     <p className="color-type-alert"> 
@@ -44,56 +46,73 @@ export default class LoginEmail extends React.Component<any, any> {
     }
 
     render () {
-    
+        var messageSignIn = <span />
+        var createAccount = <span />
+
+        if (this.props.messageSignIn !== '') {
+            messageSignIn = this.props.messageSignIn
+        } else {
+            messageSignIn = (
+                <div>
+                    <span>Use your Flyve MDM admin account.</span> <br />		
+                    <a onClick={this.handleShow}> What's this? </a>	
+
+                    <ReactWinJS.Flyout ref="flyout">
+                        <div className="flyout">
+                            <h3>WHAT IS FLYVE MDM?</h3>
+                            <p>
+                                <strong>Flyve MDM</strong> is a mobile device management open source 
+                                software (SaaS) that enables you to secure and manage all the mobile 
+                                devices of your business via a unique web-based console (MDM).
+                            </p>
+                            <p>
+                                Our solution allows you to efficiently and easily control any aspects
+                                of your Android-based mobile fleet, providing a panel of functionalities:
+                            </p>
+                            <ul>
+                                <li>
+                                    – Provided as a SaaS platform
+                                </li>
+                                <li>
+                                    – Google independent
+                                </li>
+                                <li>
+                                    – Deploy and configure applications
+                                </li>
+                                <li>
+                                    – Deploy files
+                                </li>
+                                <li>
+                                    – Wipe a phone
+                                </li>
+                                <li>
+                                    – Work with devices running Android 4.4 or higher
+                                </li>
+                                <li>
+                                    – Simple web application user interface
+                                </li>
+                            </ul>
+                        
+                        </div>
+                    </ReactWinJS.Flyout>
+                </div>
+            )
+            createAccount = <p><strong>No account?</strong> <a href="/CreateAccount">Create one!</a></p>
+        }
+
         return (
             <div>
                 <div className="centerText">
                     <h1>Sign in</h1>
                 </div>
-                <span>Use your Flyve MDM admin account.</span> <br />		
-                <a onClick={this.handleShow}> What's this? </a>	
-
-                <ReactWinJS.Flyout ref="flyout">
-                    <div className="flyout">
-                        <h3>WHAT IS FLYVE MDM?</h3>
-                        <p>
-                            <strong>Flyve MDM</strong> is a mobile device management open source software (SaaS) that enables you to secure and manage all the mobile devices of your business via a unique web-based console (MDM).
-                        </p>
-                        <p>
-                            Our solution allows you to efficiently and easily control any aspects of your Android-based mobile fleet, providing a panel of functionalities:
-                        </p>
-                        <ul>
-                            <li>
-                                 – Provided as a SaaS platform
-                            </li>
-                            <li>
-                                 – Google independent
-                            </li>
-                            <li>
-                                – Deploy and configure applications
-                            </li>
-                            <li>
-                                – Deploy files
-                            </li>
-                            <li>
-                                – Wipe a phone
-                            </li>
-                            <li>
-                                – Work with devices running Android 4.4 or higher
-                            </li>
-                            <li>
-                                – Simple web application user interface
-                            </li>
-                        </ul>
-                    
-                    </div>
-                </ReactWinJS.Flyout>
+                {messageSignIn}
+                
                 {this.state.errorMessage}
                 <form onSubmit={this.LogInServer}>
                     <input 
                         type="email" 
                         name="email"
-                        className="win-textbox"
+                        className={this.state.classInput}
                         placeholder="Enter login"
                         value={this.props.email} 
                         onChange={this.ChangeInput} 
@@ -101,7 +120,7 @@ export default class LoginEmail extends React.Component<any, any> {
                     />
                     <button className="win-button color-accent color-type-primary-alt">Next</button>
                 </form>
-                <p><strong>No account?</strong> <a href="/CreateAccount">Create one!</a></p>
+                {createAccount}
             </div>
             
         )

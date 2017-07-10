@@ -4,7 +4,8 @@ const INITIAL_STATE = {
     email: '',
     password: '',
     loading: false,
-    phase: 1
+    phase: 1,
+    messageSignIn: ''
 }
 
 // Constants

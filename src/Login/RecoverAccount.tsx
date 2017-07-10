@@ -21,7 +21,8 @@ export default class CreateAccount extends React.Component<any, any> {
         super(props)
         document.body.className = 'win-type-body color-bg-light-vivid-high'
         this.state = {
-           userName: ''
+           userName: '',
+           captcha: ''
         }
     }
 
@@ -86,6 +87,7 @@ export default class CreateAccount extends React.Component<any, any> {
                                         className="win-textbox" 
                                         id="captcha"
                                         placeholder="Enter the characteres you see"
+                                        onChange={this.changeInput}
                                     />
                                     <ErrorInput 
                                         name="captcha" 

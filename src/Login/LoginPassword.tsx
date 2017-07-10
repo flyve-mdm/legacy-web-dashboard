@@ -11,13 +11,14 @@ export default class LoginEmail extends React.Component<any, any> {
     constructor (props: void) {
         super(props)
         this.state = {
-            classInput: '',
+            classInput: 'win-textbox',
             errorMessage: ''
         }
     }
 
     ChangeInput = (input) => {
         this.props.changeValue(input.target.name, input.target.value)
+        this.setState({ classInput: 'win-textbox' })
     }
     
     LogInServer = (e) => {
@@ -40,7 +41,7 @@ export default class LoginEmail extends React.Component<any, any> {
             .catch((error) => {
                 this.props.changeLoading('')
                 this.setState({
-                        classInput: 'color-line-alert',
+                        classInput: 'win-textbox color-line-alert',
                         errorMessage: 
                                     // tslint:disable-next-line:jsx-wrap-multiline
                                     <p className="color-type-alert"> 
@@ -63,7 +64,7 @@ export default class LoginEmail extends React.Component<any, any> {
                         <input 
                             type="password" 
                             name="password" 
-                            className="win-textbox"
+                            className={this.state.classInput}
                             placeholder="Password"
                             value={this.props.password} 
                             onChange={this.ChangeInput} 

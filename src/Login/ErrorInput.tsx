@@ -26,9 +26,6 @@ export default class ErrorInput extends React.Component<any, any> {
                 }
             }
             let input = document.getElementById(this.props.name)
-            console.log(document)
-            console.log(this.props.name)
-            console.log(input)
             if (message !== '') {
                 if (input) {
                     input.className = 'win-textbox color-line-alert'

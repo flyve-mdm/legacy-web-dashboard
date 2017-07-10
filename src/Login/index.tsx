@@ -17,7 +17,8 @@ function mapStateToProps(state, props) {
         loading: state.Login.loading,
         phase: state.Login.phase,
         email: state.Login.email,
-        password: state.Login.password
+        password: state.Login.password,
+        messageSignIn: state.Login.messageSignIn
     }
 }
 
@@ -55,6 +56,7 @@ class Login extends React.Component<any, any> {
                     email={this.props.email} 
                     changeValue={this.props.actions.changeValue}
                     changeLoading={this.props.actions.changeLoading}
+                    messageSignIn={this.props.messageSignIn}
                 />    
         } else {
             form = 

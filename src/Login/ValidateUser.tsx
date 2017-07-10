@@ -10,8 +10,24 @@ import LogoFlyve from './LogoFlyve'
 import ErrorInput from './ErrorInput'
 import config from '../config'
 import Credentials from './Credentials'
+import { bindActionCreators } from 'redux'
+import { changeLoading, changeValue } from './DuckController'
+import { connect } from 'react-redux'
 
-export default class CreateAccount extends React.Component<any, any> {
+function mapStateToProps(state, props) {
+    return {
+        email: state.Login.email
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    const actions = {
+        changeValue: bindActionCreators(changeValue, dispatch)
+    }
+    return { actions }
+}
+
+class ValidateUser extends React.Component<any, any> {
     
     static propTypes = {
         history: React.PropTypes.object.isRequired
@@ -23,6 +39,28 @@ export default class CreateAccount extends React.Component<any, any> {
         this.state = {
            
         }
+    }
+
+    validate () {
+        axios.post ('https://dev.flyve.org/glpi/apirest.php/', {
+                // login: config.userAdminName,
+                // password: config.userAdminPassword
+            }) 
+                .then((response) => {
+                    console.log(response)
+                    // tslint:disable-next-line:jsx-wrap-multiline
+                    this.props.actions.changeValue('messageSignIn', <div>
+                                                                        <span>Account activated!</span> 
+                                                                        <br />		
+                                                                        <span>Now you can sign in.</span>
+                                                                    </div>
+                    )
+                    this.props.history.push('/login')
+                    }) 
+                .catch((error) => {
+                    console.log(error.response)
+                    // this.props.changeLoading('')
+                })
     }
 
     render () {
@@ -39,12 +77,17 @@ export default class CreateAccount extends React.Component<any, any> {
                         <form>
                                 <input 
                                     type="email" 
-                                    name="email"
                                     className="win-textbox"
                                     value="example@teclib.com" 
                                     disabled={true}
                                 />
-                                <button className="win-button color-accent color-type-primary-alt">Validate</button>
+                                <button 
+                                    className="win-button color-accent color-type-primary-alt"
+                                    type="button"
+                                    onClick={() => this.validate()} 
+                                >
+                                    Validate
+                                </button>
                             </form>
                             {this.props.loading}
                         </div>
@@ -55,3 +98,7 @@ export default class CreateAccount extends React.Component<any, any> {
         )
     }
 }
+export default connect <any, any, any>(
+  mapStateToProps,
+  mapDispatchToProps
+)(ValidateUser)
