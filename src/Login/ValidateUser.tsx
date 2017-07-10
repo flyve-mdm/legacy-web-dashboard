@@ -37,8 +37,48 @@ class ValidateUser extends React.Component<any, any> {
         super(props)
         document.body.className = 'win-type-body color-bg-light-vivid-high'
         this.state = {
-           userName: 'example@teclib.com'
+           userName: 'example@teclib.com',
+           classButton: 'win-button color-accent color-type-primary-alt',
+           disabledButton: false,
+           loading: true,
+           padding: <span />
         }
+    }
+
+    componentWillMount () {
+        const ACTIVE = 'registered Flyve MDM users. Created by Flyve MDM - do NOT modify this comment.'
+        axios({
+            method: 'get',
+            url: 'https://dev.flyve.org/glpi/apirest.php/getActiveProfile/'
+        })
+            .then((response) => {
+                if (response.data.active_profile.comment !== ACTIVE) {
+                    this.props.actions.changeValue('userName', this.state.userName)
+                    this.setState({
+                        loading: false,
+                        classButton: 'win-button',
+                        disabledButton: false,
+                        // tslint:disable-next-line:jsx-wrap-multiline
+                        padding: <div>
+                                    <strong>Account already activated</strong><br/>
+                                    <a href="/login">Sign in</a>
+                                 </div>
+                    })
+                }
+            })
+            .catch(() => {
+                this.props.actions.changeValue('userName', this.state.userName)
+                this.setState({
+                        loading: false,
+                        classButton: 'win-button',
+                        disabledButton: true,
+                        // tslint:disable-next-line:jsx-wrap-multiline
+                        padding: <div>
+                                    <strong>Account already activated</strong><br/>
+                                    <a href="/login">Sign in</a>
+                                 </div>
+                    })
+            })
     }
 
     validate () {
@@ -65,38 +105,46 @@ class ValidateUser extends React.Component<any, any> {
     }
 
     render () {
-        return (
-            <div className="LoginForm">
-                <div id="maincontent">
-                    <div className="centerText" id="validateUser">
-                        <LogoFlyve />
-                        <div>
-                            <h1>
-                                Verify your identify
-                            </h1>
-                            <p>it's easy, just click the button below</p>
-                        <form>
-                                <input 
-                                    type="email" 
-                                    className="win-textbox color-type-disabled"
-                                    value={this.state.userName} 
-                                    disabled={true}
-                                />
-                                <button 
-                                    className="win-button color-accent color-type-primary-alt"
-                                    type="button"
-                                    onClick={() => this.validate()} 
-                                >
-                                    Validate
-                                </button>
-                            </form>
-                            {this.props.loading}
+
+        if (this.state.loading) {
+            return <Loading />
+        } else {
+            return (
+                <div className="LoginForm">
+                    <div id="maincontent">
+                        <div className="centerText" id="validateUser">
+                            <LogoFlyve />
+                            <div>
+                                <h1>
+                                    Verify your identify
+                                </h1>
+                                <p>
+                                    it's easy, just click the button below
+                                </p>
+                            <form>
+                                    <input 
+                                        type="email" 
+                                        className="win-textbox color-type-disabled"
+                                        value={this.state.userName} 
+                                        disabled={true}
+                                    />
+                                    <button 
+                                        className={this.state.classButton}
+                                        type="button"
+                                        disabled={this.state.disabledButton}
+                                        onClick={() => this.validate()} 
+                                    >
+                                        Validate
+                                    </button>
+                                    {this.state.padding}
+                                </form>
+                            </div>
+                            <Credentials />
                         </div>
-                        <Credentials />
                     </div>
                 </div>
-            </div>
-        )
+            )
+        }
     }
 }
 export default connect <any, any, any>(

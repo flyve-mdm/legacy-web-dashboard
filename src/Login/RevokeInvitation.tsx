@@ -56,7 +56,7 @@ export default class RevokeInvitation extends React.Component<any, any> {
                                 Revoke invitation
                             </h1>
                             <p>We apologize for any inconveniences</p>
-                        <form>
+                            <form>
                                 <input 
                                     type="email" 
                                     name="email"
@@ -68,10 +68,9 @@ export default class RevokeInvitation extends React.Component<any, any> {
                                     Opt-out
                                 </button>
                                 <p>
-                                   {this.state.padding} 
+                                    {this.state.padding} 
                                 </p>
                             </form>
-                            {this.props.loading}
                         </div>
                         <Credentials />
                     </div>
