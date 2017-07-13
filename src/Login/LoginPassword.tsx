@@ -6,6 +6,7 @@ import VerifyAccountActivation from '../Utils/VerifyAccountActivation'
 import SaveCredentials from '../Utils/SaveCredentials'
 let ReactWinJS = require('react-winjs')
 let WinJS = require('winjs')    
+import { Link } from 'react-router-dom'
 
 export default class LoginEmail extends React.Component<any, any> {
     
@@ -105,7 +106,7 @@ export default class LoginEmail extends React.Component<any, any> {
                         </button>
                     </div>
                     <div className="xs-col-1-1">
-                        <p><a href="#">Forgot my password</a></p>
+                        <p><Link to="/recoveraccount">Forgot my password</Link></p>
                     </div>
                     
                 </form>

@@ -15,7 +15,7 @@ export default class RevokeInvitationSuccess extends React.Component<any, any> {
         )
     }
 
-    reder () {
+    render () {
         return (
             <div className="LoginForm">
                 <div id="maincontent">
