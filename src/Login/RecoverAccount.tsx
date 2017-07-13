@@ -11,8 +11,22 @@ import ErrorInput from './ErrorInput'
 import config from '../config'
 import Credentials from './Credentials'
 let WinJS = require('winjs')    
+import { bindActionCreators } from 'redux'
+import { changeLoading, changeValue } from './DuckController'
+import { connect } from 'react-redux'
 
-export default class CreateAccount extends React.Component<any, any> {
+function mapStateToProps(state, props) {
+    return {
+        userName: state.Login.userName
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    const actions = {}
+    return { actions }
+}
+
+class RecoverAccount extends React.Component<any, any> {
     
     static propTypes = {
         history: React.PropTypes.object.isRequired
@@ -20,10 +34,11 @@ export default class CreateAccount extends React.Component<any, any> {
 
     constructor (props: void) {
         super(props)
+        console.log(this.props.userName)
         document.body.className = 'win-type-body color-bg-light-vivid-high'
         this.state = {
             classButton: 'win-button color-accent color-type-primary-alt',
-            userName: '',
+            userName: this.props.userName,
             captcha: '',
             showErrors: false,
             loading: <span />
@@ -126,6 +141,7 @@ export default class CreateAccount extends React.Component<any, any> {
                                         className="win-textbox"
                                         placeholder="example@teclib.com"
                                         onChange={this.changeInput}
+                                        value={this.state.userName}
                                         required={true} 
                                     />
                                     <ErrorInput 
@@ -192,3 +208,7 @@ export default class CreateAccount extends React.Component<any, any> {
         )
     }
 }
+export default connect <any, any, any>(
+  mapStateToProps,
+  mapDispatchToProps
+)(RecoverAccount)
