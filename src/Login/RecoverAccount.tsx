@@ -10,6 +10,7 @@ import LogoFlyve from './LogoFlyve'
 import ErrorInput from './ErrorInput'
 import config from '../config'
 import Credentials from './Credentials'
+let WinJS = require('winjs')    
 
 export default class CreateAccount extends React.Component<any, any> {
     
@@ -21,13 +22,81 @@ export default class CreateAccount extends React.Component<any, any> {
         super(props)
         document.body.className = 'win-type-body color-bg-light-vivid-high'
         this.state = {
-           userName: '',
-           captcha: ''
+            classButton: 'win-button color-accent color-type-primary-alt',
+            userName: '',
+            captcha: '',
+            showErrors: false,
+            loading: <span />
         }
+    }
+
+    recover = (e) => {
+        e.preventDefault()
+        this.setState({
+            classButton: 'win-button',
+            showErrors: true
+        })
+        let validForm = true
+
+        let DATA_FORM = {
+            userName: this.state.userName,
+            captcha: this.state.suscribe
+        }
+
+        for (let prop in DATA_FORM) {
+            if (DATA_FORM[prop] === '') {
+                validForm = false
+            } 
+        }
+        // tslint:disable-next-line:max-line-length
+        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        if (!re.test(DATA_FORM.userName)) {
+            validForm = false
+        } 
+
+        if (validForm) { 
+            this.setState({
+                loading: <Loading className="loagind-form color-bg-light-vivid-mid"/>
+            })
+            axios.post ('https://dev.flyve.org/glpi/apirest.php/', {
+                // login: config.userAdminName,
+                // password: config.userAdminPassword
+            }) 
+                .then((response) => {
+                    console.log(response)
+                    this.setState({
+                        loading: <span/>,
+                        classButton: 'win-button color-accent color-type-primary-alt'
+                    })
+                    // this.props.actions.changeValue('userName', this.state.userName)
+                    this.props.history.push('/recoveraccountsuccess')
+                }) 
+                .catch((error) => {
+                    console.log(error.response)
+                    this.setState({
+                        loading: <span/>,
+                        classButton: 'win-button color-accent color-type-primary-alt'
+                    })
+                    // this.props.actions.changeValue('userName', this.state.userName)
+                    this.props.history.push('/recoveraccountsuccess')
+                    // this.props.changeLoading('')
+                })
+        }
+        
     }
 
     changeInput = (input) => {
         this.setState({[input.target.name]: input.target.value})
+    }
+
+    componentDidMount () {
+        WinJS.UI.Animation.enterContent(
+            document.querySelector('.enterContentAnimation'), 
+            { top: '0px', left: '200px' },
+            {
+                mechanism: 'transition'
+            }
+        )
     }
 
     render () {
@@ -36,7 +105,7 @@ export default class CreateAccount extends React.Component<any, any> {
                 <div id="maincontent">
                     <div id="RecoverAccount">
                         <LogoFlyve />
-                        <div>
+                        <div className="enterContentAnimation">
                             <div className="centerText" >
                                 <h1>
                                     Recover your <br />
@@ -48,7 +117,7 @@ export default class CreateAccount extends React.Component<any, any> {
                                 </p>
                             </div>
                             
-                            <form>
+                            <form onSubmit={this.recover}>
                                 <div className="xs-col-1-1">
                                     <input 
                                         type="email" 
@@ -62,7 +131,7 @@ export default class CreateAccount extends React.Component<any, any> {
                                     <ErrorInput 
                                         name="userName" 
                                         value={this.state.userName} 
-                                        showErrors={true}
+                                        showErrors={this.state.showErrors}
                                     />
                                 </div>
                                 <div className="captcha">
@@ -84,15 +153,19 @@ export default class CreateAccount extends React.Component<any, any> {
                                 </div>
                                 <div className="xs-col-1-1">
                                     <input 
+                                        name="captcha"
                                         className="win-textbox" 
-                                        id="captcha"
+                                        id="captcha" 
+                                        value={this.state.captcha} 
+                                        onChange={this.changeInput} 
+                                        required={true} 
                                         placeholder="Enter the characteres you see"
-                                        onChange={this.changeInput}
                                     />
                                     <ErrorInput 
+                                        value={this.state.captcha} 
+                                        captcha="captcha"
+                                        showErrors={this.state.showErrors}
                                         name="captcha" 
-                                        value={this.state.userName} 
-                                        showErrors={true}
                                     />
                                     <p />
                                 </div>
@@ -102,12 +175,15 @@ export default class CreateAccount extends React.Component<any, any> {
                                     </button>
                                 </div>
                                 <div className="xs-col-1-2 ">
-                                    <button type="submit" className="win-button color-accent color-type-primary-alt">
+                                    <button 
+                                        type="submit" 
+                                        className={this.state.classButton}
+                                    >
                                         Next
                                     </button>
                                 </div>
                             </form>
-                            {this.props.loading}
+                            {this.state.loading}
                         </div>
                         <Credentials />
                     </div>

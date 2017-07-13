@@ -58,3 +58,6 @@
 /*.error {
     text-align: left !important;
 }*/
+.img-login {
+    max-width: 60px;
+}

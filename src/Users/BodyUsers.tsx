@@ -39,6 +39,14 @@ class BodyUsers extends React.Component<any, any> {
             renderedComponent: <Loading />
         }
     }
+
+    close (history) {
+        this.setState({
+            renderedComponent: <Loading />
+        })
+        CloseSession(history)
+    }
+
     bodyRender(props) {
         let contentComponent
         if (props.location) {
@@ -84,7 +92,7 @@ class BodyUsers extends React.Component<any, any> {
                     label="Close session"
                     icon="cancel"
                     style={{position: 'absolute', bottom: 0, width: '100%'}}
-                    onInvoked={() => CloseSession(props.history)}
+                    onInvoked={() => this.close(props.history)}
                 />
 
             </div>
@@ -107,11 +115,6 @@ class BodyUsers extends React.Component<any, any> {
     componentWillMount() {
         InitialPeople()
             .then((response) => {
-                console.log(response)
-
-                console.log('=-=-=-=-=-=-=-=-=-=-=')
-                console.log(this.props.actions)
-                
                 if (this.props.actions) {
                     this.props.actions.uploadUsers(response)
                     this.bodyRender(this)

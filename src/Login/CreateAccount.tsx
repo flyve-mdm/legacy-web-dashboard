@@ -11,8 +11,24 @@ import ErrorInput from './ErrorInput'
 import config from '../config'
 import Credentials from './Credentials'
 let ReactWinJS = require('react-winjs')
+import { bindActionCreators } from 'redux'
+import { changeValue } from './DuckController'
+import { connect } from 'react-redux'
+let WinJS = require('winjs')    
+import { Link } from 'react-router-dom'
 
-export default class CreateAccount extends React.Component<any, any> {
+function mapStateToProps(state, props) {
+    return {}
+}
+
+function mapDispatchToProps(dispatch) {
+    const actions = {
+        changeValue: bindActionCreators(changeValue, dispatch)
+    }
+    return { actions }
+}
+
+class CreateAccount extends React.Component<any, any> {
     
     static propTypes = {
         history: React.PropTypes.object.isRequired
@@ -27,8 +43,13 @@ export default class CreateAccount extends React.Component<any, any> {
             userName: '',
             password: '',
             reenterPassword: '',
+            captcha: '',
             showErrors: false,
-            suscribe: true
+            suscribe: true,
+            loading: <span />,
+            message: <span />,
+            disabledButton: false,
+            classButton: 'win-button color-accent color-type-primary-alt'
         }
     }
 
@@ -42,6 +63,7 @@ export default class CreateAccount extends React.Component<any, any> {
 
     validateAndSend = (e) => {
         e.preventDefault()
+
         this.changeShowErrors()
         let DATA_FORM = {
             userName: this.state.userName,
@@ -70,6 +92,11 @@ export default class CreateAccount extends React.Component<any, any> {
             validForm = false
         }
         if (validForm) {
+            this.setState({
+                loading: <Loading className="loagind-form color-bg-light-vivid-mid"/>,
+                disabledButton: true,
+                classButton: 'win-button'
+            })
             axios.post ('https://dev.flyve.org/glpi/apirest.php/initSession', {
                 login: config.userAdminName,
                 password: config.userAdminPassword
@@ -95,30 +122,65 @@ export default class CreateAccount extends React.Component<any, any> {
                     }) 
                         .then((response2) => {
                             console.log(response2)
-                            // this.props.changeLoading('')
-                            // ChangeSessionToken(response.data.session_token)
-                            // VerifyAccountActivation(this.props.history, 'users')
+                            this.props.actions.changeValue('userName', this.state.userName)
+                            let Jfake = {
+                                // tslint:disable-next-line:max-line-length
+                                massage: 'An entity already exists for your email. You probably already have an account.'
+                            }
+                            this.setState({
+                                loading: <span />,
+                                classButton: 'win-button color-accent color-type-primary-alt',
+                                disabledButton: false
+                                // disabledButton: false
+                            })
+                            this.props.history.push('/validateuser')
                         })
                         .catch((error) => {
-                            console.log(error.response)
-                            // this.props.changeLoading('')
+                            console.log(error)
+                            this.props.actions.changeValue('userName', this.state.userName)
+                            let Jfake = {
+                                // tslint:disable-next-line:max-line-length
+                                massage: 'An entity already exists for your email. You probably already have an account.'
+                            }
+                            this.setState({
+                                loading: <span />,
+                                classButton: 'win-button color-accent color-type-primary-alt',
+                                disabledButton: false
+                                // message: <p className="color-type-alert">{Jfake.massage}</p>
+                            })
+                            this.props.history.push('/validateuser')
                         })
                 })
+        } else {
+            this.setState({
+                password: '',
+                reenterPassword: ''
+            })
         }
+    }
+
+    componentDidMount () {
+        WinJS.UI.Animation.enterContent(
+            document.querySelector('.enterContentAnimation'), 
+            { top: '0px', left: '200px' },
+            {
+                mechanism: 'transition'
+            }
+        )
     }
 
     render () {
         return (
-            <div className="LoginForm">
+            <div className="LoginForm">                
                 <div id="maincontent">
                     <div id="createAccount">
                         <LogoFlyve />
-                        <div>
+                        <div className="enterContentAnimation">
                             <div className="centerText title"> 
                                 <h1>
                                     Create an account
                                 </h1>
-                                <a href="login">Sign in</a>
+                                <Link to="login">Sign in</Link>
                             </div>
                             <form onSubmit={this.validateAndSend}>
                                 
@@ -130,7 +192,6 @@ export default class CreateAccount extends React.Component<any, any> {
                                         id="firstName" 
                                         value={this.state.firstName} 
                                         onChange={this.changeInput} 
-                                        required={true}
                                     />
                                 </div>
                                 <div className="xs-col-1-2">
@@ -141,7 +202,6 @@ export default class CreateAccount extends React.Component<any, any> {
                                         id="lastName" 
                                         value={this.state.lastName} 
                                         onChange={this.changeInput} 
-                                        required={true} 
                                     />
                                 </div>
                                 <div className="xs-col-1-1">
@@ -221,7 +281,18 @@ export default class CreateAccount extends React.Component<any, any> {
                                         Enter the characteres you see
                                     </label>
                                     <input 
+                                        name="captcha"
                                         className="win-textbox" 
+                                        id="captcha" 
+                                        value={this.state.captcha} 
+                                        onChange={this.changeInput} 
+                                        required={true} 
+                                    />
+                                    <ErrorInput 
+                                        name="captcha" 
+                                        value={this.state.captcha} 
+                                        captcha="captcha"
+                                        showErrors={this.state.showErrors}
                                     />
                                 </div>
                                 <div className="xs-col-1-8">
@@ -241,14 +312,19 @@ export default class CreateAccount extends React.Component<any, any> {
                                         <a> Flyve MDM Services Agreement </a> and the <br />
                                         <a> privacy statement </a>
                                     </p>
+                                    {this.state.message}
                                     <div className="centerContent">
-                                        <button type="submit" className="win-button color-accent color-type-primary-alt">
+                                        <button 
+                                            type="submit" 
+                                            className={this.state.classButton}
+                                            disabled={this.state.disabledButton}
+                                        >
                                             Create account
                                         </button>
                                     </div>
                                 </div>
                             </form>
-                            {this.props.loading}
+                            {this.state.loading}
                         </div>
                         <div className="xs-col-1-1">
                             <Credentials />
@@ -259,3 +335,7 @@ export default class CreateAccount extends React.Component<any, any> {
         )
     }
 }
+export default connect <any, any, any>(
+  mapStateToProps,
+  mapDispatchToProps
+)(CreateAccount)

@@ -10,6 +10,7 @@ import LogoFlyve from './LogoFlyve'
 import ErrorInput from './ErrorInput'
 import config from '../config'
 import Credentials from './Credentials'
+let WinJS = require('winjs')    
 
 export default class RevokeInvitation extends React.Component<any, any> {
     
@@ -22,12 +23,19 @@ export default class RevokeInvitation extends React.Component<any, any> {
         document.body.className = 'win-type-body color-bg-light-vivid-high'
         this.state = {
             classButton: 'win-button color-accent color-type-primary-alt',
+            loading: <span />,
+            disabledButton: false,
             // tslint:disable-next-line:jsx-wrap-multiline
             padding: 'Someone might have just mistyped their email address and accidentally tried to add yours.'
         }
     }
 
     Revoke () {
+        this.setState({
+            classButton: 'win-button',
+            disabledButton: true,
+            loading: <Loading className="loagind-form color-bg-light-vivid-mid"/>
+        })
         axios.post ('https://dev.flyve.org/glpi/apirest.php/', {
                 // login: config.userAdminName,
                 // password: config.userAdminPassword
@@ -35,7 +43,7 @@ export default class RevokeInvitation extends React.Component<any, any> {
                 .then((response) => {
                     console.log(response)
                     this.setState({
-                        classButton: 'win-button',
+                        loading: <span/>,
                         padding: 'Email already unsubscribed'
                     })
                 }) 
@@ -45,13 +53,23 @@ export default class RevokeInvitation extends React.Component<any, any> {
                 })
     }
 
+    componentDidMount () {
+        WinJS.UI.Animation.enterContent(
+            document.querySelector('.enterContentAnimation'), 
+            { top: '0px', left: '200px' },
+            {
+                mechanism: 'transition'
+            }
+        )
+    }
+
     render () {
         return (
             <div className="LoginForm">
                 <div id="maincontent">
                     <div className="centerText" id="validateUser">
                         <LogoFlyve />
-                        <div>
+                        <div className="enterContentAnimation">
                             <h1>
                                 Revoke invitation
                             </h1>
@@ -64,13 +82,19 @@ export default class RevokeInvitation extends React.Component<any, any> {
                                     value="example@teclib.com" 
                                     disabled={true}
                                 />
-                                <button className={this.state.classButton} type="button" onClick={() => this.Revoke()}>
+                                <button 
+                                    className={this.state.classButton} 
+                                    type="button" 
+                                    onClick={() => this.Revoke()}
+                                    disabled={this.state.disabledButton}
+                                >
                                     Opt-out
                                 </button>
                                 <p>
                                     {this.state.padding} 
                                 </p>
                             </form>
+                            {this.state.loading}
                         </div>
                         <Credentials />
                     </div>

@@ -11,8 +11,10 @@ import ErrorInput from './ErrorInput'
 import config from '../config'
 import Credentials from './Credentials'
 import { bindActionCreators } from 'redux'
-import { changeLoading, changeValue } from './DuckController'
+import { changeValue } from './DuckController'
 import { connect } from 'react-redux'
+let WinJS = require('winjs')    
+import { Link } from 'react-router-dom'
 
 function mapStateToProps(state, props) {
     return {
@@ -37,15 +39,22 @@ class ValidateUser extends React.Component<any, any> {
         super(props)
         document.body.className = 'win-type-body color-bg-light-vivid-high'
         this.state = {
-           userName: 'example@teclib.com',
+           userName: 'gianfrancomanganiello1997@gmail.com',
            classButton: 'win-button color-accent color-type-primary-alt',
            disabledButton: false,
-           loading: true,
-           padding: <span />
+           loading: <span />,
+           componentLoaded: true,
+           padding: <span />,
+        //    messageButton: 'Validate',
+           messageButton: 'Resend',
+        //    messageHeader: 'it\'s easy, just click the button below'
+           messageHeader: 'The link will be active for 1 day',
+           animate: true
         }
     }
 
     componentWillMount () {
+        
         const ACTIVE = 'registered Flyve MDM users. Created by Flyve MDM - do NOT modify this comment.'
         axios({
             method: 'get',
@@ -53,41 +62,50 @@ class ValidateUser extends React.Component<any, any> {
         })
             .then((response) => {
                 if (response.data.active_profile.comment !== ACTIVE) {
-                    this.props.actions.changeValue('userName', this.state.userName)
+                    // this.props.actions.changeValue('userName', this.state.userName)
                     this.setState({
-                        loading: false,
-                        classButton: 'win-button',
-                        disabledButton: false,
+                        componentLoaded: false,
+                        /*classButton: 'win-button',
+                        disabledButton: false,*/
                         // tslint:disable-next-line:jsx-wrap-multiline
                         padding: <div>
                                     <strong>Account already activated</strong><br/>
-                                    <a href="/login">Sign in</a>
+                                    <Link to="/login">Sign in</Link>
                                  </div>
                     })
                 }
             })
             .catch(() => {
-                this.props.actions.changeValue('userName', this.state.userName)
+                // this.props.actions.changeValue('userName', this.state.userName)
                 this.setState({
-                        loading: false,
-                        classButton: 'win-button',
-                        disabledButton: true,
+                        componentLoaded: false,
+                        /*classButton: 'win-button',
+                        disabledButton: true,*/
                         // tslint:disable-next-line:jsx-wrap-multiline
-                        padding: <div>
-                                    <strong>Account already activated</strong><br/>
-                                    <a href="/login">Sign in</a>
-                                 </div>
+                        /*padding: <div>
+                                    <strong>To verify that is your email address, open</strong><br />
+                                    <strong>your mailbox and find the email with the</strong><br />
+                                    <strong>subject: Account Activation</strong><br />
+                                 </div>*/
                     })
             })
     }
 
     validate () {
+        this.setState({
+            loading: <Loading className="loagind-form color-bg-light-vivid-mid"/>,
+            disabledButton: true,
+            classButton: 'win-button'
+        })
         axios.post ('https://dev.flyve.org/glpi/apirest.php/', {
                 // login: config.userAdminName,
                 // password: config.userAdminPassword
             }) 
                 .then((response) => {
                     console.log(response)
+                    this.setState({
+                        loading: <span/>
+                    })
                     // tslint:disable-next-line:jsx-wrap-multiline
                     this.props.actions.changeValue('messageSignIn', <div>
                                                                         <span>Account activated!</span> 
@@ -96,17 +114,45 @@ class ValidateUser extends React.Component<any, any> {
                                                                     </div>
                     )
                     this.props.actions.changeValue('userName', this.state.userName)
-                    this.props.history.push('/login')
+                    setTimeout( 
+                        () => {
+                            this.setState({
+                                disabledButton: false,
+                                classButton: 'win-button color-accent color-type-primary-alt'
+                            })
+                        }, 
+                        3000
+                    )
+                    // this.props.history.push('/login')
                 }) 
                 .catch((error) => {
                     console.log(error.response)
+                    this.setState({
+                        loading: <span/>,
+                        disabledButton: false,
+                        classButton: 'win-button color-accent color-type-primary-alt'
+                    })
                     // this.props.changeLoading('')
                 })
     }
 
-    render () {
+    componentDidUpdate () {
+        if (this.state.animate) {
+            WinJS.UI.Animation.enterContent(
+                document.querySelector('.enterContentAnimation'), 
+                { top: '0px', left: '200px' },
+                {
+                    mechanism: 'transition'
+                }
+            )
+            this.setState({
+                animate: false
+            })
+        }
+    }
 
-        if (this.state.loading) {
+    render () {
+        if (this.state.componentLoaded) {
             return <Loading />
         } else {
             return (
@@ -114,12 +160,12 @@ class ValidateUser extends React.Component<any, any> {
                     <div id="maincontent">
                         <div className="centerText" id="validateUser">
                             <LogoFlyve />
-                            <div>
+                            <div className="enterContentAnimation">
                                 <h1>
-                                    Verify your identify
+                                    Verify your identity
                                 </h1>
                                 <p>
-                                    it's easy, just click the button below
+                                    {this.state.messageHeader} 
                                 </p>
                             <form>
                                     <input 
@@ -134,10 +180,11 @@ class ValidateUser extends React.Component<any, any> {
                                         disabled={this.state.disabledButton}
                                         onClick={() => this.validate()} 
                                     >
-                                        Validate
+                                        {this.state.messageButton}
                                     </button>
                                     {this.state.padding}
                                 </form>
+                                {this.state.loading}
                             </div>
                             <Credentials />
                         </div>

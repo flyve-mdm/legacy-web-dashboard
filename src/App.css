@@ -12,7 +12,7 @@ ul {
     list-style:none
 }
 .loagind-form {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     margin: auto;

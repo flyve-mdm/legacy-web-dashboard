@@ -5,6 +5,7 @@ import ChangeSessionToken from '../Utils/ChangeSessionToken'
 import VerifyAccountActivation from '../Utils/VerifyAccountActivation'
 import SaveCredentials from '../Utils/SaveCredentials'
 let ReactWinJS = require('react-winjs')
+let WinJS = require('winjs')    
 
 export default class LoginEmail extends React.Component<any, any> {
     
@@ -52,9 +53,19 @@ export default class LoginEmail extends React.Component<any, any> {
             })
     }
 
+    componentDidMount () {
+        WinJS.UI.Animation.enterContent(
+            document.querySelector('.enterContentAnimation'), 
+            { top: '0px', left: '200px' },
+            {
+                mechanism: 'transition'
+            }
+        )
+    }
+
     render () { 
         return (
-            <div>
+            <div className="enterContentAnimation">
                 <h1>Enter password</h1>
                 <span>Enter the password for</span>	<br />
                 <span>{this.props.userName}</span>	

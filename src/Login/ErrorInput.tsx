@@ -1,46 +1,61 @@
 import * as React from 'react'
 
 export default class ErrorInput extends React.Component<any, any> {
-    render() {
-        let message = ''
-        if (this.props.showErrors) {
-            if (this.props.value === '') {
+
+    constructor (props: void) {
+        super(props)
+        document.body.className = 'win-type-body color-bg-light-vivid-high'
+        this.state = {
+            message: ''
+        }
+    }
+
+    componentWillReceiveProps(newProps) {
+        if (this.props.value !== newProps.value) {
+            let message = ''
+            if (newProps.value === '') {
                 message = 'Required field'
-            } else if (this.props.name === 'userName') {
+            } else if (newProps.name === 'userName') {
                 // tslint:disable-next-line:max-line-length
                 let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                if (!re.test(this.props.value)) {
+                if (!re.test(newProps.value)) {
                     message = 'Invalid email'
                 } 
-            } else if (this.props.name === 'password') {
-                if (this.props.value.length < 8 ) {
+            } else if (newProps.name === 'password') {
+                if (newProps.value.length < 8 ) {
                     message = 'The password must be at least 8 characters'
                 }
-            } else if (this.props.name === 'reenterPassword') {
-                if (this.props.value !== this.props.password) {
+            } else if (newProps.name === 'reenterPassword') {
+                if (newProps.value !== newProps.password) {
                     message = 'Passwords do not match'
                 }
-            } else if (this.props.name === 'captcha') {
-                if (this.props.value !== this.props.captcha) {
+            } else if (newProps.name === 'captcha') {
+                if (newProps.value !== newProps.captcha) {
                     message = 'Characters do not match image. Try again.'
                 }
+            } 
+            this.setState({ message: message })
+            
+        }
+    }
+
+    render() {
+        let input = document.getElementById(this.props.name)
+        
+        if (this.state.message !== '') {
+            if (input) {
+                input.className = 'win-textbox color-line-alert'
             }
-            let input = document.getElementById(this.props.name)
-            if (message !== '') {
-                if (input) {
-                    input.className = 'win-textbox color-line-alert'
-                }
-            } else {
-                if (input) {
-                    input.className = 'win-textbox'
-                }
+        } else {
+            if (input) {
+                input.className = 'win-textbox'
             }
         }
-        if (message === '') {
+
+        if (this.state.message === '') {
             return <span className="hide" />
         } else {
-            return <label className="color-type-alert error">{message}<br /></label>
+            return <label className="color-type-alert error">{this.state.message}<br /></label>
         }
-       
     }
 }

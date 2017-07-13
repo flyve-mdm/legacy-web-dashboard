@@ -3,6 +3,7 @@ import Loading from '../GenericComponents/Loading'
 import GetCredentials from '../Utils/GetCredentials'
 let ReactWinJS = require('react-winjs')
 import ErrorInput from './ErrorInput'
+import { Link } from 'react-router-dom'
 
 export default class LoginEmail extends React.Component<any, any> {
 
@@ -97,7 +98,7 @@ export default class LoginEmail extends React.Component<any, any> {
                     </ReactWinJS.Flyout>
                 </div>
             )
-            createAccount = <p><strong>No account?</strong> <a href="/CreateAccount">Create one!</a></p>
+            createAccount = <p><strong>No account?</strong> <Link to="/CreateAccount">Create one!</Link></p>
         }
 
         return (
@@ -111,7 +112,7 @@ export default class LoginEmail extends React.Component<any, any> {
                 <form onSubmit={this.LogInServer}>
                     <input 
                         type="email" 
-                        name="email"
+                        name="userName"
                         className={this.state.classInput}
                         placeholder="Enter login"
                         value={this.props.userName} 

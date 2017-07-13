@@ -5,7 +5,9 @@ import Login from './Login'
 import CreateAccount from './Login/CreateAccount'
 import ValidateUser from './Login/ValidateUser'
 import RecoverAccount from './Login/RecoverAccount'
+import RecoverAccountSuccess from './Login/RecoverAccountSuccess'
 import RevokeInvitation from './Login/RevokeInvitation'
+import RecoverAccountPasswordPage from './Login/RecoverAccountPasswordPage'
 import Users from './Users'
 import ValidateAccount from './Login/ValidateAccount'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
@@ -28,6 +30,8 @@ ReactDOM.render(
           <Route path="/createaccount" component={CreateAccount} />
           <Route path="/validateuser" component={ValidateUser} />
           <Route path="/recoveraccount" component={RecoverAccount} />
+          <Route path="/recoveraccountsuccess" component={RecoverAccountSuccess} />
+          <Route path="/recoveraccountpasswordpage" component={RecoverAccountPasswordPage} />
           <Route path="/revokeinvitation" component={RevokeInvitation} />
           <Route path="/users" component={Users} />
           <Route path="/validateaccount" component={ValidateAccount} />
