@@ -4,6 +4,7 @@ import GetCredentials from '../Utils/GetCredentials'
 let ReactWinJS = require('react-winjs')
 import ErrorInput from './ErrorInput'
 import { Link } from 'react-router-dom'
+let WinJS = require('winjs')    
 
 export default class LoginEmail extends React.Component<any, any> {
 
@@ -44,6 +45,19 @@ export default class LoginEmail extends React.Component<any, any> {
         var anchor = eventObject.currentTarget
         let refs: any = this.refs
         refs.flyout.winControl.show(anchor)
+    }
+
+    componentDidMount () {
+        if (this.props.animate) {
+            WinJS.UI.Animation.enterContent(
+                document.querySelector('.enterContentAnimation'), 
+                { top: '0px', left: '200px' },
+                {
+                    mechanism: 'transition'
+                }
+            )
+            this.props.changeValue('animate', false)
+        }
     }
 
     render () {
@@ -102,7 +116,7 @@ export default class LoginEmail extends React.Component<any, any> {
         }
 
         return (
-            <div>
+            <div className="enterContentAnimation">
                 <div className="centerText">
                     <h1>Sign in</h1>
                 </div>

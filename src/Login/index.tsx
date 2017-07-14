@@ -18,7 +18,8 @@ function mapStateToProps(state, props) {
         phase: state.Login.phase,
         userName: state.Login.userName,
         password: state.Login.password,
-        messageSignIn: state.Login.messageSignIn
+        messageSignIn: state.Login.messageSignIn,
+        animate: state.Login.animate
     }
 }
 
@@ -51,6 +52,7 @@ class Login extends React.Component<any, any> {
                     changeValue={this.props.actions.changeValue}
                     changeLoading={this.props.actions.changeLoading}
                     messageSignIn={this.props.messageSignIn}
+                    animate={this.props.animate}
                 />    
         } else {
             form = 

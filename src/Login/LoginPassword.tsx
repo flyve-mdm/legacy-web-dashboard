@@ -36,7 +36,7 @@ export default class LoginEmail extends React.Component<any, any> {
                 this.props.changeLoading('')
                 ChangeSessionToken(response.data.session_token)
                 // VerifyAccountActivation(this.props.history, 'users')
-
+                
                 SaveCredentials(this.props.userName, this.props.password, this.props.history)
                 
             })
