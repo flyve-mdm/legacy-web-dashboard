@@ -5,7 +5,8 @@ const INITIAL_STATE = {
     password: '',
     loading: false,
     phase: 1,
-    messageSignIn: ''
+    messageSignIn: '',
+    animate: false
 }
 
 // Constants
