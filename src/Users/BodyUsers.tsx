@@ -3,6 +3,7 @@ import ReactWinJS = require ('react-winjs')
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { closePane, changeLocation, changePeople, uploadUsers } from './DuckController'
+import { changeValue } from '../Login/DuckController'
 import PeoplePage from './PeoplePage'
 import CloseSession from '../Utils/CloseSession'
 import Loading from '../GenericComponents/Loading'
@@ -26,7 +27,8 @@ function mapDispatchToProps(dispatch) {
   const actions = {
     closePane: bindActionCreators(closePane, dispatch),
     changeLocation: bindActionCreators(changeLocation, dispatch),
-    uploadUsers: bindActionCreators(uploadUsers, dispatch)
+    uploadUsers: bindActionCreators(uploadUsers, dispatch),
+    changeValue: bindActionCreators(changeValue, dispatch)
   }
   return { actions }
 }
@@ -44,6 +46,10 @@ class BodyUsers extends React.Component<any, any> {
         this.setState({
             renderedComponent: <Loading />
         })
+        this.props.actions.changeValue('animate', true)
+        this.props.actions.changeValue('userName', '')
+        this.props.actions.changeValue('password', '')
+        this.props.actions.changeValue('phase', 1)
         CloseSession(history)
     }
 
