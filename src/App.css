@@ -5,7 +5,7 @@ a {
     text-decoration:none;
     color: #158784;
 }
-h1 {
+h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
 }
 ul {
@@ -35,6 +35,18 @@ ul {
 .hide {
     display: none !important;
 }
+.win-contentdialog-dialog {
+    width: 90% !important;
+    max-width: 300px !important;
+    height: 70% !important;
+    min-width: 200px !important;
+    padding: 11px 12px 12px 12px !important;
+    outline-color: rgb(21, 135, 132) !important;
+}
 .win-contentdialog-primarycommand {
     background-color: #158784 !important;
+    color: rgb(255, 255, 255) !important;
+}
+.win-contentdialog-commandspacer {
+    display: none;
 }

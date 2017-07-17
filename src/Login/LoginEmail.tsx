@@ -75,15 +75,28 @@ export default class LoginEmail extends React.Component<any, any> {
                     <ReactWinJS.ContentDialog 
                         ref="flyout"
                         primaryCommandText="OK"
-                        secondaryCommandText="Cancel"
                     >
                         <div className="flyout">
-                            <h3>WHAT IS FLYVE MDM?</h3>
+                            <h2>What is Flyve MDM?</h2>
                             <p>
                                 <strong>Flyve MDM</strong> is a mobile device management open source 
                                 software (SaaS) that enables you to secure and manage all the mobile 
                                 devices of your business via a unique web-based console (MDM).
+                                <a href="https://flyve-mdm.com" target="_blank">Learn more</a>
                             </p>
+                            <p>
+                                Our solution allows you to efficiently and easily control 
+                                any aspects of your Android-based mobile fleet, providing a panel of functionalities:
+                            </p>
+                            <ul>
+                                <li>– Provided as a SaaS platform</li>
+                                <li>– Google independent</li>
+                                <li>– Deploy and configure applications</li>
+                                <li>– Deploy files</li>
+                                <li>– Wipe a phone</li>
+                                <li>– Work with devices running Android 4.4 or higher</li>
+                                <li>– Simple web application user interface</li>
+                            </ul>
                         </div>
                         
                     </ReactWinJS.ContentDialog>
