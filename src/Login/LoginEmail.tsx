@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Loading from '../GenericComponents/Loading'
-import GetCredentials from '../Utils/GetCredentials'
+let GetCredentials = require('../Utils/GetCredentials')
 let ReactWinJS = require('react-winjs')
 import ErrorInput from './ErrorInput'
 import { Link } from 'react-router-dom'

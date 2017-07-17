@@ -3,7 +3,7 @@ import axios from 'axios'
 import Loading from '../GenericComponents/Loading'
 import ChangeSessionToken from '../Utils/ChangeSessionToken'
 import VerifyAccountActivation from '../Utils/VerifyAccountActivation'
-import SaveCredentials from '../Utils/SaveCredentials'
+let SaveCredentials = require('../Utils/SaveCredentials')
 let ReactWinJS = require('react-winjs')
 let WinJS = require('winjs')    
 import { Link } from 'react-router-dom'
@@ -35,9 +35,10 @@ export default class LoginEmail extends React.Component<any, any> {
             .then((response) => {
                 this.props.changeLoading('')
                 ChangeSessionToken(response.data.session_token)
-                // VerifyAccountActivation(this.props.history, 'users')
                 
-                SaveCredentials(this.props.userName, this.props.password, this.props.history)
+                SaveCredentials(this.props.userName, this.props.password, () => {
+                    VerifyAccountActivation(this.props.history, 'users')
+                })
                 
             })
             .catch((error) => {

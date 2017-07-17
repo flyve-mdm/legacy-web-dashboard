@@ -1,14 +1,19 @@
-import VerifyAccountActivation from './VerifyAccountActivation'
-
-export default (id, password, history) => {
+module.exports = function (id, password, callback) {
     var c = new PasswordCredential({
         id,
         password
     })
 
-    navigator.credentials.store(c)
-        .then(function() {
-            VerifyAccountActivation(history, 'users')
-        })
+    if (navigator.credentials) {
+        navigator.credentials.store(c)
+            .then(function() {
+                callback()
+            }) .catch(function() {
+                callback()
+            })
+    } else {
+        callback()
+    }
+    
     return null
 }
