@@ -116,39 +116,31 @@ class CreateAccount extends React.Component<any, any> {
                                 password: this.props.password,
                                 password2: this.props.reenterPassword,
                                 firstName: this.props.firstName,
-                                realname: this.props.lastName
+                                lastName: this.props.lastName
                             }
                         }
                     }) 
                         .then((response2) => {
                             console.log(response2)
                             this.props.actions.changeValue('userName', this.state.userName)
-                            let Jfake = {
-                                // tslint:disable-next-line:max-line-length
-                                massage: 'An entity already exists for your email. You probably already have an account.'
-                            }
                             this.setState({
                                 loading: <span />,
                                 classButton: 'win-button color-accent color-type-primary-alt',
-                                disabledButton: false
-                                // disabledButton: false
+                                disabledButton: false,
+                                message: ''
                             })
                             this.props.history.push('/validateuser')
                         })
                         .catch((error) => {
-                            console.log(error)
+                            console.log(error.response)
                             this.props.actions.changeValue('userName', this.state.userName)
-                            let Jfake = {
-                                // tslint:disable-next-line:max-line-length
-                                massage: 'An entity already exists for your email. You probably already have an account.'
-                            }
                             this.setState({
                                 loading: <span />,
                                 classButton: 'win-button color-accent color-type-primary-alt',
-                                disabledButton: false
-                                // message: <p className="color-type-alert">{Jfake.massage}</p>
+                                disabledButton: false,
+                                message: <p className="color-type-alert">{error.response.data[1]}</p>
                             })
-                            this.props.history.push('/validateuser')
+
                         })
                 })
         } else {
