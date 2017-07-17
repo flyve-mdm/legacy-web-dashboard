@@ -35,3 +35,6 @@ ul {
 .hide {
     display: none !important;
 }
+.win-contentdialog-primarycommand {
+    background-color: #158784 !important;
+}

@@ -72,7 +72,11 @@ export default class LoginEmail extends React.Component<any, any> {
                     <span>Use your Flyve MDM admin account.</span> <br />		
                     <a onClick={this.handleShow}> What's this? </a>	
 
-                    <ReactWinJS.Flyout ref="flyout">
+                    <ReactWinJS.ContentDialog 
+                        ref="flyout"
+                        primaryCommandText="OK"
+                        secondaryCommandText="Cancel"
+                    >
                         <div className="flyout">
                             <h3>WHAT IS FLYVE MDM?</h3>
                             <p>
@@ -80,36 +84,9 @@ export default class LoginEmail extends React.Component<any, any> {
                                 software (SaaS) that enables you to secure and manage all the mobile 
                                 devices of your business via a unique web-based console (MDM).
                             </p>
-                            <p>
-                                Our solution allows you to efficiently and easily control any aspects
-                                of your Android-based mobile fleet, providing a panel of functionalities:
-                            </p>
-                            <ul>
-                                <li>
-                                    – Provided as a SaaS platform
-                                </li>
-                                <li>
-                                    – Google independent
-                                </li>
-                                <li>
-                                    – Deploy and configure applications
-                                </li>
-                                <li>
-                                    – Deploy files
-                                </li>
-                                <li>
-                                    – Wipe a phone
-                                </li>
-                                <li>
-                                    – Work with devices running Android 4.4 or higher
-                                </li>
-                                <li>
-                                    – Simple web application user interface
-                                </li>
-                            </ul>
-                        
                         </div>
-                    </ReactWinJS.Flyout>
+                        
+                    </ReactWinJS.ContentDialog>
                 </div>
             )
             createAccount = <p><strong>No account?</strong> <Link to="/CreateAccount">Create one!</Link></p>

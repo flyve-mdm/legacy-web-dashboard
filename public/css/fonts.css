@@ -1,0 +1,10 @@
+@font-face {
+
+    font-family: Segoe-UI;
+
+    src: url(./segoeui.ttf) format(‘truetype’);
+
+}
+html {
+   font-family: Segoe-UI, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
