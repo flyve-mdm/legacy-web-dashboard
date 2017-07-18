@@ -116,7 +116,7 @@ class CreateAccount extends React.Component<any, any> {
                                 disabledButton: false
                                 // disabledButton: false
                             })
-                            this.props.history.push('/validateuser')
+                            this.props.history.push('/login')
                         })
                         .catch((error) => {
                             console.log(error)
@@ -131,7 +131,7 @@ class CreateAccount extends React.Component<any, any> {
                                 disabledButton: false
                                 // message: <p className="color-type-alert">{Jfake.massage}</p>
                             })
-                            this.props.history.push('/validateuser')
+                            this.props.history.push('/login')
                         })
                 })
         }
@@ -207,7 +207,7 @@ class CreateAccount extends React.Component<any, any> {
                                             className={this.state.classButton}
                                             disabled={this.state.disabledButton}
                                         >
-                                            Create account
+                                            Change password
                                         </button>
                                     </div>
                                 </div>

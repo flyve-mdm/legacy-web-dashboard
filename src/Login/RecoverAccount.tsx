@@ -177,12 +177,6 @@ class RecoverAccount extends React.Component<any, any> {
                                         required={true} 
                                         placeholder="Enter the characteres you see"
                                     />
-                                    <ErrorInput 
-                                        value={this.state.captcha} 
-                                        captcha="captcha"
-                                        showErrors={this.state.showErrors}
-                                        name="captcha" 
-                                    />
                                     <p />
                                 </div>
                                 <div className="xs-col-1-2 ">

@@ -29,10 +29,6 @@ export default class ErrorInput extends React.Component<any, any> {
                 if (newProps.value !== newProps.password) {
                     message = 'Passwords do not match'
                 }
-            } else if (newProps.name === 'captcha') {
-                if (newProps.value !== newProps.captcha) {
-                    message = 'Characters do not match image. Try again.'
-                }
             } 
             this.setState({ message: message })
             

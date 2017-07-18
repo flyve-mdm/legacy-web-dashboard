@@ -129,7 +129,7 @@ class CreateAccount extends React.Component<any, any> {
                                 disabledButton: false,
                                 message: ''
                             })
-                            this.props.history.push('/validateuser')
+                            this.props.history.push('/resendvalidationuser')
                         })
                         .catch((error) => {
                             console.log(error.response)
@@ -138,7 +138,9 @@ class CreateAccount extends React.Component<any, any> {
                                 loading: <span />,
                                 classButton: 'win-button color-accent color-type-primary-alt',
                                 disabledButton: false,
-                                message: <p className="color-type-alert">{error.response.data[1]}</p>
+                                message: <p className="color-type-alert">{error.response.data[1]}</p>,
+                                password: '',
+                                reenterPassword: '',
                             })
 
                         })
@@ -197,7 +199,7 @@ class CreateAccount extends React.Component<any, any> {
                                     />
                                 </div>
                                 <div className="xs-col-1-1">
-                                    <label>User name</label>
+                                    <label>Email</label>
                                     <input 
                                         name="userName"
                                         className="win-textbox" 
@@ -279,12 +281,6 @@ class CreateAccount extends React.Component<any, any> {
                                         value={this.state.captcha} 
                                         onChange={this.changeInput} 
                                         required={true} 
-                                    />
-                                    <ErrorInput 
-                                        name="captcha" 
-                                        value={this.state.captcha} 
-                                        captcha="captcha"
-                                        showErrors={this.state.showErrors}
                                     />
                                 </div>
                                 <div className="xs-col-1-8">

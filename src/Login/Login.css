@@ -13,6 +13,9 @@
 #validateUser .win-textbox{
     margin: 20px 0px;
 }
+.LoginForm {
+    padding: 0 18px;
+}
 .LoginForm .win-textbox {
     width: 100%;
 }
