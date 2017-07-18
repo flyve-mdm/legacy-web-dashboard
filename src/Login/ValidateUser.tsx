@@ -45,10 +45,6 @@ class ValidateUser extends React.Component<any, any> {
            loading: <span />,
            componentLoaded: true,
            padding: <span />,
-        //    messageButton: 'Validate',
-           messageButton: 'Resend',
-        //    messageHeader: 'it\'s easy, just click the button below'
-           messageHeader: 'The link will be active for 1 day',
            animate: true
         }
     }
@@ -81,12 +77,6 @@ class ValidateUser extends React.Component<any, any> {
                         componentLoaded: false,
                         /*classButton: 'win-button',
                         disabledButton: true,*/
-                        // tslint:disable-next-line:jsx-wrap-multiline
-                        /*padding: <div>
-                                    <strong>To verify that is your email address, open</strong><br />
-                                    <strong>your mailbox and find the email with the</strong><br />
-                                    <strong>subject: Account Activation</strong><br />
-                                 </div>*/
                     })
             })
     }
@@ -95,7 +85,8 @@ class ValidateUser extends React.Component<any, any> {
         this.setState({
             loading: <Loading className="loagind-form color-bg-light-vivid-mid"/>,
             disabledButton: true,
-            classButton: 'win-button'
+            classButton: 'win-button',
+            padding: <span />
         })
         axios.post ('https://dev.flyve.org/glpi/apirest.php/', {
                 // login: config.userAdminName,
@@ -114,25 +105,16 @@ class ValidateUser extends React.Component<any, any> {
                                                                     </div>
                     )
                     this.props.actions.changeValue('userName', this.state.userName)
-                    setTimeout( 
-                        () => {
-                            this.setState({
-                                disabledButton: false,
-                                classButton: 'win-button color-accent color-type-primary-alt'
-                            })
-                        }, 
-                        3000
-                    )
-                    // this.props.history.push('/login')
+                    this.props.history.push('/login')
                 }) 
                 .catch((error) => {
                     console.log(error.response)
                     this.setState({
                         loading: <span/>,
                         disabledButton: false,
-                        classButton: 'win-button color-accent color-type-primary-alt'
+                        classButton: 'win-button color-accent color-type-primary-alt',
+                        padding: <div className="color-type-alert">{error.response.data[1]}</div> 
                     })
-                    // this.props.changeLoading('')
                 })
     }
 
@@ -152,6 +134,7 @@ class ValidateUser extends React.Component<any, any> {
     }
 
     render () {
+        console.log(this.props)
         if (this.state.componentLoaded) {
             return <Loading />
         } else {
@@ -165,7 +148,7 @@ class ValidateUser extends React.Component<any, any> {
                                     Verify your identity
                                 </h1>
                                 <p>
-                                    {this.state.messageHeader} 
+                                    it's easy, just click the button below
                                 </p>
                             <form>
                                     <input 
@@ -180,7 +163,7 @@ class ValidateUser extends React.Component<any, any> {
                                         disabled={this.state.disabledButton}
                                         onClick={() => this.validate()} 
                                     >
-                                        {this.state.messageButton}
+                                        Validate
                                     </button>
                                     {this.state.padding}
                                 </form>
