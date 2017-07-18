@@ -36,7 +36,7 @@ class ResendValidationUser extends React.Component<any, any> {
         super(props)
         document.body.className = 'win-type-body color-bg-light-vivid-high'
         this.state = {
-           userName: this.props.userName,
+           userName: 'example@flyve.com',
            classButton: 'win-button color-accent color-type-primary-alt',
            disabledButton: false,
            loading: <span />,
@@ -107,28 +107,25 @@ class ResendValidationUser extends React.Component<any, any> {
                         <LogoFlyve />
                         <div className="enterContentAnimation">
                             <h1>
-                                Verify your identity
+                                Verify your email address
                             </h1>
+                            <h3>
+                                You're almost done! A verification message has been sent to
+                                <br />
+                                <strong>{this.state.userName}</strong>
+                            </h3>
+                            <h4>
+                                Just check your email and follow the link to finish creating your 
+                                Flyve MDM Account. Entered the wrong address? 
+                                <a href="#"> Change your email</a>.
+                            </h4>
+                            <div className="separator" />
                             <p>
-                                {this.state.messageHeader} 
+                                Can't find the email? 
+                                <a href="#"> Resend verification email </a>
+                                or 
+                                <a href="#"> visit the help center</a>
                             </p>
-                        <form>
-                                <input 
-                                    type="email" 
-                                    className="win-textbox color-type-disabled"
-                                    value={this.state.userName} 
-                                    disabled={true}
-                                />
-                                <button 
-                                    className={this.state.classButton}
-                                    type="button"
-                                    disabled={this.state.disabledButton}
-                                    onClick={() => this.resendValidation()} 
-                                >
-                                    Resend
-                                </button>
-                                {this.state.padding}
-                            </form>
                             {this.state.loading}
                         </div>
                         <Credentials />
