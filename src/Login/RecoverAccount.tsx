@@ -119,7 +119,7 @@ class RecoverAccount extends React.Component<any, any> {
             <div className="LoginForm">
                 <div id="maincontent">
                     <div id="RecoverAccount">
-                        <LogoFlyve />
+                        <LogoFlyve history={this.props.history}/>
                         <div className="enterContentAnimation">
                             <div className="centerText" >
                                 <h1>
@@ -195,9 +195,9 @@ class RecoverAccount extends React.Component<any, any> {
                             </form>
                             {this.state.loading}
                         </div>
-                        <Credentials />
                     </div>
                 </div>
+                <Credentials />
             </div>
         )
     }

@@ -43,7 +43,7 @@ class ValidateUser extends React.Component<any, any> {
            classButton: 'win-button color-accent color-type-primary-alt',
            disabledButton: false,
            loading: <span />,
-           componentLoaded: true,
+           componentLoaded: false,
            padding: <span />,
            animate: true
         }
@@ -58,11 +58,14 @@ class ValidateUser extends React.Component<any, any> {
         })
             .then((response) => {
                 if (response.data.active_profile.comment !== ACTIVE) {
-                    // this.props.actions.changeValue('userName', this.state.userName)
                     this.setState({
-                        componentLoaded: false,
-                        /*classButton: 'win-button',
-                        disabledButton: false,*/
+                        componentLoaded: true,
+                    })
+                } else {
+                    this.setState({
+                        componentLoaded: true,
+                        classButton: 'win-button',
+                        disabledButton: true,
                         // tslint:disable-next-line:jsx-wrap-multiline
                         padding: <div>
                                     <strong>Account already activated</strong><br/>
@@ -72,11 +75,8 @@ class ValidateUser extends React.Component<any, any> {
                 }
             })
             .catch(() => {
-                // this.props.actions.changeValue('userName', this.state.userName)
                 this.setState({
-                        componentLoaded: false,
-                        /*classButton: 'win-button',
-                        disabledButton: true,*/
+                        componentLoaded: true
                     })
             })
     }
@@ -134,15 +134,14 @@ class ValidateUser extends React.Component<any, any> {
     }
 
     render () {
-        console.log(this.props)
-        if (this.state.componentLoaded) {
+        if (!this.state.componentLoaded) {
             return <Loading />
         } else {
             return (
                 <div className="LoginForm">
                     <div id="maincontent">
                         <div className="centerText" id="validateUser">
-                            <LogoFlyve />
+                            <LogoFlyve history={this.props.history}/>
                             <div className="enterContentAnimation">
                                 <h1>
                                     Verify your identity
@@ -169,9 +168,9 @@ class ValidateUser extends React.Component<any, any> {
                                 </form>
                                 {this.state.loading}
                             </div>
-                            <Credentials />
                         </div>
                     </div>
+                    <Credentials />
                 </div>
             )
         }

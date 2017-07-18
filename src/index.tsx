@@ -4,6 +4,9 @@ import App from './App'
 import Login from './Login'
 import CreateAccount from './Login/CreateAccount'
 import ValidateUser from './Login/ValidateUser'
+import VerifyYourEmail from './Login/VerifyYourEmail'
+import EditEmailAddress from './Login/EditEmailAddress'
+import SuccessChangePassword from './Login/SuccessChangePassword'
 import ResendValidationUser from './Login/ResendValidationUser'
 import RecoverAccount from './Login/RecoverAccount'
 import RecoverAccountSuccess from './Login/RecoverAccountSuccess'
@@ -30,6 +33,9 @@ ReactDOM.render(
           <Route path="/createaccount" component={CreateAccount} />
           <Route path="/resendvalidationuser" component={ResendValidationUser} />
           <Route path="/validateuser" component={ValidateUser} />
+          <Route path="/editemailaddress" component={EditEmailAddress} />
+          <Route path="/successchangepassword" component={SuccessChangePassword} />
+          <Route path="/verifyyouremail" component={VerifyYourEmail} />
           <Route path="/recoveraccount" component={RecoverAccount} />
           <Route path="/recoveraccountsuccess" component={RecoverAccountSuccess} />
           <Route path="/recoveraccountpasswordpage" component={RecoverAccountPasswordPage} />

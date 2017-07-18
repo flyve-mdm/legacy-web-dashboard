@@ -27,7 +27,7 @@ function mapDispatchToProps(dispatch) {
     return { actions }
 }
 
-class CreateAccount extends React.Component<any, any> {
+class RecoverAccountPasswordPage extends React.Component<any, any> {
     
     static propTypes = {
         history: React.PropTypes.object.isRequired
@@ -116,7 +116,7 @@ class CreateAccount extends React.Component<any, any> {
                                 disabledButton: false
                                 // disabledButton: false
                             })
-                            this.props.history.push('/login')
+                            this.props.history.push('/successchangepassword')
                         })
                         .catch((error) => {
                             console.log(error)
@@ -131,7 +131,7 @@ class CreateAccount extends React.Component<any, any> {
                                 disabledButton: false
                                 // message: <p className="color-type-alert">{Jfake.massage}</p>
                             })
-                            this.props.history.push('/login')
+                            this.props.history.push('/successchangepassword')
                         })
                 })
         }
@@ -152,7 +152,7 @@ class CreateAccount extends React.Component<any, any> {
             <div className="LoginForm">                
                 <div id="maincontent">
                     <div id="createAccount">
-                        <LogoFlyve />
+                        <LogoFlyve history={this.props.history}/>
                         <div className="enterContentAnimation">
                             <div className="centerText title"> 
                                 <h1>
@@ -214,11 +214,9 @@ class CreateAccount extends React.Component<any, any> {
                             </form>
                             {this.state.loading}
                         </div>
-                        <div className="xs-col-1-1">
-                            <Credentials />
-                        </div>
                     </div>
                 </div>
+                <Credentials />
             </div>
         )
     }
@@ -226,4 +224,4 @@ class CreateAccount extends React.Component<any, any> {
 export default connect <any, any, any>(
   mapStateToProps,
   mapDispatchToProps
-)(CreateAccount)
+)(RecoverAccountPasswordPage)

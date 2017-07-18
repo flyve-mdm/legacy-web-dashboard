@@ -56,8 +56,8 @@ export default class LoginEmail extends React.Component<any, any> {
                     mechanism: 'transition'
                 }
             )
-            this.props.changeValue('animate', false)
         }
+        this.props.changeValue('animate', true)
     }
 
     render () {

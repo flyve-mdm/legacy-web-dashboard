@@ -45,7 +45,7 @@ class CreateAccount extends React.Component<any, any> {
             reenterPassword: '',
             captcha: '',
             showErrors: false,
-            suscribe: true,
+            suscribe: false,
             loading: <span />,
             message: <span />,
             disabledButton: false,
@@ -55,6 +55,11 @@ class CreateAccount extends React.Component<any, any> {
 
     changeInput = (input) => {
         this.setState({[input.target.name]: input.target.value})
+    }
+
+    handleToggle = (eventObject) => {
+        let toggleCommand = eventObject.currentTarget.winControl
+        this.setState({ suscribe: toggleCommand.checked })
     }
 
     changeShowErrors = () => {
@@ -129,7 +134,7 @@ class CreateAccount extends React.Component<any, any> {
                                 disabledButton: false,
                                 message: ''
                             })
-                            this.props.history.push('/resendvalidationuser')
+                            this.props.history.push('/verifyyouremail')
                         })
                         .catch((error) => {
                             console.log(error.response)
@@ -168,7 +173,7 @@ class CreateAccount extends React.Component<any, any> {
             <div className="LoginForm">                
                 <div id="maincontent">
                     <div id="createAccount">
-                        <LogoFlyve />
+                        <LogoFlyve history={this.props.history}/>
                         <div className="enterContentAnimation">
                             <div className="centerText title"> 
                                 <h1>
@@ -285,7 +290,8 @@ class CreateAccount extends React.Component<any, any> {
                                 </div>
                                 <div className="xs-col-1-8">
                                     <ReactWinJS.ToggleSwitch
-                                        checked={this.state.toggleSelected}
+                                        checked={this.state.suscribe}
+                                        onChange={this.handleToggle}
                                         labelOn=""
                                         labelOff="" 
                                     />

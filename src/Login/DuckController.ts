@@ -6,7 +6,7 @@ const INITIAL_STATE = {
     loading: false,
     phase: 1,
     messageSignIn: '',
-    animate: false
+    animate: true
 }
 
 // Constants
@@ -24,7 +24,6 @@ export default function reducer(state = INITIAL_STATE, action: any) {
             }
         
         case CHANGE_VALUE:
-        console.log(action.name)
             return {
                ...state,
                [action.name]: action.value

@@ -36,7 +36,7 @@ class ResendValidationUser extends React.Component<any, any> {
         super(props)
         document.body.className = 'win-type-body color-bg-light-vivid-high'
         this.state = {
-           userName: 'example@flyve.com',
+           userName: this.props.userName,
            classButton: 'win-button color-accent color-type-primary-alt',
            disabledButton: false,
            loading: <span />,
@@ -104,33 +104,34 @@ class ResendValidationUser extends React.Component<any, any> {
             <div className="LoginForm">
                 <div id="maincontent">
                     <div className="centerText" id="validateUser">
-                        <LogoFlyve />
+                        <LogoFlyve history={this.props.history}/>
                         <div className="enterContentAnimation">
                             <h1>
-                                Verify your email address
+                                Resend verification email
                             </h1>
-                            <h3>
-                                You're almost done! A verification message has been sent to
-                                <br />
-                                <strong>{this.state.userName}</strong>
-                            </h3>
-                            <h4>
-                                Just check your email and follow the link to finish creating your 
-                                Flyve MDM Account. Entered the wrong address? 
-                                <a href="#"> Change your email</a>.
-                            </h4>
-                            <div className="separator" />
-                            <p>
-                                Can't find the email? 
-                                <a href="#"> Resend verification email </a>
-                                or 
-                                <a href="#"> visit the help center</a>
-                            </p>
+                            <p>{this.state.messageHeader}</p>
+                        <form>
+                                <input 
+                                    type="email" 
+                                    className="win-textbox color-type-disabled"
+                                    value={this.state.userName} 
+                                    disabled={true}
+                                />
+                                <button 
+                                    className={this.state.classButton}
+                                    type="button"
+                                    disabled={this.state.disabledButton}
+                                    onClick={() => this.resendValidation()} 
+                                >
+                                    Resend
+                                </button>
+                                {this.state.padding}
+                            </form>
                             {this.state.loading}
                         </div>
-                        <Credentials />
                     </div>
                 </div>
+                <Credentials />
             </div>
         )
     }

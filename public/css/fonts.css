@@ -2,7 +2,7 @@
 
     font-family: Segoe-UI;
 
-    src: url(./segoeui.ttf) format(‘truetype’);
+    src: url(./fonts/segoeui.ttf) format(‘truetype’);
 
 }
 html {

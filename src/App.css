@@ -50,3 +50,6 @@ ul {
 .win-contentdialog-commandspacer {
     display: none;
 }
+.win-textbox:focus {
+  border-color: #158784 !important;
+}

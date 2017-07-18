@@ -18,6 +18,11 @@ export default class LoginEmail extends React.Component<any, any> {
         }
     }
 
+    back () {
+        this.props.changeValue('animate', false)
+        this.props.changeValue('phase', 1)
+    }
+ 
     ChangeInput = (input) => {
         this.props.changeValue(input.target.name, input.target.value)
         this.setState({ classInput: 'win-textbox' })
@@ -97,7 +102,7 @@ export default class LoginEmail extends React.Component<any, any> {
                         </div>
                     </div>
                     <div className="xs-col-1-2 ">
-                        <button className="win-button" type="button" onClick={() => this.props.changeValue('phase', 1)}>
+                        <button className="win-button" type="button" onClick={() => this.back()}>
                             Back 
                         </button>
                     </div>

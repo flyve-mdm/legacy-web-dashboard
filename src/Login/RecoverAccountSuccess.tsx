@@ -20,7 +20,7 @@ export default class RevokeInvitationSuccess extends React.Component<any, any> {
             <div className="LoginForm">
                 <div id="maincontent">
                     <div className="centerText">
-                        <LogoFlyve />
+                        <LogoFlyve history={this.props.history}/>
                         <div className="enterContentAnimation">
                             <h1>
                                 Recover your <br />
@@ -32,10 +32,10 @@ export default class RevokeInvitationSuccess extends React.Component<any, any> {
                                 password" and open the link to create <br/>
                                 a new password
                             </p>
-                            <Credentials />
                         </div>
                     </div>
                 </div>
+                <Credentials />
             </div>
         )
     }

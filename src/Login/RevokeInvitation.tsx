@@ -25,9 +25,14 @@ export default class RevokeInvitation extends React.Component<any, any> {
             classButton: 'win-button color-accent color-type-primary-alt',
             loading: <span />,
             disabledButton: false,
+            userName: '',
             // tslint:disable-next-line:jsx-wrap-multiline
             padding: 'Someone might have just mistyped their email address and accidentally tried to add yours.'
         }
+    }
+
+    changeInput = (input) => {
+        this.setState({[input.target.name]: input.target.value})
     }
 
     Revoke () {
@@ -68,7 +73,7 @@ export default class RevokeInvitation extends React.Component<any, any> {
             <div className="LoginForm">
                 <div id="maincontent">
                     <div className="centerText" id="validateUser">
-                        <LogoFlyve />
+                        <LogoFlyve history={this.props.history}/>
                         <div className="enterContentAnimation">
                             <h1>
                                 Revoke invitation
@@ -77,10 +82,11 @@ export default class RevokeInvitation extends React.Component<any, any> {
                             <form>
                                 <input 
                                     type="email" 
-                                    name="email"
+                                    name="userName"
                                     className="win-textbox"
-                                    value="example@teclib.com" 
-                                    disabled={true}
+                                    placeholder="Your email"
+                                    value={this.state.userName}
+                                    onChange={this.changeInput}
                                 />
                                 <button 
                                     className={this.state.classButton} 
@@ -96,9 +102,9 @@ export default class RevokeInvitation extends React.Component<any, any> {
                             </form>
                             {this.state.loading}
                         </div>
-                        <Credentials />
                     </div>
                 </div>
+                <Credentials />
             </div>
         )
     }

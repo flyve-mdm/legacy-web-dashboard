@@ -69,16 +69,14 @@ class Login extends React.Component<any, any> {
             <div className="LoginForm">
                 <div id="maincontent">
                     <div id="signIn">
-                        <LogoFlyve />
+                        <LogoFlyve history={this.props.history}/>
                         <div className="centerText">
                             {form}
                             {this.props.loading}
                         </div>
-                        <div className="xs-col-1-1 ">
-                            <Credentials />
-                        </div>
                     </div>
                 </div>
+                <Credentials />
             </div>
         )
     }
