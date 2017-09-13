@@ -4,8 +4,15 @@ node_js:
   - "6"
   - "6.1"
   - "5.11"
+  
+dist: trusty
+
+addons:
+  chrome: stable
+
 script:
-  - chrome --headless --disable-gpu --screenshot https://flyve-mdm.github.io/flyve-mdm-web-dashboard/
+  - google-chrome-stable --headless --disable-gpu --screenshot https://flyve-mdm.github.io/flyve-mdm-web-dashboard/
+
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
