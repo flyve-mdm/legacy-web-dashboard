@@ -14,7 +14,7 @@ addons:
   chrome: stable
 
 script:
-  - google-chrome-stable --headless --disable-gpu --screenshot https://flyve-mdm.github.io/flyve-mdm-web-dashboard/
+  - "./ci/script.sh"
 
 before_script:
   - export DISPLAY=:99.0
