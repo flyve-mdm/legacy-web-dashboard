@@ -4,7 +4,10 @@ node_js:
   - "6"
   - "6.1"
   - "5.11"
-  
+
+notifications:
+  webhooks: https://fathomless-fjord-24024.herokuapp.com/notify
+
 dist: trusty
 
 addons:
