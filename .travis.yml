@@ -1,9 +1,7 @@
-sudo: false
+sudo: required
 language: node_js
 node_js:
-  - "6"
-  - "6.1"
-  - "5.11"
+  - "8.5"
 
 notifications:
   webhooks: https://fathomless-fjord-24024.herokuapp.com/notify
