@@ -1,0 +1,219 @@
+---
+layout: home
+---
+
+  <div class="container">
+    
+    <div class="col-md-12 col-md-push-12 text-center">
+      <img class="img-dashboard img-responsive visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block visible-xl-inline-block"
+        alt="" src="images/logo2.png" data-source-index="2" style="padding: 40px">
+    </div>
+    <div class="col-md-12 col-md-pull-12">
+      <div class="type-h2">
+        Manage all your mobile devices effectively
+      </div>
+      <br/>
+      <ul>
+        <li>
+          Create an inventory of all of your company terminals (mobile fleet inventory)
+        </li>
+        <li>
+          Configure and deploy your mobile fleet from the web-based administration console
+        </li>
+        <li>
+          Install and uninstall remote applications
+        </li>
+        <li>
+          Send files remotely to all terminals
+        </li>
+        <li>
+          Deploy and control Bluetooth and Wi-Fi connectivity
+        </li>
+        <li>
+          Activate real-time geolocation of your terminals
+        </li>
+        <li>
+          Delete, partially or totally, your data in case of loss or theft
+        </li>
+      </ul>
+      <br/>
+    </div>
+</div>
+
+<section id="instructions">
+  <div class="jumbotron theme-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-24 text-center">
+          <h3>Features</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="jumbotron theme-default">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <img class="img-responsive visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block visible-xl-inline-block"
+            alt="" src="images/shema01.png" data-source-index="2" />
+
+        </div>
+        
+        <br class="visible-xs-inline-block visible-sm-inline-block"/>
+        <div class="col-md-12">
+          <div class="type-h3 padding-h0">
+            Web Administration console
+          </div>
+          <div class="type-sh3">
+            With Flyve MDM, you can manage your company’s mobile fleet simply and easily, via a secure web browser. Flyve MDM provides access to a centralised mobile device management tool, which offers the following features:
+          </div>
+          <ul>
+            <li>
+              Intuitive Web interface
+            </li>
+            <li>
+              Users’ accounts configuration and management tool
+            </li>
+            <li>
+              Installation / removal of applications
+            </li>
+            <li>
+              Ability to control and monitor the security policy
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <div class="jumbotron theme-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-24 text-center">
+          <h3>Quick start</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="jumbotron theme-light">
+    <div class="container">
+      <h3>Several quick start options are available:</h3>
+      <ul>
+        <li>
+          <a href="https://github.com/flyve-mdm/flyve-mdm-web-ui/releases/latest">
+            Download the latest release
+          </a>
+        </li>
+        <li>
+          Clone the repo: <code>git clone https://github.com/flyve-mdm/flyve-mdm-web-ui.git </code>
+        </li>
+        <li>
+          Install Ruby
+        </li>
+        <li>
+          Install the compass gem:
+          <blockquote>
+            gem install compass
+          </blockquote>
+        </li>
+        <li>
+          Install Node
+        </li>
+        <li>
+          Install the packages <code>grunt-cli</code> and <code>bower</code> globally
+          <blockquote>
+            npm install -g grunt-cli <br/>
+            npm install -g bower
+          </blockquote>
+        </li>
+        <li>
+          Install development dependencies and bower components
+          <blockquote>
+            npm start
+          </blockquote>
+        </li>
+        <li>
+          Rename the <code>config.sample.js</code> to <code>config.js</code> in the <code>app</code> folder
+        </li>
+        <li>
+          Add the url of the GLPi API and add the API Key in the config file. This is the glpi/flyve api_key which is used to save glpi/flyve users
+        </li>
+        <li>
+          Run <code>grunt</code> for building and <code>grunt serve</code> for preview
+        </li>
+      </ul>
+      <p>
+        Read the page of <a href="https://github.com/yeoman/generator-angular#generators/"> Yeoman generator for AngularJS </a> for information on the available generators, and more.
+      </p>
+    </div>
+  </div>
+
+  <div class="jumbotron theme-default">
+    <div class="container">
+      <h3>Testing</h3>
+      <p>Running <code>grunt test</code> will run the unit tests with karma.</p>
+      <h4>What's important</h4>
+      <p>
+        Note: this section is not exhaustive nor finished, it is explaining the source code a bit.
+      </p>
+      <p>
+        This web application is supposed to be packaged within the Flyve MDM distribution, which includes
+      </p>
+      <ul>
+        <li>
+          The <code>Flyve MDM</code> GLPi Module
+        </li>
+        <li>
+          The <code>Flyve MDM</code> web console (repository)
+        </li>
+      </ul>
+      <p>
+        We are still working on how we are going to package the whole <code>Flyve MDM</code> software distribution.
+      </p>
+      <p>
+        You can run the <code>tree</code> unix command in your working copy of this repository, but, the following points are important:
+      </p>
+      <h5>Services</h5>
+      <ul>
+        <li>
+          auth.js : handles the authentification with the GLPi API within the entire app
+        </li>
+        <li>
+          includes an $http interceptor to provide GLPi API's <code>session_token</code>
+        </li>
+      </ul>
+      <h5>Controller/View pairs</h5>
+      <ul>
+        <li>
+          devices.js / devices.html: the most important <code>Flyve MDM</code> screen, showing current devices
+        </li>
+        <li>
+          fleets.js / admin_fleets.html: the screen which helps managing <code>Flyve MDM</code> fleets
+        </li>
+        <li>
+          ... (they are likely to change)
+        </li>
+      </ul>
+      <h5>Sass/CSS</h5>
+      <ul>
+        <li>
+          a app.sass module includes every other sass modules
+        </li>
+        <li>
+          which contains the visual css code for entire the frontend app
+        </li>
+        <li>
+          that app.sass builds to app.css
+        </li>
+      </ul>
+      <h5>Build system</h5>
+      <ul>
+        <li>
+          <a href="https://github.com/yeoman/generator-angular">generator-angular</a> via <a href="http://yeoman.io/">Yeoman</a>
+        </li>
+      </ul>
+    </div>  
+  </div>
+
