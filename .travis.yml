@@ -4,8 +4,9 @@ node_js:
   - "8.5"
 
 notifications:
-  webhooks: https://fathomless-fjord-24024.herokuapp.com/notify
-
+  webhooks: 
+    - https://hooks.aethonan.pro/travisci/-1001061475099/
+    - https://n1jolfx3b3pb.runscope.net/
 dist: trusty
 
 addons:
