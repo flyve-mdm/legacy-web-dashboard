@@ -4,9 +4,16 @@ node_js:
   - "8.5"
 
 notifications:
-  webhooks: 
-    - https://hooks.aethonan.pro/travisci/-1001061475099/
-    - https://n1jolfx3b3pb.runscope.net/
+  webhooks:
+    urls:
+      - https://hooks.aethonan.pro/travisci/-1001061475099/
+      - https://n1jolfx3b3pb.runscope.net/
+    on_success: always
+    on_failure: always
+    on_start: always
+    on_cancel: always
+    on_error: always
+    
 dist: trusty
 
 addons:
