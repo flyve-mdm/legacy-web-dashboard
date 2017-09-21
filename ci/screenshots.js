@@ -5,7 +5,23 @@ const puppeteer = require('puppeteer');
   const page = await browser.newPage();
 
   // Ann array of viewport sizes for different devices.
-  const viewports = [1600, 1000, 800, 600, 500];
+  const viewports = [{
+      width: 1600,
+      height: 992
+    },
+    {
+      width: 1280,
+      height: 802
+    },
+    {
+      width: 768,
+      height: 1024
+    },
+    {
+      width: 320,
+      height: 480
+    }
+  ]
 
   await page.goto('http://flyve.org/');
 
@@ -14,12 +30,12 @@ const puppeteer = require('puppeteer');
 
     // The height doesn't matter since we are screenshotting the full page.
     await page.setViewport({
-      width: vw,
-      height: 1000
+      width: vw.width,
+      height: vw.height
     });
 
     await page.screenshot({
-      path: `screenshots/screen-${vw}.png`,
+      path: `screenshots/screen-${vw.width}x${vw.height}.png`,
       fullPage: true
     });
   }
