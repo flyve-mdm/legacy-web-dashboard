@@ -6,7 +6,7 @@ if [[ -n $GH_TOKEN ]]; then
     git checkout $TRAVIS_BRANCH -f
 fi
 
-if [[ "$TRAVIS_BRANCH" == "feature/screenshots" && "$TRAVIS_PULL_REQUEST" == "false" ]]; then
+if [[ "$TRAVIS_BRANCH" == "develop" && "$TRAVIS_PULL_REQUEST" == "false" ]]; then
     npm i puppeteer
     mkdir "screenshots"
     node ci/screenshots.js
