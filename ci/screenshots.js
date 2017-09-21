@@ -1,15 +1,15 @@
 const puppeteer = require('puppeteer');
 
-(async () => {
+(async() => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
   // Ann array of viewport sizes for different devices.
   const viewports = [1600, 1000, 800, 600, 500];
 
-  await page.goto('https://flyve-mdm.github.io/flyve-mdm-web-dashboard/');
+  await page.goto('http://flyve.org/');
 
-  for(let i=0; i < viewports.length; i++) {
+  for (let i = 0; i < viewports.length; i++) {
     let vw = viewports[i];
 
     // The height doesn't matter since we are screenshotting the full page.
