@@ -1,0 +1,19 @@
+language: ruby
+rvm:
+  - 2.2.3
+
+env:
+  - TRAVIS_NODE_VERSION="8.5"
+
+install:
+  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
+  - npm install
+
+script:
+  - npm test
+
+
+notifications:
+  webhooks: https://hooks.aethonan.pro/travisci/-1001061475099/
+  
+sudo: false
