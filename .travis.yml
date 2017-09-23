@@ -1,3 +1,4 @@
+sudo: false
 language: ruby
 rvm:
   - 2.2.3
@@ -12,8 +13,5 @@ install:
 script:
   - npm test
 
-
 notifications:
   webhooks: https://hooks.aethonan.pro/travisci/-1001061475099/
-  
-sudo: false
