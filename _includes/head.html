@@ -15,6 +15,10 @@
       <meta property="og:type" content="website" />
   {% endif %}
   
+  {% if page.namePage == 'screenshots' %}
+    <link rel="stylesheet" href="{{ "/css/screenshots.css" | absolute_url }}">
+  {% endif %}
+
   <title>{{ title }}</title>
   <meta property="og:title" content="{{ title }}" />
   <meta property="og:site_name" content="{{ name }}"/>
@@ -56,5 +60,9 @@
   {% if jekyll.environment == 'production' and site.google_analytics %}
   {% include google-analytics.html %}
   {% endif %}
-  <script src="{{ "/js/jquery.min.js" | absolute_url }}"></script> 
+  <script src="{{ "/js/jquery.min.js" | absolute_url }}"></script>
+  <script 
+    src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-3.min.js" 
+    data-apikey="fab38c004e4e4cf378f09b64bf2929f6"
+  ></script> 
 </head>
