@@ -1,15 +1,68 @@
-# Contributing
+# How to contribute
 
-We are more than happy to accept external contributions to the project in the form of feedback, bug reports and even better - pull requests :)
+Welcome to our ever growing community! We are more than happy to accept external contributions to the project in the form of feedback, bug reports and even better, pull requests!
 
-These rules are adopted from the AngularJS and Yeoman project.
+These rules are adopted from the [AngularJS](https://github.com/angular/angular.js/) and [Yeoman](https://github.com/yeoman/yeoman/) project.
 
-## Issue submission
+As a contributor, we present you the guidelines to start contributing in any of the Flyve MDM projects.
 
-In order for us to help you please check that you've completed the following steps:
+* [Code of Conduct](#code-of-conduct)
+* [Questions or Doubts?](#questions-or-doubts)
+* [Bugs](#found-a-bug)
+* [Proposed Features](#new-feature)
+* [Submitting issues and Pull Requests](#submitting)
+* [Coding Rules](#coding-rules)
 
-* Used the search feature to ensure that the bug hasn't been reported before
-* Included as much information about the bug as possible, including any output you've received, what OS and version you're on, etc.
+### Code of Conduct
+
+As contributors and maintainers of the Flyve MDM projects, we pledge to respect everyone who contributes by posting issues, updating documentation, submitting pull requests, providing feedback in comments, and any other activities.
+
+Communication through any of our channels (GitHub, Telegram, mailing lists, Google+, Twitter, etc.) must be constructive and never resort to personal attacks, trolling, public or private harassment, insults, or other unprofessional conduct.
+
+We promise to extend courtesy and respect to everyone involved in this project regardless of gender, gender identity, sexual orientation, disability, age, race, ethnicity, religion, or level of experience. We expect anyone contributing to the Flyve MDM projects to do the same.
+
+If any member of the community violates this code of conduct, the maintainers of the Flyve MDM projects may take action, removing issues, comments, and PRs or blocking accounts as deemed appropriate.
+
+If you are subject to or witness unacceptable behavior, or have any other concerns, please email us at ml-flyvemdm@teclib.com
+
+### Questions or Doubts
+
+If you require general support assistance, you can find us in [Telegram](https://t.me/flyvemdm), and we'll help you as soon as possible.
+
+For notices about major changes and general discussion of Flyve MDM development, subscribe to the [/r/FlyveMDM](https://www.reddit.com/r/FlyveMDM/) subreddit. You can also chat with us via IRC in [#flyve-mdm on freenode](http://webchat.freenode.net/?channels=flyve-mdm%5D).
+
+This is in order to keep GitHub issues for bug reports and new features only.
+
+### Found a bug?
+
+You can let us know in our [issue Dashboard](#issue-submission).
+
+Know how to fix it? Great! Then submit a [pull request](#submit-a-pull-request).
+
+### New feature?
+
+You can _**request**_ a new feature by submitting an issue, and if you would like to _**implement**_ a new feature, please submit an issue with a proposal for your work first, to be sure that we can use it, this will allow us to better coordinate our efforts, prevent duplication of work, and help you to craft the change so that it is successfully accepted into the project. Please consider what kind of change it is:
+
+* For a Major Feature, first open an issue and outline your proposal so it can be discussed.
+* Small Features can be crafted and directly submitted as a Pull Request.
+
+## Submitting
+
+### Issue submission
+
+Before submitting the issue please check the [issue tracker](https://github.com/flyve-mdm/flyve-mdm-web-dashboard/issues), there exists the possibility that the bug was already reported by other contributor.
+
+This way you help us to maximize the effort we can spend fixing issues and adding new features, by not reporting duplicate issues.
+
+We'll work very hard to fix all the issues without delay, but before fixing it we need to confirm it, for that we require you to provide us of the following information:
+
+* Overview of the Issue - if an error is being thrown a description of the problem is extremely helpful, including any output you've received
+* Motivation for or Use Case - explain why this is a bug/new feature for you
+* Project Version(s)
+* Device Operating System & Model - is this a problem with all devices or only specific ones?
+* Reproduce the Error - provide a live example or an unambiguous set of steps.
+* Related Issues - has a similar issue been reported before?
+* Suggest a Fix - if you can't fix the bug yourself, perhaps you can point to what might be causing the problem (line of code or commit)
 * Especially important is to make sure Yeoman is up-to-date, and providing the command or commands that cause the issue.
 * Shared the output from running the following command in your project root as this can also help track down the issue.
 
@@ -17,104 +70,74 @@ Unix: `yo --version && echo $PATH $NODE_PATH && node -e 'console.log(process.pla
 
 Windows: `yo --version && echo %PATH% %NODE_PATH% && node -e "console.log(process.platform, process.versions)" && type Gruntfile.js`
 
-[Submit your issue](https://github.com/flyve-mdm/flyve-mdm-web-ui/issues/new)
+You can file new issues by filling out our [new issue form](https://github.com/flyve-mdm/flyve-mdm-web-dashboard/issues/new).
 
-## Quick Start
+### Submit a Pull Request
 
-* Clone the repo of [yo](https://github.com/yeoman/yo), [generator](https://github.com/yeoman/generator), and any generator you might want to develop against, and then run `npm install` in them.
-* Go to the yo folder and link it globally using `npm link` then link in the generators using `npm link path/to/generator` for each.
-* Run `yo` and you should now see the linked generators in the list.
-* Start hacking :)
+Before submitting your Pull Request check  for an open or closed PR that relates to your submission. We don't want to duplicate efforts.
 
-You can keep the various repos up to date by running `git pull --rebase upstream master` in each.
+* Make your changes in a new branch of your fork, the project is organized according to the branch model [Git Flow](http://git-flow.readthedocs.io/en/latest/), though this is not mandatory it's really useful:
+
+```
+    git checkout -b my-fix-branch develop
+```
+
+* Follow our [Coding Rules](#coding-rules).
+
+* Commit your changes using a descriptive commit message that follows the [Conventional Commit](http://conventionalcommits.org/). This is **indispensable** since the release notes and changelogs are automatically generated from these messages.
+
+* Push your branch to GitHub:
+
+```
+    git push origin my-fix-branch
+```
+
+* In GitHub, send a pull request to our [Repository](https://github.com/flyve-mdm/flyve-mdm-web-dashboard).
+
+* If we suggest changes then:
+
+    * Make the required updates.
+
+    * Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
+
+    **That's it! :tada:  Thank you for your contribution!**
+    
+* Remember to [Test](#test-and-build) your contribution
+
+    * Moreover, if your pull request contains JavaScript patches or features, you must include [relevant unit tests](https://github.com/flyve-mdm/flyve-mdm-web-dashboard/tree/master/test). All HTML and CSS should conform to the [Code Guide](https://github.com/mdo/code-guide), maintained by [Mark Otto](https://github.com/mdo).
+
+    * Editor preferences are available in the [editor config](http://github.com/flyve-mdm/flyve-mdm-web-dashboard/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at <http://editorconfig.org>.
+
+#### After your pull request is merged
+
+You can safely delete your branch and pull the changes from the main (upstream) repository:
+
+* Delete the remote branch on GitHub either through the GitHub web UI or your local shell as you prefer.
+
+## Coding Rules
+
+To ensure consistency throughout the source code, keep these rules in mind as you are working:
+
+* All features or bug fixes must be [tested](#test-and-build) by one or more specs (unit-tests).
+* Follow the [style guide](#style-guide)
+* All methods must be documented.
+
+## Test and Build
+
+Running `grunt test` will run the unit tests with karma.
+
+Also:
+
+* Lint the code by running `grunt`
+* Add relevant tests to cover the change (in case the change requires them)
+* Make sure test-suite passes: `npm test`
+
+### Build system
+
+* [generator-angular](https://github.com/yeoman/generator-angular) via [Yeoman](http://yeoman.io/)
 
 ## Style Guide
 
-This project uses single-quotes, two space indentation, multiple var statements and whitespace around arguments. Use a single space after keywords like `function`. Ex:
+This project uses single-quotes, two space indentation, multiple var statements and whitespace around arguments. 
 
-```JS
-function () { ... }
-function foo() { ... }
-```
-
-Please ensure any pull requests follow this closely. If you notice existing code which doesn't follow these practices, feel free to shout and we will address this.
-
-## Pull Request Guidelines
-
-* Please check to make sure that there aren't existing pull requests attempting to address the issue mentioned. We also recommend checking for issues related to the issue on the tracker, as a team member may be working on the issue in a branch or fork.
-* Non-trivial changes should be discussed in an issue first
-* Develop in a topic branch, not master
-* Lint the code by running `grunt`
-* Add relevant tests to cover the change
-* Make sure test-suite passes: `npm test`
-* Squash your commits
-* Write a convincing description of your PR and why we should land it
-* Check the individual project to see if there is a **contributing.md** or similar file as some project's have different requirements.
-* Make sure that the commit messages match the [AngularJS conventions][commit-message-format] (see below).
-* When submitting a bugfix, write a test that exposes the bug and fails before applying your fix. Submit the test alongside the fix.
-* When submitting a new feature, add tests that cover the feature.
-
-## Git Commit Guidelines
-
-We use [git-flow](http://git-flow.readthedocs.io/en/latest/presentation.html) as branching model for Git.
-
-### Commit Message Format
-
-Each commit message consists of a **header**, a **body** and a **footer**.  The header has a special
-format that includes a **type**, a **scope** and a **subject**:
-
-```TXT
-<type>(<scope>): <subject>
-<BLANK LINE>
-<body>
-<BLANK LINE>
-<footer>
-```
-
-Any line of the commit message cannot be longer 100 characters! This allows the message to be easier
-to read on github as well as in various git tools.
-
-### Type
-
-Must be one of the following:
-
-* **feat**: A new feature
-* **fix**: A bug fix
-* **docs**: Documentation only changes
-* **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing
-  semi-colons, etc)
-* **refactor**: A code change that neither fixes a bug or adds a feature
-* **test**: Adding missing tests
-* **chore**: Changes to the build process or auxiliary tools and libraries such as documentation
-  generation
-
-### Scope
-
-The scope could be anything specifying place of the commit change. For example `app`,
-`gen`, `docs`, `gen:view`, `gen:route`, `gen:service`, etc...
-
-### Subject
-
-The subject contains succinct description of the change:
-
-* use the imperative, present tense: "change" not "changed" nor "changes"
-* don't capitalize first letter
-* no dot (.) at the end
-
-### Body
-
-Just as in the **subject**, use the imperative, present tense: "change" not "changed" nor "changes"
-The body should include the motivation for the change and contrast this with previous behavior.
-
-### Footer
-
-The footer should contain any information about **Breaking Changes** and is also the place to
-reference GitHub issues that this commit **Closes**.
-
-A detailed explanation can be found in this [document][commit-message-format].
-
-[commit-message-format]: https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y
-
-## AngularJS Guidelines
-
-[AngularJS Style Guide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
+Please ensure any pull requests follow this closely. If you notice existing code which doesn't follow these practices, feel free to shout and we will address this ;)
