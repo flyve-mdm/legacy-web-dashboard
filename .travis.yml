@@ -2,23 +2,8 @@ sudo: required
 language: node_js
 node_js:
   - "8.5"
-
-branches:
-  only:
-  - gh-pages
-  - /.*/
-
-notifications:
-  webhooks: https://hooks.aethonan.pro/travisci/-1001061475099/
-  
-dist: trusty
-
-addons:
-  chrome: stable
-
+cache:
+  directories:
+    - node_modules
 script:
-  - "./ci/script.sh"
-
-before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+  - yarn run build
