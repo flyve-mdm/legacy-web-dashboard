@@ -28,7 +28,7 @@
     "grunt-ng-annotate": "^3.0.0",
     "grunt-ng-constant": "^2.0.1",
     "grunt-sass-lint": "^0.2.2",
-    "grunt-svgmin": "^4.0.0",
+    "grunt-svgmin": "^5.0.0",
     "grunt-usemin": "^3.1.1",
     "grunt-wiredep": "^3.0.1",
     "jasmine-core": "^2.5.2",
