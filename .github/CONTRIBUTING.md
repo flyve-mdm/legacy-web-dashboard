@@ -6,30 +6,17 @@ These rules are adopted from the [AngularJS](https://github.com/angular/angular.
 
 As a contributor, we present you the guidelines to start contributing in any of the Flyve MDM projects.
 
-* [Code of Conduct](#code-of-conduct)
 * [Questions or Doubts?](#questions-or-doubts)
 * [Bugs](#found-a-bug)
 * [Proposed Features](#new-feature)
 * [Submitting issues and Pull Requests](#submitting)
 * [Coding Rules](#coding-rules)
 
-### Code of Conduct
-
-As contributors and maintainers of the Flyve MDM projects, we pledge to respect everyone who contributes by posting issues, updating documentation, submitting pull requests, providing feedback in comments, and any other activities.
-
-Communication through any of our channels (GitHub, Telegram, mailing lists, Google+, Twitter, etc.) must be constructive and never resort to personal attacks, trolling, public or private harassment, insults, or other unprofessional conduct.
-
-We promise to extend courtesy and respect to everyone involved in this project regardless of gender, gender identity, sexual orientation, disability, age, race, ethnicity, religion, or level of experience. We expect anyone contributing to the Flyve MDM projects to do the same.
-
-If any member of the community violates this code of conduct, the maintainers of the Flyve MDM projects may take action, removing issues, comments, and PRs or blocking accounts as deemed appropriate.
-
-If you are subject to or witness unacceptable behavior, or have any other concerns, please email us at ml-flyvemdm@teclib.com
-
 ### Questions or Doubts
 
 If you require general support assistance, you can find us in [Telegram](https://t.me/flyvemdm), and we'll help you as soon as possible.
 
-For notices about major changes and general discussion of Flyve MDM development, subscribe to the [/r/FlyveMDM](https://www.reddit.com/r/FlyveMDM/) subreddit. You can also chat with us via IRC in [#flyve-mdm on freenode](http://webchat.freenode.net/?channels=flyve-mdm%5D).
+For notices about major changes and general discussion of Flyve MDM development, subscribe to the [/r/FlyveMDM](https://www.reddit.com/r/FlyveMDM/) subreddit. You can also chat with us via IRC in [#flyve-mdm on freenode](http://webchat.freenode.net/?channels=flyve-mdm).
 
 This is in order to keep GitHub issues for bug reports and new features only.
 
@@ -50,7 +37,7 @@ You can _**request**_ a new feature by submitting an issue, and if you would lik
 
 ### Issue submission
 
-Before submitting the issue please check the [issue tracker](https://github.com/flyve-mdm/flyve-mdm-web-dashboard/issues), there exists the possibility that the bug was already reported by other contributor.
+Before submitting the issue please check the [issue tracker](https://github.com/flyve-mdm/legacy-web-dashboard/issues), there exists the possibility that the bug was already reported by other contributor.
 
 This way you help us to maximize the effort we can spend fixing issues and adding new features, by not reporting duplicate issues.
 
@@ -70,7 +57,7 @@ Unix: `yo --version && echo $PATH $NODE_PATH && node -e 'console.log(process.pla
 
 Windows: `yo --version && echo %PATH% %NODE_PATH% && node -e "console.log(process.platform, process.versions)" && type Gruntfile.js`
 
-You can file new issues by filling out our [new issue form](https://github.com/flyve-mdm/flyve-mdm-web-dashboard/issues/new).
+You can file new issues by filling out our [new issue form](https://github.com/flyve-mdm/legacy-web-dashboard/issues/new).
 
 ### Submit a Pull Request
 
@@ -78,7 +65,7 @@ Before submitting your Pull Request check  for an open or closed PR that relates
 
 * Make your changes in a new branch of your fork, the project is organized according to the branch model [Git Flow](http://git-flow.readthedocs.io/en/latest/), though this is not mandatory it's really useful:
 
-```
+```console
     git checkout -b my-fix-branch develop
 ```
 
@@ -88,25 +75,25 @@ Before submitting your Pull Request check  for an open or closed PR that relates
 
 * Push your branch to GitHub:
 
-```
+```console
     git push origin my-fix-branch
 ```
 
-* In GitHub, send a pull request to our [Repository](https://github.com/flyve-mdm/flyve-mdm-web-dashboard).
+* In GitHub, send a pull request to our [Repository](https://github.com/flyve-mdm/legacy-web-dashboard).
 
 * If we suggest changes then:
 
-    * Make the required updates.
+  * Make the required updates.
 
-    * Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
+  * Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
 
     **That's it! :tada:  Thank you for your contribution!**
     
 * Remember to [Test](#test-and-build) your contribution
 
-    * Moreover, if your pull request contains JavaScript patches or features, you must include [relevant unit tests](https://github.com/flyve-mdm/flyve-mdm-web-dashboard/tree/master/test). All HTML and CSS should conform to the [Code Guide](https://github.com/mdo/code-guide), maintained by [Mark Otto](https://github.com/mdo).
+    * Moreover, if your pull request contains JavaScript patches or features, you must include [relevant unit tests](https://github.com/flyve-mdm/legacy-web-dashboard/tree/master/test). All HTML and CSS should conform to the [Code Guide](https://github.com/mdo/code-guide), maintained by [Mark Otto](https://github.com/mdo).
 
-    * Editor preferences are available in the [editor config](http://github.com/flyve-mdm/flyve-mdm-web-dashboard/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at <http://editorconfig.org>.
+    * Editor preferences are available in the [editor config](http://github.com/flyve-mdm/legacy-web-dashboard/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at <http://editorconfig.org>.
 
 #### After your pull request is merged
 
@@ -138,6 +125,6 @@ Also:
 
 ## Style Guide
 
-This project uses single-quotes, two space indentation, multiple var statements and whitespace around arguments. 
+This project uses single-quotes, two space indentation, multiple var statements and whitespace around arguments.
 
 Please ensure any pull requests follow this closely. If you notice existing code which doesn't follow these practices, feel free to shout and we will address this ;)
