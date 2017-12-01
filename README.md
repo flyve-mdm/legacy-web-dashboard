@@ -2,12 +2,12 @@
 
 <img style="width:100%;" src="https://user-images.githubusercontent.com/663460/26935464-54267e9c-4c6c-11e7-86df-8cfa6658133e.png">
 
-[![License](https://img.shields.io/github/license/flyve-mdm/flyve-mdm-web-dashboard.svg?&label=License)](https://github.com/flyve-mdm/flyve-mdm-web-dashboard/blob/develop/LICENSE.md)
+[![License](https://img.shields.io/github/license/flyve-mdm/legacy-web-dashboard.svg?&label=License)](https://github.com/flyve-mdm/legacy-web-dashboard/blob/develop/LICENSE.md)
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Follow twitter](https://img.shields.io/twitter/follow/FlyveMDM.svg?style=social&label=Twitter&style=flat-square)](https://twitter.com/FlyveMDM)
 [![Telegram Group](https://img.shields.io/badge/Telegram-Group-blue.svg)](https://t.me/flyvemdm)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
-[![Greenkeeper badge](https://badges.greenkeeper.io/flyve-mdm/flyve-mdm-web-dashboard.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/flyve-mdm/legacy-web-dashboard.svg)](https://greenkeeper.io/)
 
 Flyve MDM is a mobile device management software that enables you to secure and manage all the mobile devices of your business via a unique web-based console (MDM).
 
@@ -72,14 +72,14 @@ the following points are important:
 
 |**Release channel**|Beta Channel|
 |:---:|:---:|
-|[![Build Status](https://travis-ci.org/flyve-mdm/flyve-mdm-web-dashboard.svg?branch=master)](https://travis-ci.org/flyve-mdm/flyve-mdm-web-dashboard)|[![Build Status](https://travis-ci.org/flyve-mdm/flyve-mdm-web-dashboard.svg?branch=develop)](https://travis-ci.org/flyve-mdm/flyve-mdm-web-dashboard)|
+|[![Build Status](https://travis-ci.org/flyve-mdm/legacy-web-dashboard.svg?branch=master)](https://travis-ci.org/flyve-mdm/legacy-web-dashboard)|[![Build Status](https://travis-ci.org/flyve-mdm/legacy-web-dashboard.svg?branch=develop)](https://travis-ci.org/flyve-mdm/legacy-web-dashboard)|
 
 ## Installation
 
 Several quick start options are available:
 
-* [Download the latest release](https://github.com/flyve-mdm/flyve-mdm-web-ui/releases/latest).
-* Clone the repo: `git clone https://github.com/flyve-mdm/flyve-mdm-web-dashboard.git`.
+* [Download the latest release](https://github.com/flyve-mdm/legacy-web-dashboard/releases/latest).
+* Clone the repo: `git clone https://github.com/flyve-mdm/legacy-web-dashboard.git`.
 * Install Ruby.
 * Install the compass gem:
 
@@ -109,18 +109,18 @@ Read the page of [Yeoman generator for AngularJS](https://github.com/yeoman/gene
 
 ## Documentation
 
-We maintain a detailed documentation of the project on the [website](http://flyve.org/flyve-mdm-web-dashboard/).
+We maintain a detailed documentation of the project on the [website](http://flyve.org/legacy-web-dashboard/).
 
 ## Versioning
 
 In order to provide transparency on our release cycle and to maintain backward compatibility, Flyve MDM is maintained under [the Semantic Versioning guidelines](http://semver.org/). We are committed to following and complying with the rules, the best we can.
 
-See [the tags section of our GitHub project](http://github.com/flyve-mdm/flyve-mdm-web-dashboard/tags) for changelogs for each release version of Flyve MDM. Release announcement posts on [the official Teclib' blog](http://www.teclib-edition.com/en/communities/blog-posts/) contain summaries of the most noteworthy changes made in each release.
+See [the tags section of our GitHub project](http://github.com/flyve-mdm/legacy-web-dashboard/tags) for changelogs for each release version of Flyve MDM. Release announcement posts on [the official Teclib' blog](http://www.teclib-edition.com/en/communities/blog-posts/) contain summaries of the most noteworthy changes made in each release.
 
 ## Contact
 
 For notices about major changes and general discussion of Flyve MDM development, subscribe to the [/r/FlyveMDM](http://www.reddit.com/r/FlyveMDM) subreddit.
-You can also chat with the project maintainers and community members via IRC in [#flyve-mdm on freenode](http://webchat.freenode.net/?channels=flyve-mdm]) or [@flyvemdmdev on Telegram](https://t.me/flyvemdmdev).
+You can also chat with the project maintainers and community members via IRC in [#flyve-mdm on freenode](http://webchat.freenode.net/?channels=flyve-mdm) or [@flyvemdmdev on Telegram](https://t.me/flyvemdmdev).
 
 ### Creators
 
@@ -140,7 +140,7 @@ And don't forget to ...
 
 ## Contribute
 
-Want to file a bug, contribute some code, or improve documentation? Excellent! Read up on our guidelines for [contributing](./CONTRIBUTING.md) and then check out one of our issues in the [Issues Dashboard](https://github.com/flyve-mdm/flyve-mdm-web-dashboard/issues).
+Want to file a bug, contribute some code, or improve documentation? Excellent! Read up on our guidelines for [contributing](./CONTRIBUTING.md) and then check out one of our issues in the [Issues Dashboard](https://github.com/flyve-mdm/legacy-web-dashboard/issues).
 
 ## Copying
 
