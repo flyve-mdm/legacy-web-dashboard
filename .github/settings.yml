@@ -1,7 +1,7 @@
 repository:
   name: flyve-mdm-web-dashboard
   description: Flyve MDM Dashboard
-  homepage: http://flyve.org/legacy-web-dashboard/
+  homepage: http://flyve.org/flyve-mdm-web-dashboard/
   topics: flyve-mdm, dashboard
   private: false
   has_issues: true
