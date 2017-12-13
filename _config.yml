@@ -1,5 +1,5 @@
 email: ml-flyvemdm@teclib.com
-baseurl: "/flyve-mdm-web-dashboard"
+baseurl: "/legacy-web-dashboard"
 url: "http://flyve.org"
 
 # Build settings
@@ -10,7 +10,7 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
 
-repository: flyve-mdm/flyve-mdm-web-dashboard
+repository: flyve-mdm/legacy-web-dashboard
 
 prose:
 
