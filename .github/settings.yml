@@ -1,5 +1,5 @@
 repository:
-  name: flyve-mdm-web-dashboard
+  name: legacy-web-dashboard
   description: Flyve MDM Dashboard
   homepage: http://flyve.org/legacy-web-dashboard/
   topics: flyve-mdm, dashboard
