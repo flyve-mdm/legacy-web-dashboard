@@ -42,6 +42,11 @@ angular.module('FlyveMDM')
     var current_entity = false;
     // Public API here
     return {
+
+      /**
+       * Get a specific user
+       * @param aUserId the id of the user
+       */
       getUser: function (aUserId) {
         var getUserDefer = $q.defer();
         $http({
