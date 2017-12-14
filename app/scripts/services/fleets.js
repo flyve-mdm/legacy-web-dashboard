@@ -219,6 +219,12 @@ angular.module('FlyveMDM')
         });
         return createFleetDefer.promise;
       },
+
+      /**
+       * Updates the fleet
+       * @param aPolicyId  the id of the policy updated
+       * @param aValue the new value of the policy updated
+       */
       updateFleet: function (aPolicyId, aValue) {
         var updateFleetDefer = $q.defer();
         $http({
