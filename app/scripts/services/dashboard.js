@@ -301,6 +301,10 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+
+      /**
+       * Get Mac Address
+       */
       getMacAddress: function () {
         var deferred = $q.defer();
         $http({
