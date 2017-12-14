@@ -236,6 +236,10 @@ angular.module('FlyveMDM')
       });
       Notifications.loading("Echo request", request.cancel);
     };
+
+    /**
+     * Save the changes made to the device
+     */
     $scope.saveDevice = function () {
       $scope.lock_save_device = true;
       var aName = (device_name !== $scope.agent.name);
