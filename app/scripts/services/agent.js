@@ -110,6 +110,10 @@ angular.module('FlyveMDM')
           cancel: cancel
         };
       },
+      /**
+       * Request the current geolocation of the device
+       * @param aDeviceId the id of the device
+       */
       requestCurrentGeolocation: function (aDeviceId) {
         var canceller = $q.defer();
         var cancel = function (reason) {
