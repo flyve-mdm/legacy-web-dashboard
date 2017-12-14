@@ -68,6 +68,11 @@ angular.module('FlyveMDM')
         });
         return deffered.promise;
       },
+
+      /**
+       * Update the user information
+       * @param anInput the new information
+       */
       updateUserInformation: function (anInput) {
         var deffered = $q.defer();
         var user = {
