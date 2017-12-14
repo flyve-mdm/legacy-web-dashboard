@@ -68,6 +68,10 @@ angular.module('FlyveMDM')
         });
         return getApplicationDefer.promise;
       },
+
+      /**
+       * Get all the applications
+       */
       getApplications: function () {
         var getApplicationsDefer = $q.defer();
         $http({
