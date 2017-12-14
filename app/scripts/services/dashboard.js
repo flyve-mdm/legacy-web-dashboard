@@ -229,6 +229,10 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+
+      /**
+       * Get number of fleets for display
+       */
       getNumberOfFleets: function () {
         var deferred = $q.defer();
         $http({
