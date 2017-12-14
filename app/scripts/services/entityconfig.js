@@ -60,6 +60,11 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+
+      /**
+       * Get the entity configuration
+       * @param aEntityId the id of the entity
+       */
       getConfiguration: function (aEntityId) {
         var deferred = $q.defer();
         $http({
