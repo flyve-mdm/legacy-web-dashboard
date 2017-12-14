@@ -373,6 +373,11 @@ angular.module('FlyveMDM')
       var stop = start + nGeolocationsPerPage;
       getDeviceGeolocations(start, stop);
     };
+
+    /**
+     * Display the device in the map when selected an option
+     * @param aGeolocation 
+     */
     $scope.toggleSelectGeolocation = function (aGeolocation) {
       var foundIndex = false;
       if ((foundIndex = $scope.isSelectedGeolocation(aGeolocation)) === false) {
