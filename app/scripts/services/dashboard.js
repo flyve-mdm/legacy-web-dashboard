@@ -277,6 +277,10 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+
+      /**
+       * Get number of devices registered for display
+       */
       getNumberOfDevices: function () {
         var deferred = $q.defer();
         $http({
