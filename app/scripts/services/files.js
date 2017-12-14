@@ -86,6 +86,12 @@ angular.module('FlyveMDM')
         });
         return getFilesDefer.promise;
       },
+
+      /**
+       * Updates a file
+       * @param aFileId the id of the file
+       * @param aFileName the name of the file
+       */
       updateFile: function (aFileId, aFileName) {
         var updateFileDefer = $q.defer();
         $http({
