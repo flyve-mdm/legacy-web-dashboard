@@ -303,6 +303,10 @@ angular.module('FlyveMDM')
         });
       });
     };
+
+    /**
+     * Deletes the device from the dashboard
+     */
     $scope.deleteDevice = function () {
       $mdDialog.show(
         $mdDialog.confirm()
