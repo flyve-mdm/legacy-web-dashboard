@@ -323,6 +323,10 @@ angular.module('FlyveMDM')
         });
       });
     };
+
+    /**
+     * Unenrolls the device from the Dashboard
+     */
     $scope.unenrollDevice = function () {
       $mdDialog.show(
         $mdDialog.confirm()
