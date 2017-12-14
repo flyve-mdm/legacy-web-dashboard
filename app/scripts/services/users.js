@@ -64,6 +64,10 @@ angular.module('FlyveMDM')
         });
         return getUserDefer.promise;
       },
+
+      /**
+       * Get all the users
+       */
       getUsers: function () {
         var getUsersDefer = $q.defer();
         $http({
