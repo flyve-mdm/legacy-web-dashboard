@@ -181,6 +181,10 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+
+      /**
+       * Get number of the categories of the policies
+       */
       getNumberOfPolicyCategories: function () {
         var deferred = $q.defer();
         $http({
