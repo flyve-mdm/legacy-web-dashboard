@@ -167,6 +167,10 @@ angular.module('FlyveMDM')
         });
         return $q.all(promises);
       },
+
+      /**
+       * Get all the fleets in the dashboard
+       */
       getFleets: function () {
         var FleetsDefer = $q.defer();
         if (fleets.length > 0) {
