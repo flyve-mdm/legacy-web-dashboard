@@ -96,6 +96,10 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+      /**
+       * Get the invitations information
+       * to display by 'Pending' and 'Done'
+       */
       getInvitations: function () {
         var deferred = $q.defer();
         var pending = { status: 'pending' };
