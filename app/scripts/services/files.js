@@ -62,6 +62,10 @@ angular.module('FlyveMDM')
         });
         return getFileDefer.promise;
       },
+
+      /**
+       * Get all the files
+       */
       getFiles: function () {
         var getFilesDefer = $q.defer();
         $http({
