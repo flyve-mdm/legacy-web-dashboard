@@ -40,6 +40,9 @@ angular.module('FlyveMDM')
     // Service logic
     // Public API here
     return {
+      /**
+       * Get all the computers
+       */
       getComputers: function () {
         var getUsersDefer = $q.defer();
         $http({
