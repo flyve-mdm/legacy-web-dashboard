@@ -77,6 +77,11 @@ angular.module('FlyveMDM')
         });
         return updatePolicyDefer.promise;
       },
+
+      /**
+       * Deletes a policy from the fleet
+       * @param aPolicyId the policy to be deleted
+       */
       deletePolicy: function (aPolicyId) {
         var deletePolicyDefer = $q.defer();
         $http({
