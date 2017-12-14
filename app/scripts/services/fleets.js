@@ -204,6 +204,11 @@ angular.module('FlyveMDM')
         };
         return $q.all(promises);
       },
+
+      /**
+       * Creates a new fleet
+       * @param anInput the information of the fleet
+       */
       createFleet: function (anInput) {
         var createFleetDefer = $q.defer();
         $http({
