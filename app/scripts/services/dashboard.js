@@ -342,6 +342,10 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+
+      /**
+       * Get the devices by users
+       */
       getDevicesByRealName: function () {
         var deferred = $q.defer();
         var promises = {
