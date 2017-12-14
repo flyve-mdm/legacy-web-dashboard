@@ -150,6 +150,13 @@ angular.module('FlyveMDM')
           cancel: cancel
         };
       },
+
+      /**
+       * Update the device information
+       * @param aDeviceId the id of the device
+       * @param aName the name given to the device
+       * @param aFleetId the id of the fleet assigned
+       */
       updateDevice: function (aDeviceId, aName, aFleetId) {
         var canceller = $q.defer();
         var cancel = function (reason) {
