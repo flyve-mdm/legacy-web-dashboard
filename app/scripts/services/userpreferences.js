@@ -126,6 +126,10 @@ angular.module('FlyveMDM')
         });
         return deffered.promise;
       },
+
+      /**
+       * Get the Version of the plugin
+       */
       getPluginVersion: function () {
         var deffered = $q.defer();
         $http({
