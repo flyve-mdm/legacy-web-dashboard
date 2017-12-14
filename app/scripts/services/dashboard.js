@@ -49,6 +49,10 @@ angular.module('FlyveMDM')
     }
     // Public API here
     return {
+      /**
+       * Get Android Versions to display the number of computers
+       * per Operating System version
+       */
       getAndroidVersions: function () {
         var deferred = $q.defer();
         $http({
