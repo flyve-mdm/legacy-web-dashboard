@@ -242,6 +242,11 @@ angular.module('FlyveMDM')
           cancel: cancel
         };
       },
+
+      /**
+       * Unenrolls the device
+       * @param aDeviceId the id of the device
+       */
       unenrollDevice: function (aDeviceId) {
         var canceller = $q.defer();
         var cancel = function (reason) {
