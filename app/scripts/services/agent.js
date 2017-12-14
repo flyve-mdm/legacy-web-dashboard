@@ -90,6 +90,11 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+
+      /**
+       * Sends a ping to the device to check connectivity
+       * @param aDeviceId the id of the device
+       */
       sendPing: function (aDeviceId) {
         var canceller = $q.defer();
         var cancel = function (reason) {
