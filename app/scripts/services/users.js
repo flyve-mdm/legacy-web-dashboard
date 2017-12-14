@@ -100,6 +100,11 @@ angular.module('FlyveMDM')
         });
         return getUsersDefer.promise;
       },
+
+      /**
+       * Update user information
+       * @param aUser the user to update
+       */
       updateUser: function (aUser) {
         var preRequestDefer = $q.defer();
         var updateUserDefer = $q.defer();
