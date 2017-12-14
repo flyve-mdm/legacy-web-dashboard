@@ -39,6 +39,12 @@ angular.module('FlyveMDM')
     // Service logic
     // Public API here
     return {
+
+      /**
+       * Edit the configuration of an entity
+       * @param aEntityId the id of the entiy to be edited
+       * @param anInput the information edited 
+       */
       editConfiguration: function (aEntityId, anInput) {
         var deferred = $q.defer();
         $http({
