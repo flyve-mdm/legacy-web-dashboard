@@ -237,6 +237,11 @@ angular.module('FlyveMDM')
         });
         return updateFleetDefer.promise;
       },
+
+      /**
+       * Deletes a fleet
+       * @param aFleetId the id of the fleet to be deleted
+       */
       deleteFleet: function (aFleetId) {
         var deleteFleetDefer = $q.defer();
         $http({
