@@ -40,6 +40,10 @@ angular.module('FlyveMDM')
     // Service logic
     // Public API here
     return {
+      /**
+       * Get the device
+       * @param aDeviceId the id of the device
+       */
       getDevice: function (aDeviceId) {
         var agentDefer = $q.defer();
         $http({
