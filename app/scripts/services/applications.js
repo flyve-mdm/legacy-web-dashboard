@@ -96,6 +96,12 @@ angular.module('FlyveMDM')
         });
         return getApplicationsDefer.promise;
       },
+
+      /**
+       * Updates the application
+       * @param anApplicationId the id of the application
+       * @param anApplicationAlias the alias of the application
+       */
       updateApplication: function (anApplicationId, anApplicationAlias) {
         var updateApplicationDefer = $q.defer();
         $http({
