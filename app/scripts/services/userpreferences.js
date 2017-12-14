@@ -148,6 +148,10 @@ angular.module('FlyveMDM')
         });
         return deffered.promise;
       },
+
+      /**
+       * Get the version of GLPI
+       */
       getGLPiVersion: function () {
         var deffered = $q.defer();
         $http({
