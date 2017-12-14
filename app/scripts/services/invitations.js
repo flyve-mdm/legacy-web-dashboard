@@ -84,6 +84,11 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+
+      /**
+       * Deletes an invitation
+       * @param aDeviceId the id of the device
+       */
       deleteInvitation: function (aDeviceId) {
         var deferred = $q.defer();
         $http({
