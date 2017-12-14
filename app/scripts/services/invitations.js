@@ -101,6 +101,10 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+
+      /**
+       * Get the pending invitations
+       */
       getInvitations: function () {
         var deferred = $q.defer();
         $http({
@@ -123,6 +127,11 @@ angular.module('FlyveMDM')
         };
         return $q.all(promises);
       },
+
+      /**
+       * Get a specific invitation
+       * @param invitationId the id of the invitation
+       */
       getInvitation: function (invitationId) {
         var deferred = $q.defer();
         $http({
