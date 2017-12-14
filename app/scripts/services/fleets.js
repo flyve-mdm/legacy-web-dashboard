@@ -160,6 +160,11 @@ angular.module('FlyveMDM')
         });
         return $q.all(promises);
       },
+
+      /**
+       * Updates the policies in the fleet
+       * @param policies the policies to update
+       */
       updatePolicies: function (policies) {
         var promises = policies.map(function (aPolicy) {
           var deffered = $q.defer();
