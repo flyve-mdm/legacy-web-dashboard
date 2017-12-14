@@ -187,6 +187,10 @@ angular.module('FlyveMDM')
         }
         return FleetsDefer.promise;
       },
+
+      /**
+       * Get the data of the fleet
+       */
       getFleetsData: function () { //param range ToDo
         var config = {
           params: {
