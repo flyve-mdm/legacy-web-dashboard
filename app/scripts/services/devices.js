@@ -52,6 +52,11 @@ angular.module('FlyveMDM')
         };
         return $q.all(promises);
       },
+
+      /**
+       * Deletes the device
+       * @param aDeviceId the Id of the device to delete
+       */
       deleteDevice: function (aDeviceId) {
         var deferred = $q.defer();
         $http({
