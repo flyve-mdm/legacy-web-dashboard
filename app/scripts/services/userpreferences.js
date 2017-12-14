@@ -94,6 +94,11 @@ angular.module('FlyveMDM')
         });
         return deffered.promise;
       },
+
+      /**
+       * Get the user information
+       * @param aUserId the id of the user
+       */
       getUserInformation: function (aUserId) {
         var deffered = $q.defer();
         $http({
