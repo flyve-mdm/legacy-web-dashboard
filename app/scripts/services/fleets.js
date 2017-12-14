@@ -140,6 +140,11 @@ angular.module('FlyveMDM')
         });
         return $q.all(promises);
       },
+
+      /**
+       * Delete the policies of the fleet
+       * @param policies the policies to be deleted
+       */
       deletePolicies: function (policies) {
         var promises = policies.map(function (aPolicy) {
           var deffered = $q.defer();
