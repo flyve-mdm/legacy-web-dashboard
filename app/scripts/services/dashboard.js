@@ -134,6 +134,9 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+      /**
+       * Get the number of users registered
+       */
       getNumberOfUsers: function () {
         var deferred = $q.defer();
         $http({
