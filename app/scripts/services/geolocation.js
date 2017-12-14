@@ -39,6 +39,11 @@ angular.module('FlyveMDM')
     // Service logic
     // Public API here
     return {
+
+      /**
+       * Get the device geolocations
+       * provides search options like latitude and longitude and a datetime
+       */
       getDeviceGeolocations: function (aComputerId, from, to) {
         //  the searchOption IDs for geolocation
         var deviceGeolocationsDefer = $q.defer();
@@ -104,6 +109,11 @@ angular.module('FlyveMDM')
         });
         return deviceGeolocationsDefer.promise;
       },
+
+      /**
+       * Request the current Geolocation of the device
+       * @param aDeviceId the id of the device
+       */
       requestCurrentGeolocation: function (aDeviceId) {
         var currentGeolocationDefer = $q.defer();
         $http({
