@@ -50,6 +50,12 @@ angular.module('FlyveMDM')
         });
         return deffered.promise;
       },
+
+      /**
+       * Change language of the dashboard
+       * @param aUserId the id of the user
+       * @param aCode the new language
+       */
       changeLanguage: function (aUserId, aCode) {
         var deffered = $q.defer();
         $http.put(
