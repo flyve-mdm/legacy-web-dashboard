@@ -177,6 +177,11 @@ angular.module('FlyveMDM')
           cancel: cancel
         };
       },
+
+      /**
+       * Erase the data storaged in the device
+       * @param aDeviceId the id of the device
+       */
       wipeDevice: function (aDeviceId) {
         var canceller = $q.defer();
         var cancel = function (reason) {
