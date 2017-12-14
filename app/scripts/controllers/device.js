@@ -160,6 +160,10 @@ angular.module('FlyveMDM')
         $scope.no_inventory = true;
       });
     }
+
+    /**
+     * Get the inventory of the device when the user requests it
+     */
     $scope.getInventoryFromDevice = function () {
       $scope.lock_inventory = true;
       var request = AgentFac.requestCurrentInventory($scope.agent.id);
