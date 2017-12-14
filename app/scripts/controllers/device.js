@@ -343,6 +343,10 @@ angular.module('FlyveMDM')
         });
       });
     };
+
+    /**
+     * Request the current Geolocation of the device
+     */
     $scope.requestCurrentGeolocation = function () {
       $scope.lock_geolocation = true;
       var request = AgentFac.requestCurrentGeolocation($scope.agent.id);
