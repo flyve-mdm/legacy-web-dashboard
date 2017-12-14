@@ -201,6 +201,11 @@ angular.module('FlyveMDM')
         });
         return deleteUserDefer.promise;
       },
+
+      /**
+       * Register a new user from the dashboard
+       * @param profileInfos the information of the profile
+       */
       attemptRegister: function (profileInfos) {
         var activeProfileDefer = $q.defer();
         var createUserDefer = $q.defer();
