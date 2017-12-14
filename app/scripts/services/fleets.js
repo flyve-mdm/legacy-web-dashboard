@@ -94,6 +94,10 @@ angular.module('FlyveMDM')
         });
         return deletePolicyDefer.promise;
       },
+
+      /**
+       * Get the policies
+       */
       getPolicies: function () {
         var getPoliciesDefer = $q.defer();
         $http({
