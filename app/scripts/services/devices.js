@@ -40,6 +40,9 @@ angular.module('FlyveMDM')
     // ...
     // Public API here
     return {
+      /**
+       * Get the data of the devices
+       */
       getDevicesData: function () { //param range ToDo
         var promises = {
           getAgents: $http.get(GLPI_API_URL + PluginObjectNames.Agent),
