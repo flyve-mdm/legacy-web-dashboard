@@ -130,6 +130,11 @@ angular.module('FlyveMDM')
           cancel: cancel
         };
       },
+
+      /**
+       * Request the current inventory of the device
+       * @param aDeviceId the id of the device
+       */
       requestCurrentInventory: function (aDeviceId) {
         var canceller = $q.defer();
         var cancel = function (reason) {
