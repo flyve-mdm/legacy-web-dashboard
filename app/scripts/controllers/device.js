@@ -283,6 +283,10 @@ angular.module('FlyveMDM')
           .targetEvent(ev)
       );
     };
+
+    /**
+     * Erase the data storaged in the device
+     */
     $scope.wipeDevice = function () {
       $mdDialog.show(
         $mdDialog.confirm()
