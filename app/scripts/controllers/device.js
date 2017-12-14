@@ -214,6 +214,10 @@ angular.module('FlyveMDM')
       $scope.displayedApplications = [];
       $scope.stCtrl.slice(0, $scope.stCtrl.tableState().pagination.number);
     };
+
+    /**
+     * Sends a ping to the device to check connectivity
+     */
     $scope.sendPing = function () {
       $scope.pingSendingStatus = 'Ping sent as of ' + moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
       $scope.pingReplyStatus = '';
