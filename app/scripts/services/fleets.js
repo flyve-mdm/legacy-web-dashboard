@@ -111,6 +111,12 @@ angular.module('FlyveMDM')
         });
         return getPoliciesDefer.promise;
       },
+
+      /**
+       * Create the policies in the fleet
+       * @param policies the policies to be created
+       * @param fleetId the id of the fleet
+       */
       createPolicies: function (policies, fleetId) {
         var promises = policies.map(function (aPolicy) {
           var deffered = $q.defer();
