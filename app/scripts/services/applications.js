@@ -49,6 +49,10 @@ angular.module('FlyveMDM')
     }
     // Public API here
     return {
+      /**
+       * Get a specific application
+       * @param anApplicationId the id of the application
+       */
       getApplication: function (anApplicationId) {
         var getApplicationDefer = $q.defer();
         $http({
