@@ -127,6 +127,11 @@ angular.module('FlyveMDM')
         });
         return deleteFileDefer.promise;
       },
+
+      /**
+       * Uploads a file
+       * @param aFileToUpload the file to upload
+       */
       uploadFile: function (aFileToUpload) {
         var uploadFileDefer = $q.defer();
         Upload.upload({
