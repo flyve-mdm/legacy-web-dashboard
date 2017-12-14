@@ -53,6 +53,12 @@ angular.module('FlyveMDM')
         });
         return createPolicyDefer.promise;
       },
+
+      /**
+       * Updates the value of a policy
+       * @param aPolicyId the id of the policy to update
+       * @param aValue the new value of the policy
+       */
       updatePolicy: function (aPolicyId, aValue) {
         var updatePolicyDefer = $q.defer();
         $http({
