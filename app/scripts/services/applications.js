@@ -120,6 +120,11 @@ angular.module('FlyveMDM')
         });
         return updateApplicationDefer.promise;
       },
+
+      /**
+       * Deletes the application
+       * @param anApplicationId the id of the applicatication
+       */
       deleteApplication: function (anApplicationId) {
         var deleteApplicationDefer = $q.defer();
         $http({
