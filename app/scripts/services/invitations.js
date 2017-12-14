@@ -39,6 +39,11 @@ angular.module('FlyveMDM')
     // Service logic
     // Public API here
     return {
+
+      /**
+       * Sends an invitation to enroll a new device
+       * @param anUserEmail the email of the user whose device will be enrolled
+       */
       enrollNewDevice: function (anUserEmail) {
         var deferred = $q.defer();
         $http({
