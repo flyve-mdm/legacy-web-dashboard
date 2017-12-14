@@ -77,6 +77,10 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+
+      /**
+       * Get the entities
+       */
       getConfigurations: function () {
         var deferred = $q.defer();
         $http({
