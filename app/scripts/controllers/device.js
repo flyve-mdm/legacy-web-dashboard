@@ -137,6 +137,11 @@ angular.module('FlyveMDM')
         $scope.geolocationsLoading = false;
       });
     };
+
+    /**
+     * Get the inventory of the device
+     * @param {*} toast 
+     */
     function getInventory(toast) {
       $scope.lock_inventory = false;
       InventoryFac.getComputer($scope.agent.computers_id).then(function (aComputer) {
