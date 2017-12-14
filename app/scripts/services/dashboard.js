@@ -205,6 +205,10 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+
+      /**
+       * Get number of files for display
+       */
       getNumberOfFiles: function () {
         var deferred = $q.defer();
         $http({
