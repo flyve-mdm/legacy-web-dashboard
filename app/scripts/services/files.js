@@ -110,6 +110,11 @@ angular.module('FlyveMDM')
         });
         return updateFileDefer.promise;
       },
+
+      /**
+       * Deletes a file
+       * @param aFileId the id of the file to delete
+       */
       deleteFile: function (aFileId) {
         var deleteFileDefer = $q.defer();
         $http({
