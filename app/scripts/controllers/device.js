@@ -361,6 +361,11 @@ angular.module('FlyveMDM')
       });
       Notifications.loading("Current geolocation in progress...", request.cancel);
     };
+
+    /**
+     * Display the map pages where the device was located
+     * @param n_page
+     */
     $scope.displayGeolocationPage = function (n_page) {
       $scope.currentOpenedPage = n_page;
       n_page--;
