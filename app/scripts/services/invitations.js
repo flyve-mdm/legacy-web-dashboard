@@ -61,6 +61,12 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+
+      /**
+       * Re - sends an invitation
+       * @param aDeviceId the id of the device
+       * @param anUserEmail the email of the user
+       */
       resendInvitation: function (aDeviceId, anUserEmail) {
         var deferred = $q.defer();
         $http({
