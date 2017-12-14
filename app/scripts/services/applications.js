@@ -137,6 +137,12 @@ angular.module('FlyveMDM')
         });
         return deleteApplicationDefer.promise;
       },
+
+      /**
+       * Upload the application
+       * @param aApplicationToUpload an application
+       * @param anApplicationAlias an alias for the application
+       */
       uploadApplication: function (aApplicationToUpload, anApplicationAlias) {
         return Upload.upload({
           url: GLPI_API_URL + PluginObjectNames.Application,
