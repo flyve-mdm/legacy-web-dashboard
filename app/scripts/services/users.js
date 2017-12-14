@@ -166,6 +166,11 @@ angular.module('FlyveMDM')
         });
         return updateUserDefer.promise;
       },
+
+      /**
+       * Deletes the user from the dashboard
+       * @param aUserId the user ID
+       */
       deleteUser: function (aUserId) {
         var deleteUserDefer = $q.defer();
         $http({
