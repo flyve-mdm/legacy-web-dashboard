@@ -40,6 +40,11 @@ angular.module('FlyveMDM')
     // Service logic
     // Public API here
     return {
+
+      /**
+       * Get a specific file
+       * @param aFileId the id of the file
+       */
       getFile: function (aFileId) {
         var getFileDefer = $q.defer();
         $http({
