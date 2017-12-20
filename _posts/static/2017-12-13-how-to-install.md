@@ -1,9 +1,9 @@
 ---
 layout: post
-wiki: true
+howtos: true
 published: true
 title: How to Install
-permalink: wiki/installation
+permalink: howtos/installation
 description: Step by step
 ---
 
