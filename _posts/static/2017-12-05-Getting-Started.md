@@ -1,9 +1,9 @@
 ---
 layout: post
-wiki: true
+howtos: true
 published: true
 title: Getting Started
-permalink: wiki/getting-started
+permalink: howtos/getting-started
 description: Welcome to Flyve MDM
 ---
 
