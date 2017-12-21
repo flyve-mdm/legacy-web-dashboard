@@ -34,7 +34,7 @@
     "jasmine-core": "^2.5.2",
     "jit-grunt": "^0.10.0",
     "jshint-stylish": "^2.2.1",
-    "karma": "^1.4.0",
+    "karma": "^2.0.0",
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.2",
