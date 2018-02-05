@@ -1,28 +1,9 @@
-### Description
+<!-- File a GitHub issue only for bugs or feature requests related to the code **in this repository**. For other topics you can get more information in the README file. -->
+  
+### Observed Results:
 
-### Expected behavior
+<!-- This could be a description, error output, steps to reproduce, a feature missed, etc. -->
+  
+### Expected behavior:
 
-### Actual behavior
-
-### Environment Details
-
-- Web UI version:
-- GLPi version:
-- Browser Type:
-- Browser Version:
-- OS:
-- Stack Traces:
-- Angular Version:
-- Angular Material Version:
-
-### Steps to reproduce the behaviour
-
-1. Step
-1. Step
-1. Step
-
-### References
-
-- Links
-
-### Screenshots
+<!-- What did you expect to happen? -->
