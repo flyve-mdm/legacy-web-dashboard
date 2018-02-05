@@ -1,18 +1,16 @@
-<!--
-Thank you for your pull request. Please review below requirements.
+### Changes description
 
-Bug fixes and new features should include tests and possibly benchmarks.
--->
+<!-- Describe results, user mentions, screenshots, screencast (gif) -->
 
-##### Checklist
+### Checklist
 
-<!-- Remove items that do not apply. For completed items, change [ ] to [x]. -->
+Please check if your PR fulfills the following specifications:
 
-- [ ] `grunt test` passes
-- [ ] tests and/or benchmarks are included
-- [ ] documentation is changed or added
-- [ ] commit message follows commit guidelines
+- [ ] Tests for the changes have been added
+- [ ] Docs have been added/updated
 
-##### Description of change
+### References
 
-<!-- Provide a description of the change below this comment. -->
+<!-- issues related (for reference or to be closed) and/or links of discuss -->
+
+Closes #N/A
