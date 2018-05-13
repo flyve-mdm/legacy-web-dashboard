@@ -38,7 +38,7 @@
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.2",
-    "markdownlint": "^0.8.0",
+    "markdownlint": "^0.9.0",
     "newman": "^3.4.2",
     "phantomjs-prebuilt": "^2.1.14",
     "puppeteer": "^1.0.0",
