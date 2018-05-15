@@ -1,9 +1,9 @@
-# Flyve MDM Dashboard
+# Flyve MDM Legacy Dashboard
 
 <img style="width:100%;" src="https://user-images.githubusercontent.com/663460/26935464-54267e9c-4c6c-11e7-86df-8cfa6658133e.png">
 
 [![License](https://img.shields.io/github/license/flyve-mdm/legacy-web-dashboard.svg?&label=License)](https://github.com/flyve-mdm/legacy-web-dashboard/blob/develop/LICENSE.md)
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Project Status: Inactive](http://www.repostatus.org/badges/latest/inactive.svg)](http://www.repostatus.org/#inactive)
 [![Follow twitter](https://img.shields.io/twitter/follow/FlyveMDM.svg?style=social&label=Twitter&style=flat-square)](https://twitter.com/FlyveMDM)
 [![Telegram Group](https://img.shields.io/badge/Telegram-Group-blue.svg)](https://t.me/flyvemdm)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
@@ -21,6 +21,7 @@ To get started, check out the [website](https://flyve-mdm.com/)!
 * [Documentation](#documentation)
 * [Versioning](#versioning)
 * [Contact](#contact)
+* [Professional Services](#professional-services)
 * [Contribute](#contribute)
 * [Copyright and license](#copying)
 
@@ -70,7 +71,7 @@ the following points are important:
 
 ## Build Status
 
-|**Release channel**|Beta Channel|
+|**LTS**|Bleeding Edge|
 |:---:|:---:|
 |[![Build Status](https://travis-ci.org/flyve-mdm/legacy-web-dashboard.svg?branch=master)](https://travis-ci.org/flyve-mdm/legacy-web-dashboard)|[![Build Status](https://travis-ci.org/flyve-mdm/legacy-web-dashboard.svg?branch=develop)](https://travis-ci.org/flyve-mdm/legacy-web-dashboard)|
 
@@ -120,7 +121,7 @@ See [the tags section of our GitHub project](http://github.com/flyve-mdm/legacy-
 ## Contact
 
 For notices about major changes and general discussion of Flyve MDM development, subscribe to the [/r/FlyveMDM](http://www.reddit.com/r/FlyveMDM) subreddit.
-You can also chat with the project maintainers and community members via IRC in [#flyve-mdm on freenode](http://webchat.freenode.net/?channels=flyve-mdm) or [@flyvemdmdev on Telegram](https://t.me/flyvemdmdev).
+You can also chat with the project maintainers and community members via IRC in [#flyve-mdm on freenode](http://webchat.freenode.net/?channels=flyve-mdm) or [@flyvemdm on Telegram](https://t.me/flyvemdm).
 
 ### Creators
 
@@ -137,6 +138,12 @@ And don't forget to ...
 * Like [Flyve MDM on Facebook](https://www.facebook.com/Flyve-MDM-1625450937768377/).
 * Implementation help may be found at Stack Overflow (tagged [`flyve-mdm`](https://stackoverflow.com/questions/tagged/flyve-mdm)).
 * Visit [Flyve MDM on Wikipedia](https://fr.wikipedia.org/wiki/Flyve_MDM).
+
+## Professional Services
+
+The Flyve MDM and GLPI Network services are available through our [Partner's Network](http://www.teclib-edition.com/en/partners/). We provide special training, bug fixes with editor subscription, contributions for new features, and more.
+
+Obtain a personalized service experience, associated with benefits and opportunities.s
 
 ## Contribute
 
