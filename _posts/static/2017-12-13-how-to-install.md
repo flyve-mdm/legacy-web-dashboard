@@ -5,6 +5,7 @@ published: true
 title: How to Install
 permalink: howtos/installation
 description: Step by step
+category: user
 ---
 
 # First of all
