@@ -5,6 +5,8 @@ published: true
 title: How it works
 permalink: howtos/how-it-works
 description: What you need to know
+category: user
+date: 2017-12-04
 ---
 
 Flyve MDM Web Dashboard allows you to efficiently manage your Android-based mobile fleet, provided as a SaaS platform combined with an intuitive and simple user interface our solution lets you take control of your fleets from any web browser.
