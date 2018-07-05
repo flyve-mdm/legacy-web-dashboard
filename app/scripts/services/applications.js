@@ -1,3 +1,31 @@
+/**
+ * ----------------------------------------------------------------------------
+ * LICENSE
+ *
+ * This file is part of Flyve MDM Web Dashboard.
+ *
+ * Flyve MDM Web Dashboard is a subproject of Flyve MDM. Flyve MDM is a mobile
+ * device management software.
+ *
+ * Flyve MDM Web Dashboard is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 3
+ * of the License, or (at your option) any later version.
+ *
+ * Flyve MDM Web Dashboard is distributed in the hope that it will be useful
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ * -----------------------------------------------------------------------------
+ * @author    Alexander Salas - asalas@teclib.com
+ * @copyright Copyright (c) 2017 Flyve MDM
+ * @license   AGPLv3 https://www.gnu.org/licenses/agpl-3.0.html
+ * @link      https://github.com/flyve-mdm/legacy-web-dashboard/
+ * @link      http://www.glpi-project.org/
+ * @link      https://flyve-mdm.com/
+ * -----------------------------------------------------------------------------
+ */
+
 'use strict';
 
 /**
@@ -21,6 +49,10 @@ angular.module('FlyveMDM')
     }
     // Public API here
     return {
+      /**
+       * Get a specific application
+       * @param anApplicationId the id of the application
+       */
       getApplication: function (anApplicationId) {
         var getApplicationDefer = $q.defer();
         $http({
@@ -36,6 +68,10 @@ angular.module('FlyveMDM')
         });
         return getApplicationDefer.promise;
       },
+
+      /**
+       * Get all the applications
+       */
       getApplications: function () {
         var getApplicationsDefer = $q.defer();
         $http({
@@ -60,6 +96,12 @@ angular.module('FlyveMDM')
         });
         return getApplicationsDefer.promise;
       },
+
+      /**
+       * Updates the application
+       * @param anApplicationId the id of the application
+       * @param anApplicationAlias the alias of the application
+       */
       updateApplication: function (anApplicationId, anApplicationAlias) {
         var updateApplicationDefer = $q.defer();
         $http({
@@ -78,6 +120,11 @@ angular.module('FlyveMDM')
         });
         return updateApplicationDefer.promise;
       },
+
+      /**
+       * Deletes the application
+       * @param anApplicationId the id of the applicatication
+       */
       deleteApplication: function (anApplicationId) {
         var deleteApplicationDefer = $q.defer();
         $http({
@@ -90,6 +137,12 @@ angular.module('FlyveMDM')
         });
         return deleteApplicationDefer.promise;
       },
+
+      /**
+       * Upload the application
+       * @param aApplicationToUpload an application
+       * @param anApplicationAlias an alias for the application
+       */
       uploadApplication: function (aApplicationToUpload, anApplicationAlias) {
         return Upload.upload({
           url: GLPI_API_URL + PluginObjectNames.Application,

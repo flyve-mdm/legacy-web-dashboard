@@ -1,3 +1,31 @@
+/**
+ * ----------------------------------------------------------------------------
+ * LICENSE
+ *
+ * This file is part of Flyve MDM Web Dashboard.
+ *
+ * Flyve MDM Web Dashboard is a subproject of Flyve MDM. Flyve MDM is a mobile
+ * device management software.
+ *
+ * Flyve MDM Web Dashboard is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 3
+ * of the License, or (at your option) any later version.
+ *
+ * Flyve MDM Web Dashboard is distributed in the hope that it will be useful
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ * -----------------------------------------------------------------------------
+ * @author    Alexander Salas - asalas@teclib.com
+ * @copyright Copyright (c) 2017 Flyve MDM
+ * @license   AGPLv3 https://www.gnu.org/licenses/agpl-3.0.html
+ * @link      https://github.com/flyve-mdm/legacy-web-dashboard/
+ * @link      http://www.glpi-project.org/
+ * @link      https://flyve-mdm.com/
+ * -----------------------------------------------------------------------------
+ */
+
 'use strict';
 /**
  * @ngdoc service
@@ -11,6 +39,11 @@ angular.module('FlyveMDM')
     // Service logic
     // Public API here
     return {
+
+      /**
+       * Sends an invitation to enroll a new device
+       * @param anUserEmail the email of the user whose device will be enrolled
+       */
       enrollNewDevice: function (anUserEmail) {
         var deferred = $q.defer();
         $http({
@@ -28,6 +61,12 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+
+      /**
+       * Re - sends an invitation
+       * @param aDeviceId the id of the device
+       * @param anUserEmail the email of the user
+       */
       resendInvitation: function (aDeviceId, anUserEmail) {
         var deferred = $q.defer();
         $http({
@@ -45,6 +84,11 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+
+      /**
+       * Deletes an invitation
+       * @param aDeviceId the id of the device
+       */
       deleteInvitation: function (aDeviceId) {
         var deferred = $q.defer();
         $http({
@@ -57,6 +101,10 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+
+      /**
+       * Get the pending invitations
+       */
       getInvitations: function () {
         var deferred = $q.defer();
         $http({
@@ -79,6 +127,11 @@ angular.module('FlyveMDM')
         };
         return $q.all(promises);
       },
+
+      /**
+       * Get a specific invitation
+       * @param invitationId the id of the invitation
+       */
       getInvitation: function (invitationId) {
         var deferred = $q.defer();
         $http({

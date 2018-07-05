@@ -1,3 +1,31 @@
+/**
+ * ----------------------------------------------------------------------------
+ * LICENSE
+ *
+ * This file is part of Flyve MDM Web Dashboard.
+ *
+ * Flyve MDM Web Dashboard is a subproject of Flyve MDM. Flyve MDM is a mobile
+ * device management software.
+ *
+ * Flyve MDM Web Dashboard is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 3
+ * of the License, or (at your option) any later version.
+ *
+ * Flyve MDM Web Dashboard is distributed in the hope that it will be useful
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ * -----------------------------------------------------------------------------
+ * @author    Alexander Salas - asalas@teclib.com
+ * @copyright Copyright (c) 2017 Flyve MDM
+ * @license   AGPLv3 https://www.gnu.org/licenses/agpl-3.0.html
+ * @link      https://github.com/flyve-mdm/legacy-web-dashboard/
+ * @link      http://www.glpi-project.org/
+ * @link      https://flyve-mdm.com/
+ * -----------------------------------------------------------------------------
+ */
+
 'use strict';
 /**
  * @ngdoc function
@@ -109,6 +137,11 @@ angular.module('FlyveMDM')
         $scope.geolocationsLoading = false;
       });
     };
+
+    /**
+     * Get the inventory of the device
+     * @param {*} toast 
+     */
     function getInventory(toast) {
       $scope.lock_inventory = false;
       InventoryFac.getComputer($scope.agent.computers_id).then(function (aComputer) {
@@ -127,6 +160,10 @@ angular.module('FlyveMDM')
         $scope.no_inventory = true;
       });
     }
+
+    /**
+     * Get the inventory of the device when the user requests it
+     */
     $scope.getInventoryFromDevice = function () {
       $scope.lock_inventory = true;
       var request = AgentFac.requestCurrentInventory($scope.agent.id);
@@ -177,6 +214,10 @@ angular.module('FlyveMDM')
       $scope.displayedApplications = [];
       $scope.stCtrl.slice(0, $scope.stCtrl.tableState().pagination.number);
     };
+
+    /**
+     * Sends a ping to the device to check connectivity
+     */
     $scope.sendPing = function () {
       $scope.pingSendingStatus = 'Ping sent as of ' + moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
       $scope.pingReplyStatus = '';
@@ -195,6 +236,10 @@ angular.module('FlyveMDM')
       });
       Notifications.loading("Echo request", request.cancel);
     };
+
+    /**
+     * Save the changes made to the device
+     */
     $scope.saveDevice = function () {
       $scope.lock_save_device = true;
       var aName = (device_name !== $scope.agent.name);
@@ -238,6 +283,10 @@ angular.module('FlyveMDM')
           .targetEvent(ev)
       );
     };
+
+    /**
+     * Erase the data storaged in the device
+     */
     $scope.wipeDevice = function () {
       $mdDialog.show(
         $mdDialog.confirm()
@@ -254,6 +303,10 @@ angular.module('FlyveMDM')
         });
       });
     };
+
+    /**
+     * Deletes the device from the dashboard
+     */
     $scope.deleteDevice = function () {
       $mdDialog.show(
         $mdDialog.confirm()
@@ -270,6 +323,10 @@ angular.module('FlyveMDM')
         });
       });
     };
+
+    /**
+     * Unenrolls the device from the Dashboard
+     */
     $scope.unenrollDevice = function () {
       $mdDialog.show(
         $mdDialog.confirm()
@@ -286,6 +343,10 @@ angular.module('FlyveMDM')
         });
       });
     };
+
+    /**
+     * Request the current Geolocation of the device
+     */
     $scope.requestCurrentGeolocation = function () {
       $scope.lock_geolocation = true;
       var request = AgentFac.requestCurrentGeolocation($scope.agent.id);
@@ -300,6 +361,11 @@ angular.module('FlyveMDM')
       });
       Notifications.loading("Current geolocation in progress...", request.cancel);
     };
+
+    /**
+     * Display the map pages where the device was located
+     * @param n_page
+     */
     $scope.displayGeolocationPage = function (n_page) {
       $scope.currentOpenedPage = n_page;
       n_page--;
@@ -307,6 +373,11 @@ angular.module('FlyveMDM')
       var stop = start + nGeolocationsPerPage;
       getDeviceGeolocations(start, stop);
     };
+
+    /**
+     * Display the device in the map when selected an option
+     * @param aGeolocation 
+     */
     $scope.toggleSelectGeolocation = function (aGeolocation) {
       var foundIndex = false;
       if ((foundIndex = $scope.isSelectedGeolocation(aGeolocation)) === false) {

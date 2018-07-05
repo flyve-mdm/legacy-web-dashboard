@@ -1,3 +1,31 @@
+/**
+ * ----------------------------------------------------------------------------
+ * LICENSE
+ *
+ * This file is part of Flyve MDM Web Dashboard.
+ *
+ * Flyve MDM Web Dashboard is a subproject of Flyve MDM. Flyve MDM is a mobile
+ * device management software.
+ *
+ * Flyve MDM Web Dashboard is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 3
+ * of the License, or (at your option) any later version.
+ *
+ * Flyve MDM Web Dashboard is distributed in the hope that it will be useful
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ * -----------------------------------------------------------------------------
+ * @author    Alexander Salas - asalas@teclib.com
+ * @copyright Copyright (c) 2017 Flyve MDM
+ * @license   AGPLv3 https://www.gnu.org/licenses/agpl-3.0.html
+ * @link      https://github.com/flyve-mdm/legacy-web-dashboard/
+ * @link      http://www.glpi-project.org/
+ * @link      https://flyve-mdm.com/
+ * -----------------------------------------------------------------------------
+ */
+
 'use strict';
 /**
  * @ngdoc service
@@ -25,6 +53,12 @@ angular.module('FlyveMDM')
         });
         return createPolicyDefer.promise;
       },
+
+      /**
+       * Updates the value of a policy
+       * @param aPolicyId the id of the policy to update
+       * @param aValue the new value of the policy
+       */
       updatePolicy: function (aPolicyId, aValue) {
         var updatePolicyDefer = $q.defer();
         $http({
@@ -43,6 +77,11 @@ angular.module('FlyveMDM')
         });
         return updatePolicyDefer.promise;
       },
+
+      /**
+       * Deletes a policy from the fleet
+       * @param aPolicyId the policy to be deleted
+       */
       deletePolicy: function (aPolicyId) {
         var deletePolicyDefer = $q.defer();
         $http({
@@ -55,6 +94,10 @@ angular.module('FlyveMDM')
         });
         return deletePolicyDefer.promise;
       },
+
+      /**
+       * Get the policies
+       */
       getPolicies: function () {
         var getPoliciesDefer = $q.defer();
         $http({
@@ -68,6 +111,12 @@ angular.module('FlyveMDM')
         });
         return getPoliciesDefer.promise;
       },
+
+      /**
+       * Create the policies in the fleet
+       * @param policies the policies to be created
+       * @param fleetId the id of the fleet
+       */
       createPolicies: function (policies, fleetId) {
         var promises = policies.map(function (aPolicy) {
           var deffered = $q.defer();
@@ -91,6 +140,11 @@ angular.module('FlyveMDM')
         });
         return $q.all(promises);
       },
+
+      /**
+       * Delete the policies of the fleet
+       * @param policies the policies to be deleted
+       */
       deletePolicies: function (policies) {
         var promises = policies.map(function (aPolicy) {
           var deffered = $q.defer();
@@ -106,6 +160,11 @@ angular.module('FlyveMDM')
         });
         return $q.all(promises);
       },
+
+      /**
+       * Updates the policies in the fleet
+       * @param policies the policies to update
+       */
       updatePolicies: function (policies) {
         var promises = policies.map(function (aPolicy) {
           var deffered = $q.defer();
@@ -128,6 +187,10 @@ angular.module('FlyveMDM')
         });
         return $q.all(promises);
       },
+
+      /**
+       * Get all the fleets in the dashboard
+       */
       getFleets: function () {
         var FleetsDefer = $q.defer();
         if (fleets.length > 0) {
@@ -148,6 +211,10 @@ angular.module('FlyveMDM')
         }
         return FleetsDefer.promise;
       },
+
+      /**
+       * Get the data of the fleet
+       */
       getFleetsData: function () { //param range ToDo
         var config = {
           params: {
@@ -165,6 +232,11 @@ angular.module('FlyveMDM')
         };
         return $q.all(promises);
       },
+
+      /**
+       * Creates a new fleet
+       * @param anInput the information of the fleet
+       */
       createFleet: function (anInput) {
         var createFleetDefer = $q.defer();
         $http({
@@ -180,6 +252,12 @@ angular.module('FlyveMDM')
         });
         return createFleetDefer.promise;
       },
+
+      /**
+       * Updates the fleet
+       * @param aPolicyId  the id of the policy updated
+       * @param aValue the new value of the policy updated
+       */
       updateFleet: function (aPolicyId, aValue) {
         var updateFleetDefer = $q.defer();
         $http({
@@ -198,6 +276,11 @@ angular.module('FlyveMDM')
         });
         return updateFleetDefer.promise;
       },
+
+      /**
+       * Deletes a fleet
+       * @param aFleetId the id of the fleet to be deleted
+       */
       deleteFleet: function (aFleetId) {
         var deleteFleetDefer = $q.defer();
         $http({

@@ -1,3 +1,31 @@
+/**
+ * ----------------------------------------------------------------------------
+ * LICENSE
+ *
+ * This file is part of Flyve MDM Web Dashboard.
+ *
+ * Flyve MDM Web Dashboard is a subproject of Flyve MDM. Flyve MDM is a mobile
+ * device management software.
+ *
+ * Flyve MDM Web Dashboard is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 3
+ * of the License, or (at your option) any later version.
+ *
+ * Flyve MDM Web Dashboard is distributed in the hope that it will be useful
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ * -----------------------------------------------------------------------------
+ * @author    Alexander Salas - asalas@teclib.com
+ * @copyright Copyright (c) 2017 Flyve MDM
+ * @license   AGPLv3 https://www.gnu.org/licenses/agpl-3.0.html
+ * @link      https://github.com/flyve-mdm/legacy-web-dashboard/
+ * @link      http://www.glpi-project.org/
+ * @link      https://flyve-mdm.com/
+ * -----------------------------------------------------------------------------
+ */
+
 'use strict';
 
 /**
@@ -12,6 +40,10 @@ angular.module('FlyveMDM')
     // Service logic
     // Public API here
     return {
+      /**
+       * Get the device
+       * @param aDeviceId the id of the device
+       */
       getDevice: function (aDeviceId) {
         var agentDefer = $q.defer();
         $http({
@@ -62,6 +94,11 @@ angular.module('FlyveMDM')
         });
         return deferred.promise;
       },
+
+      /**
+       * Sends a ping to the device to check connectivity
+       * @param aDeviceId the id of the device
+       */
       sendPing: function (aDeviceId) {
         var canceller = $q.defer();
         var cancel = function (reason) {
@@ -82,6 +119,10 @@ angular.module('FlyveMDM')
           cancel: cancel
         };
       },
+      /**
+       * Request the current geolocation of the device
+       * @param aDeviceId the id of the device
+       */
       requestCurrentGeolocation: function (aDeviceId) {
         var canceller = $q.defer();
         var cancel = function (reason) {
@@ -102,6 +143,11 @@ angular.module('FlyveMDM')
           cancel: cancel
         };
       },
+
+      /**
+       * Request the current inventory of the device
+       * @param aDeviceId the id of the device
+       */
       requestCurrentInventory: function (aDeviceId) {
         var canceller = $q.defer();
         var cancel = function (reason) {
@@ -122,6 +168,13 @@ angular.module('FlyveMDM')
           cancel: cancel
         };
       },
+
+      /**
+       * Update the device information
+       * @param aDeviceId the id of the device
+       * @param aName the name given to the device
+       * @param aFleetId the id of the fleet assigned
+       */
       updateDevice: function (aDeviceId, aName, aFleetId) {
         var canceller = $q.defer();
         var cancel = function (reason) {
@@ -149,6 +202,11 @@ angular.module('FlyveMDM')
           cancel: cancel
         };
       },
+
+      /**
+       * Erase the data storaged in the device
+       * @param aDeviceId the id of the device
+       */
       wipeDevice: function (aDeviceId) {
         var canceller = $q.defer();
         var cancel = function (reason) {
@@ -169,6 +227,11 @@ angular.module('FlyveMDM')
           cancel: cancel
         };
       },
+
+      /**
+       * Delete the device
+       * @param aDeviceId the id of the device
+       */
       deleteDevice: function (aDeviceId) {
         var canceller = $q.defer();
         var cancel = function (reason) {
@@ -183,6 +246,11 @@ angular.module('FlyveMDM')
           cancel: cancel
         };
       },
+
+      /**
+       * Unenrolls the device
+       * @param aDeviceId the id of the device
+       */
       unenrollDevice: function (aDeviceId) {
         var canceller = $q.defer();
         var cancel = function (reason) {
